@@ -132,11 +132,19 @@
 					
 						function search() {
 						  const searchTerm = searchInput.value;
-					
+						  var currentTokenIndex = 0;
+						  const authorizationTokens = [
+    "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",
+    "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",
+    "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",
+  ];
+							const makeRequest = () => {
+							const currentToken = authorizationTokens[currentTokenIndex];
+							
 						  const url = 'https://api.openai.com/v1/chat/completions';
 						  const headers = {
 							"content-type": "application/json",
-							"Authorization": "Bearer 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",
+							"Authorization": `Bearer ${currentToken}`,
 						  };
 						  const data = {
 							'model': 'gpt-3.5-turbo',
@@ -178,7 +186,17 @@
 							  sendRequestToMovieDatabaseAPI(extractedText);
 							  loadingIcon.style.display = 'none';
 							})
-							.catch(error => console.log(error));
+							.catch(error => {
+    // Handle the error here
+
+    // Rotate to the next authorization token
+    currentTokenIndex = (currentTokenIndex + 1) % authorizationTokens.length;
+
+    // Retry the request
+    makeRequest();
+  });
+};
+makeRequest();
 						}
 						function sendRequestToMovieDatabaseAPI(extractedText) {
       const apiKey = '8a1227b5735a7322c4a43a461953d4ff';
