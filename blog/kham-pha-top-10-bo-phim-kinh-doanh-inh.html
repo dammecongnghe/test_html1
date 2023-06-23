@@ -3,6 +3,7 @@
 <head>
   <title>"Khám phá Top 10 bộ phim kinh doanh đỉnh cao, sẵn sàng làm say đắm các doanh nhân trẻ!"</title>
   <meta name="description" content="Trong thế giới kinh doanh ngày nay, các doanh nghiệp trẻ luôn tìm kiếm những nguồn cảm hứng và kiến thức mới để phát triển sự nghiệp của mình. Và điện ảnh đã trở thành một nguồn tài nguyên vô cùng quý giá, mang đến những câu chuyện hấp dẫn về kinh doanh và khám phá thế giới kinh doanh. Dưới đây là danh sách top 10 bộ phim hay về kinh doanh mà các doanh nghiệp trẻ không nên bỏ qua, mang đến cả sự giải trí lẫn những bài học quý giá.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body, html {
       height: 100%;
@@ -18,12 +19,15 @@
     
     iframe {
       border: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      font-size: 16px; /* Default font size for desktop */
     }
     
     @media only screen and (max-width: 768px) {
       iframe {
-        width: 100vw;
-        height: 100vh;
+        font-size: 36px; /* Increased font size for mobile */
       }
     }
     
@@ -34,8 +38,7 @@
       }
       
       iframe {
-        width: 300vw;
-        height: 300vh;
+        aspect-ratio: 16/9;
       }
     }
   </style>

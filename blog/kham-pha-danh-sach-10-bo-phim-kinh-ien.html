@@ -3,6 +3,7 @@
 <head>
   <title>"Khám phá danh sách 10 bộ phim kinh điển không thể bỏ qua của Tom Hanks! Bạn sẽ ngạc nhiên với số 7!"</title>
   <meta name="description" content="Tom Hanks, một trong những tài tử hàng đầu của Hollywood, đã ghi dấu ấn sâu đậm trong lòng khán giả thông qua sự đa dạng và tài năng xuất sắc của mình. Với danh sách dài các vai diễn xuất sắc trong phim và chương trình truyền hình, Tom Hanks đã khẳng định vị thế của mình là một trong những ngôi sao lớn nhất trong ngành công nghiệp điện ảnh. Dưới đây là danh sách 10 phim hay và kinh điển mà bạn không nên bỏ qua khi khám phá sự nghiệp của Tom Hanks.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body, html {
       height: 100%;
@@ -18,12 +19,15 @@
     
     iframe {
       border: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      font-size: 16px; /* Default font size for desktop */
     }
     
     @media only screen and (max-width: 768px) {
       iframe {
-        width: 100vw;
-        height: 100vh;
+        font-size: 36px; /* Increased font size for mobile */
       }
     }
     
@@ -34,8 +38,7 @@
       }
       
       iframe {
-        width: 300vw;
-        height: 300vh;
+        aspect-ratio: 16/9;
       }
     }
   </style>

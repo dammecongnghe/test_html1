@@ -3,6 +3,7 @@
 <head>
   <title>"Christopher Nolan: Đại tài làm phim hành động, 'tiếng vang' từ Batman đến Interstellar!"</title>
   <meta name="description" content="Christopher Nolan, một nhà làm phim tài năng, đã tạo nên một tiếng vang đặc biệt trong ngành công nghiệp điện ảnh. Hãy cùng khám phá những bộ phim đầy ấn tượng của ông, bắt đầu từ Batman Begins và kết thúc với Interstellar.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body, html {
       height: 100%;
@@ -18,12 +19,15 @@
     
     iframe {
       border: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      font-size: 16px; /* Default font size for desktop */
     }
     
     @media only screen and (max-width: 768px) {
       iframe {
-        width: 100vw;
-        height: 100vh;
+        font-size: 36px; /* Increased font size for mobile */
       }
     }
     
@@ -34,8 +38,7 @@
       }
       
       iframe {
-        width: 300vw;
-        height: 300vh;
+        aspect-ratio: 16/9;
       }
     }
   </style>

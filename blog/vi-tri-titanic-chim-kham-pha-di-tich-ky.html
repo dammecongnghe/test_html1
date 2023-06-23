@@ -3,6 +3,7 @@
 <head>
   <title>"Vị Trí Titanic Chìm: Khám phá Di tích Kỷ lục của Tàu Titanic"</title>
   <meta name="description" content="Titanic, một tên gọi đã trở thành biểu tượng lịch sử và văn hóa, được biết đến là tàu biển huyền thoại nhất trong lịch sử. Sự chìm của Titanic trong đêm ngày 14 tháng 15 năm 1912 đã làm mất đi hàng ngàn sinh mạng và trở thành một trong những thảm họa hàng hải nổi tiếng nhất. Vị trí chìm của Titanic trên đáy Đại Tây Dương đã trở thành một điểm đến quan trọng cho các nhà nghiên cứu và những người muốn tìm hiểu về câu chuyện đầy cảm xúc của tàu Titanic.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body, html {
       height: 100%;
@@ -18,12 +19,15 @@
     
     iframe {
       border: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      font-size: 16px; /* Default font size for desktop */
     }
     
     @media only screen and (max-width: 768px) {
       iframe {
-        width: 100vw;
-        height: 100vh;
+        font-size: 36px; /* Increased font size for mobile */
       }
     }
     
@@ -34,8 +38,7 @@
       }
       
       iframe {
-        width: 300vw;
-        height: 300vh;
+        aspect-ratio: 16/9;
       }
     }
   </style>

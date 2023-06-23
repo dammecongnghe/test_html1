@@ -3,6 +3,7 @@
 <head>
   <title>"Top 5 Bộ phim hoạt hình đoạt giải Oscar hay nhất mọi thời đại"</title>
   <meta name="description" content=" Phim hoạt hình là một thể loại điện ảnh đặc biệt, nơi mà những giấc mơ, tưởng tượng và sự sáng tạo bay bổng của các nhà làm phim được thể hiện một cách tuyệt vời. Với việc kết hợp giữa nghệ thuật, kỹ thuật và câu chuyện cảm động, các bộ phim hoạt hình đã tạo nên những thành công ngoạn mục, với nhiều tác phẩm được đánh giá là vĩ đại và đã đoạt giải Oscar danh giá. Trong bài viết này, chúng ta sẽ tìm hiểu về 5 bộ phim hoạt hình đoạt giải Oscar hay nhất mọi thời đại, bao gồm cả hoạt hình 2D và 3D, đặc biệt dành cho khán giả thiếu nhi.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body, html {
       height: 100%;
@@ -18,12 +19,15 @@
     
     iframe {
       border: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      font-size: 16px; /* Default font size for desktop */
     }
     
     @media only screen and (max-width: 768px) {
       iframe {
-        width: 100vw;
-        height: 100vh;
+        font-size: 36px; /* Increased font size for mobile */
       }
     }
     
@@ -34,8 +38,7 @@
       }
       
       iframe {
-        width: 300vw;
-        height: 300vh;
+        aspect-ratio: 16/9;
       }
     }
   </style>
