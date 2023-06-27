@@ -183,5 +183,25 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://www.moviesearch.online/blog/review-phim-ta-chu-cam-kinh-di-va-tam.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moviesearch.online/blog/review-phim-nguoc-dong-so-phan-khi-cuoc.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moviesearch.online/blog/cuoc-hon-nhan-hanh-phuc-cua-toi-anime.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moviesearch.online/blog/anime-black-clover-co-ang-xem-hay-khong.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
 </urlset>
