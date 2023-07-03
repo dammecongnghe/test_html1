@@ -313,5 +313,55 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://www.moviesearch.online/blog/at/der-chef-un-flic-ein-mitreiendes.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moviesearch.online/blog/at/feuerwehr-strawalchen-im-einsatz.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moviesearch.online/blog/at/run-rabbit-run-ein-beangstigender.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moviesearch.online/blog/au/air-unstoppable-journey-of-michael.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moviesearch.online/blog/au/nsw-blues-team-selection-bold-changes.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moviesearch.online/blog/au/sisu-explosive-and-nationalistic.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moviesearch.online/blog/au/the-burnt-orange-heresy-mick-jagger.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moviesearch.online/blog/us/shane-van-gisbergen-makes-nascar.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moviesearch.online/blog/us/samajavaragamana-movie-review-sree.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.moviesearch.online/blog/us/jezebel-1938-film-captivating-tale-of.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
 </urlset>
