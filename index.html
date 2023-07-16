@@ -26,6 +26,59 @@
 	<meta name="msapplication-TileImage" content="./Generate Instagram Stories About Movies_files/b3c29a2b6442fa62dde8850fa87bb8c4.png">
 	<meta name="theme-color" content="#ffffff">
 	<title>Find Movies By Description</title>
+<style>
+        /* Add the provided CSS for the button */
+        .button-27 {
+        	width: 500px;
+            appearance: none;
+            background-color: #000000;
+            border: 2px solid #1A1A1A;
+            border-radius: 15px;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+            font-size: 16px;
+            font-weight: 600;
+            line-height: normal;
+            margin: 0;
+            min-height: 60px;
+            min-width: 0;
+            outline: none;
+            padding: 16px 24px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            width: 100%;
+            will-change: transform;
+        }
+
+        .button-27:disabled {
+            pointer-events: none;
+        }
+
+        .button-27:hover {
+            box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+            transform: translateY(-2px);
+        }
+
+        .button-27:active {
+            box-shadow: none;
+            transform: translateY(0);
+        }
+        .styles__header___g4T7H {
+            display: flex; /* Use flexbox to create a flex container */
+            align-items: center; /* Align children vertically at the center */
+        }
+
+        .styles__logo___EZE6v {
+            margin-right: 20px; /* Add some space between the image and the button */
+        }
+    </style>
 <style type="text/css">.loading__loading-wrapper-content___2EOL7{position:relative;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.loading__loading-wrapper-button___34nRJ{float:right;height:100%;margin-left:7px;position:relative}.loading__loading-wrapper-absolute___oL00E{position:absolute;width:100%;height:100%;right:0;top:0;z-index:3}.loading__hidden___2lGJ7{visibility:hidden;pointer-events:none;opacity:0}.loading__spinner___2Wcx0{display:block;margin:0 auto;-webkit-animation:loading__spin___3eXIa .4s linear infinite;animation:loading__spin___3eXIa .4s linear infinite;position:relative;border-radius:100%}.loading__spinner___2Wcx0:before{content:'';display:block;position:absolute;-webkit-box-sizing:border-box;box-sizing:border-box;border-radius:100%}.loading__spinner-normal___3Fhgo{height:40px;width:40px;border:1px solid}.loading__spinner-normal___3Fhgo:before{width:40px;height:40px;top:-1px;right:-1px;border:1px solid #fff;border-top-color:transparent;border-left-color:transparent}.loading__spinner-small___1BDfG{height:15px;width:15px;border:1px solid;position:relative;top:50%;left:0;right:0;margin:-7.5px auto 0}.loading__spinner-small___1BDfG:before{width:15px;height:15px;top:-1px;right:-1px;border:1px solid #fff;border-top-color:transparent;border-left-color:transparent}.loading__spinner-center___1zNFI{position:absolute;top:50%;left:0;right:0;margin:-20px auto 0}.loading__regular___3qx6-{border-color:#e4e4eb}.loading__regular___3qx6-:before{border-right-color:#4E4A7C;border-bottom-color:#4E4A7C}.loading__btnColor___3ipEI{border-color:#d24b60}.loading__btnColor___3ipEI:before{border-right-color:#fff;border-bottom-color:#fff}.loading__spinner-normal-regular___3KdiL{}.loading__spinner-normal-btnColor___vjLGr{}.loading__spinner-small-regular___251oL{}.loading__spinner-small-btnColor___3T44d{}.loading__spinner-center-regular___oknqr{}.loading__spinner-center-btnColor___2pNTM{}@-webkit-keyframes loading__spin___3eXIa{from{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes loading__spin___3eXIa{from{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}
 </style><style type="text/css">.styles__wrapper___3G8aa{position:relative}.styles__search___1LJ7a{width:100%;margin:59px auto 0;position:relative}.styles__input___1Mt0n{background:#fff;border-radius:15px;text-align:left;box-shadow:0 10px 30px rgba(50,50,93,0.12),0 -1px 4px rgba(0,0,0,0.06);-webkit-box-shadow:0 10px 30px rgba(50,50,93,0.12),0 -1px 4px rgba(0,0,0,0.06);border:0;width:100%;height:70px;font-size:18px;font-weight:100;padding:0 20px 0 55px;text-transform:capitalize;-webkit-appearance:none;border:1px solid #e9e8f3}.styles__search-arrow___kBsZE{position:absolute;left:20px;top:50%;color:#4E4A7C;font-size:20px;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.styles__loading___1Dk6T{position:absolute;z-index:2;right:20px;height:100%;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.styles__not-found___2r6DQ{position:absolute;z-index:2;right:20px;color:#DC4141;font-size:15px;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.styles__list___21M5h{-webkit-transform:translateY(0px) scale(0.98);transform:translateY(0px) scale(0.98);visibility:hidden;pointer-events:none;opacity:0;-webkit-transition:.12s;transition:.12s;width:100%;position:absolute;z-index:2;top:75px;background:#fff;overflow:auto;border-radius:8px;left:0;max-height:255px;box-shadow:0 10px 30px rgba(50,50,93,0.12),0 -1px 4px rgba(0,0,0,0.06);-webkit-box-shadow:0 10px 30px rgba(50,50,93,0.12),0 -1px 4px rgba(0,0,0,0.06)}.styles__list-visible___28eEO{visibility:visible;pointer-events:all;opacity:1;-webkit-transform:translateY(6px) scale(1);transform:translateY(6px) scale(1)}.styles__list-item___9JlI3{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:100%;padding:5px 10px;-webkit-transition:background .2s;transition:background .2s;cursor:pointer}.styles__list-item___9JlI3:hover{background:#f7f7fd}.styles__poster___hioWZ{width:50px;height:75px;overflow:hidden}.styles__poster___hioWZ img{width:100%;border-radius:5px;margin:0 auto;display:block}.styles__info___2yijt{-webkit-box-flex:1;-ms-flex:1;flex:1;padding-left:20px}.styles__info___2yijt h3{font-weight:bold;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:2px 0 4px}.styles__info___2yijt .styles__info-top___3U_a5:after{content:'';display:block;clear:both}.styles__info___2yijt .styles__type___1Q6-i{text-transform:capitalize;float:left;margin-bottom:12px;color:#4E4A7C;font-weight:100;font-size:12px;letter-spacing:.5px;padding:4px 0 2px}.styles__info___2yijt .styles__year___3GcM-{float:right;margin-bottom:12px;color:#4E4A7C;font-weight:100;font-size:12px;letter-spacing:.5px;padding:4px 0 2px}@media only screen and (max-device-width: 979px){.styles__search___1LJ7a{margin-top:30px}}
 </style><style type="text/css">@font-face{font-family:'icons';src:url(./1fe9d95b89f1f820ff4212f0fe612162.eot);src:url(./1fe9d95b89f1f820ff4212f0fe612162.eot#iefix) format("embedded-opentype"),url(./cebd0795b5e2a0d2b1193a52c722bbc6.ttf) format("truetype"),url(./eb443f23788493079063af3ce67074ac.woff) format("woff"),url(./66a164c7157c3f2065d07be992f64e2c.svg#icons) format("svg");font-weight:normal;font-style:normal}.icons__icons___2jdR4{font-family:'icons' !important;speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.icons__icon-twitter___2ufNP,.icons__icon-download___2ZFvE,.icons__icon-instagram___2iq9g,.icons__icon-telegram___1oBlI,.icons__icon-close___3nJwR,.icons__icon-arrow___dRyhJ{}.icons__icon-twitter___2ufNP:before{content:"\F099"}.icons__icon-download___2ZFvE:before{content:"\F0ED"}.icons__icon-instagram___2iq9g:before{content:"\F16D"}.icons__icon-telegram___1oBlI:before{content:"\F2C6"}.icons__icon-close___3nJwR:before{content:"\E900"}.icons__icon-arrow___dRyhJ:before{content:"\E901"}
@@ -87,6 +140,12 @@
 				<a href="https://www.moviesearch.online/">
 					<img class="styles__logo___EZE6v" src="./Generate Instagram Stories About Movies_files/b3c29a2b6442fa62dde8850fa87bb8c4.png" alt="Smart movie search website using AI">
 				</a>
+				<a href="https://moviesearch.online/blog" target="_blank">
+        <button class="button-27" role="button">Movie Search Vietnamese blog</button>
+    </a>
+    <a href="https://moviesearch.online/blog/at/" target="_blank">
+        <button class="button-27" role="button">Movie Search Austrian blog</button>
+    </a>
 			</div>
 			<div class="styles__content___37dVJ">
 				<div class="styles__content-left-side___2iaza">
