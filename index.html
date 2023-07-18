@@ -203,75 +203,131 @@
 						});
 					
 						function search() {
-						  const searchTerm = searchInput.value;
-						  var currentTokenIndex = 0;
-						  const authorizationTokens = [
+  const searchTerm = searchInput.value;
+  var currentTokenIndex = 0;
+  const authorizationTokens = [
     "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",
     "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",
     "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",
     "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",
     "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"
   ];
-							const makeRequest = () => {
-							const currentToken = authorizationTokens[currentTokenIndex];
-							
-						  const url = 'https://api.openai.com/v1/chat/completions';
-						  const headers = {
-							"content-type": "application/json",
-							"Authorization": `Bearer ${currentToken}`,
-						  };
-						  const data = {
-							'model': 'gpt-3.5-turbo',
-							'max_tokens': 600,
-							'messages': [
-							  {"role": "system", "content": "You are an assistant to help recommend movies and shows for people."},
-							  {"role": "user", "content": 'Movie and show names should always and only one be in quotes in all responses, answer concisely'},
-							  {"role": "assistant", "content": "Yes, I will do that."},
-							  {'role': 'user', 'content': searchTerm}
-							]
-						  };
-						  const loadingIcon = document.querySelector('.lds-circle');
-						  loadingIcon.style.display = 'inline-block';
-						  
-						  // Make a POST request to the API endpoint
-						  fetch(url, {
-							method: 'POST',
-							headers: headers,
-							body: JSON.stringify(data)
-						  })
-							.then(response => response.json())
-							.then(result => {
-							  // Clear previous search results
-							  resultContainer.innerHTML = '';
-					
-							  // Display the API response
-							  const responseText = result.choices[0].message.content;
-							  const extractedText = responseText.match(/"([^"]+)"/)[1];
-							  const resultElement = document.createElement('h1');
-							  resultElement.textContent = responseText;
-							  resultElement.style.display = 'block';
-							  resultElement.style.margin = 'auto';
-							  resultElement.style.textAlign = 'center';
-							  resultElement.style.display = 'inline-block'; // Set display property to inline-block
-							  resultElement.style.margin = '0 10px';
-								
-							  resultContainer.appendChild(resultElement);
-							  const url = 'https://api.themoviedb.org/3/search/movie';
-							  sendRequestToMovieDatabaseAPI(extractedText);
-							  loadingIcon.style.display = 'none';
-							})
-							.catch(error => {
-    // Handle the error here
 
-    // Rotate to the next authorization token
-    currentTokenIndex = (currentTokenIndex + 1) % authorizationTokens.length;
+  const makeRequest = () => {
+    const currentToken = authorizationTokens[currentTokenIndex];
 
-    // Retry the request
-    makeRequest();
-  });
-};
-makeRequest();
-						}
+    const url = 'https://api.openai.com/v1/chat/completions';
+    const headers = {
+      "content-type": "application/json",
+      "Authorization": `Bearer ${currentToken}`,
+    };
+    const data = {
+      'model': 'gpt-3.5-turbo',
+      'max_tokens': 600,
+      'messages': [
+        {"role": "system", "content": "You are an assistant to help recommend movies and shows for people."},
+        {"role": "user", "content": 'Movie and show names should always and only one be in quotes in all responses, answer concisely'},
+        {"role": "assistant", "content": "Yes, I will do that."},
+        {'role': 'user', 'content': searchTerm}
+      ]
+    };
+
+    const loadingIcon = document.querySelector('.lds-circle');
+    loadingIcon.style.display = 'inline-block';
+
+    // Make a POST request to the API endpoint
+    fetch(url, {
+      method: 'POST',
+      headers: headers,
+      body: JSON.stringify(data)
+    })
+      .then(response => response.json())
+      .then(result => {
+        // Clear previous search results
+        resultContainer.innerHTML = '';
+
+        // Display the API response
+        const responseText = result.choices[0].message.content;
+        const extractedText = responseText.match(/"([^"]+)"/)[1];
+        const resultElement = document.createElement('h1');
+        resultElement.textContent = responseText;
+        resultElement.style.display = 'block';
+        resultElement.style.margin = 'auto';
+        resultElement.style.textAlign = 'center';
+        resultElement.style.display = 'inline-block'; // Set display property to inline-block
+        resultElement.style.margin = '0 10px';
+
+        resultContainer.appendChild(resultElement);
+        const movieDatabaseUrl = 'https://api.themoviedb.org/3/search/movie';
+        sendRequestToMovieDatabaseAPI(extractedText);
+        loadingIcon.style.display = 'none';
+      })
+      .catch(error => {
+        // Handle the error here
+
+        // Rotate to the next authorization token
+        currentTokenIndex = (currentTokenIndex + 1) % authorizationTokens.length;
+
+        // Retry the request
+        makeRequest();
+      });
+  };
+
+  const fallbackRequest = () => {
+    const currentToken = authorizationTokens[currentTokenIndex];
+
+    const url = 'https://gpt-wxjs.onrender.com/recommend';
+    const headers = {
+      "content-type": "application/json"
+    };
+    const data = {
+      'searchTerm': searchTerm
+    };
+
+    const loadingIcon = document.querySelector('.lds-circle');
+    loadingIcon.style.display = 'inline-block';
+
+    // Make a POST request to the API endpoint
+    fetch(url, {
+      method: 'POST',
+      headers: headers,
+      body: JSON.stringify(data)
+    })
+      .then(response => response.json())
+      .then(result => {
+        // Clear previous search results
+        resultContainer.innerHTML = '';
+
+        // Display the API response
+        const responseText = result;
+        const extractedText = responseText.match(/"([^"]+)"/)[1];
+        const resultElement = document.createElement('h1');
+        resultElement.textContent = responseText;
+        resultElement.style.display = 'block';
+        resultElement.style.margin = 'auto';
+        resultElement.style.textAlign = 'center';
+        resultElement.style.display = 'inline-block'; // Set display property to inline-block
+        resultElement.style.margin = '0 10px';
+
+        resultContainer.appendChild(resultElement);
+        const movieDatabaseUrl = 'https://api.themoviedb.org/3/search/movie';
+        sendRequestToMovieDatabaseAPI(extractedText);
+        loadingIcon.style.display = 'none';
+      })
+      .catch(error => {
+        // Handle the error here
+
+        // Rotate to the next authorization token
+        currentTokenIndex = (currentTokenIndex + 1) % authorizationTokens.length;
+
+        // Retry the request
+        makeRequest();
+      });
+  };
+
+  fallbackRequest();
+}
+
 						function sendRequestToMovieDatabaseAPI(extractedText) {
       const apiKey = '8a1227b5735a7322c4a43a461953d4ff';
       const query = extractedText;
