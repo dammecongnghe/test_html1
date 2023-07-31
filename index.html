@@ -272,7 +272,7 @@
         makeRequest();
       });
   };
-
+  let currentUrlIndex = 0; 
   const fallbackRequest = () => {
   const urls = [
     'https://gpt-wxjs.onrender.com/recommend',
@@ -281,13 +281,14 @@
     'https://gpt3-8vfp.onrender.com/recommend'
 
   ];
-  let currentUrlIndex = 0; // Start with the first URL
+  // Start with the first URL
   const currentToken = authorizationTokens[currentTokenIndex];
 
 
   const retryWithNextUrl = () => {
     // Rotate to the next URL
     currentUrlIndex = (currentUrlIndex + 1) % urls.length;
+
     fallbackRequest();
   };
 
