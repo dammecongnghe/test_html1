@@ -274,59 +274,74 @@
   };
 
   const fallbackRequest = () => {
-    const currentToken = authorizationTokens[currentTokenIndex];
+  const urls = [
+    'https://gpt-wxjs.onrender.com/recommend',
+    'https://gpt1-oj96.onrender.com/recommend',
+    'https://gpt2-brtm.onrender.com/recommend',
+    'https://gpt3-8vfp.onrender.com/recommend'
 
-    //const url = 'https://gpt-wxjs.onrender.com/recommend';
-    const url = 'https://gpt1-oj96.onrender.com/recommend';
-    const headers = {
-      "content-type": "application/json"
-    };
-    const data = {
-      'searchTerm': searchTerm
-    };
+  ];
+  let currentUrlIndex = 0; // Start with the first URL
+  const currentToken = authorizationTokens[currentTokenIndex];
 
-    const loadingIcon = document.querySelector('.lds-circle');
-    loadingIcon.style.display = 'inline-block';
 
-    // Make a POST request to the API endpoint
-    fetch(url, {
-      method: 'POST',
-      headers: headers,
-      body: JSON.stringify(data)
-    })
-      .then(response => response.json())
-      .then(result => {
-        // Clear previous search results
-        resultContainer.innerHTML = '';
-
-        // Display the API response
-        const responseText = result;
-        const extractedText = responseText.match(/"([^"]+)"/)[1];
-        const resultElement = document.createElement('h1');
-        resultElement.textContent = responseText;
-        resultElement.style.display = 'block';
-        resultElement.style.margin = 'auto';
-        resultElement.style.textAlign = 'center';
-        resultElement.style.display = 'inline-block'; // Set display property to inline-block
-        resultElement.style.margin = '0 10px';
-
-        resultContainer.appendChild(resultElement);
-        const movieDatabaseUrl = 'https://api.themoviedb.org/3/search/movie';
-        sendRequestToMovieDatabaseAPI(extractedText);
-        loadingIcon.style.display = 'none';
-      })
-      .catch(error => {
-        // Handle the error here
-
-        // Rotate to the next authorization token
-        currentTokenIndex = (currentTokenIndex + 1) % authorizationTokens.length;
-
-        // Retry the request
-        makeRequest();
-      });
+  const retryWithNextUrl = () => {
+    // Rotate to the next URL
+    currentUrlIndex = (currentUrlIndex + 1) % urls.length;
+    fallbackRequest();
   };
 
-  fallbackRequest();
+  const url = urls[currentUrlIndex];
+  const headers = {
+    "content-type": "application/json"
+  };
+  const data = {
+    'searchTerm': searchTerm
+  };
+
+  const loadingIcon = document.querySelector('.lds-circle');
+  loadingIcon.style.display = 'inline-block';
+
+  // Make a POST request to the API endpoint
+  fetch(url, {
+    method: 'POST',
+    headers: headers,
+    body: JSON.stringify(data)
+  })
+    .then(response => response.json())
+    .then(result => {
+      // Clear previous search results
+      resultContainer.innerHTML = '';
+
+      // Display the API response
+      const responseText = result;
+      const extractedText = responseText.match(/"([^"]+)"/)[1];
+      const resultElement = document.createElement('h1');
+      resultElement.textContent = responseText;
+      resultElement.style.display = 'block';
+      resultElement.style.margin = 'auto';
+      resultElement.style.textAlign = 'center';
+      resultElement.style.display = 'inline-block'; // Set display property to inline-block
+      resultElement.style.margin = '0 10px';
+
+      resultContainer.appendChild(resultElement);
+      const movieDatabaseUrl = 'https://api.themoviedb.org/3/search/movie';
+      sendRequestToMovieDatabaseAPI(extractedText);
+      loadingIcon.style.display = 'none';
+    })
+    .catch(error => {
+      // Handle the error here
+
+      // Retry with the next URL if all URLs have been tried
+      if (currentUrlIndex === urls.length - 1) {
+        makeRequest(); // Call the makeRequest function here if all URLs have been tried
+      } else {
+        retryWithNextUrl(); // Retry with the next URL
+      }
+    });
+};
+
+fallbackRequest();
 }
 
 						function sendRequestToMovieDatabaseAPI(extractedText) {
