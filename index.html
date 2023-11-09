@@ -28,6 +28,58 @@
 	<title>Find Movies By Description</title>
 <style>
         /* Add the provided CSS for the button */
+        .card {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    
+    .card-img {
+      flex: 0 0 200px;
+      margin-right: 20px;
+    }
+    
+    .card-img img {
+      width: 100%;
+      height: auto;
+    }
+    
+    .card-content {
+      flex: 1;
+    }
+    
+    .card-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .card-info {
+      margin-bottom: 10px;
+    }
+    
+    .card-keytalks {
+      font-size: 13px;
+      color: #141414;
+      line-height: 16px;
+      font-weight: 400;
+    }
+    
+    .card-link {
+      display: inline-block;
+      padding: 6px 12px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    
+    .card-link svg {
+      vertical-align: middle;
+      margin-left: 5px;
+    }
         .button-27 {
         	width: 500px;
             appearance: none;
@@ -275,6 +327,10 @@
   let currentUrlIndex = 0; 
   const fallbackRequest = () => {
   const urls = [
+    //'https://gpt-wxjs.onrender.com/recommend',
+    //'https://gpt1-oj96.onrender.com/recommend',
+    //'https://gpt2-brtm.onrender.com/recommend',
+    //'https://gpt3-8vfp.onrender.com/recommend',
     'https://test-gpt-y58q.onrender.com/recommend'
 
   ];
@@ -312,19 +368,98 @@
       resultContainer.innerHTML = '';
 
       // Display the API response
-      const responseText = result;
-      const extractedText = responseText.match(/"([^"]+)"/)[1];
-      const resultElement = document.createElement('h1');
-      resultElement.textContent = responseText;
-      resultElement.style.display = 'block';
-      resultElement.style.margin = 'auto';
-      resultElement.style.textAlign = 'center';
-      resultElement.style.display = 'inline-block'; // Set display property to inline-block
-      resultElement.style.margin = '0 10px';
+      const results = result.data.data.slice(0, 5);
 
-      resultContainer.appendChild(resultElement);
-      const movieDatabaseUrl = 'https://api.themoviedb.org/3/search/movie';
-      sendRequestToMovieDatabaseAPI(extractedText);
+    results.forEach((result) => {
+      const title = result.origin_title;
+      const backdrop_image = result.backdrop_image;
+      const url = result.url;
+      const sub_title = result.sub_title;
+      const overview = result.overview;
+
+      // Create the card element
+      const cardElement = document.createElement('div');
+      cardElement.classList.add('card');
+
+      // Create the card-img element
+      const cardImgElement = document.createElement('div');
+      cardImgElement.classList.add('card-img');
+
+      // Create the img element
+      const imgElement = document.createElement('img');
+      imgElement.setAttribute('alt', title);
+      imgElement.setAttribute('src', backdrop_image);
+      cardImgElement.appendChild(imgElement);
+
+      // Create the card-content element
+      const cardContentElement = document.createElement('div');
+      cardContentElement.classList.add('card-content');
+
+      // Create the card-title element
+      const cardTitleElement = document.createElement('div');
+      cardTitleElement.classList.add('card-title');
+
+      // Create the title link element
+      const titleLinkElement = document.createElement('a');
+      titleLinkElement.classList.add('title-wrap');
+      titleLinkElement.setAttribute('target', '_blank');
+      titleLinkElement.setAttribute('href', url);
+      titleLinkElement.textContent = title;
+      cardTitleElement.appendChild(titleLinkElement);
+
+      // Create the card-info element
+      const cardInfoElement = document.createElement('div');
+      cardInfoElement.classList.add('card-info');
+      cardInfoElement.textContent = sub_title;
+
+      const cardInfoElement1 = document.createElement('div');
+      cardInfoElement1.classList.add('card-info');
+      cardInfoElement1.textContent = overview;
+
+      // Create the link-wrap element
+      const linkWrapElement = document.createElement('div');
+      linkWrapElement.classList.add('link-wrap');
+
+      // Create the card-link element
+      const cardLinkElement = document.createElement('a');
+      cardLinkElement.classList.add('card-link');
+      cardLinkElement.setAttribute('target', '_blank');
+      cardLinkElement.setAttribute('href', url);
+
+      // Create the span element inside the card-link element
+      const linkSpanElement = document.createElement('span');
+      linkSpanElement.textContent = 'Learn more';
+      cardLinkElement.appendChild(linkSpanElement);
+
+      // Create the svg element inside the card-link element
+      const svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svgElement.setAttribute('width', '16');
+      svgElement.setAttribute('height', '16');
+      svgElement.setAttribute('viewBox', '0 0 16 16');
+      svgElement.setAttribute('fill', 'none');
+      const pathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      pathElement.setAttribute('d', 'M14 6.00001L14 2.00001M14 2.00001H9.99999M14 2.00001L8 8M6.66667 2H5.2C4.0799 2 3.51984 2 3.09202 2.21799C2.71569 2.40973 2.40973 2.71569 2.21799 3.09202C2 3.51984 2 4.07989 2 5.2V10.8C2 11.9201 2 12.4802 2.21799 12.908C2.40973 13.2843 2.71569 13.5903 3.09202 13.782C3.51984 14 4.07989 14 5.2 14H10.8C11.9201 14 12.4802 14 12.908 13.782C13.2843 13.5903 13.5903 13.2843 13.782 12.908C14 12.4802 14 11.9201 14 10.8V9.33333');
+      pathElement.setAttribute('stroke', '#0D1729');
+      pathElement.setAttribute('stroke-linecap', 'round');
+      pathElement.setAttribute('stroke-linejoin', 'round');
+      svgElement.appendChild(pathElement);
+      cardLinkElement.appendChild(svgElement);
+
+      // Append the elements to the card-content element
+      cardContentElement.appendChild(cardTitleElement);
+      cardContentElement.appendChild(cardInfoElement);
+      cardContentElement.appendChild(cardInfoElement1);
+      cardContentElement.appendChild(linkWrapElement);
+      linkWrapElement.appendChild(cardLinkElement);
+
+      // Append the elements to the card element
+      cardElement.appendChild(cardImgElement);
+      cardElement.appendChild(cardContentElement);
+
+      // Append the card element to the resultContainer (replace 'resultContainer' with the appropriate container element)
+      resultContainer.appendChild(cardElement);
+    });
+      
       loadingIcon.style.display = 'none';
     })
     .catch(error => {
@@ -408,8 +543,6 @@ fallbackRequest();
 
 
 <script async="async" data-cfasync="false" src="//pl19691990.highrevenuegate.com/2bba89209da88383b52420af54e3fca1/invoke.js"></script>
-<div id="container-2bba89209da88383b52420af54e3fca1"></div>
-<script async="async" data-cfasync="false" src="//pl19691990.highcpmrevenuegate.com/2bba89209da88383b52420af54e3fca1/invoke.js"></script>
 <div id="container-2bba89209da88383b52420af54e3fca1"></div>
 <script>(function(s,u,z,p){s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);})(document.createElement('script'),'https://inklinkor.com/tag.min.js',6053298,document.body||document.documentElement)</script>
 </body></html>
