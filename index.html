@@ -257,226 +257,47 @@
 					
 						function search() {
   const searchTerm = searchInput.value;
-  var currentTokenIndex = 0;
-  const authorizationTokens = [
-    "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",
-    "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",
-    "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",
-    "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",
-    "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"
-  ];
-
-  const makeRequest = () => {
-    const currentToken = authorizationTokens[currentTokenIndex];
-
-    const url = 'https://api.openai.com/v1/chat/completions';
-    const headers = {
-      "content-type": "application/json",
-      "Authorization": `Bearer ${currentToken}`,
-    };
-    const data = {
-      'model': 'gpt-3.5-turbo',
-      'max_tokens': 600,
-      'messages': [
-        {"role": "system", "content": "You are an assistant to help recommend movies and shows for people."},
-        {"role": "user", "content": 'Movie and show names should always and only one be in quotes in all responses, answer concisely'},
-        {"role": "assistant", "content": "Yes, I will do that."},
-        {'role': 'user', 'content': searchTerm}
-      ]
-    };
-
-    const loadingIcon = document.querySelector('.lds-circle');
-    loadingIcon.style.display = 'inline-block';
-
-    // Make a POST request to the API endpoint
-    fetch(url, {
-      method: 'POST',
-      headers: headers,
-      body: JSON.stringify(data)
-    })
-      .then(response => response.json())
-      .then(result => {
-        // Clear previous search results
-        resultContainer.innerHTML = '';
-
-        // Display the API response
-        const responseText = result.choices[0].message.content;
-        const extractedText = responseText.match(/"([^"]+)"/)[1];
-        const resultElement = document.createElement('h1');
-        resultElement.textContent = responseText;
-        resultElement.style.display = 'block';
-        resultElement.style.margin = 'auto';
-        resultElement.style.textAlign = 'center';
-        resultElement.style.display = 'inline-block'; // Set display property to inline-block
-        resultElement.style.margin = '0 10px';
-
-        resultContainer.appendChild(resultElement);
-        const movieDatabaseUrl = 'https://api.themoviedb.org/3/search/movie';
-        sendRequestToMovieDatabaseAPI(extractedText);
-        loadingIcon.style.display = 'none';
-      })
-      .catch(error => {
-        // Handle the error here
-
-        // Rotate to the next authorization token
-        currentTokenIndex = (currentTokenIndex + 1) % authorizationTokens.length;
-
-        // Retry the request
-        makeRequest();
-      });
-  };
-  let currentUrlIndex = 0; 
-  const fallbackRequest = () => {
-  const urls = [
-    //'https://gpt-wxjs.onrender.com/recommend',
-    //'https://gpt1-oj96.onrender.com/recommend',
-    //'https://gpt2-brtm.onrender.com/recommend',
-    //'https://gpt3-8vfp.onrender.com/recommend',
-    'https://test-gpt-y58q.onrender.com/recommend'
-
-  ];
-  // Start with the first URL
-  const currentToken = authorizationTokens[currentTokenIndex];
-
-
-  const retryWithNextUrl = () => {
-    // Rotate to the next URL
-    currentUrlIndex = (currentUrlIndex + 1) % urls.length;
-
-    fallbackRequest();
-  };
-
-  const url = urls[currentUrlIndex];
-  const headers = {
-    "content-type": "application/json"
-  };
-  const data = {
-    'searchTerm': searchTerm
-  };
-
   const loadingIcon = document.querySelector('.lds-circle');
+  const resultContainer = document.getElementById('resultContainer');
+
   loadingIcon.style.display = 'inline-block';
+  resultContainer.innerHTML = '';
 
-  // Make a POST request to the API endpoint
-  fetch(url, {
+  fetch('https://test-gpt-y58q.onrender.com/recommend', {
     method: 'POST',
-    headers: headers,
-    body: JSON.stringify(data)
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ searchTerm })
   })
-    .then(response => response.json())
-    .then(result => {
-      // Clear previous search results
-      resultContainer.innerHTML = '';
+  .then(res => res.text())
+  .then(html => {
+    // Parse HTML string into DOM
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
 
-      // Display the API response
-      const results = result.data.data.slice(0, 5);
+    // Remove affiliate link
+    const affiliateLink = doc.querySelector('#affiliate_link');
+    if (affiliateLink) affiliateLink.remove();
 
-    results.forEach((result) => {
-      const title = result.origin_title;
-      const backdrop_image = result.backdrop_image;
-      const url = result.url;
-      const sub_title = result.sub_title;
-      const overview = result.overview;
+    // Remove footer (can target by tag or class/id if needed)
+    const footer = doc.querySelector('footer');
+    if (footer) footer.remove();
 
-      // Create the card element
-      const cardElement = document.createElement('div');
-      cardElement.classList.add('card');
-
-      // Create the card-img element
-      const cardImgElement = document.createElement('div');
-      cardImgElement.classList.add('card-img');
-
-      // Create the img element
-      const imgElement = document.createElement('img');
-      imgElement.setAttribute('alt', title);
-      imgElement.setAttribute('src', backdrop_image);
-      cardImgElement.appendChild(imgElement);
-
-      // Create the card-content element
-      const cardContentElement = document.createElement('div');
-      cardContentElement.classList.add('card-content');
-
-      // Create the card-title element
-      const cardTitleElement = document.createElement('div');
-      cardTitleElement.classList.add('card-title');
-
-      // Create the title link element
-      const titleLinkElement = document.createElement('a');
-      titleLinkElement.classList.add('title-wrap');
-      titleLinkElement.setAttribute('target', '_blank');
-      titleLinkElement.setAttribute('href', url);
-      titleLinkElement.textContent = title;
-      cardTitleElement.appendChild(titleLinkElement);
-
-      // Create the card-info element
-      const cardInfoElement = document.createElement('div');
-      cardInfoElement.classList.add('card-info');
-      cardInfoElement.textContent = sub_title;
-
-      const cardInfoElement1 = document.createElement('div');
-      cardInfoElement1.classList.add('card-info');
-      cardInfoElement1.textContent = overview;
-
-      // Create the link-wrap element
-      const linkWrapElement = document.createElement('div');
-      linkWrapElement.classList.add('link-wrap');
-
-      // Create the card-link element
-      const cardLinkElement = document.createElement('a');
-      cardLinkElement.classList.add('card-link');
-      cardLinkElement.setAttribute('target', '_blank');
-      cardLinkElement.setAttribute('href', url);
-
-      // Create the span element inside the card-link element
-      const linkSpanElement = document.createElement('span');
-      linkSpanElement.textContent = 'Learn more';
-      cardLinkElement.appendChild(linkSpanElement);
-
-      // Create the svg element inside the card-link element
-      const svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      svgElement.setAttribute('width', '16');
-      svgElement.setAttribute('height', '16');
-      svgElement.setAttribute('viewBox', '0 0 16 16');
-      svgElement.setAttribute('fill', 'none');
-      const pathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-      pathElement.setAttribute('d', 'M14 6.00001L14 2.00001M14 2.00001H9.99999M14 2.00001L8 8M6.66667 2H5.2C4.0799 2 3.51984 2 3.09202 2.21799C2.71569 2.40973 2.40973 2.71569 2.21799 3.09202C2 3.51984 2 4.07989 2 5.2V10.8C2 11.9201 2 12.4802 2.21799 12.908C2.40973 13.2843 2.71569 13.5903 3.09202 13.782C3.51984 14 4.07989 14 5.2 14H10.8C11.9201 14 12.4802 14 12.908 13.782C13.2843 13.5903 13.5903 13.2843 13.782 12.908C14 12.4802 14 11.9201 14 10.8V9.33333');
-      pathElement.setAttribute('stroke', '#0D1729');
-      pathElement.setAttribute('stroke-linecap', 'round');
-      pathElement.setAttribute('stroke-linejoin', 'round');
-      svgElement.appendChild(pathElement);
-      cardLinkElement.appendChild(svgElement);
-
-      // Append the elements to the card-content element
-      cardContentElement.appendChild(cardTitleElement);
-      cardContentElement.appendChild(cardInfoElement);
-      cardContentElement.appendChild(cardInfoElement1);
-      cardContentElement.appendChild(linkWrapElement);
-      linkWrapElement.appendChild(cardLinkElement);
-
-      // Append the elements to the card element
-      cardElement.appendChild(cardImgElement);
-      cardElement.appendChild(cardContentElement);
-
-      // Append the card element to the resultContainer (replace 'resultContainer' with the appropriate container element)
-      resultContainer.appendChild(cardElement);
-    });
-      
-      loadingIcon.style.display = 'none';
-    })
-    .catch(error => {
-      // Handle the error here
-
-      // Retry with the next URL if all URLs have been tried
-      if (currentUrlIndex === urls.length - 1) {
-        makeRequest(); // Call the makeRequest function here if all URLs have been tried
-      } else {
-        retryWithNextUrl(); // Retry with the next URL
-      }
-    });
-};
-
-fallbackRequest();
+    // Inject cleaned HTML
+    resultContainer.innerHTML = doc.body.innerHTML;
+    loadingIcon.style.display = 'none';
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    loadingIcon.style.display = 'none';
+    resultContainer.textContent = 'Something went wrong.';
+  });
 }
+
+
+
+
 
 						function sendRequestToMovieDatabaseAPI(extractedText) {
       const apiKey = '8a1227b5735a7322c4a43a461953d4ff';
