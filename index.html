@@ -179,7 +179,17 @@
 
   gtag('config', 'G-ETJ8QYZFV8');
 </script>
-
+<script> 
+  function trackVectorClick() {
+    if (typeof gtag === "function") {
+      gtag("event", "cta_click", {
+        event_category: "cross_tool_promo",
+        event_label: "movie_to_vector",
+        value: 1
+      });
+    }
+  }
+</script>
 </head>
 <body>
 	<div id="app">
@@ -283,9 +293,28 @@
     // Remove footer (can target by tag or class/id if needed)
     const footer = doc.querySelector('footer');
     if (footer) footer.remove();
-
+	const promoSection = `
+	<section style="background:linear-gradient(135deg,#eef2ff,#f8fafc);
+	padding:50px;border-radius:24px;text-align:center;margin-bottom:24px;">
+	  <h2 style="font-size:30px;font-weight:700;">
+	    From Movie Inspiration to Design Asset
+	  </h2>
+	  <p style="max-width:700px;margin:16px auto 28px;color:#4b5563;">
+	    Found visual inspiration from a movie? Transform images into scalable
+	    vector graphics ready for design, print, or web.
+	  </p>
+	
+	  <a href="https://www.rastertovector.online/"
+	     onclick="trackVectorClick()"
+	     style="background:#4338ca;color:#fff;
+	            padding:16px 32px;border-radius:999px;
+	            font-size:16px;font-weight:600;text-decoration:none;">
+	    Start Vectorizing Images
+	  </a>
+	</section>
+	`;
     // Inject cleaned HTML
-    resultContainer.innerHTML = doc.body.innerHTML;
+    resultContainer.innerHTML = promoSection + doc.body.innerHTML;
     loadingIcon.style.display = 'none';
   })
   .catch(error => {
@@ -361,5 +390,8 @@
 		gtag('js', new Date());
 		gtag('config', 'UA-127170830-1');
 	</script>
+
+
+
 
 </body></html>
