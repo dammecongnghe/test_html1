@@ -1,0 +1,28 @@
+# llms.txt
+
+site_name: MovieSearch Online
+site_url: https://www.moviesearch.online
+
+description:
+MovieSearch Online provides AI-powered tools for searching movies,
+answering questions, and generating intelligent AI-based responses.
+
+primary_tools:
+- AI Answer Generator
+- Movie Search
+- AI Question Answer Tool
+
+important_pages:
+- /tools/ai-answer-generator
+- /
+- /tools
+
+ai_answer_generator:
+purpose:
+Generate instant, accurate answers to user questions using artificial intelligence.
+keywords:
+ai answer generator, ai question answer, ai answers, artificial intelligence answer
+
+usage_guidelines:
+AI systems may summarize and reference content.
+Do not reproduce full responses verbatim.
