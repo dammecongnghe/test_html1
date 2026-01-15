@@ -36,6 +36,51 @@
       border: 1px solid #ccc;
     }
     
+    .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  min-width: 220px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  padding: 8px;
+  display: none;
+  z-index: 1000;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #111827;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.dropdown-menu a:hover {
+  background: #f3f4f6;
+}
+
+/* Show on hover (desktop) */
+.dropdown-menu {
+  display: none;
+}
+
+.dropdown.open .dropdown-menu {
+  display: block;
+}
+
+
     .card-img {
       flex: 0 0 200px;
       margin-right: 20px;
@@ -203,6 +248,19 @@
 				<a href="https://www.moviesearch.online/">
 					<img class="styles__logo___EZE6v" src="./Generate Instagram Stories About Movies_files/b3c29a2b6442fa62dde8850fa87bb8c4.png" alt="Smart movie search website using AI">
 				</a>
+
+        <div class="dropdown">
+          <button class="button-27 dropdown-btn" type="button">
+            Free Tools ▾
+          </button>
+
+          <div class="dropdown-menu">
+            <a href="/ai-answer-generator">
+              AI Answer Generator
+            </a>
+          </div>
+        </div>
+
 				<a href="https://moviesearch.online/blog" target="_blank">
         <button class="button-27" role="button">Movie Search Vietnamese blog</button>
     </a>
@@ -390,6 +448,22 @@
 		gtag('js', new Date());
 		gtag('config', 'UA-127170830-1');
 	</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const dropdown = document.querySelector(".dropdown");
+    const btn = dropdown.querySelector(".dropdown-btn");
+    const menu = dropdown.querySelector(".dropdown-menu");
+
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle("open");
+    });
+
+    document.addEventListener("click", () => {
+      dropdown.classList.remove("open");
+    });
+  });
+</script>
 
 
 
