@@ -1,344 +1,476 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
+  <head>
+    <meta charset="UTF-8" />
 
-  <title>
-    AI Email Reply Generator – Professional AI Email Response Tool
-  </title>
+    <title>
+      AI Email Reply Generator – Professional AI Email Response Tool
+    </title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta
-    name="description"
-    content="Generate professional email replies instantly with our AI Email Reply Generator. Use AI to reply to emails, create email responses, and write professional emails automatically."
-  />
+    <meta
+      name="description"
+      content="Generate professional email replies instantly with our AI Email Reply Generator. Use AI to reply to emails, create email responses, and write professional emails automatically."
+    />
 
-  <meta
-    name="keywords"
-    content="ai email reply, ai email reply generator, email reply ai, mail reply ai, ai reply to email, email response, generator email, reply email, professional email generator"
-  />
+    <meta
+      name="keywords"
+      content="ai email reply, ai email reply generator, email reply ai, mail reply ai, ai reply to email, email response, generator email, reply email, professional email generator"
+    />
 
-  <link
-    rel="canonical"
-    href="https://www.moviesearch.online/tools/ai-email-response-generator"
-  />
+    <link
+      rel="canonical"
+      href="https://www.moviesearch.online/tools/ai-email-response-generator"
+    />
 
-  <!-- Open Graph (helps SEO + sharing) -->
-  <meta property="og:title" content="AI Email Reply Generator – Professional Email Responses with AI" />
-  <meta property="og:description" content="Create professional AI-powered email replies instantly. Perfect for business, support, and personal emails." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.moviesearch.online/tools/ai-email-response-generator" />
+    <!-- Open Graph (helps SEO + sharing) -->
+    <meta
+      property="og:title"
+      content="AI Email Reply Generator – Professional Email Responses with AI"
+    />
+    <meta
+      property="og:description"
+      content="Create professional AI-powered email replies instantly. Perfect for business, support, and personal emails."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://www.moviesearch.online/tools/ai-email-response-generator"
+    />
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
-
-<body class="bg-white text-gray-900">
-
-<!-- HEADER -->
-<header class="border-b">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center">
-    <a href="https://www.moviesearch.online/" class="flex items-center gap-3">
-      <img src="/tools/ai-email-response-generator/b3c29a2b6442fa62dde8850fa87bb8c4.png" alt="MovieSearch" class="h-9">
-    </a>
-  </div>
-</header>
-
-<!-- MAIN -->
-<main class="max-w-4xl mx-auto px-6 py-16">
-
-  <h1 class="text-4xl font-bold text-center mb-4">
-    AI Email Response Generator
-  </h1>
-
-  <p class="text-center text-gray-600 mb-12">
-    Streamline your communication with our AI Email Response Generator. Create professional and personalized email replies quickly and effortlessly. 
-  </p>
-
-  <form id="emailForm" class="bg-white border rounded-2xl p-8 space-y-6 shadow-sm">
-
-    <!-- Received Email -->
-    <div>
-      <label class="font-semibold">Received Email *</label>
-      <textarea name="email" required rows="6"
-        class="w-full mt-2 p-3 border rounded-lg"
-        placeholder="Paste the email you received here..."></textarea>
-    </div>
-
-    <!-- Subject -->
-    <div>
-      <label class="font-semibold">Subject</label>
-      <input name="subject"
-        class="w-full mt-2 p-3 border rounded-lg"
-        placeholder="Interview Invitation for [Position] at [Company Name]">
-    </div>
-
-    <!-- Goal -->
-    <div>
-      <label class="font-semibold">Response Goal *</label>
-      <textarea name="goal" required rows="2"
-        class="w-full mt-2 p-3 border rounded-lg"
-        placeholder="Confirm interview, express enthusiasm, ask details"></textarea>
-    </div>
-
-    <!-- Sender / Recipient -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div>
-        <label class="font-semibold">Sender</label>
-        <input name="sender"
-          class="w-full mt-2 p-3 border rounded-lg"
-          placeholder="John Doe, Software Engineer">
-      </div>
-      <div>
-        <label class="font-semibold">Recipient</label>
-        <input name="recipient"
-          class="w-full mt-2 p-3 border rounded-lg"
-          placeholder="Sarah Smith, HR Manager">
-      </div>
-    </div>
-
-    <!-- Language / Tone -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div>
-        <label class="font-semibold">Language *</label>
-        <select name="language" class="w-full mt-2 p-3 border rounded-lg">
-          <option value="Afrikaans">Afrikaans</option><option value="Albanian">Albanian</option><option value="Arabic">Arabic</option><option value="Armenian">Armenian</option><option value="Basque">Basque</option><option value="Bengali">Bengali</option><option value="Bulgarian">Bulgarian</option><option value="Catalan">Catalan</option><option value="Cambodian">Cambodian</option><option value="Chinese (Mandarin)">Chinese (Mandarin)</option><option value="Croatian">Croatian</option><option value="Czech">Czech</option><option value="Danish">Danish</option><option value="Dutch">Dutch</option><option value="English" selected>English</option><option value="Estonian">Estonian</option><option value="Fiji">Fiji</option><option value="Finnish">Finnish</option><option value="French">French</option><option value="Georgian">Georgian</option><option value="German">German</option><option value="Greek">Greek</option><option value="Gujarati">Gujarati</option><option value="Hebrew">Hebrew</option><option value="Hindi">Hindi</option><option value="Hungarian">Hungarian</option><option value="Icelandic">Icelandic</option><option value="Indonesian">Indonesian</option><option value="Irish">Irish</option><option value="Italian">Italian</option><option value="Japanese">Japanese</option><option value="Javanese">Javanese</option><option value="Korean">Korean</option><option value="Latin">Latin</option><option value="Latvian">Latvian</option><option value="Lithuanian">Lithuanian</option><option value="Macedonian">Macedonian</option><option value="Malay">Malay</option><option value="Malayalam">Malayalam</option><option value="Maltese">Maltese</option><option value="Maori">Maori</option><option value="Marathi">Marathi</option><option value="Mongolian">Mongolian</option><option value="Nepali">Nepali</option><option value="Norwegian">Norwegian</option><option value="Persian">Persian</option><option value="Polish">Polish</option><option value="Portuguese">Portuguese</option><option value="Punjabi">Punjabi</option><option value="Quechua">Quechua</option><option value="Romanian">Romanian</option><option value="Russian">Russian</option><option value="Samoan">Samoan</option><option value="Serbian">Serbian</option><option value="Slovak">Slovak</option><option value="Slovenian">Slovenian</option><option value="Spanish">Spanish</option><option value="Swahili">Swahili</option><option value="Swedish">Swedish</option><option value="Tamil">Tamil</option><option value="Tatar">Tatar</option><option value="Telugu">Telugu</option><option value="Thai">Thai</option><option value="Tibetan">Tibetan</option><option value="Tonga">Tonga</option><option value="Turkish">Turkish</option><option value="Ukrainian">Ukrainian</option><option value="Urdu">Urdu</option><option value="Uzbek">Uzbek</option><option value="Vietnamese">Vietnamese</option><option value="Welsh">Welsh</option><option value="Xhosa">Xhosa</option>
-        </select>
-      </div>
-
-      <div>
-        <label class="font-semibold">Tone *</label>
-        <select name="tone" class="w-full mt-2 p-3 border rounded-lg">
-          <option value="Approachable">Approachable</option><option value="Authoritative">Authoritative</option><option value="Casual">Casual</option><option value="Enthusiastic">Enthusiastic</option><option value="Excited">Excited</option><option value="Formal">Formal</option><option value="Friendly">Friendly</option><option value="Funny">Funny</option><option value="Informal">Informal</option><option value="Innovative">Innovative</option><option value="Inspirational">Inspirational</option><option value="Neutral">Neutral</option><option value="Optimistic">Optimistic</option><option value="Persuasive">Persuasive</option><option value="Pessimistic">Pessimistic</option><option value="Professional" selected>Professional</option><option value="Thoughtful">Thoughtful</option>
-        </select>
-      </div>
-    </div>
-
-    <!-- Buttons -->
-    <div class="flex justify-end gap-4 pt-4">
-      <button type="reset"
-        class="px-6 py-2 border rounded-lg">
-        Reset
-      </button>
-
-      <button id="submitBtn" type="submit"
-        class="px-6 py-2 bg-blue-600 text-white rounded-lg">
-        Generate
-      </button>
-    </div>
-
-  </form>
-
-  <!-- LOADING -->
-  <div id="loading" class="hidden mt-6 text-center text-gray-600">
-    Generating response… please wait ⏳
-  </div>
-
-  <!-- RESULT -->
-  <!-- RESULT -->
-<section id="resultBox" class="hidden mt-10 border rounded-2xl p-6 bg-gray-50">
-
-  <!-- CTA ABOVE RESULT -->
-  <div
-    id="vectorCta"
-    class="hidden mb-6 bg-blue-50 border border-blue-200 rounded-2xl p-6 text-center"
-  >
-    <h3 class="text-xl font-bold mb-2">
-      Convert Images to Vector Graphics Instantly
-    </h3>
-    <p class="text-gray-600 mb-4">
-      Turn raster images into clean, scalable vector files for design, print, or web.
-    </p>
-    <a
-      href="https://www.rastertovector.online/"
-      target="_blank"
-      class="inline-block bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700"
-    >
-      Convert Raster to Vector
-    </a>
-  </div>
-
-  <!-- Header -->
-  <div class="flex justify-between items-center mb-3">
-    <h2 class="font-semibold text-lg">Generated Email Response</h2>
-    <button
-      id="copyBtn"
-      class="text-sm px-3 py-1 rounded-lg border border-gray-300 hover:bg-gray-100"
-    >
-      Copy
-    </button>
-  </div>
-
-  <!-- Content -->
-  <div
-    id="result"
-    class="text-gray-800 whitespace-pre-wrap leading-relaxed"
-  ></div>
-
-</section>
-<!-- AI Email Response Generator FAQ -->
-<section class="mt-20">
-  <h2 class="text-3xl font-bold mb-8 text-center">
-    AI Email Response Generator – Frequently Asked Questions
-  </h2>
-
-  <div class="space-y-6 max-w-3xl mx-auto">
-
-    <div>
-      <h3 class="font-semibold text-lg">
-        What is the AI Email Response Generator?
-      </h3>
-      <p class="text-gray-600 mt-2">
-        The AI Email Response Generator is a sophisticated tool designed to help
-        users create professional, personalized email replies quickly and
-        effortlessly, streamlining communication.
-      </p>
-    </div>
-
-    <div>
-      <h3 class="font-semibold text-lg">
-        How does the AI Email Reply Generator work?
-      </h3>
-      <p class="text-gray-600 mt-2">
-        It utilizes advanced artificial intelligence algorithms to analyze your
-        email context and generate appropriate, professional responses tailored
-        to your needs.
-      </p>
-    </div>
-
-    <div>
-      <h3 class="font-semibold text-lg">
-        Can I customize the email responses generated by the tool?
-      </h3>
-      <p class="text-gray-600 mt-2">
-        Yes, you can customize responses to better suit your tone and specific
-        requirements, ensuring personalized communication.
-      </p>
-    </div>
-
-    <div>
-      <h3 class="font-semibold text-lg">
-        Is this tool suitable for business use?
-      </h3>
-      <p class="text-gray-600 mt-2">
-        Absolutely. The AI Email Reply Generator is ideal for business
-        professionals seeking efficient and professional email communication.
-      </p>
-    </div>
-
-    <div>
-      <h3 class="font-semibold text-lg">
-        How does AI reply to email improve productivity?
-      </h3>
-      <p class="text-gray-600 mt-2">
-        By automating the creation of email responses, it reduces response time
-        and allows you to focus on more critical tasks.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-
-</main>
-
-<script>
-const form = document.getElementById("emailForm")
-const submitBtn = document.getElementById("submitBtn")
-const resultBox = document.getElementById("resultBox")
-const result = document.getElementById("result")
-const copyBtn = document.getElementById("copyBtn")
-const vectorCta = document.getElementById("vectorCta")
-const loading = document.getElementById("loading")
-
-form.addEventListener("submit", async (e) => {
-  e.preventDefault()
-
-  loading.classList.remove("hidden")
-  resultBox.classList.add("hidden")
-  submitBtn.disabled = true
-  submitBtn.textContent = "Generating..."
-
-  const payload = Object.fromEntries(new FormData(form).entries())
-
-  try {
-    const res = await fetch("https://ai-backend-ak38.onrender.com/generate-email-response", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    })
-
-    const data = await res.json()
-
-    if (data.error) {
-      result.textContent = "❌ Failed to generate email."
-    } else {
-      result.textContent = data.emailResponse
-      vectorCta.classList.remove("hidden")
-    }
-
-    resultBox.classList.remove("hidden")
-    resultBox.scrollIntoView({ behavior: "smooth" })
-
-  } catch (err) {
-    result.textContent = "❌ Server error. Please try again."
-    resultBox.classList.remove("hidden")
-  }
-
-  loading.classList.add("hidden")
-  submitBtn.disabled = false
-  submitBtn.textContent = "Generate"
-})
-
-copyBtn.addEventListener("click", async () => {
-  await navigator.clipboard.writeText(result.textContent)
-  copyBtn.textContent = "Copied ✓"
-  setTimeout(() => (copyBtn.textContent = "Copy"), 1500)
-})
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the AI Email Reply Generator?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The AI Email Reply Generator is a tool that uses artificial intelligence to create professional email replies automatically. It helps users respond to emails quickly and accurately."
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
       }
-    },
-    {
-      "@type": "Question",
-      "name": "How does AI reply to email?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "AI replies to email by analyzing the received message, understanding the intent, and generating a suitable email response based on tone, language, and context."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is this AI email response tool suitable for professional use?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. The AI Email Response Generator is designed for professional email communication, making it ideal for business emails, customer support replies, and formal correspondence."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I customize the tone of the email reply?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. You can choose different tones such as professional, friendly, or formal to generate email replies that match your communication style."
-      }
-    }
-  ]
-}
-</script>
+      gtag("js", new Date());
 
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
 
-</body>
+  <body class="bg-white text-gray-900">
+    <!-- HEADER -->
+    <header class="border-b">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center">
+        <a
+          href="https://www.moviesearch.online/"
+          class="flex items-center gap-3"
+        >
+          <img
+            src="/tools/ai-email-response-generator/b3c29a2b6442fa62dde8850fa87bb8c4.png"
+            alt="MovieSearch"
+            class="h-9"
+          />
+        </a>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="max-w-4xl mx-auto px-6 py-16">
+      <h1 class="text-4xl font-bold text-center mb-4">
+        AI Email Response Generator
+      </h1>
+
+      <p class="text-center text-gray-600 mb-12">
+        Streamline your communication with our AI Email Response Generator.
+        Create professional and personalized email replies quickly and
+        effortlessly.
+      </p>
+
+      <form
+        id="emailForm"
+        class="bg-white border rounded-2xl p-8 space-y-6 shadow-sm"
+      >
+        <!-- Received Email -->
+        <div>
+          <label class="font-semibold">Received Email *</label>
+          <textarea
+            name="email"
+            required
+            rows="6"
+            class="w-full mt-2 p-3 border rounded-lg"
+            placeholder="Paste the email you received here..."
+          ></textarea>
+        </div>
+
+        <!-- Subject -->
+        <div>
+          <label class="font-semibold">Subject</label>
+          <input
+            name="subject"
+            class="w-full mt-2 p-3 border rounded-lg"
+            placeholder="Interview Invitation for [Position] at [Company Name]"
+          />
+        </div>
+
+        <!-- Goal -->
+        <div>
+          <label class="font-semibold">Response Goal *</label>
+          <textarea
+            name="goal"
+            required
+            rows="2"
+            class="w-full mt-2 p-3 border rounded-lg"
+            placeholder="Confirm interview, express enthusiasm, ask details"
+          ></textarea>
+        </div>
+
+        <!-- Sender / Recipient -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="font-semibold">Sender</label>
+            <input
+              name="sender"
+              class="w-full mt-2 p-3 border rounded-lg"
+              placeholder="John Doe, Software Engineer"
+            />
+          </div>
+          <div>
+            <label class="font-semibold">Recipient</label>
+            <input
+              name="recipient"
+              class="w-full mt-2 p-3 border rounded-lg"
+              placeholder="Sarah Smith, HR Manager"
+            />
+          </div>
+        </div>
+
+        <!-- Language / Tone -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="font-semibold">Language *</label>
+            <select name="language" class="w-full mt-2 p-3 border rounded-lg">
+              <option value="Afrikaans">Afrikaans</option>
+              <option value="Albanian">Albanian</option>
+              <option value="Arabic">Arabic</option>
+              <option value="Armenian">Armenian</option>
+              <option value="Basque">Basque</option>
+              <option value="Bengali">Bengali</option>
+              <option value="Bulgarian">Bulgarian</option>
+              <option value="Catalan">Catalan</option>
+              <option value="Cambodian">Cambodian</option>
+              <option value="Chinese (Mandarin)">Chinese (Mandarin)</option>
+              <option value="Croatian">Croatian</option>
+              <option value="Czech">Czech</option>
+              <option value="Danish">Danish</option>
+              <option value="Dutch">Dutch</option>
+              <option value="English" selected>English</option>
+              <option value="Estonian">Estonian</option>
+              <option value="Fiji">Fiji</option>
+              <option value="Finnish">Finnish</option>
+              <option value="French">French</option>
+              <option value="Georgian">Georgian</option>
+              <option value="German">German</option>
+              <option value="Greek">Greek</option>
+              <option value="Gujarati">Gujarati</option>
+              <option value="Hebrew">Hebrew</option>
+              <option value="Hindi">Hindi</option>
+              <option value="Hungarian">Hungarian</option>
+              <option value="Icelandic">Icelandic</option>
+              <option value="Indonesian">Indonesian</option>
+              <option value="Irish">Irish</option>
+              <option value="Italian">Italian</option>
+              <option value="Japanese">Japanese</option>
+              <option value="Javanese">Javanese</option>
+              <option value="Korean">Korean</option>
+              <option value="Latin">Latin</option>
+              <option value="Latvian">Latvian</option>
+              <option value="Lithuanian">Lithuanian</option>
+              <option value="Macedonian">Macedonian</option>
+              <option value="Malay">Malay</option>
+              <option value="Malayalam">Malayalam</option>
+              <option value="Maltese">Maltese</option>
+              <option value="Maori">Maori</option>
+              <option value="Marathi">Marathi</option>
+              <option value="Mongolian">Mongolian</option>
+              <option value="Nepali">Nepali</option>
+              <option value="Norwegian">Norwegian</option>
+              <option value="Persian">Persian</option>
+              <option value="Polish">Polish</option>
+              <option value="Portuguese">Portuguese</option>
+              <option value="Punjabi">Punjabi</option>
+              <option value="Quechua">Quechua</option>
+              <option value="Romanian">Romanian</option>
+              <option value="Russian">Russian</option>
+              <option value="Samoan">Samoan</option>
+              <option value="Serbian">Serbian</option>
+              <option value="Slovak">Slovak</option>
+              <option value="Slovenian">Slovenian</option>
+              <option value="Spanish">Spanish</option>
+              <option value="Swahili">Swahili</option>
+              <option value="Swedish">Swedish</option>
+              <option value="Tamil">Tamil</option>
+              <option value="Tatar">Tatar</option>
+              <option value="Telugu">Telugu</option>
+              <option value="Thai">Thai</option>
+              <option value="Tibetan">Tibetan</option>
+              <option value="Tonga">Tonga</option>
+              <option value="Turkish">Turkish</option>
+              <option value="Ukrainian">Ukrainian</option>
+              <option value="Urdu">Urdu</option>
+              <option value="Uzbek">Uzbek</option>
+              <option value="Vietnamese">Vietnamese</option>
+              <option value="Welsh">Welsh</option>
+              <option value="Xhosa">Xhosa</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="font-semibold">Tone *</label>
+            <select name="tone" class="w-full mt-2 p-3 border rounded-lg">
+              <option value="Approachable">Approachable</option>
+              <option value="Authoritative">Authoritative</option>
+              <option value="Casual">Casual</option>
+              <option value="Enthusiastic">Enthusiastic</option>
+              <option value="Excited">Excited</option>
+              <option value="Formal">Formal</option>
+              <option value="Friendly">Friendly</option>
+              <option value="Funny">Funny</option>
+              <option value="Informal">Informal</option>
+              <option value="Innovative">Innovative</option>
+              <option value="Inspirational">Inspirational</option>
+              <option value="Neutral">Neutral</option>
+              <option value="Optimistic">Optimistic</option>
+              <option value="Persuasive">Persuasive</option>
+              <option value="Pessimistic">Pessimistic</option>
+              <option value="Professional" selected>Professional</option>
+              <option value="Thoughtful">Thoughtful</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="flex justify-end gap-4 pt-4">
+          <button type="reset" class="px-6 py-2 border rounded-lg">
+            Reset
+          </button>
+
+          <button
+            id="submitBtn"
+            type="submit"
+            class="px-6 py-2 bg-blue-600 text-white rounded-lg"
+          >
+            Generate
+          </button>
+        </div>
+      </form>
+
+      <!-- LOADING -->
+      <div id="loading" class="hidden mt-6 text-center text-gray-600">
+        Generating response… please wait ⏳
+      </div>
+
+      <!-- RESULT -->
+      <!-- RESULT -->
+      <section
+        id="resultBox"
+        class="hidden mt-10 border rounded-2xl p-6 bg-gray-50"
+      >
+        <!-- CTA ABOVE RESULT -->
+        <div
+          id="vectorCta"
+          class="hidden mb-6 bg-blue-50 border border-blue-200 rounded-2xl p-6 text-center"
+        >
+          <h3 class="text-xl font-bold mb-2">
+            Convert Images to Vector Graphics Instantly
+          </h3>
+          <p class="text-gray-600 mb-4">
+            Turn raster images into clean, scalable vector files for design,
+            print, or web.
+          </p>
+          <a
+            href="https://www.rastertovector.online/"
+            target="_blank"
+            class="inline-block bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700"
+          >
+            Convert Raster to Vector
+          </a>
+        </div>
+
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-3">
+          <h2 class="font-semibold text-lg">Generated Email Response</h2>
+          <button
+            id="copyBtn"
+            class="text-sm px-3 py-1 rounded-lg border border-gray-300 hover:bg-gray-100"
+          >
+            Copy
+          </button>
+        </div>
+
+        <!-- Content -->
+        <div
+          id="result"
+          class="text-gray-800 whitespace-pre-wrap leading-relaxed"
+        ></div>
+      </section>
+      <!-- AI Email Response Generator FAQ -->
+      <section class="mt-20">
+        <h2 class="text-3xl font-bold mb-8 text-center">
+          AI Email Response Generator – Frequently Asked Questions
+        </h2>
+
+        <div class="space-y-6 max-w-3xl mx-auto">
+          <div>
+            <h3 class="font-semibold text-lg">
+              What is the AI Email Response Generator?
+            </h3>
+            <p class="text-gray-600 mt-2">
+              The AI Email Response Generator is a sophisticated tool designed
+              to help users create professional, personalized email replies
+              quickly and effortlessly, streamlining communication.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-lg">
+              How does the AI Email Reply Generator work?
+            </h3>
+            <p class="text-gray-600 mt-2">
+              It utilizes advanced artificial intelligence algorithms to analyze
+              your email context and generate appropriate, professional
+              responses tailored to your needs.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-lg">
+              Can I customize the email responses generated by the tool?
+            </h3>
+            <p class="text-gray-600 mt-2">
+              Yes, you can customize responses to better suit your tone and
+              specific requirements, ensuring personalized communication.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-lg">
+              Is this tool suitable for business use?
+            </h3>
+            <p class="text-gray-600 mt-2">
+              Absolutely. The AI Email Reply Generator is ideal for business
+              professionals seeking efficient and professional email
+              communication.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-semibold text-lg">
+              How does AI reply to email improve productivity?
+            </h3>
+            <p class="text-gray-600 mt-2">
+              By automating the creation of email responses, it reduces response
+              time and allows you to focus on more critical tasks.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const form = document.getElementById("emailForm");
+      const submitBtn = document.getElementById("submitBtn");
+      const resultBox = document.getElementById("resultBox");
+      const result = document.getElementById("result");
+      const copyBtn = document.getElementById("copyBtn");
+      const vectorCta = document.getElementById("vectorCta");
+      const loading = document.getElementById("loading");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        loading.classList.remove("hidden");
+        resultBox.classList.add("hidden");
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Generating...";
+
+        const payload = Object.fromEntries(new FormData(form).entries());
+
+        try {
+          const res = await fetch(
+            "https://ai-backend-ak38.onrender.com/generate-email-response",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload),
+            },
+          );
+
+          const data = await res.json();
+
+          if (data.error) {
+            result.textContent = "❌ Failed to generate email.";
+          } else {
+            result.textContent = data.emailResponse;
+            vectorCta.classList.remove("hidden");
+          }
+
+          resultBox.classList.remove("hidden");
+          resultBox.scrollIntoView({ behavior: "smooth" });
+        } catch (err) {
+          result.textContent = "❌ Server error. Please try again.";
+          resultBox.classList.remove("hidden");
+        }
+
+        loading.classList.add("hidden");
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Generate";
+      });
+
+      copyBtn.addEventListener("click", async () => {
+        await navigator.clipboard.writeText(result.textContent);
+        copyBtn.textContent = "Copied ✓";
+        setTimeout(() => (copyBtn.textContent = "Copy"), 1500);
+      });
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the AI Email Reply Generator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The AI Email Reply Generator is a tool that uses artificial intelligence to create professional email replies automatically. It helps users respond to emails quickly and accurately."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does AI reply to email?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "AI replies to email by analyzing the received message, understanding the intent, and generating a suitable email response based on tone, language, and context."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this AI email response tool suitable for professional use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The AI Email Response Generator is designed for professional email communication, making it ideal for business emails, customer support replies, and formal correspondence."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I customize the tone of the email reply?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can choose different tones such as professional, friendly, or formal to generate email replies that match your communication style."
+            }
+          }
+        ]
+      }
+    </script>
+  </body>
 </html>
