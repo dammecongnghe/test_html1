@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI PowerPoint Summarizer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="Upload PowerPoint files and instantly generate AI-powered summaries. Our AI PowerPoint Summarizer extracts key points from presentations in seconds."
+    />
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-50 text-gray-900">
+    <!-- HEADER -->
+    <header class="border-b bg-white">
+      <div class="max-w-6xl mx-auto px-6 py-4">
+        <h1 class="text-xl font-bold">AI PowerPoint Summarizer</h1>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="max-w-3xl mx-auto px-6 py-16">
+      <!-- HERO -->
+      <h2 class="text-4xl font-bold text-center mb-4">
+        AI PPT Summarizer - Get PPT Summary with AI Free
+      </h2>
+
+      <p class="text-center text-gray-600 mb-12">
+        Upload a PowerPoint (.ppt or .pptx) and get a clear AI-generated summary
+        in seconds.
+      </p>
+
+      <!-- FORM -->
+      <form
+        id="pptForm"
+        class="bg-white border rounded-2xl p-8 space-y-6 shadow-sm"
+      >
+        <!-- FILE -->
+        <div>
+          <label class="font-semibold">Upload PowerPoint *</label>
+          <input
+            type="file"
+            id="file"
+            accept=".ppt,.pptx"
+            required
+            class="w-full mt-2 p-3 border rounded-lg bg-white"
+          />
+        </div>
+
+        <!-- OPTIONS -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div>
+            <label class="font-semibold">Length</label>
+            <select id="length" class="w-full mt-2 p-3 border rounded-lg">
+              <option value="short" selected>Short</option>
+              <option value="medium">Medium</option>
+              <option value="long">Long</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="font-semibold">Format</label>
+            <select id="format" class="w-full mt-2 p-3 border rounded-lg">
+              <option value="points" selected>Points</option>
+              <option value="qa">Q&A</option>
+              <option value="essay">Essay</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="font-semibold">Style</label>
+            <select id="style" class="w-full mt-2 p-3 border rounded-lg">
+              <option value="analyst" selected>Analyst</option>
+              <option value="educator">Educator</option>
+              <option value="sarcastic">Sarcastic</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- BUTTON -->
+        <div class="flex justify-end pt-4">
+          <button
+            id="submitBtn"
+            type="submit"
+            class="px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700"
+          >
+            Summarize PowerPoint
+          </button>
+        </div>
+      </form>
+
+      <!-- LOADING -->
+      <div id="loading" class="hidden mt-8 text-center text-gray-600">
+        Summarizing PowerPoint… please wait ⏳
+      </div>
+
+      <!-- RESULT -->
+      <section
+        id="resultBox"
+        class="hidden mt-12 bg-white border rounded-2xl p-6 shadow-sm"
+      >
+        <h3 class="text-xl font-bold mb-4">Summary</h3>
+
+        <pre
+          id="result"
+          class="whitespace-pre-wrap text-gray-800 leading-relaxed"
+        ></pre>
+      </section>
+    </main>
+
+    <!-- SCRIPT -->
+    <script>
+      const form = document.getElementById("pptForm");
+      const submitBtn = document.getElementById("submitBtn");
+      const loading = document.getElementById("loading");
+      const resultBox = document.getElementById("resultBox");
+      const result = document.getElementById("result");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const fileInput = document.getElementById("file");
+        if (!fileInput.files.length) {
+          alert("Please upload a PowerPoint file.");
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Summarizing...";
+        loading.classList.remove("hidden");
+        resultBox.classList.add("hidden");
+
+        const formData = new FormData();
+        formData.append("file", fileInput.files[0]);
+        formData.append("length", document.getElementById("length").value);
+        formData.append("format", document.getElementById("format").value);
+        formData.append("style", document.getElementById("style").value);
+
+        try {
+          const res = await fetch(
+            "https://pdf-summarizer.replit.app/summarize",
+            {
+              method: "POST",
+              body: formData,
+            },
+          );
+
+          const data = await res.json();
+
+          if (!data.summary) {
+            throw new Error("No summary returned");
+          }
+
+          result.textContent = data.summary;
+          resultBox.classList.remove("hidden");
+          resultBox.scrollIntoView({ behavior: "smooth" });
+        } catch (err) {
+          result.textContent =
+            "❌ Failed to summarize the PowerPoint. Please try again.";
+          resultBox.classList.remove("hidden");
+        }
+
+        loading.classList.add("hidden");
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Summarize PowerPoint";
+      });
+    </script>
+  </body>
+</html>
