@@ -2,16 +2,37 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>AI PowerPoint Summarizer</title>
+    <title>PPT Summarizer AI – PowerPoint Summarizer & PPT to Notes Tool</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- SEO META -->
     <meta
       name="description"
-      content="Upload PowerPoint files and instantly generate AI-powered summaries. Our AI PowerPoint Summarizer extracts key points from presentations in seconds."
+      content="Use our free PPT Summarizer AI to generate PowerPoint summaries, convert PPT to notes, and create reviewer makers from presentations instantly."
     />
 
-    <!-- Tailwind -->
+    <meta
+      name="keywords"
+      content="ppt summarizer, ppt summarizer ai, ppt to notes, reviewer maker from ppt, powerpoint summarizer, summary ppt, presentation summary"
+    />
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
   </head>
 
   <body class="bg-gray-50 text-gray-900">
@@ -22,152 +43,170 @@
       </div>
     </header>
 
-    <!-- MAIN -->
-    <main class="max-w-3xl mx-auto px-6 py-16">
+    <!-- MAIN CONTENT -->
+    <main class="max-w-6xl mx-auto px-6 py-12">
       <!-- HERO -->
-      <h2 class="text-4xl font-bold text-center mb-4">
-        AI PPT Summarizer - Get PPT Summary with AI Free
-      </h2>
+      <section class="text-center mb-10">
+        <h2 class="text-4xl font-bold mb-4">
+          PPT Summarizer AI – Instantly Summarize PowerPoint Slides
+        </h2>
 
-      <p class="text-center text-gray-600 mb-12">
-        Upload a PowerPoint (.ppt or .pptx) and get a clear AI-generated summary
-        in seconds.
-      </p>
-
-      <!-- FORM -->
-      <form
-        id="pptForm"
-        class="bg-white border rounded-2xl p-8 space-y-6 shadow-sm"
+        <p class="text-gray-600 max-w-3xl mx-auto">
+          Upload your presentation and get a clear AI-generated presentation
+          summary. Convert PPT to notes, create reviewer makers, and save hours
+          of manual work.
+        </p>
+      </section>
+      <!-- LEAD CTA: Raster to Vector -->
+      <div
+        id="vectorCta"
+        class="mb-6 bg-blue-50 border border-blue-200 rounded-2xl p-6 text-center"
       >
-        <!-- FILE -->
-        <div>
-          <label class="font-semibold">Upload PowerPoint *</label>
-          <input
-            type="file"
-            id="file"
-            accept=".ppt,.pptx"
-            required
-            class="w-full mt-2 p-3 border rounded-lg bg-white"
-          />
-        </div>
+        <h3 class="text-xl font-bold mb-2">
+          Convert Images to Vector Graphics Instantly
+        </h3>
 
-        <!-- OPTIONS -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div>
-            <label class="font-semibold">Length</label>
-            <select id="length" class="w-full mt-2 p-3 border rounded-lg">
-              <option value="short" selected>Short</option>
-              <option value="medium">Medium</option>
-              <option value="long">Long</option>
-            </select>
-          </div>
+        <p class="text-gray-600 mb-4">
+          Turn raster images into clean, scalable vector files for design,
+          print, or web.
+        </p>
 
-          <div>
-            <label class="font-semibold">Format</label>
-            <select id="format" class="w-full mt-2 p-3 border rounded-lg">
-              <option value="points" selected>Points</option>
-              <option value="qa">Q&A</option>
-              <option value="essay">Essay</option>
-            </select>
-          </div>
-
-          <div>
-            <label class="font-semibold">Style</label>
-            <select id="style" class="w-full mt-2 p-3 border rounded-lg">
-              <option value="analyst" selected>Analyst</option>
-              <option value="educator">Educator</option>
-              <option value="sarcastic">Sarcastic</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- BUTTON -->
-        <div class="flex justify-end pt-4">
-          <button
-            id="submitBtn"
-            type="submit"
-            class="px-6 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700"
-          >
-            Summarize PowerPoint
-          </button>
-        </div>
-      </form>
-
-      <!-- LOADING -->
-      <div id="loading" class="hidden mt-8 text-center text-gray-600">
-        Summarizing PowerPoint… please wait ⏳
+        <a
+          href="https://www.rastertovector.online/"
+          target="_blank"
+          rel="noopener"
+          class="inline-block bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700"
+        >
+          Convert Raster to Vector
+        </a>
       </div>
-
-      <!-- RESULT -->
+      <!-- TOOL IFRAME -->
       <section
-        id="resultBox"
-        class="hidden mt-12 bg-white border rounded-2xl p-6 shadow-sm"
+        class="bg-white border rounded-2xl shadow-sm overflow-hidden"
+        aria-label="AI PowerPoint Summarizer Tool"
       >
-        <h3 class="text-xl font-bold mb-4">Summary</h3>
+        <iframe
+          loading="lazy"
+          src="https://pdf-summarizer.replit.app/"
+          allow="clipboard-write"
+          width="100%"
+          height="950"
+          class="w-full border-0"
+          title="AI PPT Summarizer Tool"
+        ></iframe>
+      </section>
 
-        <pre
-          id="result"
-          class="whitespace-pre-wrap text-gray-800 leading-relaxed"
-        ></pre>
+      <!-- SEO CONTENT -->
+      <section class="max-w-3xl mx-auto mt-16 text-gray-700 leading-relaxed">
+        <h3 class="text-2xl font-bold mb-4">What Is a PPT Summarizer AI?</h3>
+
+        <p class="mb-4">
+          A PPT summarizer AI is an intelligent tool that analyzes PowerPoint
+          presentations and generates a concise summary. It helps students,
+          professionals, and educators quickly understand long slide decks
+          without reading every slide.
+        </p>
+
+        <h3 class="text-2xl font-bold mb-4">
+          Why Use a PowerPoint Summarizer?
+        </h3>
+
+        <ul class="list-disc pl-6 space-y-2">
+          <li>Convert PPT to structured notes</li>
+          <li>Create reviewer makers from PPT presentations</li>
+          <li>Summarize large or complex slide decks</li>
+          <li>Improve productivity and comprehension</li>
+          <li>No signup required – completely free</li>
+        </ul>
+      </section>
+
+      <!-- FAQ SECTION -->
+      <section
+        class="max-w-3xl mx-auto mt-16 text-gray-700 leading-relaxed"
+        aria-label="Frequently Asked Questions about PPT Summarizer AI"
+      >
+        <h3 class="text-2xl font-bold mb-6">
+          Frequently Asked Questions – PPT Summarizer AI
+        </h3>
+
+        <div class="space-y-6">
+          <div>
+            <h4 class="font-semibold text-lg">
+              Q1: What is the AI PPT Summarizer tool?
+            </h4>
+            <p>
+              The AI PPT Summarizer is an advanced tool designed to generate
+              concise summaries from PowerPoint presentations, making it easier
+              to review and understand key points efficiently.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-semibold text-lg">
+              Q2: How does the PPT Summarizer AI work?
+            </h4>
+            <p>
+              The PPT Summarizer AI uses sophisticated algorithms to analyze
+              presentation content and extract essential information, providing
+              a clear and comprehensive summary of your slides.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-semibold text-lg">
+              Q3: Can I convert my PowerPoint slides into notes using this tool?
+            </h4>
+            <p>
+              Yes, the tool allows you to transform your PowerPoint slides into
+              detailed notes, facilitating better study and review processes.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-semibold text-lg">
+              Q4: Is the presentation summary feature suitable for large or
+              complex PPT files?
+            </h4>
+            <p>
+              Absolutely. The presentation summary feature is designed to handle
+              large and complex PPT files efficiently, delivering concise
+              summaries without losing critical information.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-semibold text-lg">
+              Q5: Is this tool free to use for creating reviewer makers from
+              PPT?
+            </h4>
+            <p>
+              Yes, the AI PPT Summarizer offers free access to generate reviewer
+              makers from your PowerPoint presentations, enhancing your review
+              sessions.
+            </p>
+          </div>
+
+          <div>
+            <h4 class="font-semibold text-lg">
+              Q6: How can a PowerPoint summarizer improve my workflow?
+            </h4>
+            <p>
+              A PowerPoint summarizer streamlines your workflow by quickly
+              condensing lengthy presentations into manageable summaries, saving
+              time and improving comprehension.
+            </p>
+          </div>
+        </div>
       </section>
     </main>
 
-    <!-- SCRIPT -->
-    <script>
-      const form = document.getElementById("pptForm");
-      const submitBtn = document.getElementById("submitBtn");
-      const loading = document.getElementById("loading");
-      const resultBox = document.getElementById("resultBox");
-      const result = document.getElementById("result");
-
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const fileInput = document.getElementById("file");
-        if (!fileInput.files.length) {
-          alert("Please upload a PowerPoint file.");
-          return;
-        }
-
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Summarizing...";
-        loading.classList.remove("hidden");
-        resultBox.classList.add("hidden");
-
-        const formData = new FormData();
-        formData.append("file", fileInput.files[0]);
-        formData.append("length", document.getElementById("length").value);
-        formData.append("format", document.getElementById("format").value);
-        formData.append("style", document.getElementById("style").value);
-
-        try {
-          const res = await fetch(
-            "https://pdf-summarizer.replit.app/summarize",
-            {
-              method: "POST",
-              body: formData,
-            },
-          );
-
-          const data = await res.json();
-
-          if (!data.summary) {
-            throw new Error("No summary returned");
-          }
-
-          result.textContent = data.summary;
-          resultBox.classList.remove("hidden");
-          resultBox.scrollIntoView({ behavior: "smooth" });
-        } catch (err) {
-          result.textContent =
-            "❌ Failed to summarize the PowerPoint. Please try again.";
-          resultBox.classList.remove("hidden");
-        }
-
-        loading.classList.add("hidden");
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Summarize PowerPoint";
-      });
-    </script>
+    <!-- FOOTER -->
+    <footer class="border-t bg-white mt-20">
+      <div
+        class="max-w-6xl mx-auto px-6 py-6 text-sm text-gray-500 text-center"
+      >
+        © 2026 MovieSearch.online – Free AI Tools
+      </div>
+    </footer>
   </body>
 </html>
