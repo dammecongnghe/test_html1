@@ -31,6 +31,12 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+      <url>
+    <loc>https://www.moviesearch.online/tools/book-summarizer</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
   <url>
     <loc>https://www.moviesearch.online/blog</loc>
     <changefreq>weekly</changefreq>
