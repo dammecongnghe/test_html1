@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- 🔥 SEO TITLE -->
+    <title>
+      YouTube Subtitle Downloader – Download Subtitles from YouTube (TXT & SRT)
+    </title>
+
+    <!-- 🔥 META DESCRIPTION -->
+    <meta
+      name="description"
+      content="Free subtitle downloader to download subtitles from YouTube videos. Use this YouTube subtitle generator to download YouTube video subtitles in TXT or SRT. Fast yt subtitles download, downsub alternative."
+    />
+
+    <!-- 🔥 KEYWORDS -->
+    <meta
+      name="keywords"
+      content="subtitle downloader, youtube video subtitles download, youtube subtitle generator, subtitle download, download subtitles, download youtube video with subtitles, yt subtitles download, downsub, download subtitles from youtube"
+    />
+
+    <!-- 🔥 CANONICAL -->
+    <link
+      rel="canonical"
+      href="https://moviesearch.online/youtube-subtitle-downloader"
+    />
+
+    <!-- 🔥 OPEN GRAPH -->
+    <meta property="og:title" content="YouTube Subtitle Downloader" />
+    <meta
+      property="og:description"
+      content="Download subtitles from YouTube videos instantly. Free subtitle downloader supporting TXT and SRT formats."
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- 🔥 SCHEMA -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "YouTube Subtitle Downloader",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "description": "Free YouTube subtitle downloader to download subtitles from YouTube videos in TXT and SRT formats.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      :root {
+        --primary: #4f6ef7;
+        --primary-dark: #3b55d9;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --text: #111827;
+        --muted: #6b7280;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      .topbar {
+        max-width: 980px;
+        margin: 20px auto 0;
+        padding: 0 16px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+      }
+
+      .topbar a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+
+      .topbar a:hover {
+        color: var(--primary);
+      }
+
+      .hero {
+        max-width: 980px;
+        margin: 24px auto;
+        padding: 40px 24px;
+        background: #f0f4ff;
+        border: 1px solid #dbe4ff;
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto 24px;
+        line-height: 1.6;
+      }
+
+      .hero a.cta {
+        display: inline-block;
+        padding: 12px 26px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .card {
+        max-width: 720px;
+        margin: 0 auto 60px;
+        background: var(--card);
+        border-radius: 16px;
+        padding: 28px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      input,
+      select,
+      button {
+        width: 100%;
+        padding: 14px;
+        margin-top: 12px;
+        font-size: 15px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+      }
+
+      button {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      pre {
+        margin-top: 16px;
+        background: #0b1020;
+        color: #9eff9e;
+        padding: 14px;
+        border-radius: 10px;
+        max-height: 320px;
+        overflow: auto;
+        font-size: 13px;
+      }
+
+      footer {
+        text-align: center;
+        color: var(--muted);
+        font-size: 13px;
+        margin-bottom: 30px;
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a YouTube subtitle downloader and how does it work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A YouTube subtitle downloader is a tool that allows users to extract and download subtitles from YouTube videos. It works by accessing the video’s caption data, enabling users to save subtitles in various formats for offline use."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I download subtitles from a YouTube video easily?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can easily download subtitles from a YouTube video using reliable subtitle downloader tools like Downsub or dedicated YouTube subtitle generators, which provide quick and straightforward options for saving captions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is it possible to generate subtitles for any YouTube video?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, many tools offer a YouTube subtitle generator feature that automatically creates subtitles for videos, making it easier to access or translate content."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are the benefits of using a subtitle downloader for YouTube videos?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Using a subtitle downloader allows you to access, save, and utilize video captions offline, enhancing learning, translation, and content accessibility."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I download subtitles in different languages from YouTube?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, most subtitle download tools support multiple languages, enabling you to download subtitles in your preferred language if they are available on the original video."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I download a YouTube video with subtitles intact?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To download a YouTube video with its subtitles, use specialized tools that support downloading videos along with their captions, ensuring synchronized viewing offline."
+            }
+          }
+        ]
+      }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+
+  <body>
+    <div class="topbar">
+      <a href="https://moviesearch.online" target="_blank">🏠 Home</a>
+      <a href="https://rastertovector.online" target="_blank">
+        🔥 Raster to Vector
+      </a>
+    </div>
+
+    <!-- 🔥 H1 WITH MAIN KEYWORD -->
+    <div class="hero">
+      <h1>YouTube Subtitle Downloader</h1>
+      <p>
+        Download subtitles from YouTube videos instantly. This free subtitle
+        downloader lets you generate and download YouTube video subtitles in TXT
+        or SRT format.
+      </p>
+      <a class="cta" href="https://rastertovector.online" target="_blank">
+        Convert Raster to Vector
+      </a>
+    </div>
+
+    <div class="card">
+      <h2>Download Subtitles from YouTube Videos</h2>
+
+      <p style="color: #6b7280; font-size: 14px">
+        Use this YouTube subtitle generator to download subtitles from YouTube.
+        Supports yt subtitles download, downsub-style subtitle download, and
+        multiple formats.
+      </p>
+
+      <input id="youtubeUrl" placeholder="Paste YouTube URL here" />
+
+      <select id="format">
+        <option value="txt_ts">TXT with timestamps</option>
+        <option value="txt">TXT without timestamps</option>
+        <option value="srt_ts">SRT with timestamps</option>
+        <option value="srt">SRT without timestamps</option>
+      </select>
+
+      <button onclick="downloadSub()">Download Subtitles</button>
+
+      <pre id="result">Waiting...</pre>
+    </div>
+
+    <!-- 🔥 SEO CONTENT BLOCK -->
+    <section style="max-width: 720px; margin: auto; padding: 0 24px 40px">
+      <h2>Free Subtitle Downloader & DownSub Alternative</h2>
+      <p>
+        This tool allows you to download subtitles from YouTube videos without
+        registration. Whether you need subtitle download for editing,
+        translation, accessibility, or content creation, this YouTube subtitle
+        downloader works instantly.
+      </p>
+      <p>
+        You can download YouTube video with subtitles in TXT or SRT format. It
+        works as a fast yt subtitles download solution and a clean alternative
+        to downsub tools.
+      </p>
+    </section>
+    <section style="max-width: 720px; margin: 40px auto; padding: 0 24px">
+      <h2>YouTube Subtitle Downloader – Frequently Asked Questions</h2>
+
+      <h3>What is a YouTube subtitle downloader and how does it work?</h3>
+      <p>
+        A YouTube subtitle downloader is a tool that allows users to extract and
+        download subtitles from YouTube videos. It works by accessing the
+        video’s caption data, enabling users to save subtitles in various
+        formats for offline use.
+      </p>
+
+      <h3>How can I download subtitles from a YouTube video easily?</h3>
+      <p>
+        You can easily download subtitles from a YouTube video using reliable
+        subtitle downloader tools like Downsub or dedicated YouTube subtitle
+        generators, which provide quick and straightforward options for saving
+        captions.
+      </p>
+
+      <h3>Is it possible to generate subtitles for any YouTube video?</h3>
+      <p>
+        Yes, many tools offer a YouTube subtitle generator feature that
+        automatically creates subtitles for videos, making it easier to access
+        or translate content.
+      </p>
+
+      <h3>
+        What are the benefits of using a subtitle downloader for YouTube videos?
+      </h3>
+      <p>
+        Using a subtitle downloader allows you to access, save, and utilize
+        video captions offline, enhancing learning, translation, and content
+        accessibility.
+      </p>
+
+      <h3>Can I download subtitles in different languages from YouTube?</h3>
+      <p>
+        Yes, most subtitle download tools support multiple languages, enabling
+        you to download subtitles in your preferred language if they are
+        available on the original video.
+      </p>
+
+      <h3>How do I download a YouTube video with subtitles intact?</h3>
+      <p>
+        To download a YouTube video with its subtitles, use specialized tools
+        that support downloading videos along with their captions, ensuring
+        synchronized viewing offline.
+      </p>
+    </section>
+
+    <footer>
+      Free subtitle downloader • Download subtitles from YouTube online
+    </footer>
+
+    <!-- ✅ YOUR EXISTING JS (UNCHANGED) -->
+    <script>
+      function parseRaw(raw) {
+        return raw
+          .split("\n")
+          .map((line) => {
+            const m = line.match(/\[(\d+):(\d+):(\d+)\]\s*(.+)/);
+            if (!m) return null;
+            return {
+              start: +m[1] * 3600 + +m[2] * 60 + +m[3],
+              text: m[4].trim(),
+            };
+          })
+          .filter(Boolean);
+      }
+
+      function toHMS(sec) {
+        const h = String(Math.floor(sec / 3600)).padStart(2, "0");
+        const m = String(Math.floor((sec % 3600) / 60)).padStart(2, "0");
+        const s = String(sec % 60).padStart(2, "0");
+        return `${h}:${m}:${s}`;
+      }
+
+      function toSRT(sec) {
+        return toHMS(sec) + ",000";
+      }
+
+      function formatSubs(raw, format) {
+        const subs = parseRaw(raw);
+        if (!subs.length) return "";
+
+        let out = [];
+
+        subs.forEach((s, i) => {
+          const next = subs[i + 1];
+          const end = next ? next.start : s.start + 4;
+
+          if (format === "txt") {
+            out.push(s.text, "");
+          }
+
+          if (format === "txt_ts") {
+            out.push(toHMS(s.start), s.text, "");
+          }
+
+          if (format === "srt_ts") {
+            out.push(i + 1, `${toSRT(s.start)} --> ${toSRT(end)}`, s.text, "");
+          }
+
+          if (format === "srt") {
+            out.push(i + 1, s.text, "");
+          }
+        });
+
+        return out.join("\n").trim() + "\n";
+      }
+
+      async function downloadSub() {
+        const url = document.getElementById("youtubeUrl").value.trim();
+        const format = document.getElementById("format").value;
+        const result = document.getElementById("result");
+
+        if (!url) {
+          result.textContent = "❌ Please paste a YouTube URL";
+          return;
+        }
+
+        result.textContent = "⏳ Processing subtitles...";
+
+        try {
+          const res = await fetch(
+            "https://ai-backend-ak38.onrender.com/youtube-subtitle-downloader",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ url }),
+            },
+          );
+
+          const rawText = await res.text();
+          const formatted = formatSubs(rawText, format);
+
+          result.textContent = formatted || "⚠ No subtitles found";
+
+          const ext = format.startsWith("srt") ? "srt" : "txt";
+          const blob = new Blob([formatted], {
+            type: "text/plain;charset=utf-8",
+          });
+          const a = document.createElement("a");
+
+          a.href = URL.createObjectURL(blob);
+          a.download = `youtube-subtitles.${ext}`;
+          a.click();
+
+          URL.revokeObjectURL(a.href);
+        } catch (e) {
+          result.textContent = "❌ Error: " + e.message;
+        }
+      }
+    </script>
+  </body>
+</html>
