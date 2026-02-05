@@ -1,0 +1,1122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Pixelator Online – Pixelate Images & Photos Instantly</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --primary: #4f6ef7;
+        --primary-dark: #3b55d9;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --text: #111827;
+        --muted: #6b7280;
+      }
+      .hero {
+        max-width: 980px;
+        margin: 24px auto;
+        padding: 40px 24px;
+        background: #f0f4ff;
+        border: 1px solid #dbe4ff;
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto 24px;
+        line-height: 1.6;
+      }
+
+      .hero a.cta {
+        display: inline-block;
+        padding: 12px 26px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 30px;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+
+      .header p {
+        opacity: 0.9;
+        font-size: 1.1em;
+      }
+
+      .main-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        padding: 30px;
+      }
+
+      .canvas-container {
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 500px;
+      }
+
+      .canvas-container h2 {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 1.5em;
+      }
+
+      .canvas-wrapper {
+        position: relative;
+        border: 3px dashed #667eea;
+        border-radius: 8px;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 600px;
+        min-height: 400px;
+      }
+
+      .canvas-wrapper.dragover {
+        border-color: #764ba2;
+        background: #f0f0ff;
+      }
+
+      canvas {
+        max-width: 100%;
+        max-height: 500px;
+        border-radius: 8px;
+        cursor: crosshair;
+      }
+
+      .drop-zone {
+        text-align: center;
+        color: #667eea;
+        padding: 40px;
+      }
+
+      .drop-zone-icon {
+        font-size: 4em;
+        margin-bottom: 20px;
+      }
+
+      .controls {
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 25px;
+        margin-top: 20px;
+      }
+
+      .control-group {
+        margin-bottom: 25px;
+      }
+
+      .control-group label {
+        display: block;
+        color: #333;
+        font-weight: 600;
+        margin-bottom: 8px;
+        font-size: 0.95em;
+      }
+
+      input[type="range"] {
+        width: 100%;
+        height: 8px;
+        border-radius: 5px;
+        background: #ddd;
+        outline: none;
+        -webkit-appearance: none;
+      }
+
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #667eea;
+        cursor: pointer;
+      }
+
+      input[type="range"]::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #667eea;
+        cursor: pointer;
+        border: none;
+      }
+
+      input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        font-size: 1em;
+      }
+
+      .value-display {
+        display: inline-block;
+        background: #667eea;
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-weight: 600;
+        margin-left: 10px;
+        font-size: 0.9em;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      button {
+        flex: 1;
+        min-width: 150px;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1em;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+      }
+
+      .btn-secondary {
+        background: #6c757d;
+        color: white;
+      }
+
+      .btn-secondary:hover {
+        background: #5a6268;
+      }
+
+      .btn-success {
+        background: #28a745;
+        color: white;
+      }
+
+      .btn-success:hover {
+        background: #218838;
+      }
+
+      .info-box {
+        background: #e7f3ff;
+        border-left: 4px solid #667eea;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 20px;
+        font-size: 0.9em;
+        color: #333;
+      }
+
+      .checkbox-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+      }
+
+      @media (max-width: 1024px) {
+        .main-content {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .selection-overlay {
+        position: absolute;
+        border: 2px dashed #667eea;
+        background: rgba(102, 126, 234, 0.2);
+        pointer-events: none;
+      }
+      .seo-content {
+        width: 100%;
+        max-width: 1400px; /* match .container */
+        margin: 60px auto 40px;
+        padding: 40px;
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        line-height: 1.7;
+      }
+
+      .seo-content h2 {
+        font-size: 2em;
+        margin-bottom: 15px;
+        color: #333;
+      }
+
+      .seo-content h3 {
+        font-size: 1.4em;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        color: #444;
+      }
+
+      .seo-content p {
+        color: #555;
+        margin-bottom: 15px;
+      }
+
+      .seo-content ul {
+        margin-left: 20px;
+        margin-bottom: 20px;
+      }
+
+      .seo-content li {
+        margin-bottom: 8px;
+        color: #555;
+      }
+    </style>
+    <meta
+      name="description"
+      content="Free image pixelator online. Pixelate images, photos, and pictures instantly. Use this photo pixelator to blur faces, pixelate a picture, or apply pixelation effects easily."
+    />
+
+    <meta
+      name="keywords"
+      content="image pixelator, photo pixelator, picture pixelator, pixelator online, image pixilator, pixelate image online, pixelate image, pixelation, pixelate a photo, pixelate a picture, pixelate a image, pixelate this image, picture pixel converter"
+    />
+
+    <link rel="canonical" href="https://yourdomain.com/image-pixelator" />
+
+    <!-- Open Graph -->
+    <meta
+      property="og:title"
+      content="Image Pixelator Online – Pixelate Images Instantly"
+    />
+    <meta
+      property="og:description"
+      content="Pixelate images and photos online for free. Select areas, control pixel size, and download instantly."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourdomain.com/image-pixelator" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Image Pixelator Online" />
+    <meta
+      name="twitter:description"
+      content="Pixelate a photo or picture online. Free and instant image pixelation tool."
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the primary function of this online tool?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "This online tool allows users to easily pixelate images by dragging and dropping their photos. It automatically applies a pixelation effect, making it a convenient image pixelator."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How can I customize the pixelation effect?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can set the pixelation radius and adjust the specific area of the image that should be pixelated, giving full control over the pixelation process."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this tool free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, this image pixilator is completely free and allows users to pixelate images online without any cost."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What types of images can I upload for pixelation?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The tool supports common image formats such as JPEG, PNG, and GIF for pixelation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I pixelate only a specific part of my image?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, users can select a specific area of their image and apply pixelation only to that region."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is there a limit on the size or resolution of images I can upload?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The tool supports high-resolution images, but very large files may impact processing speed. Optimized image sizes are recommended."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <a
+          href="https://moviesearch.online"
+          style="
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.2);
+          "
+          aria-label="Go to MovieSearch Home"
+        >
+          🏠 Home
+        </a>
+        <h1>Image Pixelator Online</h1>
+        <p>
+          Pixelate images, photos, and pictures instantly with our free
+          <strong>image pixelator</strong>. Select any area, control pixel size,
+          and download your pixelated image in seconds.
+        </p>
+      </div>
+      <div class="hero">
+        <h1>Convert Images to Vector Graphics Instantly</h1>
+        <p>
+          Turn raster images into clean, scalable vector files for design,
+          print, or web use.
+        </p>
+        <a class="cta" href="https://rastertovector.online" target="_blank">
+          Convert Raster to Vector
+        </a>
+      </div>
+      <div class="main-content">
+        <div>
+          <div class="canvas-container">
+            <h2>Input Image</h2>
+            <div class="canvas-wrapper" id="inputZone">
+              <div class="drop-zone" id="dropZone">
+                <div class="drop-zone-icon">📸</div>
+                <h3>Drag & Drop Your Image Here</h3>
+                <p>or click to browse</p>
+                <input
+                  type="file"
+                  id="fileInput"
+                  accept="image/*"
+                  style="display: none"
+                />
+              </div>
+              <canvas id="inputCanvas" style="display: none"></canvas>
+            </div>
+          </div>
+
+          <div class="controls">
+            <h3 style="margin-bottom: 20px; color: #333">⚙️ Tool Options</h3>
+
+            <div class="control-group">
+              <label>
+                Pixelation Strength
+                <span class="value-display" id="pixelValue">20</span>
+              </label>
+              <input
+                type="range"
+                id="pixelStrength"
+                min="2"
+                max="50"
+                value="20"
+              />
+              <small style="color: #666; display: block; margin-top: 5px"
+                >Pixelation size (larger = more pixelated)</small
+              >
+            </div>
+
+            <div class="control-group">
+              <div class="checkbox-group">
+                <input type="checkbox" id="selectArea" checked />
+                <label for="selectArea" style="margin: 0"
+                  >Enable Area Selection</label
+                >
+              </div>
+              <small
+                style="
+                  color: #666;
+                  display: block;
+                  margin-top: 5px;
+                  margin-left: 30px;
+                "
+              >
+                Click and drag on the input image to select a specific area to
+                pixelate
+              </small>
+            </div>
+
+            <div class="control-group">
+              <div class="checkbox-group">
+                <input type="checkbox" id="autoUpdate" checked />
+                <label for="autoUpdate" style="margin: 0"
+                  >Auto-Update (Real-time)</label
+                >
+              </div>
+              <small
+                style="
+                  color: #666;
+                  display: block;
+                  margin-top: 5px;
+                  margin-left: 30px;
+                "
+              >
+                Automatically apply pixelation as you make changes
+              </small>
+            </div>
+
+            <div class="button-group">
+              <button class="btn-primary" id="applyBtn">
+                Apply Pixelation
+              </button>
+              <button class="btn-secondary" id="resetBtn">
+                Clear Selection
+              </button>
+            </div>
+
+            <div class="info-box">
+              <strong>💡 How to use:</strong><br />
+              1. Drag & drop or click to upload an image<br />
+              2. Adjust the pixelation strength slider<br />
+              3. Enable area selection and drag to select regions to pixelate<br />
+              4. The pixelation updates automatically in real-time!<br />
+              5. Download your pixelated image!
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="canvas-container">
+            <h2>Pixelated Image</h2>
+            <div class="canvas-wrapper">
+              <canvas id="outputCanvas" style="display: none"></canvas>
+              <div class="drop-zone" id="outputPlaceholder">
+                <div class="drop-zone-icon">✨</div>
+                <h3>Your Pixelated Image Will Appear Here</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="controls">
+            <h3 style="margin-bottom: 20px; color: #333">💾 Save Options</h3>
+
+            <div class="control-group">
+              <label for="downloadFormat">Download Format</label>
+              <select
+                id="downloadFormat"
+                style="
+                  width: 100%;
+                  padding: 10px;
+                  border: 2px solid #ddd;
+                  border-radius: 8px;
+                  font-size: 1em;
+                "
+              >
+                <option value="png">PNG Image</option>
+                <option value="jpeg">JPEG Image</option>
+                <option value="webp">WebP Image</option>
+              </select>
+            </div>
+
+            <div class="button-group">
+              <button class="btn-success" id="downloadBtn" disabled>
+                Download Image
+              </button>
+              <button class="btn-secondary" id="copyBtn" disabled>
+                Copy to Clipboard
+              </button>
+            </div>
+
+            <div class="control-group" style="margin-top: 25px">
+              <label
+                >Selection Rectangle (when area selection is enabled)</label
+              >
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: 1fr 1fr;
+                  gap: 10px;
+                  margin-top: 10px;
+                "
+              >
+                <div>
+                  <small style="color: #666">X Position</small>
+                  <input type="number" id="rectX" value="0" min="0" />
+                </div>
+                <div>
+                  <small style="color: #666">Y Position</small>
+                  <input type="number" id="rectY" value="0" min="0" />
+                </div>
+                <div>
+                  <small style="color: #666">Width</small>
+                  <input type="number" id="rectWidth" value="0" min="0" />
+                </div>
+                <div>
+                  <small style="color: #666">Height</small>
+                  <input type="number" id="rectHeight" value="0" min="0" />
+                </div>
+              </div>
+              <small style="color: #666; display: block; margin-top: 5px">
+                If empty, uses full image dimensions
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- SEO Content Section -->
+      <section class="seo-content">
+        <h2>Pixelate Images & Photos Online</h2>
+
+        <p>
+          Our <strong>image pixelator</strong> is a free, browser-based tool
+          that lets you <strong>pixelate images online</strong> without
+          installing any software. Whether you want to blur sensitive content,
+          hide faces, or apply a creative pixelation effect, this
+          <strong>photo pixelator</strong> works instantly.
+        </p>
+
+        <h3>Why Use This Image Pixelator?</h3>
+        <ul>
+          <li>Pixelate a photo or picture in seconds</li>
+          <li>Select specific areas or pixelate the entire image</li>
+          <li>Control pixel size for precise pixelation strength</li>
+          <li>Works fully online – no uploads to a server</li>
+          <li>Download pixelated images in PNG, JPG, or WebP</li>
+        </ul>
+
+        <h3>Pixelate a Picture Online Easily</h3>
+        <p>
+          This <strong>pixelator online</strong> allows you to
+          <strong>pixelate a picture</strong> by simply uploading an image,
+          adjusting the pixel size, and selecting the area you want to pixelate.
+          It works for portraits, screenshots, documents, and social media
+          images.
+        </p>
+
+        <h3>Common Uses for Pixelation</h3>
+        <p>Use this <strong>picture pixelator</strong> to:</p>
+        <ul>
+          <li>Blur faces or private information</li>
+          <li>Pixelate text or backgrounds</li>
+          <li>Create pixel art–style effects</li>
+          <li>Protect privacy in photos before sharing</li>
+        </ul>
+
+        <h3>Free Picture Pixel Converter</h3>
+        <p>
+          This tool also works as a <strong>picture pixel converter</strong>,
+          transforming normal images into pixelated visuals instantly. You can
+          <strong>pixelate this image</strong> directly in your browser with
+          real-time preview and full control.
+        </p>
+
+        <p>
+          Try our <strong>image pixilator</strong> today and
+          <strong>pixelate images online</strong> quickly, safely, and for free.
+        </p>
+        <section class="seo-content">
+          <div class="seo-inner">
+            <h2>Frequently Asked Questions – Image Pixelator</h2>
+
+            <h3>What is the primary function of this online tool?</h3>
+            <p>
+              This online tool allows users to easily
+              <strong>pixelate images</strong> by simply dragging and dropping
+              their photos. It automatically applies a pixelation effect, making
+              it a fast and convenient <strong>image pixelator</strong>.
+            </p>
+
+            <h3>How can I customize the pixelation effect?</h3>
+            <p>
+              You can set the pixelation radius and adjust the specific area of
+              the image that should be pixelated. This gives you full control
+              over how your photo pixelator applies the pixelation.
+            </p>
+
+            <h3>Is this tool free to use?</h3>
+            <p>
+              Yes, this <strong>image pixilator</strong> is completely free. You
+              can pixelate images online without creating an account or paying
+              any fees.
+            </p>
+
+            <h3>What types of images can I upload for pixelation?</h3>
+            <p>
+              You can upload common image formats such as
+              <strong>JPEG, PNG, and GIF</strong>. This makes the tool a
+              flexible <strong>picture pixelator</strong> for most use cases.
+            </p>
+
+            <h3>Can I pixelate only a specific part of my image?</h3>
+            <p>
+              Yes. The tool allows you to select a specific area of your image
+              and apply pixelation only to that region, perfect for faces or
+              sensitive details.
+            </p>
+
+            <h3>
+              Is there a limit on the size or resolution of images I can upload?
+            </h3>
+            <p>
+              The tool supports high-resolution images. However, extremely large
+              files may take longer to process. For best performance, using
+              optimized image sizes is recommended.
+            </p>
+          </div>
+        </section>
+      </section>
+    </div>
+
+    <script>
+      const fileInput = document.getElementById("fileInput");
+      const inputZone = document.getElementById("inputZone");
+      const dropZone = document.getElementById("dropZone");
+      const inputCanvas = document.getElementById("inputCanvas");
+      const outputCanvas = document.getElementById("outputCanvas");
+      const outputPlaceholder = document.getElementById("outputPlaceholder");
+      const pixelStrength = document.getElementById("pixelStrength");
+      const pixelValue = document.getElementById("pixelValue");
+      const selectAreaCheckbox = document.getElementById("selectArea");
+      const autoUpdateCheckbox = document.getElementById("autoUpdate");
+      const applyBtn = document.getElementById("applyBtn");
+      const resetBtn = document.getElementById("resetBtn");
+      const downloadBtn = document.getElementById("downloadBtn");
+      const copyBtn = document.getElementById("copyBtn");
+      const downloadFormat = document.getElementById("downloadFormat");
+      const rectX = document.getElementById("rectX");
+      const rectY = document.getElementById("rectY");
+      const rectWidth = document.getElementById("rectWidth");
+      const rectHeight = document.getElementById("rectHeight");
+
+      let originalImage = null;
+      let selectionRect = null;
+      let isSelecting = false;
+      let startX, startY;
+      let selectionOverlay = null;
+
+      // Update pixel value display and trigger update
+      pixelStrength.addEventListener("input", (e) => {
+        pixelValue.textContent = e.target.value;
+        if (autoUpdateCheckbox.checked) {
+          applyPixelation();
+        }
+      });
+
+      // File input handling
+      dropZone.addEventListener("click", () => fileInput.click());
+
+      fileInput.addEventListener("change", (e) => {
+        if (e.target.files.length > 0) {
+          loadImage(e.target.files[0]);
+        }
+      });
+
+      // Drag and drop
+      inputZone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        inputZone.classList.add("dragover");
+      });
+
+      inputZone.addEventListener("dragleave", () => {
+        inputZone.classList.remove("dragover");
+      });
+
+      inputZone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        inputZone.classList.remove("dragover");
+
+        if (e.dataTransfer.files.length > 0) {
+          loadImage(e.dataTransfer.files[0]);
+        }
+      });
+
+      // Load image
+      function loadImage(file) {
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+          const img = new Image();
+
+          img.onload = () => {
+            originalImage = img;
+
+            // Show input preview
+            displayInputImage(img);
+            dropZone.style.display = "none";
+            inputCanvas.style.display = "block";
+
+            // Auto-select full image
+            selectionRect = {
+              x: 0,
+              y: 0,
+              width: img.width,
+              height: img.height,
+            };
+
+            updateRectInputs();
+            drawSelectionRect(selectionRect);
+
+            // 🔥 THIS is all you need
+            applyPixelation();
+          };
+
+          img.src = e.target.result;
+        };
+
+        reader.readAsDataURL(file);
+      }
+
+      // Display input image
+      function displayInputImage(img) {
+        const ctx = inputCanvas.getContext("2d");
+        inputCanvas.width = img.width;
+        inputCanvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+      }
+
+      // Draw selection rectangle on input canvas
+      function drawSelectionRect(rect) {
+        if (!rect || !originalImage) return;
+
+        displayInputImage(originalImage);
+        const ctx = inputCanvas.getContext("2d");
+        ctx.strokeStyle = "#667eea";
+        ctx.lineWidth = 2;
+        ctx.setLineDash([5, 5]);
+        ctx.strokeRect(rect.x, rect.y, rect.width, rect.height);
+        ctx.fillStyle = "rgba(102, 126, 234, 0.2)";
+        ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
+      }
+
+      // Area selection
+      inputCanvas.addEventListener("mousedown", (e) => {
+        if (!selectAreaCheckbox.checked) return;
+
+        isSelecting = true;
+        const rect = inputCanvas.getBoundingClientRect();
+        const scaleX = inputCanvas.width / rect.width;
+        const scaleY = inputCanvas.height / rect.height;
+
+        startX = (e.clientX - rect.left) * scaleX;
+        startY = (e.clientY - rect.top) * scaleY;
+      });
+
+      inputCanvas.addEventListener("mousemove", (e) => {
+        if (!isSelecting) return;
+
+        const rect = inputCanvas.getBoundingClientRect();
+        const scaleX = inputCanvas.width / rect.width;
+        const scaleY = inputCanvas.height / rect.height;
+
+        const currentX = (e.clientX - rect.left) * scaleX;
+        const currentY = (e.clientY - rect.top) * scaleY;
+
+        const x = Math.min(startX, currentX);
+        const y = Math.min(startY, currentY);
+        const width = Math.abs(currentX - startX);
+        const height = Math.abs(currentY - startY);
+
+        const tempRect = { x, y, width, height };
+
+        // Draw selection on input canvas
+        drawSelectionRect(tempRect);
+
+        // Real-time pixelation while dragging
+        if (autoUpdateCheckbox.checked) {
+          selectionRect = {
+            x: Math.round(x),
+            y: Math.round(y),
+            width: Math.round(width),
+            height: Math.round(height),
+          };
+          updateRectInputs();
+          applyPixelation();
+        }
+      });
+
+      inputCanvas.addEventListener("mouseup", (e) => {
+        if (!isSelecting) return;
+
+        isSelecting = false;
+        const rect = inputCanvas.getBoundingClientRect();
+        const scaleX = inputCanvas.width / rect.width;
+        const scaleY = inputCanvas.height / rect.height;
+
+        const currentX = (e.clientX - rect.left) * scaleX;
+        const currentY = (e.clientY - rect.top) * scaleY;
+
+        selectionRect = {
+          x: Math.round(Math.min(startX, currentX)),
+          y: Math.round(Math.min(startY, currentY)),
+          width: Math.round(Math.abs(currentX - startX)),
+          height: Math.round(Math.abs(currentY - startY)),
+        };
+
+        updateRectInputs();
+        drawSelectionRect(selectionRect);
+
+        // Apply pixelation after selection
+        if (autoUpdateCheckbox.checked) {
+          applyPixelation();
+        }
+      });
+
+      // Update rectangle inputs
+      function updateRectInputs() {
+        if (selectionRect) {
+          rectX.value = selectionRect.x;
+          rectY.value = selectionRect.y;
+          rectWidth.value = selectionRect.width;
+          rectHeight.value = selectionRect.height;
+        } else if (originalImage) {
+          rectX.value = 0;
+          rectY.value = 0;
+          rectWidth.value = originalImage.width;
+          rectHeight.value = originalImage.height;
+        } else {
+          rectX.value = 0;
+          rectY.value = 0;
+          rectWidth.value = 0;
+          rectHeight.value = 0;
+        }
+      }
+
+      // Update selection from inputs
+      [rectX, rectY, rectWidth, rectHeight].forEach((input) => {
+        input.addEventListener("input", () => {
+          if (!selectAreaCheckbox.checked || !originalImage) return;
+
+          selectionRect = {
+            x: parseInt(rectX.value) || 0,
+            y: parseInt(rectY.value) || 0,
+            width: parseInt(rectWidth.value) || originalImage.width,
+            height: parseInt(rectHeight.value) || originalImage.height,
+          };
+
+          drawSelectionRect(selectionRect);
+
+          if (autoUpdateCheckbox.checked) {
+            applyPixelation();
+          }
+        });
+      });
+
+      // Apply pixelation function
+      function applyPixelation() {
+        if (!originalImage) return;
+
+        const pixelSize = parseInt(pixelStrength.value, 10);
+        const ctx = outputCanvas.getContext("2d");
+
+        outputCanvas.width = originalImage.width;
+        outputCanvas.height = originalImage.height;
+
+        // 1. Always redraw original image FIRST
+        ctx.clearRect(0, 0, outputCanvas.width, outputCanvas.height);
+        ctx.drawImage(originalImage, 0, 0);
+
+        // 2. Decide pixelation area
+        let pixelArea;
+
+        if (selectAreaCheckbox.checked) {
+          // ✅ If area mode ON but no area yet → default to FULL image
+          pixelArea =
+            selectionRect && selectionRect.width > 0 && selectionRect.height > 0
+              ? selectionRect
+              : {
+                  x: 0,
+                  y: 0,
+                  width: originalImage.width,
+                  height: originalImage.height,
+                };
+        } else {
+          // Pixelate entire image
+          pixelArea = {
+            x: 0,
+            y: 0,
+            width: originalImage.width,
+            height: originalImage.height,
+          };
+        }
+
+        // 3. Apply pixelation
+        pixelateArea(
+          ctx,
+          pixelArea.x,
+          pixelArea.y,
+          pixelArea.width,
+          pixelArea.height,
+          pixelSize,
+        );
+
+        // 4. Show output
+        outputCanvas.style.display = "block";
+        outputPlaceholder.style.display = "none";
+        downloadBtn.disabled = false;
+        copyBtn.disabled = false;
+      }
+
+      // Pixelate function
+      function pixelateArea(ctx, x, y, width, height, pixelSize) {
+        // Ensure coordinates are within bounds
+        x = Math.max(0, Math.min(x, outputCanvas.width));
+        y = Math.max(0, Math.min(y, outputCanvas.height));
+        width = Math.min(width, outputCanvas.width - x);
+        height = Math.min(height, outputCanvas.height - y);
+
+        for (let py = y; py < y + height; py += pixelSize) {
+          for (let px = x; px < x + width; px += pixelSize) {
+            const imageData = ctx.getImageData(px, py, 1, 1);
+            const pixel = imageData.data;
+
+            ctx.fillStyle = `rgba(${pixel[0]}, ${pixel[1]}, ${pixel[2]}, ${pixel[3] / 255})`;
+
+            const rectWidth = Math.min(pixelSize, x + width - px);
+            const rectHeight = Math.min(pixelSize, y + height - py);
+            ctx.fillRect(px, py, rectWidth, rectHeight);
+          }
+        }
+      }
+
+      // Manual apply button
+      applyBtn.addEventListener("click", () => {
+        if (!originalImage) {
+          alert("Please upload an image first!");
+          return;
+        }
+        applyPixelation();
+      });
+
+      // Clear selection
+      resetBtn.addEventListener("click", () => {
+        if (originalImage) {
+          displayInputImage(originalImage);
+          selectionRect = null;
+          updateRectInputs();
+
+          // Reset output to original image
+          const ctx = outputCanvas.getContext("2d");
+          ctx.drawImage(originalImage, 0, 0);
+        }
+      });
+
+      // Download
+      downloadBtn.addEventListener("click", () => {
+        const format = downloadFormat.value;
+        let mimeType = "image/png";
+        let extension = "png";
+
+        if (format === "jpeg") {
+          mimeType = "image/jpeg";
+          extension = "jpg";
+        } else if (format === "webp") {
+          mimeType = "image/webp";
+          extension = "webp";
+        }
+
+        outputCanvas.toBlob((blob) => {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = `pixelated-image.${extension}`;
+          a.click();
+          URL.revokeObjectURL(url);
+        }, mimeType);
+      });
+
+      // Copy to clipboard
+      copyBtn.addEventListener("click", () => {
+        outputCanvas.toBlob((blob) => {
+          navigator.clipboard
+            .write([new ClipboardItem({ "image/png": blob })])
+            .then(() => {
+              alert("Image copied to clipboard!");
+            })
+            .catch((err) => {
+              alert("Failed to copy image: " + err);
+            });
+        });
+      });
+
+      // Clear selection when checkbox is unchecked
+      selectAreaCheckbox.addEventListener("change", (e) => {
+        if (!e.target.checked && originalImage) {
+          displayInputImage(originalImage);
+          selectionRect = null;
+          updateRectInputs();
+
+          // If auto-update is on, apply pixelation to entire image
+          if (autoUpdateCheckbox.checked) {
+            applyPixelation();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
