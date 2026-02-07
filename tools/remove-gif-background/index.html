@@ -2,194 +2,136 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>GIF Background Remover</title>
+    <title>GIF Background Remover (Animation)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <style>
       body {
-        font-family: Arial, sans-serif;
-        padding: 20px;
+        font-family: system-ui, sans-serif;
+        padding: 24px;
+        background: #f8fafc;
       }
+
       canvas {
         border: 1px solid #ccc;
-        margin-top: 10px;
+        background: checkerboard;
+        margin-top: 12px;
       }
-      img {
-        max-width: 300px;
-        display: block;
-        margin-top: 10px;
+
+      @keyframes checker {
+        from {
+          background-position: 0 0;
+        }
+        to {
+          background-position: 16px 16px;
+        }
+      }
+
+      canvas {
+        background:
+          linear-gradient(45deg, #eee 25%, transparent 25%),
+          linear-gradient(-45deg, #eee 25%, transparent 25%),
+          linear-gradient(45deg, transparent 75%, #eee 75%),
+          linear-gradient(-45deg, transparent 75%, #eee 75%);
+        background-size: 16px 16px;
+        background-position:
+          0 0,
+          0 8px,
+          8px -8px,
+          -8px 0px;
       }
     </style>
   </head>
   <body>
-    <h2>GIF Background Remover (Animated)</h2>
+    <h2>GIF Background Remover (Full Animation)</h2>
 
-    <input type="file" id="fileInput" accept="image/gif" /><br /><br />
+    <input type="file" id="fileInput" accept="image/gif" />
 
-    <label
-      >Background color:
-      <input type="color" id="bgColor" value="#ffffff" />
-    </label>
+    <canvas id="canvas"></canvas>
 
-    <label
-      >Tolerance:
-      <input type="range" id="tolerance" min="1" max="50" value="15" />
-    </label>
+    <p>⚠️ Run via <b>http://localhost</b> (Live Server / python http.server)</p>
 
-    <button id="processBtn">Remove Background</button>
-
-    <h3>Preview frame</h3>
-    <canvas id="previewCanvas"></canvas>
-
-    <h3>Output GIF</h3>
-    <img id="outputGif" />
-
-    <script src="https://unpkg.com/gifuct-js/dist/gifuct.min.js"></script>
-    <script src="https://www.moviesearch.online/tools/remove-gif-background/gif.js"></script>
+    <!-- gifuct-js -->
+    <script src="https://unpkg.com/gifuct-js@2.1.2/dist/gifuct.min.js"></script>
 
     <script>
-      const fileInput = document.getElementById("fileInput");
-      const bgColor = document.getElementById("bgColor");
-      const toleranceInput = document.getElementById("tolerance");
-      const previewCanvas = document.getElementById("previewCanvas");
-      const outputGif = document.getElementById("outputGif");
-      const processBtn = document.getElementById("processBtn");
+      const input = document.getElementById("fileInput");
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
 
       let frames = [];
-      let delays = [];
-      let width = 0;
-      let height = 0;
+      let frameIndex = 0;
+      let lastTime = 0;
 
-      fileInput.addEventListener("change", loadGIF);
-      processBtn.addEventListener("click", processGIF);
-
-      function loadGIF(e) {
+      input.addEventListener("change", (e) => {
         const file = e.target.files[0];
         if (!file) return;
 
         const reader = new FileReader();
         reader.onload = () => decodeGIF(reader.result);
         reader.readAsArrayBuffer(file);
-      }
+      });
 
       function decodeGIF(buffer) {
-        const gif = gifuct.parseGIF(buffer);
-        const decodedFrames = gifuct.decompressFrames(gif, true);
+        const gif = parseGIF(buffer);
+        frames = decompressFrames(gif, true);
 
-        width = gif.lsd.width;
-        height = gif.lsd.height;
-
-        frames = [];
-        delays = [];
-
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
+        const { width, height } = frames[0].dims;
         canvas.width = width;
         canvas.height = height;
 
-        decodedFrames.forEach((f) => {
-          ctx.putImageData(f.patch, 0, 0);
-          frames.push(ctx.getImageData(0, 0, width, height));
-          delays.push((f.delay || 10) * 10);
+        // Remove background on all frames
+        frames.forEach((frame) => {
+          removeBackground(frame.patch);
         });
 
-        previewCanvas.width = width;
-        previewCanvas.height = height;
-        previewCanvas.getContext("2d").putImageData(frames[0], 0, 0);
+        frameIndex = 0;
+        lastTime = performance.now();
+        requestAnimationFrame(play);
       }
 
-      function processGIF() {
-        if (!frames.length) return;
+      function play(time) {
+        const frame = frames[frameIndex];
 
-        const target = hexToRgb(bgColor.value);
-        const threshold = parseInt(toleranceInput.value);
+        const delay = (frame.delay || 10) * 10; // GIF delay = 1/100 sec
 
-        const processed = frames.map((f) =>
-          removeBackground(f, target, threshold),
-        );
+        if (time - lastTime >= delay) {
+          const imageData = ctx.createImageData(
+            frame.dims.width,
+            frame.dims.height,
+          );
 
-        encodeGIF(processed);
+          imageData.data.set(frame.patch);
+          ctx.putImageData(imageData, 0, 0);
+
+          frameIndex = (frameIndex + 1) % frames.length;
+          lastTime = time;
+        }
+
+        requestAnimationFrame(play);
       }
 
-      /* ---------- Background removal ---------- */
+      function removeBackground(data) {
+        // 🔑 Pick top-left pixel as background color
+        const r0 = data[0];
+        const g0 = data[1];
+        const b0 = data[2];
 
-      function removeBackground(imageData, color, threshold) {
-        const data = new Uint8ClampedArray(imageData.data);
-        const labTarget = rgbToLab(color.r, color.g, color.b);
+        const tolerance = 30;
 
         for (let i = 0; i < data.length; i += 4) {
-          const lab = rgbToLab(data[i], data[i + 1], data[i + 2]);
-          if (deltaE(lab, labTarget) < threshold) {
-            data[i + 3] = 0;
+          const r = data[i];
+          const g = data[i + 1];
+          const b = data[i + 2];
+
+          if (
+            Math.abs(r - r0) < tolerance &&
+            Math.abs(g - g0) < tolerance &&
+            Math.abs(b - b0) < tolerance
+          ) {
+            data[i + 3] = 0; // transparent
           }
         }
-        return new ImageData(data, imageData.width, imageData.height);
-      }
-
-      /* ---------- Encode GIF ---------- */
-
-      function encodeGIF(frames) {
-        const gif = new GIF({
-          workers: 2,
-          quality: 10,
-          width,
-          height,
-          workerScript: "./gif.worker.js",
-          transparent: null,
-        });
-
-        frames.forEach((frame, i) => {
-          const canvas = document.createElement("canvas");
-          const ctx = canvas.getContext("2d");
-          canvas.width = width;
-          canvas.height = height;
-          ctx.putImageData(frame, 0, 0);
-
-          gif.addFrame(canvas, {
-            delay: delays[i],
-            copy: true,
-          });
-        });
-
-        gif.on("finished", (blob) => {
-          outputGif.src = URL.createObjectURL(blob);
-        });
-
-        gif.render();
-      }
-
-      /* ---------- Color helpers ---------- */
-
-      function hexToRgb(hex) {
-        const v = parseInt(hex.slice(1), 16);
-        return { r: v >> 16, g: (v >> 8) & 255, b: v & 255 };
-      }
-
-      function rgbToLab(r, g, b) {
-        r /= 255;
-        g /= 255;
-        b /= 255;
-        r = r > 0.04045 ? Math.pow((r + 0.055) / 1.055, 2.4) : r / 12.92;
-        g = g > 0.04045 ? Math.pow((g + 0.055) / 1.055, 2.4) : g / 12.92;
-        b = b > 0.04045 ? Math.pow((b + 0.055) / 1.055, 2.4) : b / 12.92;
-
-        const x = (r * 0.4124 + g * 0.3576 + b * 0.1805) / 0.95047;
-        const y = r * 0.2126 + g * 0.7152 + b * 0.0722;
-        const z = (r * 0.0193 + g * 0.1192 + b * 0.9505) / 1.08883;
-
-        const fx = x > 0.008856 ? Math.cbrt(x) : 7.787 * x + 16 / 116;
-        const fy = y > 0.008856 ? Math.cbrt(y) : 7.787 * y + 16 / 116;
-        const fz = z > 0.008856 ? Math.cbrt(z) : 7.787 * z + 16 / 116;
-
-        return {
-          l: 116 * fy - 16,
-          a: 500 * (fx - fy),
-          b: 200 * (fy - fz),
-        };
-      }
-
-      function deltaE(a, b) {
-        return Math.sqrt(
-          (a.l - b.l) ** 2 + (a.a - b.a) ** 2 + (a.b - b.b) ** 2,
-        );
       }
     </script>
   </body>
