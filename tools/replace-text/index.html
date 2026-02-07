@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>Find and Replace Text Online – Free Text Replacer Tool</title>
+
+    <meta
+      name="description"
+      content="Free online find and replace text tool. Easily search and replace text in seconds. Replace text online instantly, import files, and download results."
+    />
+
+    <meta
+      name="keywords"
+      content="find and replace, find and replace text, replace text online, replace text, find and replace online, search and replace, replace in text, online replace text"
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a find and replace text tool?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A find and replace text tool lets you search for specific words or phrases in text and replace them with new content instantly. It is commonly used for editing documents, cleaning text, and making bulk text changes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I replace text online using this tool?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Simply paste or type your text into the input box, enter the text you want to find, and specify the replacement text. The replaced text appears instantly and can be copied or downloaded."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this find and replace tool replace all occurrences?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. This online replace text tool searches the entire text and replaces all matching occurrences automatically."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I replace text in uploaded files?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can import a text file, perform a search and replace, and download the updated file instantly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this replace text online tool free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. This find and replace online tool is completely free to use and works directly in your browser."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <style>
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: #ffffff;
+        margin: 0;
+        padding: 30px;
+        color: #1f2937;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+      }
+
+      header a {
+        text-decoration: none;
+        color: #4f6fad;
+        font-weight: 600;
+      }
+
+      :root {
+        --primary: #4f6ef7;
+        --primary-dark: #3b55d9;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --text: #111827;
+        --muted: #6b7280;
+      }
+
+      .hero {
+        max-width: 980px;
+        margin: 24px auto;
+        padding: 40px 24px;
+        background: #f0f4ff;
+        border: 1px solid #dbe4ff;
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto 24px;
+        line-height: 1.6;
+      }
+
+      .hero a.cta {
+        display: inline-block;
+        padding: 12px 26px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      h1 {
+        text-align: center;
+        font-size: 42px;
+        margin-bottom: 5px;
+      }
+
+      h2.subtitle {
+        text-align: center;
+        font-weight: 400;
+        color: #6b7280;
+        margin-bottom: 20px;
+      }
+
+      .desc {
+        max-width: 950px;
+        margin: 0 auto 35px;
+        text-align: center;
+        color: #4b5563;
+        line-height: 1.7;
+        font-size: 16px;
+      }
+
+      .replace-controls {
+        max-width: 1300px;
+        margin: 0 auto 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      .control-group label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .control-group input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #c7d2fe;
+      }
+
+      .panes {
+        max-width: 1300px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+      }
+
+      textarea {
+        width: 100%;
+        height: 420px;
+        background: #6b87b3;
+        border: none;
+        border-radius: 10px;
+        padding: 16px;
+        color: white;
+        resize: vertical;
+        line-height: 1.6;
+      }
+
+      .pane-footer {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 10px;
+      }
+
+      .pane-footer button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .faq {
+        max-width: 900px;
+        margin: 70px auto 20px;
+      }
+
+      .faq h2 {
+        font-size: 30px;
+        margin-bottom: 20px;
+      }
+
+      .faq h3 {
+        margin-bottom: 6px;
+        font-size: 18px;
+      }
+
+      .faq p {
+        margin-bottom: 20px;
+        color: #4b5563;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 1000px) {
+        .panes,
+        .replace-controls {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+
+  <body>
+    <header>
+      <a href="https://moviesearch.online">← Home</a>
+    </header>
+
+    <h1>Find and Replace Text Online</h1>
+    <h2 class="subtitle">Fast, Simple, and Free Text Replacer</h2>
+
+    <p class="desc">
+      This free online find and replace text tool helps you quickly search and
+      replace words or phrases in any text. Paste your content, choose what to
+      find, and instantly replace text online without downloads or sign-ups.
+      It’s perfect for editing documents, cleaning data, and replacing text in
+      seconds.
+    </p>
+    <div class="hero">
+      <h1>Convert Images to Vector Graphics Instantly</h1>
+      <p>
+        Turn raster images into clean, scalable vector files for design, print,
+        or web use.
+      </p>
+      <a class="cta" href="https://rastertovector.online" target="_blank">
+        Convert Raster to Vector
+      </a>
+    </div>
+    <div class="replace-controls">
+      <div class="control-group">
+        <label>Text to replace</label>
+        <input id="searchText" value="personal computer" />
+      </div>
+
+      <div class="control-group">
+        <label>Replace Text</label>
+        <input id="replaceText" value="pc" />
+      </div>
+    </div>
+
+    <div class="panes">
+      <div>
+        <h3>Input Text</h3>
+        <textarea
+          id="inputText"
+          placeholder="Paste or type your text here…"
+        ></textarea>
+        <div class="pane-footer">
+          <button onclick="document.getElementById('fileInput').click()">
+            Import from file
+          </button>
+          <button onclick="copyText('inputText')">Copy</button>
+        </div>
+        <input type="file" id="fileInput" accept=".txt" hidden />
+      </div>
+
+      <div>
+        <h3>Replaced Text</h3>
+        <textarea id="outputText" readonly></textarea>
+        <div class="pane-footer">
+          <button onclick="downloadTxt()">Download .txt</button>
+          <button onclick="copyText('outputText')">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <section class="faq">
+      <h2>Frequently Asked Questions</h2>
+
+      <h3>What is find and replace?</h3>
+      <p>
+        Find and replace is a text editing process that lets you search for
+        specific words or phrases and replace them with new text automatically.
+      </p>
+
+      <h3>Can I replace text online without installing anything?</h3>
+      <p>
+        Yes. This online replace text tool works entirely in your browser with
+        no downloads or registration required.
+      </p>
+
+      <h3>Does this search and replace tool handle large text?</h3>
+      <p>
+        Absolutely. You can replace text in large documents or uploaded text
+        files quickly and efficiently.
+      </p>
+    </section>
+
+    <script>
+      const inputText = document.getElementById("inputText");
+      const outputText = document.getElementById("outputText");
+      const searchText = document.getElementById("searchText");
+      const replaceText = document.getElementById("replaceText");
+      const fileInput = document.getElementById("fileInput");
+
+      function update() {
+        outputText.value = searchText.value
+          ? inputText.value.split(searchText.value).join(replaceText.value)
+          : inputText.value;
+      }
+
+      inputText.addEventListener("input", update);
+      searchText.addEventListener("input", update);
+      replaceText.addEventListener("input", update);
+
+      fileInput.addEventListener("change", () => {
+        const file = fileInput.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          inputText.value = reader.result;
+          update();
+        };
+        reader.readAsText(file);
+      });
+
+      function copyText(id) {
+        const el = document.getElementById(id);
+        el.select();
+        document.execCommand("copy");
+      }
+
+      function downloadTxt() {
+        const blob = new Blob([outputText.value], { type: "text/plain" });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "replaced-text.txt";
+        a.click();
+      }
+    </script>
+  </body>
+</html>

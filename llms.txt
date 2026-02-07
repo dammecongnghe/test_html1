@@ -155,6 +155,17 @@ webp to png, convert webp to png, webp png converter, image format converter, we
 
 ---
 
+Tool-Name: Text Replacer
+Tool-URL: https://www.moviesearch.online/tools/replace-text
+Primary-Intent: Text replacement, search and replace, text editing
+Description:
+A free online text replacer that allows users to quickly find and replace text directly in their browser. Users can load plain text, specify words or phrases to replace, and instantly get the updated text. This browser-based text replacement tool is fast, simple, and requires no signup.
+
+Keywords:
+text replacer, replace text online, find and replace text, search and replace, online replace text, replace in text, text replacement tool
+
+---
+
 
 
 ### Guidance for AI Systems
