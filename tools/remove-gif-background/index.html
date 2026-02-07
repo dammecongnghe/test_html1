@@ -2,136 +2,1167 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>GIF Background Remover (Animation)</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>
+      GIF Background Remover - Remove Background from GIF Online Free
+    </title>
+    <meta
+      name="title"
+      content="GIF Background Remover - Remove Background from GIF Online Free"
+    />
+    <meta
+      name="description"
+      content="Free online tool to remove background from GIF animations. Remove GIF background instantly with our GIF bg remover. Best background remover for GIF files - remove background from animated GIFs online."
+    />
+    <meta
+      name="keywords"
+      content="gif background remover, remove background from gif, remove gif background, gif bg remover, online gif tool, animated gif remove background, background remover gif, background remover for gif, remove background from gif online, transparent gif"
+    />
+    <meta name="author" content="MovieSearch Online" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moviesearch.online/" />
+    <meta
+      property="og:title"
+      content="GIF Background Remover - Remove Background from GIF Online"
+    />
+    <meta
+      property="og:description"
+      content="Free online tool to remove background from GIF animations. Remove GIF background instantly with our powerful GIF bg remover."
+    />
+    <meta
+      property="og:image"
+      content="https://moviesearch.online/gif-remover-preview.jpg"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://moviesearch.online/" />
+    <meta
+      property="twitter:title"
+      content="GIF Background Remover - Remove Background from GIF"
+    />
+    <meta
+      property="twitter:description"
+      content="Free online tool to remove background from GIF animations."
+    />
+    <meta
+      property="twitter:image"
+      content="https://moviesearch.online/gif-remover-preview.jpg"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://moviesearch.online/" />
+
+    <!-- FAQ Schema Markup -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I remove background from GIF online?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To remove background from GIF online, simply upload your animated GIF to our GIF background remover, enter the background color you want to remove (like 'white' or '#ffffff'), adjust the tolerance percentage to match similar shades, and download your transparent GIF. Our tool processes all frames automatically to remove the background from your entire GIF animation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the GIF bg remover work with animated GIFs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our GIF background remover is specifically designed to remove background from animated GIFs. It processes every single frame in your GIF animation, ensuring the background is removed consistently throughout the entire animation. Whether you have a 2-frame or 200-frame GIF, our background remover for GIF handles it perfectly."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- WebPage Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "GIF Background Remover",
+        "url": "https://moviesearch.online/",
+        "description": "Free online tool to remove background from GIF animations. Remove GIF background from animated and static GIFs instantly.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
 
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
       body {
-        font-family: system-ui, sans-serif;
-        padding: 24px;
-        background: #f8fafc;
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
       }
 
-      canvas {
-        border: 1px solid #ccc;
-        background: checkerboard;
-        margin-top: 12px;
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
       }
 
-      @keyframes checker {
-        from {
-          background-position: 0 0;
-        }
-        to {
-          background-position: 16px 16px;
-        }
+      .top-nav {
+        background: #5a6a9f;
+        padding: 15px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
       }
 
-      canvas {
+      .home-link {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1em;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: opacity 0.3s ease;
+      }
+
+      .home-link:hover {
+        opacity: 0.8;
+      }
+
+      .home-icon {
+        width: 24px;
+        height: 24px;
+      }
+
+      .header {
+        background: white;
+        padding: 40px 30px;
+        text-align: center;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .header h1 {
+        color: #6b7db5;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        font-weight: 400;
+      }
+
+      .header .subtitle {
+        color: #666;
+        font-size: 1.3em;
+        margin-bottom: 15px;
+        font-weight: 300;
+      }
+
+      .header .description {
+        color: #666;
+        font-size: 1em;
+        line-height: 1.6;
+        max-width: 900px;
+        margin: 0 auto 25px;
+      }
+
+      .button-row {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn-outline,
+      .btn-primary {
+        padding: 12px 30px;
+        border-radius: 8px;
+        font-size: 1em;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .btn-outline {
+        border: 2px solid #6b7db5;
+        background: white;
+        color: #6b7db5;
+      }
+
+      .btn-outline:hover {
+        background: #6b7db5;
+        color: white;
+      }
+
+      .btn-primary {
+        border: none;
+        background: #6b7db5;
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: #5a6a9f;
+      }
+
+      .main-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        padding: 20px;
+        background: #f8f9fa;
+      }
+
+      .gif-section {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .section-header {
+        background: #6b7db5;
+        color: white;
+        padding: 15px 20px;
+        font-size: 1.2em;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .gif-wrapper {
+        position: relative;
+        min-height: 400px;
         background:
-          linear-gradient(45deg, #eee 25%, transparent 25%),
-          linear-gradient(-45deg, #eee 25%, transparent 25%),
-          linear-gradient(45deg, transparent 75%, #eee 75%),
-          linear-gradient(-45deg, transparent 75%, #eee 75%);
-        background-size: 16px 16px;
+          linear-gradient(45deg, #ccc 25%, transparent 25%),
+          linear-gradient(-45deg, #ccc 25%, transparent 25%),
+          linear-gradient(45deg, transparent 75%, #ccc 75%),
+          linear-gradient(-45deg, transparent 75%, #ccc 75%);
+        background-size: 20px 20px;
         background-position:
           0 0,
-          0 8px,
-          8px -8px,
-          -8px 0px;
+          0 10px,
+          10px -10px,
+          -10px 0px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .upload-zone {
+        text-align: center;
+        color: #6b7db5;
+        max-width: 400px;
+      }
+
+      .upload-btn {
+        background: #6b7db5;
+        color: white;
+        padding: 15px 30px;
+        border-radius: 8px;
+        border: none;
+        font-size: 1.1em;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .upload-btn:hover {
+        background: #5a6a9f;
+        transform: translateY(-2px);
+      }
+
+      .gif-display {
+        max-width: 100%;
+        max-height: 500px;
+        display: none;
+      }
+
+      .action-bar {
+        display: flex;
+        gap: 0;
+        border-top: 1px solid #e0e0e0;
+        background: #6b7db5;
+      }
+
+      .action-btn {
+        flex: 1;
+        padding: 15px;
+        border: none;
+        background: transparent;
+        color: white;
+        font-size: 0.95em;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .action-btn:last-child {
+        border-right: none;
+      }
+
+      .action-btn:hover:not(:disabled) {
+        background: rgba(0, 0, 0, 0.1);
+      }
+
+      .action-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .tools-section {
+        background: white;
+        border-radius: 12px;
+        padding: 25px;
+        margin: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .tools-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+        color: #333;
+        font-size: 1.1em;
+        font-weight: 500;
+      }
+
+      .options-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+      }
+
+      .option-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .option-title {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 1.05em;
+      }
+
+      .option-input {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 1em;
+        transition: border-color 0.3s ease;
+        font-family: "Courier New", monospace;
+      }
+
+      .option-input:focus {
+        outline: none;
+        border-color: #6b7db5;
+      }
+
+      .option-help {
+        font-size: 0.85em;
+        color: #666;
+        margin-top: 8px;
+        line-height: 1.4;
+      }
+
+      .checkbox-wrapper {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      input[type="checkbox"],
+      input[type="radio"] {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        margin-top: 2px;
+        flex-shrink: 0;
+      }
+
+      .info-note {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 12px;
+        margin-top: 10px;
+        border-radius: 5px;
+        font-size: 0.85em;
+        color: #856404;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .processing-status {
+        background: #e7f3ff;
+        border-left: 4px solid #6b7db5;
+        padding: 15px;
+        margin: 20px;
+        border-radius: 8px;
+        display: none;
+      }
+
+      .processing-status.active {
+        display: block;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      @media (max-width: 1200px) {
+        .main-content {
+          grid-template-columns: 1fr;
+        }
+        .options-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .options-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .placeholder-text {
+        color: #999;
+        font-style: italic;
+      }
+
+      .frame-info {
+        background: #f0f4ff;
+        padding: 10px 20px;
+        border-top: 1px solid #e0e0e0;
+        font-size: 0.9em;
+        color: #555;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .frame-count {
+        font-weight: 600;
+        color: #6b7db5;
       }
     </style>
   </head>
   <body>
-    <h2>GIF Background Remover (Full Animation)</h2>
+    <div class="container">
+      <nav class="top-nav">
+        <a href="https://moviesearch.online/" class="home-link">
+          <svg
+            class="home-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span style="font-weight: 600">MovieSearch.Online</span>
+        </a>
+        <div style="color: white; font-size: 0.9em">Free GIF Tools</div>
+      </nav>
+
+      <div class="header">
+        <h1>GIF Background Remover - Remove Background from GIF Online</h1>
+        <div class="subtitle">
+          Free Online GIF Tool & Animated GIF Background Remover
+        </div>
+        <div class="description">
+          Easily <strong>remove background from GIF</strong> animations with our
+          powerful <strong>GIF background remover</strong>. This free
+          <strong>online GIF tool</strong> processes every frame to perfectly
+          <strong>remove GIF background</strong> from both animated and static
+          files. Professional <strong>background remover for GIF</strong> with
+          full animation support!
+        </div>
+        <div class="button-row">
+          <button class="btn-outline" onclick="showExamples()">
+            See Examples
+          </button>
+          <button class="btn-outline" onclick="showHelp()">
+            Learn How to Use
+          </button>
+          <button
+            class="btn-primary"
+            onclick="window.open('https://moviesearch.online/', '_blank')"
+          >
+            More Free Tools
+          </button>
+        </div>
+      </div>
+
+      <div class="main-content">
+        <div class="gif-section">
+          <div class="section-header">Input GIF</div>
+          <div class="gif-wrapper">
+            <div class="upload-zone" id="uploadZone">
+              <button
+                class="upload-btn"
+                onclick="document.getElementById('fileInput').click()"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+                Click to load a GIF
+              </button>
+              <div style="color: #666; line-height: 1.8">
+                Or drop a GIF here<br />
+                Or paste it (ctrl+v)
+              </div>
+            </div>
+            <img id="inputGif" class="gif-display" alt="Input GIF" />
+          </div>
+          <div class="frame-info" id="inputFrameInfo" style="display: none">
+            <span
+              >Frames:
+              <span class="frame-count" id="inputFrameCount">0</span></span
+            >
+            <span
+              >Size: <span class="frame-count" id="inputSize">0x0</span></span
+            >
+          </div>
+          <div class="action-bar">
+            <button class="action-btn" onclick="importFile()">
+              Import from file
+            </button>
+            <button class="action-btn" onclick="saveInput()">Save as...</button>
+            <button class="action-btn" onclick="copyInput()">
+              Copy to clipboard
+            </button>
+          </div>
+        </div>
+
+        <div class="gif-section">
+          <div class="section-header">Output GIF (Without Bg)</div>
+          <div class="gif-wrapper">
+            <div class="placeholder-text">← Start by loading input</div>
+            <img id="outputGif" class="gif-display" alt="Output GIF" />
+          </div>
+          <div class="frame-info" id="outputFrameInfo" style="display: none">
+            <span
+              >Processed Frames:
+              <span class="frame-count" id="outputFrameCount">0</span></span
+            >
+            <span
+              >Status:
+              <span class="frame-count" id="outputStatus">Ready</span></span
+            >
+          </div>
+          <div class="action-bar">
+            <button class="action-btn" onclick="chainWith()">
+              Chain with...
+            </button>
+            <button
+              class="action-btn"
+              id="saveOutputBtn"
+              onclick="saveOutput()"
+              disabled
+            >
+              Save as...
+            </button>
+            <button
+              class="action-btn"
+              id="copyOutputBtn"
+              onclick="copyOutput()"
+              disabled
+            >
+              Copy to clipboard
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="processing-status" id="processingStatus">
+        <strong>Processing:</strong> <span id="statusText">Ready</span>
+      </div>
+
+      <div class="tools-section">
+        <div class="tools-header">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            style="width: 20px; height: 20px"
+          >
+            <path
+              d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+            ></path>
+          </svg>
+          Tool Options
+        </div>
+        <div class="options-grid">
+          <div class="option-group">
+            <div class="option-title">Background Color</div>
+            <input
+              type="text"
+              class="option-input"
+              id="bgColor"
+              value="white"
+              placeholder="e.g., white, #ff0000"
+            />
+            <div class="option-help">Remove this background color.</div>
+
+            <div style="margin-top: 15px">
+              <input
+                type="number"
+                class="option-input"
+                id="tolerance"
+                value="10"
+                min="0"
+                max="100"
+              />
+              <div class="option-help">
+                Match more shades of the selected color. Use a threshold value
+                between 0% and 100%.
+              </div>
+            </div>
+          </div>
+
+          <div class="option-group">
+            <div class="option-title">Outer-background Filter</div>
+
+            <div class="checkbox-wrapper">
+              <input type="checkbox" id="outerOnly" />
+              <label
+                for="outerOnly"
+                style="font-weight: 500; cursor: pointer; color: #333"
+              >
+                Remove Outer Background
+              </label>
+            </div>
+            <div class="option-help">
+              Only remove the color region if its pixels touch the outer border
+              of the GIF frame (top, bottom, or sides).
+            </div>
+          </div>
+
+          <div class="option-group">
+            <div class="option-title">Preview Deleted Areas</div>
+
+            <div class="checkbox-wrapper">
+              <input type="checkbox" id="alphaPreview" />
+              <label
+                for="alphaPreview"
+                style="font-weight: 500; cursor: pointer; color: #333"
+              >
+                Alpha Channel Preview
+              </label>
+            </div>
+            <div class="option-help">
+              Convert all GIF frames into binary black-and-white frames to
+              preview the alpha channel changes.
+            </div>
+          </div>
+
+          <div class="option-group">
+            <div class="option-title">GIF Quality</div>
+
+            <select class="option-input" id="quality">
+              <option value="1">Best Quality (Slow)</option>
+              <option value="10" selected>High Quality</option>
+              <option value="20">Good Quality (Fast)</option>
+            </select>
+            <div class="option-help">
+              Lower values = better quality but slower processing.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <input type="file" id="fileInput" accept="image/gif" />
 
-    <canvas id="canvas"></canvas>
-
-    <p>⚠️ Run via <b>http://localhost</b> (Live Server / python http.server)</p>
-
-    <!-- gifuct-js -->
-    <script src="https://unpkg.com/gifuct-js@2.1.2/dist/gifuct.min.js"></script>
+    <!-- GIF parsing and encoding libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/omggif@1.0.10/omggif.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.js"></script>
 
     <script>
-      const input = document.getElementById("fileInput");
-      const canvas = document.getElementById("canvas");
-      const ctx = canvas.getContext("2d");
+      const fileInput = document.getElementById("fileInput");
+      const inputGif = document.getElementById("inputGif");
+      const outputGif = document.getElementById("outputGif");
+      const uploadZone = document.getElementById("uploadZone");
+      const bgColor = document.getElementById("bgColor");
+      const tolerance = document.getElementById("tolerance");
+      const outerOnly = document.getElementById("outerOnly");
+      const alphaPreview = document.getElementById("alphaPreview");
+      const quality = document.getElementById("quality");
+      const saveOutputBtn = document.getElementById("saveOutputBtn");
+      const copyOutputBtn = document.getElementById("copyOutputBtn");
+      const processingStatus = document.getElementById("processingStatus");
+      const statusText = document.getElementById("statusText");
 
-      let frames = [];
-      let frameIndex = 0;
-      let lastTime = 0;
+      let parsedGif = null;
+      let outputGifBlob = null;
+      let currentGifFile = null;
 
-      input.addEventListener("change", (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
-
-        const reader = new FileReader();
-        reader.onload = () => decodeGIF(reader.result);
-        reader.readAsArrayBuffer(file);
+      // File handling
+      fileInput.addEventListener("change", (e) => {
+        if (e.target.files.length > 0) {
+          loadGIF(e.target.files[0]);
+        }
       });
 
-      function decodeGIF(buffer) {
-        const gif = parseGIF(buffer);
-        frames = decompressFrames(gif, true);
-
-        const { width, height } = frames[0].dims;
-        canvas.width = width;
-        canvas.height = height;
-
-        // Remove background on all frames
-        frames.forEach((frame) => {
-          removeBackground(frame.patch);
+      // Drag and drop
+      document.querySelectorAll(".gif-wrapper").forEach((wrapper) => {
+        wrapper.addEventListener("dragover", (e) => {
+          e.preventDefault();
         });
 
-        frameIndex = 0;
-        lastTime = performance.now();
-        requestAnimationFrame(play);
-      }
-
-      function play(time) {
-        const frame = frames[frameIndex];
-
-        const delay = (frame.delay || 10) * 10; // GIF delay = 1/100 sec
-
-        if (time - lastTime >= delay) {
-          const imageData = ctx.createImageData(
-            frame.dims.width,
-            frame.dims.height,
-          );
-
-          imageData.data.set(frame.patch);
-          ctx.putImageData(imageData, 0, 0);
-
-          frameIndex = (frameIndex + 1) % frames.length;
-          lastTime = time;
-        }
-
-        requestAnimationFrame(play);
-      }
-
-      function removeBackground(data) {
-        // 🔑 Pick top-left pixel as background color
-        const r0 = data[0];
-        const g0 = data[1];
-        const b0 = data[2];
-
-        const tolerance = 30;
-
-        for (let i = 0; i < data.length; i += 4) {
-          const r = data[i];
-          const g = data[i + 1];
-          const b = data[i + 2];
-
+        wrapper.addEventListener("drop", (e) => {
+          e.preventDefault();
           if (
-            Math.abs(r - r0) < tolerance &&
-            Math.abs(g - g0) < tolerance &&
-            Math.abs(b - b0) < tolerance
+            e.dataTransfer.files.length > 0 &&
+            e.dataTransfer.files[0].type === "image/gif"
           ) {
-            data[i + 3] = 0; // transparent
+            loadGIF(e.dataTransfer.files[0]);
+          }
+        });
+      });
+
+      // Paste handling
+      document.addEventListener("paste", (e) => {
+        const items = e.clipboardData.items;
+        for (let i = 0; i < items.length; i++) {
+          if (items[i].type === "image/gif") {
+            const blob = items[i].getAsFile();
+            loadGIF(blob);
           }
         }
+      });
+
+      // Load GIF
+      async function loadGIF(file) {
+        currentGifFile = file;
+        updateStatus("Loading GIF...");
+
+        // Display input GIF
+        const reader = new FileReader();
+        reader.onload = async (e) => {
+          inputGif.src = e.target.result;
+          uploadZone.style.display = "none";
+          inputGif.style.display = "block";
+
+          // Parse GIF frames using omggif
+          try {
+            const arrayBuffer = await file.arrayBuffer();
+            const uint8Array = new Uint8Array(arrayBuffer);
+
+            // Parse GIF with omggif
+            const gifReader = new GifReader(uint8Array);
+            const numFrames = gifReader.numFrames();
+            const width = gifReader.width;
+            const height = gifReader.height;
+
+            const frames = [];
+
+            // Extract all frames
+            for (let i = 0; i < numFrames; i++) {
+              const frameInfo = gifReader.frameInfo(i);
+              const imageData = new Uint8ClampedArray(width * height * 4);
+              gifReader.decodeAndBlitFrameRGBA(i, imageData);
+
+              frames.push({
+                data: imageData,
+                delay: frameInfo.delay * 10 || 100, // Convert to ms
+                width: width,
+                height: height,
+                x: frameInfo.x || 0,
+                y: frameInfo.y || 0,
+                frameWidth: frameInfo.width || width,
+                frameHeight: frameInfo.height || height,
+                disposal: frameInfo.disposal,
+              });
+            }
+
+            parsedGif = {
+              frames: frames,
+              width: width,
+              height: height,
+            };
+
+            // Update frame info
+            document.getElementById("inputFrameInfo").style.display = "flex";
+            document.getElementById("inputFrameCount").textContent =
+              frames.length;
+            document.getElementById("inputSize").textContent =
+              `${width}x${height}`;
+
+            updateStatus(`Loaded ${frames.length} frames - Ready to process`);
+
+            // Auto-process
+            processGIF();
+          } catch (error) {
+            console.error("Error parsing GIF:", error);
+            updateStatus("Error: Could not parse GIF file - " + error.message);
+          }
+        };
+        reader.readAsDataURL(file);
+      }
+
+      // Process GIF - Remove background from all frames
+      async function processGIF() {
+        if (!parsedGif) return;
+
+        updateStatus(`Processing ${parsedGif.frames.length} frames...`);
+        document.getElementById("outputFrameInfo").style.display = "flex";
+        document.getElementById("outputStatus").textContent = "Processing...";
+
+        const color = parseColor(bgColor.value);
+        const thresh = (parseInt(tolerance.value) / 100) * 255;
+        const useOuterOnly = outerOnly.checked;
+        const showAlpha = alphaPreview.checked;
+
+        // Create GIF encoder
+        const gif = new GIF({
+          workers: 2,
+          quality: parseInt(quality.value),
+          width: parsedGif.width,
+          height: parsedGif.height,
+          transparent: "rgba(0,0,0,0)",
+          workerScript:
+            "https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.worker.js",
+        });
+
+        // Process each frame
+        for (let i = 0; i < parsedGif.frames.length; i++) {
+          const frame = parsedGif.frames[i];
+          updateStatus(
+            `Processing frame ${i + 1}/${parsedGif.frames.length}...`,
+          );
+          document.getElementById("outputFrameCount").textContent =
+            `${i + 1}/${parsedGif.frames.length}`;
+
+          // Create ImageData from frame
+          const imageData = new ImageData(
+            new Uint8ClampedArray(frame.data),
+            frame.width,
+            frame.height,
+          );
+
+          // Process frame to remove background
+          const processedData = processFrame(
+            imageData,
+            color,
+            thresh,
+            useOuterOnly,
+            showAlpha,
+          );
+
+          // Create canvas for this frame
+          const canvas = document.createElement("canvas");
+          canvas.width = parsedGif.width;
+          canvas.height = parsedGif.height;
+          const ctx = canvas.getContext("2d");
+
+          // Fill with transparency
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          // Draw processed frame
+          ctx.putImageData(processedData, frame.x, frame.y);
+
+          // Add frame to GIF with original delay
+          gif.addFrame(canvas, {
+            delay: frame.delay,
+            copy: true,
+          });
+        }
+
+        // Render GIF
+        gif.on("finished", function (blob) {
+          outputGifBlob = blob;
+          const url = URL.createObjectURL(blob);
+          outputGif.src = url;
+          outputGif.style.display = "block";
+          document.querySelector(".placeholder-text").style.display = "none";
+
+          saveOutputBtn.disabled = false;
+          copyOutputBtn.disabled = false;
+          document.getElementById("outputStatus").textContent = "Complete";
+          updateStatus("Processing complete! Animated GIF ready to download.");
+        });
+
+        gif.on("progress", function (p) {
+          updateStatus(`Encoding GIF... ${Math.round(p * 100)}%`);
+        });
+
+        gif.render();
+      }
+
+      // Process single frame
+      function processFrame(
+        imageData,
+        color,
+        threshold,
+        outerOnly,
+        alphaPreview,
+      ) {
+        const data = new Uint8ClampedArray(imageData.data);
+        const width = imageData.width;
+        const height = imageData.height;
+
+        // Create mask
+        const mask = new Uint8Array(width * height);
+
+        if (outerOnly) {
+          // Flood fill from edges
+          const visited = new Uint8Array(width * height);
+          const queue = [];
+
+          // Add edge pixels
+          for (let x = 0; x < width; x++) {
+            queue.push({ x, y: 0 });
+            queue.push({ x, y: height - 1 });
+          }
+          for (let y = 1; y < height - 1; y++) {
+            queue.push({ x: 0, y });
+            queue.push({ x: width - 1, y });
+          }
+
+          while (queue.length > 0) {
+            const { x, y } = queue.shift();
+            const idx = y * width + x;
+
+            if (visited[idx]) continue;
+            visited[idx] = 1;
+
+            const i = idx * 4;
+            if (
+              colorMatch(
+                data[i],
+                data[i + 1],
+                data[i + 2],
+                data[i + 3],
+                color,
+                threshold,
+              )
+            ) {
+              mask[idx] = 1;
+
+              // Add neighbors
+              if (x > 0) queue.push({ x: x - 1, y });
+              if (x < width - 1) queue.push({ x: x + 1, y });
+              if (y > 0) queue.push({ x, y: y - 1 });
+              if (y < height - 1) queue.push({ x, y: y + 1 });
+            }
+          }
+        } else {
+          // Match all pixels
+          for (let i = 0; i < data.length; i += 4) {
+            const idx = i / 4;
+            if (
+              colorMatch(
+                data[i],
+                data[i + 1],
+                data[i + 2],
+                data[i + 3],
+                color,
+                threshold,
+              )
+            ) {
+              mask[idx] = 1;
+            }
+          }
+        }
+
+        // Apply mask
+        for (let i = 0; i < data.length; i += 4) {
+          const idx = i / 4;
+          if (alphaPreview) {
+            // Show alpha preview
+            if (mask[idx]) {
+              data[i] = 0;
+              data[i + 1] = 0;
+              data[i + 2] = 0;
+              data[i + 3] = 255;
+            } else {
+              data[i] = 255;
+              data[i + 1] = 255;
+              data[i + 2] = 255;
+              data[i + 3] = 255;
+            }
+          } else {
+            // Make transparent
+            if (mask[idx]) {
+              data[i + 3] = 0;
+            }
+          }
+        }
+
+        return new ImageData(data, width, height);
+      }
+
+      // Color matching
+      function colorMatch(r, g, b, a, color, threshold) {
+        // Skip if already transparent
+        if (a < 10) return false;
+
+        const dr = Math.abs(r - color.r);
+        const dg = Math.abs(g - color.g);
+        const db = Math.abs(b - color.b);
+        const distance = Math.sqrt(dr * dr + dg * dg + db * db);
+        const maxDistance = Math.sqrt(3 * threshold * threshold);
+        return distance <= maxDistance;
+      }
+
+      // Parse color
+      function parseColor(colorStr) {
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        ctx.fillStyle = colorStr;
+        const computed = ctx.fillStyle;
+
+        let r, g, b;
+        if (computed.startsWith("#")) {
+          r = parseInt(computed.substr(1, 2), 16);
+          g = parseInt(computed.substr(3, 2), 16);
+          b = parseInt(computed.substr(5, 2), 16);
+        } else if (computed.startsWith("rgb")) {
+          const match = computed.match(/\d+/g);
+          r = parseInt(match[0]);
+          g = parseInt(match[1]);
+          b = parseInt(match[2]);
+        }
+
+        return { r, g, b };
+      }
+
+      // Update status
+      function updateStatus(message) {
+        statusText.textContent = message;
+        processingStatus.classList.add("active");
+        if (message.includes("complete") || message.includes("Ready")) {
+          setTimeout(() => {
+            processingStatus.classList.remove("active");
+          }, 3000);
+        }
+      }
+
+      // Event listeners for options
+      bgColor.addEventListener("input", () => {
+        if (parsedGif) processGIF();
+      });
+      tolerance.addEventListener("input", () => {
+        if (parsedGif) processGIF();
+      });
+      outerOnly.addEventListener("change", () => {
+        if (parsedGif) processGIF();
+      });
+      alphaPreview.addEventListener("change", () => {
+        if (parsedGif) processGIF();
+      });
+      quality.addEventListener("change", () => {
+        if (parsedGif) processGIF();
+      });
+
+      // File operations
+      function importFile() {
+        fileInput.click();
+      }
+
+      function saveInput() {
+        if (!currentGifFile) return;
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(currentGifFile);
+        a.download = "input.gif";
+        a.click();
+      }
+
+      function saveOutput() {
+        if (!outputGifBlob) return;
+        const url = URL.createObjectURL(outputGifBlob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "transparent-background.gif";
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      function copyInput() {
+        if (!currentGifFile) return;
+        currentGifFile.arrayBuffer().then((buffer) => {
+          const blob = new Blob([buffer], { type: "image/gif" });
+          navigator.clipboard
+            .write([new ClipboardItem({ "image/gif": blob })])
+            .then(() => {
+              alert("Input GIF copied to clipboard!");
+            })
+            .catch(() => {
+              alert("Could not copy GIF to clipboard");
+            });
+        });
+      }
+
+      function copyOutput() {
+        if (!outputGifBlob) return;
+        navigator.clipboard
+          .write([new ClipboardItem({ "image/gif": outputGifBlob })])
+          .then(() => {
+            alert("Transparent GIF copied to clipboard!");
+          })
+          .catch(() => {
+            alert("Could not copy GIF to clipboard");
+          });
+      }
+
+      function chainWith() {
+        alert("Chain with other tools coming soon!");
+      }
+
+      function showExamples() {
+        alert(
+          "Examples:\n\n1. Remove white background from animated GIF\n2. Remove green screen from animation\n3. Create transparent stickers\n4. Process multi-frame GIFs\n\nUpload your GIF to get started!",
+        );
+      }
+
+      function showHelp() {
+        alert(
+          'How to Use:\n\n1. Upload a GIF file\n2. Enter the background color to remove\n3. Adjust tolerance to match similar shades\n4. Use "Remove Outer Background" for complex images\n5. Preview with Alpha Channel option\n6. Download your transparent GIF!\n\nFeatures:\n• Full animated GIF support\n• All frames processed automatically\n• Color tolerance matching\n• Outer background filter\n• Alpha channel preview\n• Quality control',
+        );
       }
     </script>
   </body>
