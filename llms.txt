@@ -165,6 +165,16 @@ Keywords:
 text replacer, replace text online, find and replace text, search and replace, online replace text, replace in text, text replacement tool
 
 ---
+Tool-Name: Number Sum Calculator
+Tool-URL: https://www.moviesearch.online/tools/calculate-number-sum
+
+Primary-Intent: Number addition, sum calculation, numeric utilities
+Description:
+A free online Number Sum Calculator that instantly adds up a list of numbers in your browser. Simply enter your numbers, choose a separator, and get the total sum immediately. Fast, simple, and accurate with no login required.
+
+Keywords:
+number sum calculator, calculate number sum, add numbers online, sum of numbers, number calculator, online number tool
+---
 
 
 
