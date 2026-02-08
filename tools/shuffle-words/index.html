@@ -1,0 +1,1138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Word Shuffler - Free Online Word Mixer & Random Word Shuffle Generator
+    </title>
+    <meta
+      name="description"
+      content="Free online word shuffler and word mixer tool. Shuffle words randomly with our word shuffle generator. Mix words instantly with this random word shuffler - no ads, completely free!"
+    />
+    <meta
+      name="keywords"
+      content="word shuffler, word mixer, shuffle words, word mixer generator, mix words, word shuffle generator, random word shuffler, online word shuffler"
+    />
+    <meta name="author" content="MovieSearch Online" />
+    <link rel="canonical" href="https://moviesearch.online/word-shuffler" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Word Shuffler - Free Online Word Mixer Generator"
+    />
+    <meta
+      property="og:description"
+      content="Shuffle words and mix words randomly with our free online word shuffler tool. Easy to use random word shuffle generator."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://moviesearch.online/word-shuffler"
+    />
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a word shuffler?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A word shuffler is an online tool that randomly rearranges words in your text. Our word mixer uses the Fisher-Yates algorithm to shuffle words in a truly random order, making it perfect for brainstorming, games, or creative writing exercises."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the word mixer generator work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our word shuffle generator works by taking your input text, splitting it into individual words, and then randomly mixing the order using a proven randomization algorithm. Simply enter your words, and the random word shuffler will instantly create a new arrangement."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I shuffle words by groups or pairs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our word mixer allows you to shuffle words in groups. You can set the group size to shuffle pairs, triplets, or any number of words together while keeping each group intact during the mixing process."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this online word shuffler free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! This word shuffler is completely free to use with no registration required. There are no ads, no popups, and no hidden fees. Just load your words and get shuffled results instantly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use custom delimiters to mix words?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, our word shuffle generator supports custom delimiters. You can use spaces, commas, dashes, or any character to split your input. You can also choose how the shuffled words are joined in the output, including using newlines to display each word on a separate line."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the random word shuffler remove duplicate words?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, you can enable the 'Remove Repeated Words' option to filter out duplicates before shuffling. This ensures each unique word appears only once in your mixed output."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I shuffle letters instead of words?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! To shuffle individual letters instead of whole words, simply leave the input delimiter field empty. The word mixer will then treat each character as a separate element to shuffle."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What can I use this word mixer for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our word shuffler is perfect for brainstorming sessions, creating word games, randomizing lists, generating creative writing prompts, mixing quiz questions, creating unique passwords, or any task where you need to randomly rearrange text."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- WebSite Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Word Shuffler - Online Word Mixer Generator",
+        "description": "Free online word shuffler and random word mixer tool. Shuffle words instantly with our word shuffle generator.",
+        "url": "https://moviesearch.online/word-shuffler",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": "Random word shuffler, Word mixer, Group shuffling, Duplicate removal, Custom delimiters, Punctuation removal"
+      }
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+      --primary: #4f6ef7;
+      --primary-dark: #3b55d9;
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --text: #111827;
+      --muted: #6b7280;
+      }
+      .hero {
+      max-width: 980px;
+      margin: 24px auto;
+      padding: 40px 24px;
+      background: #f0f4ff;
+      border: 1px solid #dbe4ff;
+      border-radius: 18px;
+      text-align: center;
+      }
+
+      .hero h1 {
+      font-size: 28px;
+      margin-bottom: 12px;
+      }
+
+      .hero p {
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto 24px;
+      line-height: 1.6;
+      }
+
+      .hero a.cta {
+      display: inline-block;
+      padding: 12px 26px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background: #f5f5f5;
+        color: #333;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      h1 {
+        color: #5b7ba8;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        font-weight: 400;
+      }
+
+      .subtitle {
+        color: #666;
+        font-size: 1.3em;
+        margin-bottom: 20px;
+      }
+
+      .description {
+        color: #555;
+        line-height: 1.6;
+        max-width: 900px;
+        margin: 0 auto 30px;
+      }
+
+      .description a {
+        color: #5b7ba8;
+        text-decoration: none;
+      }
+
+      .description a:hover {
+        text-decoration: underline;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        margin-bottom: 40px;
+      }
+
+      .btn {
+        padding: 12px 30px;
+        border: 2px solid #5b7ba8;
+        background: white;
+        color: #5b7ba8;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: all 0.3s;
+      }
+
+      .btn:hover {
+        background: #5b7ba8;
+        color: white;
+      }
+
+      .btn-primary {
+        background: #5b7ba8;
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: #4a6a97;
+      }
+
+      .workspace {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      .panel {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .panel-header {
+        color: #7a9bc7;
+        font-size: 1.2em;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .help-icon {
+        width: 18px;
+        height: 18px;
+        border: 1px solid #999;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        color: #999;
+        cursor: help;
+      }
+
+      textarea {
+        flex: 1;
+        min-height: 300px;
+        padding: 15px;
+        border: none;
+        background: #5b7ba8;
+        color: white;
+        border-radius: 5px 5px 0 0;
+        font-family: monospace;
+        font-size: 14px;
+        resize: vertical;
+      }
+
+      textarea::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .panel-actions {
+        display: flex;
+        background: #4a6a97;
+        border-radius: 0 0 5px 5px;
+      }
+
+      .panel-actions button {
+        flex: 1;
+        padding: 12px;
+        border: none;
+        background: transparent;
+        color: white;
+        cursor: pointer;
+        transition: background 0.2s;
+        font-size: 0.9em;
+      }
+
+      .panel-actions button:hover {
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      .panel-actions button:not(:last-child) {
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .reshuffle-btn {
+        width: 100%;
+        padding: 15px;
+        background: #5b7ba8;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1em;
+        cursor: pointer;
+        margin-bottom: 20px;
+        transition: background 0.3s;
+      }
+
+      .reshuffle-btn:hover {
+        background: #4a6a97;
+      }
+
+      .options {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 20px;
+      }
+
+      .options-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+        font-size: 1.1em;
+      }
+
+      .options-header::before {
+        content: "⚙";
+        font-size: 1.2em;
+      }
+
+      .options-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+
+      .option-group h3 {
+        font-size: 1em;
+        margin-bottom: 15px;
+        color: #333;
+      }
+
+      .option-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 0.9em;
+        color: #666;
+      }
+
+      .option-group input[type="text"],
+      .option-group input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        font-size: 0.9em;
+      }
+
+      .option-group textarea {
+        min-height: 80px;
+        background: white;
+        color: #333;
+        border: 1px solid #ddd;
+      }
+
+      .checkbox-group {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+
+      .checkbox-group input[type="checkbox"] {
+        margin-top: 3px;
+      }
+
+      .checkbox-group label {
+        margin: 0;
+        cursor: pointer;
+      }
+
+      .help-text {
+        font-size: 0.85em;
+        color: #999;
+        line-height: 1.4;
+        margin-top: 5px;
+      }
+
+      @media (max-width: 768px) {
+        .workspace {
+          grid-template-columns: 1fr;
+        }
+
+        .options-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .container {
+          padding: 20px;
+        }
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal-content {
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        max-width: 500px;
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+
+      .modal-close {
+        float: right;
+        font-size: 1.5em;
+        cursor: pointer;
+        color: #999;
+      }
+
+      .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        background: #5b7ba8;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: background 0.3s;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .home-button:hover {
+        background: #4a6a97;
+      }
+
+      .faq-section {
+        margin-top: 40px;
+        padding: 30px;
+        background: #f9f9f9;
+        border-radius: 8px;
+      }
+
+      .faq-section h2 {
+        color: #5b7ba8;
+        margin-bottom: 25px;
+        font-size: 1.8em;
+      }
+
+      .faq-item {
+        margin-bottom: 20px;
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        border-left: 4px solid #5b7ba8;
+      }
+
+      .faq-question {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 10px;
+        font-size: 1.1em;
+      }
+
+      .faq-answer {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .seo-content {
+        margin-top: 40px;
+        padding: 30px;
+        background: #fff;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+      }
+
+      .seo-content h2 {
+        color: #5b7ba8;
+        margin-bottom: 20px;
+        font-size: 1.6em;
+      }
+
+      .seo-content h3 {
+        color: #4a6a97;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        font-size: 1.3em;
+      }
+
+      .seo-content p {
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 15px;
+      }
+
+      .seo-content ul {
+        margin: 15px 0;
+        padding-left: 30px;
+      }
+
+      .seo-content li {
+        margin: 10px 0;
+        line-height: 1.6;
+        color: #666;
+      }
+    </style>
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+  <body>
+    <a href="https://moviesearch.online" class="home-button">🏠 Home</a>
+
+    <div class="container">
+      <header>
+        <h1>Word Shuffler - Free Online Word Mixer Generator</h1>
+        <div class="subtitle">
+          Shuffle Words Randomly with Our Word Shuffle Generator
+        </div>
+        <p class="description">
+          Welcome to our free online word shuffler! This powerful word mixer
+          tool helps you shuffle words and mix words randomly in seconds. Our
+          random word shuffler uses advanced algorithms to rearrange your text
+          perfectly. Whether you need a word mixer generator for brainstorming
+          or want to shuffle words for creative projects, this word shuffle
+          generator has you covered. No ads, no registration – just pure word
+          mixing functionality. Created by the team at
+          <a href="https://moviesearch.online">MovieSearch Online</a>.
+        </p>
+        <div class="button-group">
+          <button class="btn" onclick="showExamples()">See Examples</button>
+          <button class="btn" onclick="showHowToUse()">Learn How to Use</button>
+          <button class="btn btn-primary" onclick="showPricing()">
+            See Pricing and Plans
+          </button>
+        </div>
+      </header>
+      <div class="hero">
+        <h1>Convert Images to Vector Graphics Instantly</h1>
+        <p>
+        Turn raster images into clean, scalable vector files for design, print,
+        or web use.
+        </p>
+        <a class="cta" href="https://rastertovector.online" target="_blank">
+        Convert Raster to Vector
+        </a>
+      </div>
+      <div class="workspace">
+        <div class="panel">
+          <div class="panel-header">
+            Input Words
+            <span class="help-icon" title="Enter words to shuffle">?</span>
+          </div>
+          <textarea
+            id="inputWords"
+            placeholder="Enter your words here..."
+          ></textarea>
+          <div class="panel-actions">
+            <button onclick="importFile()">Import from file</button>
+            <button onclick="saveInput()">Save as...</button>
+            <button onclick="copyInput()">Copy to clipboard</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">Shuffled Words</div>
+          <textarea
+            id="shuffledWords"
+            placeholder="Shuffled words will appear here..."
+            readonly
+          ></textarea>
+          <div class="panel-actions">
+            <button onclick="chainWith()">Chain with...</button>
+            <button onclick="saveOutput()">Save as...</button>
+            <button onclick="copyOutput()">Copy to clipboard</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="reshuffle-btn" onclick="shuffleWords()">
+        Reshuffle words
+      </button>
+
+      <div class="options">
+        <div class="options-header">Tool Options</div>
+        <div class="options-grid">
+          <div class="option-group">
+            <h3>Word Delimiters</h3>
+            <label>
+              <input
+                type="text"
+                id="inputDelimiter"
+                placeholder=" "
+                value=" "
+              />
+              <div class="help-text">
+                Split the input data by this sequence of characters. (Leave
+                empty to shuffle letters.)
+              </div>
+            </label>
+            <label style="margin-top: 15px">
+              <input
+                type="text"
+                id="outputDelimiter"
+                placeholder=" "
+                value=" "
+              />
+              <div class="help-text">
+                Join the shuffled output data by this sequence of characters.
+                (Use \n symbol for a newline.)
+              </div>
+            </label>
+          </div>
+
+          <div class="option-group">
+            <h3>Groups and Copies</h3>
+            <label>
+              <input type="number" id="groupSize" value="1" min="1" />
+              <div class="help-text">
+                Shuffle tuples of words of this length.
+              </div>
+            </label>
+            <div class="checkbox-group" style="margin-top: 15px">
+              <input type="checkbox" id="removeDuplicates" />
+              <label for="removeDuplicates">
+                <strong>Remove Repeated Words</strong>
+                <div class="help-text">
+                  Skip copies of words (and tuples) and mix only unique
+                  words/tuples.
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="option-group">
+            <h3>Punctuation Marks</h3>
+            <div class="checkbox-group">
+              <input type="checkbox" id="removePunctuation" />
+              <label for="removePunctuation">
+                <strong>Remove Punctuation</strong>
+                <div class="help-text">
+                  Shuffle words without punctuation marks.
+                </div>
+              </label>
+            </div>
+            <label style="margin-top: 10px">
+              <input type="text" id="punctuationMarks" value=".,?!()" />
+              <div class="help-text">
+                Enter the list of punctuation marks to remove.
+              </div>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="faq-section">
+        <h2>Frequently Asked Questions About Our Word Shuffler</h2>
+
+        <div class="faq-item">
+          <div class="faq-question">What is a word shuffler?</div>
+          <div class="faq-answer">
+            A word shuffler is an online tool that randomly rearranges words in
+            your text. Our word mixer uses the Fisher-Yates algorithm to shuffle
+            words in a truly random order, making it perfect for brainstorming,
+            games, or creative writing exercises.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            How does the word mixer generator work?
+          </div>
+          <div class="faq-answer">
+            Our word shuffle generator works by taking your input text,
+            splitting it into individual words, and then randomly mixing the
+            order using a proven randomization algorithm. Simply enter your
+            words, and the random word shuffler will instantly create a new
+            arrangement.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Can I shuffle words by groups or pairs?
+          </div>
+          <div class="faq-answer">
+            Yes! Our word mixer allows you to shuffle words in groups. You can
+            set the group size to shuffle pairs, triplets, or any number of
+            words together while keeping each group intact during the mixing
+            process.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Is this online word shuffler free to use?
+          </div>
+          <div class="faq-answer">
+            Absolutely! This word shuffler is completely free to use with no
+            registration required. There are no ads, no popups, and no hidden
+            fees. Just load your words and get shuffled results instantly.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Can I use custom delimiters to mix words?
+          </div>
+          <div class="faq-answer">
+            Yes, our word shuffle generator supports custom delimiters. You can
+            use spaces, commas, dashes, or any character to split your input.
+            You can also choose how the shuffled words are joined in the output,
+            including using newlines to display each word on a separate line.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Does the random word shuffler remove duplicate words?
+          </div>
+          <div class="faq-answer">
+            Yes, you can enable the 'Remove Repeated Words' option to filter out
+            duplicates before shuffling. This ensures each unique word appears
+            only once in your mixed output.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Can I shuffle letters instead of words?
+          </div>
+          <div class="faq-answer">
+            Yes! To shuffle individual letters instead of whole words, simply
+            leave the input delimiter field empty. The word mixer will then
+            treat each character as a separate element to shuffle.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">What can I use this word mixer for?</div>
+          <div class="faq-answer">
+            Our word shuffler is perfect for brainstorming sessions, creating
+            word games, randomizing lists, generating creative writing prompts,
+            mixing quiz questions, creating unique passwords, or any task where
+            you need to randomly rearrange text.
+          </div>
+        </div>
+      </div>
+
+      <!-- SEO Content Section -->
+      <div class="seo-content">
+        <h2>Why Use Our Random Word Shuffler?</h2>
+        <p>
+          Looking for a reliable way to shuffle words online? Our word mixer
+          generator is the perfect solution for anyone who needs to mix words
+          randomly and efficiently. Whether you're a teacher creating randomized
+          quizzes, a writer seeking inspiration, or someone who simply needs to
+          rearrange text, this online word shuffler delivers results instantly.
+        </p>
+
+        <h3>Features of Our Word Shuffle Generator</h3>
+        <p>
+          Our random word shuffler comes packed with features that make it the
+          most versatile word mixer available online:
+        </p>
+        <ul>
+          <li>
+            <strong>True Random Shuffling:</strong> Uses the Fisher-Yates
+            algorithm for genuine randomization when you shuffle words
+          </li>
+          <li>
+            <strong>Flexible Delimiters:</strong> Customize how words are split
+            and joined in our word mixer generator
+          </li>
+          <li>
+            <strong>Group Shuffling:</strong> Mix words in pairs, triplets, or
+            any group size you prefer
+          </li>
+          <li>
+            <strong>Duplicate Removal:</strong> Automatically filter repeated
+            words before shuffling
+          </li>
+          <li>
+            <strong>Punctuation Control:</strong> Remove unwanted punctuation
+            marks when you mix words
+          </li>
+          <li>
+            <strong>Instant Results:</strong> Our online word shuffler works in
+            real-time as you type
+          </li>
+          <li>
+            <strong>No Registration:</strong> Start using the word shuffle
+            generator immediately, no sign-up required
+          </li>
+          <li>
+            <strong>100% Free:</strong> Use this random word shuffler as much as
+            you want, completely free
+          </li>
+        </ul>
+
+        <h3>How to Use This Word Mixer</h3>
+        <p>
+          Using our word shuffler is incredibly simple. Just paste or type your
+          words into the input box, and watch as the word mixer generator
+          instantly creates a randomized version. You can customize the shuffle
+          settings, remove duplicates, or group words together before you
+          shuffle. The word shuffle generator updates automatically, giving you
+          immediate feedback.
+        </p>
+
+        <h3>Perfect for Multiple Use Cases</h3>
+        <p>
+          This online word shuffler is versatile enough for various
+          applications. Teachers can use the word mixer to create randomized
+          vocabulary lists or quiz questions. Writers can shuffle words to break
+          creative blocks and discover new phrase combinations. Game creators
+          can use this random word shuffler to generate unpredictable word
+          challenges. The word mixer generator is also excellent for creating
+          secure passphrases or randomizing any type of text-based content.
+        </p>
+
+        <h3>Advanced Word Mixing Options</h3>
+        <p>
+          Unlike basic word shufflers, our tool offers advanced options for
+          power users. You can mix words using custom delimiters, shuffle in
+          groups to maintain word relationships, or even shuffle individual
+          letters. The word shuffle generator supports various input formats
+          including space-separated, comma-separated, or custom-delimited text.
+          Whether you need a simple random word shuffler or a sophisticated word
+          mixer generator with fine-tuned control, this tool adapts to your
+          needs.
+        </p>
+
+        <h3>Why Choose Our Online Word Shuffler?</h3>
+        <p>
+          There are many word shufflers available, but ours stands out for its
+          simplicity and power. We've designed this word mixer to be intuitive
+          for beginners while offering advanced features for experienced users.
+          No ads interrupt your workflow, no confusing interfaces slow you down,
+          and no hidden fees surprise you. Just a clean, efficient word shuffle
+          generator that helps you shuffle words exactly the way you need.
+        </p>
+
+        <p>
+          Start using our random word shuffler today and experience the easiest
+          way to mix words online. Whether you need to shuffle a few words or
+          thousands, our word mixer generator handles it all with speed and
+          precision. Try it now and see why users choose our online word
+          shuffler for all their word randomization needs!
+        </p>
+      </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="examplesModal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('examplesModal')"
+          >&times;</span
+        >
+        <h2>Examples</h2>
+        <p style="margin-top: 15px">Try these examples:</p>
+        <ul style="margin: 15px 0; padding-left: 20px">
+          <li style="margin: 10px 0">
+            Simple words: "apple banana cherry date"
+          </li>
+          <li style="margin: 10px 0">
+            Sentence: "The quick brown fox jumps over the lazy dog"
+          </li>
+          <li style="margin: 10px 0">CSV: "red,green,blue,yellow,orange"</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="howToUseModal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('howToUseModal')"
+          >&times;</span
+        >
+        <h2>How to Use</h2>
+        <ol style="margin: 15px 0; padding-left: 20px; line-height: 1.8">
+          <li>Enter your words in the Input Words box</li>
+          <li>Configure delimiters and options if needed</li>
+          <li>Click "Reshuffle words" to randomize</li>
+          <li>Copy or save the shuffled result</li>
+        </ol>
+      </div>
+    </div>
+
+    <div id="pricingModal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('pricingModal')"
+          >&times;</span
+        >
+        <h2>Pricing and Plans</h2>
+        <p style="margin-top: 15px">
+          This tool is completely free to use! No registration required.
+        </p>
+      </div>
+    </div>
+
+    <input type="file" id="fileInput" style="display: none" accept=".txt" />
+
+    <script>
+      // Fisher-Yates shuffle algorithm
+      function fisherYatesShuffle(array) {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+      }
+
+      function shuffleWords() {
+        const input = document.getElementById("inputWords").value;
+        if (!input.trim()) {
+          alert("Please enter some words to shuffle!");
+          return;
+        }
+
+        let inputDelimiter = document.getElementById("inputDelimiter").value;
+        let outputDelimiter = document.getElementById("outputDelimiter").value;
+        const groupSize =
+          parseInt(document.getElementById("groupSize").value) || 1;
+        const removeDuplicates =
+          document.getElementById("removeDuplicates").checked;
+        const removePunctuation =
+          document.getElementById("removePunctuation").checked;
+        const punctuationMarks =
+          document.getElementById("punctuationMarks").value;
+
+        // Handle escape sequences
+        inputDelimiter = inputDelimiter
+          .replace(/\\n/g, "\n")
+          .replace(/\\t/g, "\t");
+        outputDelimiter = outputDelimiter
+          .replace(/\\n/g, "\n")
+          .replace(/\\t/g, "\t");
+
+        // Split input
+        let words =
+          inputDelimiter === "" ? input.split("") : input.split(inputDelimiter);
+
+        // Remove punctuation if needed
+        if (removePunctuation && punctuationMarks) {
+          const punctRegex = new RegExp(
+            "[" + punctuationMarks.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "]",
+            "g",
+          );
+          words = words.map((word) => word.replace(punctRegex, ""));
+        }
+
+        // Filter empty strings
+        words = words.filter((word) => word.trim() !== "");
+
+        // Group words if needed
+        let items = [];
+        if (groupSize > 1) {
+          for (let i = 0; i < words.length; i += groupSize) {
+            const group = words.slice(i, i + groupSize);
+            if (group.length === groupSize) {
+              items.push(group.join(inputDelimiter || ""));
+            }
+          }
+        } else {
+          items = words;
+        }
+
+        // Remove duplicates if needed
+        if (removeDuplicates) {
+          items = [...new Set(items)];
+        }
+
+        // Shuffle using Fisher-Yates algorithm
+        const shuffled = fisherYatesShuffle(items);
+
+        // Join output
+        const output = shuffled.join(outputDelimiter || " ");
+        document.getElementById("shuffledWords").value = output;
+      }
+
+      function copyInput() {
+        const input = document.getElementById("inputWords");
+        input.select();
+        document.execCommand("copy");
+        alert("Input copied to clipboard!");
+      }
+
+      function copyOutput() {
+        const output = document.getElementById("shuffledWords");
+        output.select();
+        document.execCommand("copy");
+        alert("Shuffled words copied to clipboard!");
+      }
+
+      function saveInput() {
+        const content = document.getElementById("inputWords").value;
+        downloadFile(content, "input-words.txt");
+      }
+
+      function saveOutput() {
+        const content = document.getElementById("shuffledWords").value;
+        downloadFile(content, "shuffled-words.txt");
+      }
+
+      function downloadFile(content, filename) {
+        const blob = new Blob([content], { type: "text/plain" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      function importFile() {
+        document.getElementById("fileInput").click();
+      }
+
+      document
+        .getElementById("fileInput")
+        .addEventListener("change", function (e) {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              document.getElementById("inputWords").value = e.target.result;
+            };
+            reader.readAsText(file);
+          }
+        });
+
+      function chainWith() {
+        alert(
+          "Chain with feature: This would allow you to pipe the output to another tool.",
+        );
+      }
+
+      function showExamples() {
+        document.getElementById("examplesModal").style.display = "flex";
+      }
+
+      function showHowToUse() {
+        document.getElementById("howToUseModal").style.display = "flex";
+      }
+
+      function showPricing() {
+        document.getElementById("pricingModal").style.display = "flex";
+      }
+
+      function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+      }
+
+      // Auto-shuffle on input change
+      document
+        .getElementById("inputWords")
+        .addEventListener("input", function () {
+          if (this.value.trim()) {
+            shuffleWords();
+          }
+        });
+
+      // Close modals when clicking outside
+      window.onclick = function (event) {
+        if (event.target.classList.contains("modal")) {
+          event.target.style.display = "none";
+        }
+      };
+    </script>
+  </body>
+</html>

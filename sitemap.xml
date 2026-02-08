@@ -79,11 +79,17 @@
     <priority>1.0</priority>
   </url>
 
-<url>
+  <url>
     <loc>https://www.moviesearch.online/tools/make-jpg-transparent</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://www.moviesearch.online/tools/shuffle-words</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
 
   <url>
     <loc>https://www.moviesearch.online/blog</loc>
