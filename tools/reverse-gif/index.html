@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>GIF Reverser - Reverse GIF Animation Online Free</title>
+    <meta
+      name="title"
+      content="GIF Reverser - Reverse GIF Animation Online Free"
+    />
+    <meta
+      name="description"
+      content="Free online GIF reverser. Reverse GIF animation frames instantly. Create backward running GIFs with our GIF reverser tool."
+    />
+    <meta
+      name="keywords"
+      content="gif reverser, reverse gif, reverse gif animation, gif reverse, backward gif, reverse gif online"
+    />
+    <meta name="author" content="MovieSearch Online" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://moviesearch.online/" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+      }
+
+      .top-nav {
+        background: #5a6a9f;
+        padding: 15px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .home-link {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1em;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: opacity 0.3s ease;
+      }
+
+      .home-link:hover {
+        opacity: 0.8;
+      }
+
+      .home-icon {
+        width: 24px;
+        height: 24px;
+      }
+
+      .header {
+        background: white;
+        padding: 40px 30px;
+        text-align: center;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .header h1 {
+        color: #6b7db5;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        font-weight: 400;
+      }
+
+      .header .subtitle {
+        color: #666;
+        font-size: 1.3em;
+        margin-bottom: 15px;
+        font-weight: 300;
+      }
+
+      .header .description {
+        color: #666;
+        font-size: 1em;
+        line-height: 1.6;
+        max-width: 900px;
+        margin: 0 auto 25px;
+      }
+
+      .button-row {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn-outline,
+      .btn-primary {
+        padding: 12px 30px;
+        border-radius: 8px;
+        font-size: 1em;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .btn-outline {
+        border: 2px solid #6b7db5;
+        background: white;
+        color: #6b7db5;
+      }
+
+      .btn-outline:hover {
+        background: #6b7db5;
+        color: white;
+      }
+
+      .btn-primary {
+        border: none;
+        background: #6b7db5;
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: #5a6a9f;
+      }
+
+      .main-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        padding: 20px;
+        background: #f8f9fa;
+      }
+
+      .gif-section {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .section-header {
+        background: #6b7db5;
+        color: white;
+        padding: 15px 20px;
+        font-size: 1.2em;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .help-icon {
+        width: 20px;
+        height: 20px;
+        border: 2px solid white;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8em;
+        cursor: help;
+      }
+
+      .gif-wrapper {
+        position: relative;
+        min-height: 400px;
+        background:
+          linear-gradient(45deg, #ccc 25%, transparent 25%),
+          linear-gradient(-45deg, #ccc 25%, transparent 25%),
+          linear-gradient(45deg, transparent 75%, #ccc 75%),
+          linear-gradient(-45deg, transparent 75%, #ccc 75%);
+        background-size: 20px 20px;
+        background-position:
+          0 0,
+          0 10px,
+          10px -10px,
+          -10px 0px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .upload-zone {
+        text-align: center;
+        color: #6b7db5;
+        max-width: 400px;
+      }
+
+      .upload-btn {
+        background: #6b7db5;
+        color: white;
+        padding: 15px 30px;
+        border-radius: 8px;
+        border: none;
+        font-size: 1.1em;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .upload-btn:hover {
+        background: #5a6a9f;
+        transform: translateY(-2px);
+      }
+
+      .gif-display {
+        max-width: 100%;
+        max-height: 500px;
+        display: none;
+      }
+
+      canvas {
+        max-width: 100%;
+        max-height: 500px;
+        display: none;
+      }
+
+      .action-bar {
+        display: flex;
+        gap: 0;
+        border-top: 1px solid #e0e0e0;
+        background: #6b7db5;
+      }
+
+      .action-btn {
+        flex: 1;
+        padding: 15px;
+        border: none;
+        background: transparent;
+        color: white;
+        font-size: 0.95em;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .action-btn:last-child {
+        border-right: none;
+      }
+
+      .action-btn:hover:not(:disabled) {
+        background: rgba(0, 0, 0, 0.1);
+      }
+
+      .action-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .tools-section {
+        background: white;
+        border-radius: 12px;
+        padding: 25px;
+        margin: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .tools-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+        color: #333;
+        font-size: 1.1em;
+        font-weight: 500;
+      }
+
+      .option-group {
+        margin-bottom: 20px;
+      }
+
+      .option-title {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 1.05em;
+      }
+
+      .checkbox-wrapper {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        margin-top: 2px;
+        flex-shrink: 0;
+      }
+
+      .checkbox-wrapper label {
+        cursor: pointer;
+        color: #333;
+        font-weight: 500;
+      }
+
+      .option-help {
+        font-size: 0.85em;
+        color: #666;
+        margin-top: 5px;
+        line-height: 1.4;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .placeholder-text {
+        color: #999;
+        font-style: italic;
+      }
+
+      .processing-status {
+        background: #e7f3ff;
+        border-left: 4px solid #6b7db5;
+        padding: 15px;
+        margin: 20px;
+        border-radius: 8px;
+        display: none;
+      }
+
+      .processing-status.active {
+        display: block;
+      }
+
+      @media (max-width: 1024px) {
+        .main-content {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="top-nav">
+        <a href="https://moviesearch.online/" class="home-link">
+          <svg
+            class="home-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span style="font-weight: 600">MovieSearch.Online</span>
+        </a>
+        <div style="color: white; font-size: 0.9em">Free GIF Tools</div>
+      </nav>
+
+      <div class="header">
+        <h1>GIF Reverser</h1>
+        <div class="subtitle">Online GIF Maker</div>
+        <div class="description">
+          This online utility lets you reverse the order of all frames in a GIF
+          animation. You can preview the original forward running GIF animation
+          and the backward running GIF animation at the same time in the
+          built-in GIF players. You can also download the reversed GIF to your
+          computer. Created by GIF experts from
+          <a
+            href="https://moviesearch.online/"
+            style="color: #6b7db5; text-decoration: none"
+            >team Browserling</a
+          >.
+        </div>
+        <div class="button-row">
+          <button class="btn-outline" onclick="showExamples()">
+            See Examples
+          </button>
+          <button class="btn-outline" onclick="showHelp()">
+            Learn How to Use
+          </button>
+          <button
+            class="btn-primary"
+            onclick="window.open('https://moviesearch.online/', '_blank')"
+          >
+            See Pricing and Plans
+          </button>
+        </div>
+      </div>
+
+      <div class="main-content">
+        <div class="gif-section">
+          <div class="section-header">
+            Input GIF
+            <div class="help-icon" title="Upload your GIF animation">?</div>
+          </div>
+          <div class="gif-wrapper">
+            <div class="upload-zone" id="uploadZone">
+              <button
+                class="upload-btn"
+                onclick="document.getElementById('fileInput').click()"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+                Click to load an image
+              </button>
+              <div style="color: #666; line-height: 1.8">
+                Or drop an image here<br />
+                Or paste it here (ctrl+v)<br />
+                Or load from examples (below)
+              </div>
+            </div>
+            <img id="inputGif" class="gif-display" alt="Input GIF" />
+            <canvas id="inputCanvas"></canvas>
+          </div>
+          <div class="action-bar">
+            <button class="action-btn" onclick="importFile()">
+              Import from file
+            </button>
+            <button class="action-btn" onclick="saveInput()">Save as...</button>
+            <button class="action-btn" onclick="copyInput()">
+              Copy to clipboard
+            </button>
+          </div>
+        </div>
+
+        <div class="gif-section">
+          <div class="section-header">Reversed GIF</div>
+          <div class="gif-wrapper">
+            <div class="placeholder-text">← Start by loading input</div>
+            <img id="outputGif" class="gif-display" alt="Reversed GIF" />
+            <canvas id="outputCanvas"></canvas>
+          </div>
+          <div class="action-bar">
+            <button class="action-btn" onclick="chainWith()">
+              Chain with...
+            </button>
+            <button
+              class="action-btn"
+              id="saveOutputBtn"
+              onclick="saveOutput()"
+              disabled
+            >
+              Save as...
+            </button>
+            <button
+              class="action-btn"
+              id="copyOutputBtn"
+              onclick="copyOutput()"
+              disabled
+            >
+              Copy to clipboard
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="processing-status" id="processingStatus">
+        <strong>Processing:</strong> <span id="statusText">Ready</span>
+      </div>
+
+      <div class="tools-section">
+        <div class="tools-header">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            style="width: 20px; height: 20px"
+          >
+            <path
+              d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+            ></path>
+          </svg>
+          Tool Options
+        </div>
+
+        <div class="option-group">
+          <div class="option-title">GIF Animation</div>
+
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="turnOnPlayer" checked />
+            <label for="turnOnPlayer">Turn On the Player</label>
+          </div>
+          <div class="option-help">
+            Show the animation of the original GIF and the reversed GIF.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <input type="file" id="fileInput" accept="image/gif" />
+
+    <!-- GIF parsing and encoding libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/omggif@1.0.10/omggif.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.js"></script>
+
+    <script>
+      const fileInput = document.getElementById("fileInput");
+      const inputGif = document.getElementById("inputGif");
+      const outputGif = document.getElementById("outputGif");
+      const uploadZone = document.getElementById("uploadZone");
+      const turnOnPlayer = document.getElementById("turnOnPlayer");
+      const saveOutputBtn = document.getElementById("saveOutputBtn");
+      const copyOutputBtn = document.getElementById("copyOutputBtn");
+      const processingStatus = document.getElementById("processingStatus");
+      const statusText = document.getElementById("statusText");
+
+      let parsedGif = null;
+      let outputGifBlob = null;
+      let currentGifFile = null;
+
+      // File handling
+      fileInput.addEventListener("change", (e) => {
+        if (e.target.files.length > 0) {
+          loadGIF(e.target.files[0]);
+        }
+      });
+
+      // Drag and drop
+      document.querySelectorAll(".gif-wrapper").forEach((wrapper) => {
+        wrapper.addEventListener("dragover", (e) => {
+          e.preventDefault();
+        });
+
+        wrapper.addEventListener("drop", (e) => {
+          e.preventDefault();
+          if (
+            e.dataTransfer.files.length > 0 &&
+            e.dataTransfer.files[0].type === "image/gif"
+          ) {
+            loadGIF(e.dataTransfer.files[0]);
+          }
+        });
+      });
+
+      // Paste handling
+      document.addEventListener("paste", (e) => {
+        const items = e.clipboardData.items;
+        for (let i = 0; i < items.length; i++) {
+          if (items[i].type === "image/gif") {
+            const blob = items[i].getAsFile();
+            loadGIF(blob);
+          }
+        }
+      });
+
+      // Player toggle
+      turnOnPlayer.addEventListener("change", togglePlayer);
+
+      function togglePlayer() {
+        if (parsedGif) {
+          if (turnOnPlayer.checked) {
+            inputGif.style.display = "block";
+            outputGif.style.display = "block";
+          } else {
+            inputGif.style.display = "block";
+            outputGif.style.display = "block";
+          }
+        }
+      }
+
+      // Load GIF
+      async function loadGIF(file) {
+        currentGifFile = file;
+        updateStatus("Loading GIF...");
+
+        // Display input GIF
+        const reader = new FileReader();
+        reader.onload = async (e) => {
+          inputGif.src = e.target.result;
+          uploadZone.style.display = "none";
+          inputGif.style.display = "block";
+
+          // Parse GIF frames
+          try {
+            const arrayBuffer = await file.arrayBuffer();
+            const uint8Array = new Uint8Array(arrayBuffer);
+
+            const gifReader = new GifReader(uint8Array);
+            const numFrames = gifReader.numFrames();
+            const width = gifReader.width;
+            const height = gifReader.height;
+
+            const frames = [];
+
+            for (let i = 0; i < numFrames; i++) {
+              const frameInfo = gifReader.frameInfo(i);
+              const imageData = new Uint8ClampedArray(width * height * 4);
+              gifReader.decodeAndBlitFrameRGBA(i, imageData);
+
+              frames.push({
+                data: imageData,
+                delay: frameInfo.delay * 10 || 100,
+                width: width,
+                height: height,
+              });
+            }
+
+            parsedGif = {
+              frames: frames,
+              width: width,
+              height: height,
+            };
+
+            updateStatus(`Loaded ${frames.length} frames - Reversing...`);
+            reverseGIF();
+          } catch (error) {
+            console.error("Error parsing GIF:", error);
+            updateStatus("Error: Could not parse GIF file");
+          }
+        };
+        reader.readAsDataURL(file);
+      }
+
+      // Reverse GIF
+      async function reverseGIF() {
+        if (!parsedGif) return;
+
+        updateStatus(`Reversing ${parsedGif.frames.length} frames...`);
+
+        // Reverse the order of frames
+        const reversedFrames = [...parsedGif.frames].reverse();
+
+        // Create GIF encoder
+        const gif = new GIF({
+          workers: 2,
+          quality: 10,
+          width: parsedGif.width,
+          height: parsedGif.height,
+          workerScript:
+            "https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.worker.js",
+        });
+
+        // Add reversed frames to GIF
+        for (let i = 0; i < reversedFrames.length; i++) {
+          const frame = reversedFrames[i];
+
+          const canvas = document.createElement("canvas");
+          canvas.width = parsedGif.width;
+          canvas.height = parsedGif.height;
+          const ctx = canvas.getContext("2d");
+
+          const imageData = new ImageData(
+            new Uint8ClampedArray(frame.data),
+            frame.width,
+            frame.height,
+          );
+
+          ctx.putImageData(imageData, 0, 0);
+
+          gif.addFrame(canvas, {
+            delay: frame.delay,
+            copy: true,
+          });
+        }
+
+        // Render GIF
+        gif.on("finished", function (blob) {
+          outputGifBlob = blob;
+          const url = URL.createObjectURL(blob);
+          outputGif.src = url;
+          outputGif.style.display = "block";
+          document.querySelector(".placeholder-text").style.display = "none";
+
+          saveOutputBtn.disabled = false;
+          copyOutputBtn.disabled = false;
+          updateStatus("Reversal complete! GIF ready to download.");
+        });
+
+        gif.on("progress", function (p) {
+          updateStatus(`Encoding reversed GIF... ${Math.round(p * 100)}%`);
+        });
+
+        gif.render();
+      }
+
+      // Update status
+      function updateStatus(message) {
+        statusText.textContent = message;
+        processingStatus.classList.add("active");
+        if (message.includes("complete") || message.includes("Ready")) {
+          setTimeout(() => {
+            processingStatus.classList.remove("active");
+          }, 3000);
+        }
+      }
+
+      // File operations
+      function importFile() {
+        fileInput.click();
+      }
+
+      function saveInput() {
+        if (!currentGifFile) return;
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(currentGifFile);
+        a.download = "original.gif";
+        a.click();
+      }
+
+      function saveOutput() {
+        if (!outputGifBlob) return;
+        const url = URL.createObjectURL(outputGifBlob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "reversed.gif";
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      function copyInput() {
+        if (!currentGifFile) return;
+        currentGifFile.arrayBuffer().then((buffer) => {
+          const blob = new Blob([buffer], { type: "image/gif" });
+          navigator.clipboard
+            .write([new ClipboardItem({ "image/gif": blob })])
+            .then(() => {
+              alert("Input GIF copied to clipboard!");
+            })
+            .catch(() => {
+              alert("Could not copy GIF to clipboard");
+            });
+        });
+      }
+
+      function copyOutput() {
+        if (!outputGifBlob) return;
+        navigator.clipboard
+          .write([new ClipboardItem({ "image/gif": outputGifBlob })])
+          .then(() => {
+            alert("Reversed GIF copied to clipboard!");
+          })
+          .catch(() => {
+            alert("Could not copy GIF to clipboard");
+          });
+      }
+
+      function chainWith() {
+        alert("Chain with other tools coming soon!");
+      }
+
+      function showExamples() {
+        alert(
+          "Examples:\n\n1. Reverse a bouncing ball animation\n2. Create a boomerang effect from a video\n3. Reverse text reveals\n4. Create palindrome animations\n\nUpload your GIF to get started!",
+        );
+      }
+
+      function showHelp() {
+        alert(
+          "How to Use GIF Reverser:\n\n1. Upload a GIF file (animated or static)\n2. The tool automatically reverses all frames\n3. Preview both original and reversed animations\n4. Download your reversed GIF!\n\nFeatures:\n• Preserves frame count\n• Maintains frame delays\n• Side-by-side preview\n• Animation player\n• Full quality preservation",
+        );
+      }
+    </script>
+  </body>
+</html>
