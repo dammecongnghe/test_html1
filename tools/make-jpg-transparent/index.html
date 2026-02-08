@@ -1,0 +1,1234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Make JPG Transparent Online - Free Transparent Image Maker Tool
+    </title>
+    <meta
+      name="description"
+      content="Make JPG transparent online for free. Create transparent images from JPEG files instantly. Easy-to-use tool to make image transparent and remove backgrounds from photos."
+    />
+    <meta
+      name="keywords"
+      content="make jpg transparent, transparent jpg, jpg transparent, make jpeg transparent, transparent jpeg, make image transparent, transparent image, create transparent jpg"
+    />
+    <link
+      rel="canonical"
+      href="https://moviesearch.online/jpg-transparency-maker"
+    />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Make JPG Transparent Online - Free Transparent Image Maker"
+    />
+    <meta
+      property="og:description"
+      content="Create transparent JPG and JPEG images online. Remove backgrounds and make images transparent in seconds."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://moviesearch.online/jpg-transparency-maker"
+    />
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I make a JPG transparent?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To make a JPG transparent, simply upload your JPEG image to our tool, click on the color you want to remove, and adjust the similarity percentage to match similar tones. The tool will instantly create a transparent image that you can download as a PNG file."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I create a transparent JPG file?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "While JPG format doesn't support transparency, our tool converts your JPEG to PNG format with transparency. You upload a JPG or JPEG file, make the background transparent, and download it as a PNG which preserves the transparency."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this tool free to make images transparent?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our transparent image maker is completely free to use. You can make unlimited JPG and JPEG images transparent without any cost or registration required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I remove the background from a JPEG image?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Upload your JPEG image, click on the background color you want to remove, and our tool will automatically make it transparent. You can adjust the similarity percentage to remove more shades of the same color, and use the 'Remove Outer Pixels' option to only remove background colors that touch the image edges."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What file format supports transparent images?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PNG format supports transparency. When you make a JPG transparent using our tool, it converts the image to PNG format automatically, preserving all transparency information so you can use it on websites, presentations, or graphic designs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I make multiple colors transparent in one image?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! By adjusting the similarity percentage slider, you can make multiple similar color tones transparent at once. A higher percentage will match and remove more color variations, while a lower percentage will only remove the exact color you select."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "JPG Transparency Maker",
+        "description": "Free online tool to make JPG and JPEG images transparent. Create transparent images by removing backgrounds from photos.",
+        "url": "https://moviesearch.online/jpg-transparency-maker",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --primary: #4f6ef7;
+        --primary-dark: #3b55d9;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --text: #111827;
+        --muted: #6b7280;
+      }
+      .hero {
+        max-width: 980px;
+        margin: 24px auto;
+        padding: 40px 24px;
+        background: #f0f4ff;
+        border: 1px solid #dbe4ff;
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto 24px;
+        line-height: 1.6;
+      }
+
+      .hero a.cta {
+        display: inline-block;
+        padding: 12px 26px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: #6b8cae;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .home-button:hover {
+        background: #5a7a9a;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .seo-content {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background: #f9f9f9;
+        border-radius: 8px;
+        line-height: 1.8;
+      }
+
+      .seo-content h2 {
+        color: #6b8cae;
+        margin-bottom: 15px;
+        font-size: 1.8em;
+      }
+
+      .seo-content h3 {
+        color: #4a5f7a;
+        margin-top: 25px;
+        margin-bottom: 12px;
+        font-size: 1.3em;
+      }
+
+      .seo-content p {
+        color: #555;
+        margin-bottom: 15px;
+      }
+
+      .faq-section {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .faq-section h2 {
+        color: #6b8cae;
+        margin-bottom: 25px;
+        font-size: 2em;
+        text-align: center;
+      }
+
+      .faq-item {
+        margin-bottom: 20px;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 20px;
+      }
+
+      .faq-item:last-child {
+        border-bottom: none;
+      }
+
+      .faq-question {
+        color: #333;
+        font-weight: 600;
+        font-size: 1.1em;
+        margin-bottom: 10px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .faq-question:hover {
+        color: #6b8cae;
+      }
+
+      .faq-answer {
+        color: #666;
+        line-height: 1.7;
+        padding-left: 15px;
+      }
+
+      .faq-toggle {
+        color: #6b8cae;
+        font-size: 1.2em;
+        transition: transform 0.3s;
+      }
+
+      .faq-item.active .faq-toggle {
+        transform: rotate(180deg);
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      h1 {
+        color: #6b8cae;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+
+      .subtitle {
+        color: #666;
+        font-size: 1.2em;
+        margin-bottom: 20px;
+      }
+
+      .description {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        text-align: center;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .description a {
+        color: #6b8cae;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        margin-bottom: 30px;
+      }
+
+      .btn {
+        padding: 12px 30px;
+        border: 2px solid #6b8cae;
+        background: white;
+        color: #6b8cae;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.3s;
+      }
+
+      .btn:hover {
+        background: #6b8cae;
+        color: white;
+      }
+
+      .btn-primary {
+        background: #6b8cae;
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: #5a7a9a;
+      }
+
+      .workspace {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .panel {
+        border: 2px solid #e0e0e0;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+
+      .panel-header {
+        background: #f5f5f5;
+        padding: 15px;
+        font-weight: 600;
+        color: #6b8cae;
+        font-size: 1.1em;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .canvas-area {
+        background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGElEQVQYlWNgYGCQwoKxgqGgcJA5h3yFAAs8BRWVSwooAAAAAElFTkSuQmCC")
+          repeat;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        position: relative;
+      }
+
+      .upload-prompt {
+        text-align: center;
+        color: #999;
+      }
+
+      .upload-btn {
+        background: #6b8cae;
+        color: white;
+        padding: 12px 30px;
+        border-radius: 25px;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+        margin-bottom: 15px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .upload-btn:hover {
+        background: #5a7a9a;
+      }
+
+      canvas {
+        max-width: 100%;
+        max-height: 400px;
+        cursor: crosshair;
+        display: block;
+      }
+
+      .controls {
+        background: #4a5f7a;
+        padding: 12px;
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+      }
+
+      .control-btn {
+        background: #5a7a9a;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 13px;
+      }
+
+      .control-btn:hover {
+        background: #4a5f7a;
+      }
+
+      .options-section {
+        background: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 20px;
+      }
+
+      .options-header {
+        font-weight: 600;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .options-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+
+      .option-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .option-group h3 {
+        font-size: 15px;
+        color: #333;
+        margin-bottom: 5px;
+      }
+
+      .input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .input-group label {
+        font-size: 13px;
+        color: #666;
+      }
+
+      .input-group input[type="text"],
+      .input-group input[type="number"] {
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        font-size: 14px;
+      }
+
+      .checkbox-group {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin-top: 5px;
+      }
+
+      .checkbox-group input[type="checkbox"] {
+        margin-top: 3px;
+      }
+
+      .checkbox-group label {
+        font-size: 13px;
+        color: #666;
+        flex: 1;
+      }
+
+      .helper-text {
+        font-size: 12px;
+        color: #999;
+        margin-top: 5px;
+      }
+
+      #colorPicker {
+        width: 100%;
+        height: 35px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      .start-prompt {
+        text-align: center;
+        color: #999;
+        padding: 40px;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .workspace {
+          grid-template-columns: 1fr;
+        }
+
+        .options-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+  <body>
+    <a href="https://moviesearch.online" class="home-button">
+      <span>🏠</span> Home
+    </a>
+
+    <div class="container">
+      <header>
+        <h1>Make JPG Transparent Online - Free Image Transparency Tool</h1>
+        <div class="subtitle">
+          Create Transparent Images from JPEG Files Instantly
+        </div>
+        <div class="description">
+          Looking to make a JPG transparent? Our free online tool helps you
+          create transparent images from JPEG files in seconds. Whether you need
+          to make a JPEG transparent for your website, presentation, or design
+          project, simply upload your image, select the background color to
+          remove, and download your transparent PNG. Perfect for removing white
+          backgrounds, creating transparent logos, or making any image
+          transparent without complicated software. No registration required –
+          start making transparent images right now!
+        </div>
+        <div class="button-group">
+          <button class="btn">See Examples</button>
+          <button class="btn">Learn How to Use</button>
+          <button class="btn btn-primary">See Pricing and Plans</button>
+        </div>
+      </header>
+      <div class="hero">
+        <h1>Convert Images to Vector Graphics Instantly</h1>
+        <p>
+          Turn raster images into clean, scalable vector files for design,
+          print, or web use.
+        </p>
+        <a class="cta" href="https://rastertovector.online" target="_blank">
+          Convert Raster to Vector
+        </a>
+      </div>
+      <div class="workspace">
+        <div class="panel">
+          <div class="panel-header">
+            Input JPG (Click on a Color!)
+            <span style="font-size: 0.9em">ⓘ</span>
+          </div>
+          <div class="canvas-area" id="inputArea">
+            <div class="upload-prompt" id="uploadPrompt">
+              <button
+                class="upload-btn"
+                onclick="document.getElementById('fileInput').click()"
+              >
+                ⊕ Click to load an image
+              </button>
+              <div style="margin: 10px 0; color: #999">
+                Or drop an image here
+              </div>
+              <div style="color: #999">Or paste it here (ctrl+v)</div>
+              <div style="color: #999">Or load from examples (below)</div>
+            </div>
+            <canvas id="inputCanvas" class="hidden"></canvas>
+          </div>
+          <div class="controls">
+            <button
+              class="control-btn"
+              onclick="document.getElementById('fileInput').click()"
+            >
+              Import from file
+            </button>
+            <button class="control-btn" onclick="saveImage('input')">
+              Save as...
+            </button>
+            <button class="control-btn" onclick="copyToClipboard('input')">
+              Copy to clipboard
+            </button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">Transparent JPG</div>
+          <div class="canvas-area" id="outputArea">
+            <div class="start-prompt" id="outputPrompt">
+              ← Start by loading input
+            </div>
+            <canvas id="outputCanvas" class="hidden"></canvas>
+          </div>
+          <div class="controls">
+            <button class="control-btn">Chain with...</button>
+            <button class="control-btn" onclick="saveImage('output')">
+              Save as...
+            </button>
+            <button class="control-btn" onclick="copyToClipboard('output')">
+              Copy to clipboard
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="options-section">
+        <div class="options-header">⚙ Tool Options</div>
+        <div class="options-grid">
+          <div class="option-group">
+            <h3>Transparency Options</h3>
+            <div class="input-group">
+              <label>Make this color transparent:</label>
+              <input type="color" id="colorPicker" value="#ffffff" />
+              <input
+                type="text"
+                id="colorInput"
+                value="white"
+                placeholder="white"
+              />
+            </div>
+            <div class="input-group">
+              <label>Percentage to make similar colors transparent:</label>
+              <input
+                type="number"
+                id="similarityInput"
+                value="30"
+                min="0"
+                max="100"
+              />
+              <div class="helper-text">
+                Percentage to make similar colors transparent.
+              </div>
+            </div>
+            <div class="checkbox-group">
+              <input type="checkbox" id="removeOuterPixels" />
+              <label>
+                <strong>Remove Outer Pixels</strong><br />
+                <span class="helper-text"
+                  >Make transparent only those pixels that touch the edges of
+                  the JPG.</span
+                >
+              </label>
+            </div>
+          </div>
+
+          <div class="option-group">
+            <h3>Edge Smoothing Options</h3>
+            <div class="checkbox-group">
+              <input type="checkbox" id="refineEdges" />
+              <label>
+                <strong>Make Edges Refined</strong><br />
+                <span class="helper-text"
+                  >Apply a feather to the edges of the opaque areas and put
+                  translucent pixels around them.</span
+                >
+              </label>
+            </div>
+            <div class="input-group">
+              <input
+                type="number"
+                id="smoothRadius"
+                value="1"
+                min="0"
+                max="10"
+              />
+              <div class="helper-text">Edge smoothness radius.</div>
+            </div>
+          </div>
+
+          <div class="option-group">
+            <h3>Transparency Preview</h3>
+            <div class="checkbox-group">
+              <input type="checkbox" id="showTransparent" />
+              <label>
+                <strong>Show Transparent Pixels</strong><br />
+                <span class="helper-text"
+                  >If you select this option, then all transparent pixels will
+                  be painted in black color.</span
+                >
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <input type="file" id="fileInput" accept="image/*" style="display: none" />
+
+    <script>
+      const inputCanvas = document.getElementById("inputCanvas");
+      const outputCanvas = document.getElementById("outputCanvas");
+      const inputCtx = inputCanvas.getContext("2d");
+      const outputCtx = outputCanvas.getContext("2d");
+      const fileInput = document.getElementById("fileInput");
+      const colorInput = document.getElementById("colorInput");
+      const colorPicker = document.getElementById("colorPicker");
+      const similarityInput = document.getElementById("similarityInput");
+      const removeOuterPixels = document.getElementById("removeOuterPixels");
+      const refineEdges = document.getElementById("refineEdges");
+      const smoothRadius = document.getElementById("smoothRadius");
+      const showTransparent = document.getElementById("showTransparent");
+
+      let currentImage = null;
+
+      // File input handler
+      fileInput.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          loadImage(file);
+        }
+      });
+
+      // Drag and drop
+      const inputArea = document.getElementById("inputArea");
+      inputArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      });
+
+      inputArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith("image/")) {
+          loadImage(file);
+        }
+      });
+
+      // Paste handler
+      document.addEventListener("paste", (e) => {
+        const items = e.clipboardData.items;
+        for (let item of items) {
+          if (item.type.startsWith("image/")) {
+            const file = item.getAsFile();
+            loadImage(file);
+            break;
+          }
+        }
+      });
+
+      // Load image
+      function loadImage(file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            currentImage = img;
+            displayInputImage(img);
+            processImage();
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      // Display input image
+      function displayInputImage(img) {
+        document.getElementById("uploadPrompt").classList.add("hidden");
+        inputCanvas.classList.remove("hidden");
+
+        inputCanvas.width = img.width;
+        inputCanvas.height = img.height;
+        inputCtx.clearRect(0, 0, inputCanvas.width, inputCanvas.height);
+        inputCtx.drawImage(img, 0, 0);
+
+        document.getElementById("outputPrompt").classList.add("hidden");
+        outputCanvas.classList.remove("hidden");
+      }
+
+      // Click on canvas to select color
+      inputCanvas.addEventListener("click", (e) => {
+        const rect = inputCanvas.getBoundingClientRect();
+        const scaleX = inputCanvas.width / rect.width;
+        const scaleY = inputCanvas.height / rect.height;
+        const x = (e.clientX - rect.left) * scaleX;
+        const y = (e.clientY - rect.top) * scaleY;
+
+        const imageData = inputCtx.getImageData(x, y, 1, 1);
+        const pixel = imageData.data;
+
+        const hex =
+          "#" +
+          [pixel[0], pixel[1], pixel[2]]
+            .map((x) => {
+              const hex = x.toString(16);
+              return hex.length === 1 ? "0" + hex : hex;
+            })
+            .join("");
+
+        colorPicker.value = hex;
+        colorInput.value = hex;
+        processImage();
+      });
+
+      // Update color from picker
+      colorPicker.addEventListener("input", (e) => {
+        colorInput.value = e.target.value;
+        processImage();
+      });
+
+      // Update color from text input
+      colorInput.addEventListener("input", (e) => {
+        const value = e.target.value;
+        if (value.startsWith("#") && value.length === 7) {
+          colorPicker.value = value;
+        } else {
+          // Try to convert color name to hex
+          const tempDiv = document.createElement("div");
+          tempDiv.style.color = value;
+          document.body.appendChild(tempDiv);
+          const computedColor = window.getComputedStyle(tempDiv).color;
+          document.body.removeChild(tempDiv);
+
+          if (computedColor) {
+            const match = computedColor.match(/\d+/g);
+            if (match) {
+              const hex =
+                "#" +
+                match
+                  .slice(0, 3)
+                  .map((x) => {
+                    const h = parseInt(x).toString(16);
+                    return h.length === 1 ? "0" + h : h;
+                  })
+                  .join("");
+              colorPicker.value = hex;
+            }
+          }
+        }
+        processImage();
+      });
+
+      // Add event listeners for all options
+      similarityInput.addEventListener("input", processImage);
+      removeOuterPixels.addEventListener("change", processImage);
+      refineEdges.addEventListener("change", processImage);
+      smoothRadius.addEventListener("input", processImage);
+      showTransparent.addEventListener("change", processImage);
+
+      // Process image with transparency
+      function processImage() {
+        if (!currentImage) return;
+
+        outputCanvas.width = inputCanvas.width;
+        outputCanvas.height = inputCanvas.height;
+
+        const inputData = inputCtx.getImageData(
+          0,
+          0,
+          inputCanvas.width,
+          inputCanvas.height,
+        );
+        const outputData = outputCtx.createImageData(
+          inputCanvas.width,
+          inputCanvas.height,
+        );
+
+        // Get target color
+        const targetColor = hexToRgb(colorPicker.value);
+        const similarity = parseFloat(similarityInput.value) / 100;
+
+        // Copy input to output
+        for (let i = 0; i < inputData.data.length; i += 4) {
+          outputData.data[i] = inputData.data[i];
+          outputData.data[i + 1] = inputData.data[i + 1];
+          outputData.data[i + 2] = inputData.data[i + 2];
+          outputData.data[i + 3] = inputData.data[i + 3];
+        }
+
+        // Make pixels transparent
+        const width = inputCanvas.width;
+        const height = inputCanvas.height;
+
+        if (removeOuterPixels.checked) {
+          // Flood fill from edges
+          floodFillFromEdges(
+            outputData,
+            width,
+            height,
+            targetColor,
+            similarity,
+          );
+        } else {
+          // Make all matching pixels transparent
+          for (let i = 0; i < outputData.data.length; i += 4) {
+            const r = outputData.data[i];
+            const g = outputData.data[i + 1];
+            const b = outputData.data[i + 2];
+
+            if (colorMatches(r, g, b, targetColor, similarity)) {
+              outputData.data[i + 3] = 0;
+            }
+          }
+        }
+
+        // Apply edge smoothing
+        if (refineEdges.checked) {
+          const radius = parseInt(smoothRadius.value);
+          smoothEdges(outputData, width, height, radius);
+        }
+
+        // Show transparent pixels option
+        if (showTransparent.checked) {
+          for (let i = 0; i < outputData.data.length; i += 4) {
+            if (outputData.data[i + 3] === 0) {
+              outputData.data[i] = 0;
+              outputData.data[i + 1] = 0;
+              outputData.data[i + 2] = 0;
+              outputData.data[i + 3] = 255;
+            }
+          }
+        }
+
+        outputCtx.putImageData(outputData, 0, 0);
+      }
+
+      function hexToRgb(hex) {
+        const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result
+          ? {
+              r: parseInt(result[1], 16),
+              g: parseInt(result[2], 16),
+              b: parseInt(result[3], 16),
+            }
+          : { r: 255, g: 255, b: 255 };
+      }
+
+      function colorMatches(r, g, b, target, similarity) {
+        const distance =
+          Math.sqrt(
+            Math.pow(r - target.r, 2) +
+              Math.pow(g - target.g, 2) +
+              Math.pow(b - target.b, 2),
+          ) / 441.67; // Normalize to 0-1 (max distance in RGB space is ~441.67)
+
+        return distance <= similarity;
+      }
+
+      function floodFillFromEdges(
+        imageData,
+        width,
+        height,
+        targetColor,
+        similarity,
+      ) {
+        const visited = new Set();
+        const queue = [];
+
+        // Add edge pixels to queue
+        for (let x = 0; x < width; x++) {
+          queue.push({ x, y: 0 });
+          queue.push({ x, y: height - 1 });
+        }
+        for (let y = 0; y < height; y++) {
+          queue.push({ x: 0, y });
+          queue.push({ x: width - 1, y });
+        }
+
+        while (queue.length > 0) {
+          const { x, y } = queue.shift();
+          const key = `${x},${y}`;
+
+          if (visited.has(key) || x < 0 || x >= width || y < 0 || y >= height) {
+            continue;
+          }
+
+          visited.add(key);
+          const i = (y * width + x) * 4;
+          const r = imageData.data[i];
+          const g = imageData.data[i + 1];
+          const b = imageData.data[i + 2];
+
+          if (colorMatches(r, g, b, targetColor, similarity)) {
+            imageData.data[i + 3] = 0;
+
+            // Add neighbors
+            queue.push({ x: x + 1, y });
+            queue.push({ x: x - 1, y });
+            queue.push({ x, y: y + 1 });
+            queue.push({ x, y: y - 1 });
+          }
+        }
+      }
+
+      function smoothEdges(imageData, width, height, radius) {
+        const tempData = new Uint8ClampedArray(imageData.data);
+
+        for (let y = 0; y < height; y++) {
+          for (let x = 0; x < width; x++) {
+            const i = (y * width + x) * 4;
+
+            if (tempData[i + 3] > 0 && tempData[i + 3] < 255) continue;
+
+            // Check if this is an edge pixel
+            let hasOpaque = false;
+            let hasTransparent = false;
+
+            for (let dy = -radius; dy <= radius; dy++) {
+              for (let dx = -radius; dx <= radius; dx++) {
+                const nx = x + dx;
+                const ny = y + dy;
+
+                if (nx >= 0 && nx < width && ny >= 0 && ny < height) {
+                  const ni = (ny * width + nx) * 4;
+                  if (tempData[ni + 3] === 0) hasTransparent = true;
+                  if (tempData[ni + 3] === 255) hasOpaque = true;
+                }
+              }
+            }
+
+            // Apply feathering to edge pixels
+            if (hasOpaque && hasTransparent) {
+              const alpha = tempData[i + 3];
+              imageData.data[i + 3] = Math.floor(alpha * 0.5);
+            }
+          }
+        }
+      }
+
+      function saveImage(type) {
+        const canvas = type === "input" ? inputCanvas : outputCanvas;
+        const link = document.createElement("a");
+        link.download =
+          type === "input" ? "input.png" : "transparent-output.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+      }
+
+      async function copyToClipboard(type) {
+        const canvas = type === "input" ? inputCanvas : outputCanvas;
+        try {
+          const blob = await new Promise((resolve) => canvas.toBlob(resolve));
+          await navigator.clipboard.write([
+            new ClipboardItem({ "image/png": blob }),
+          ]);
+          alert("Image copied to clipboard!");
+        } catch (err) {
+          alert("Failed to copy image to clipboard");
+        }
+      }
+
+      function toggleFaq(element) {
+        const faqItem = element.parentElement;
+        const answer = faqItem.querySelector(".faq-answer");
+
+        faqItem.classList.toggle("active");
+
+        if (faqItem.classList.contains("active")) {
+          answer.style.display = "block";
+        } else {
+          answer.style.display = "none";
+        }
+      }
+    </script>
+
+    <!-- SEO Content Section -->
+    <div class="seo-content">
+      <h2>How to Make a JPG Transparent</h2>
+      <p>
+        Making a JPG transparent is easier than you might think. Our transparent
+        image maker allows you to quickly remove backgrounds and create
+        transparent PNG files from your JPEG images. Whether you're a designer,
+        marketer, or just someone who needs to make an image transparent for a
+        project, this tool simplifies the entire process.
+      </p>
+
+      <h3>Why Make JPEG Images Transparent?</h3>
+      <p>
+        Transparent images are essential for modern web design, graphic design,
+        and presentations. When you make a JPEG transparent, you can overlay it
+        on different backgrounds, create professional-looking logos, or build
+        compelling visual compositions. Unlike solid backgrounds, transparent
+        images blend seamlessly with any design, giving you creative
+        flexibility.
+      </p>
+
+      <h3>Steps to Create a Transparent JPG</h3>
+      <p>
+        To make a JPG transparent using our tool: First, upload your JPEG image
+        by clicking the upload button, dragging and dropping the file, or
+        pasting it directly. Next, click on the color in your image that you
+        want to make transparent – usually the background. Then, adjust the
+        similarity percentage to remove similar color tones. Finally, download
+        your transparent image as a PNG file. It's that simple to create
+        transparent images!
+      </p>
+
+      <h3>Advanced Features for Perfect Transparent Images</h3>
+      <p>
+        Our tool offers advanced options to help you make the perfect
+        transparent JPEG. Use the "Remove Outer Pixels" option to only remove
+        background colors that touch the edges of your image, keeping interior
+        details intact. The edge smoothing feature helps create cleaner, more
+        professional-looking transparent images by refining the boundaries
+        between transparent and opaque areas. You can also preview transparent
+        pixels in black to ensure you're removing exactly what you want before
+        downloading.
+      </p>
+
+      <h3>Free and Easy to Use</h3>
+      <p>
+        Unlike complicated photo editing software, our transparent image maker
+        works directly in your browser. There's no need to download applications
+        or create an account. Simply visit this page whenever you need to make
+        an image transparent, and you're ready to go. The tool processes
+        everything locally, so your images remain private and secure.
+      </p>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item active">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How do I make a JPG transparent?
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer" style="display: block">
+          To make a JPG transparent, simply upload your JPEG image to our tool,
+          click on the color you want to remove, and adjust the similarity
+          percentage to match similar tones. The tool will instantly create a
+          transparent image that you can download as a PNG file.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Can I create a transparent JPG file?
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer" style="display: none">
+          While JPG format doesn't support transparency, our tool converts your
+          JPEG to PNG format with transparency. You upload a JPG or JPEG file,
+          make the background transparent, and download it as a PNG which
+          preserves the transparency.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Is this tool free to make images transparent?
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer" style="display: none">
+          Yes! Our transparent image maker is completely free to use. You can
+          make unlimited JPG and JPEG images transparent without any cost or
+          registration required.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How do I remove the background from a JPEG image?
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer" style="display: none">
+          Upload your JPEG image, click on the background color you want to
+          remove, and our tool will automatically make it transparent. You can
+          adjust the similarity percentage to remove more shades of the same
+          color, and use the 'Remove Outer Pixels' option to only remove
+          background colors that touch the image edges.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          What file format supports transparent images?
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer" style="display: none">
+          PNG format supports transparency. When you make a JPG transparent
+          using our tool, it converts the image to PNG format automatically,
+          preserving all transparency information so you can use it on websites,
+          presentations, or graphic designs.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Can I make multiple colors transparent in one image?
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer" style="display: none">
+          Yes! By adjusting the similarity percentage slider, you can make
+          multiple similar color tones transparent at once. A higher percentage
+          will match and remove more color variations, while a lower percentage
+          will only remove the exact color you select.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

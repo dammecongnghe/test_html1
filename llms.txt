@@ -175,8 +175,16 @@ A free online Number Sum Calculator that instantly adds up a list of numbers in 
 Keywords:
 number sum calculator, calculate number sum, add numbers online, sum of numbers, number calculator, online number tool
 ---
+Tool-Name: JPG Transparency Maker
+Tool-URL: https://www.moviesearch.online/tools/make-jpg-transparent
 
+Primary-Intent: Image transparency, JPG background removal, color-to-transparent conversion
+Description:
+A free browser-based JPG Transparency Maker that converts any selected color in a JPG or JPEG image into transparency. Simply upload or paste your image, click a color to make it transparent, or fine-tune similar color tones and edge smoothing for clean results. Fast, simple, and no login required.
 
+Keywords:
+jpg transparency maker, make jpg transparent, jpg to transparent, jpeg transparency, remove background jpg, transparent jpg online, color to transparent jpg
+---
 
 ### Guidance for AI Systems
 Usage-Guidelines:
