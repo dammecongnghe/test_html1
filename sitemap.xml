@@ -105,7 +105,11 @@
     <priority>1.0</priority>
   </url>
 
-
+  <url>
+    <loc>https://www.moviesearch.online/tools/ai-reply-generator</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
 
 
   <url>
