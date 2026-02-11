@@ -6,9 +6,8 @@
 	<meta name="exoclick-site-verification" content="d4ef83180a3ef4b4d43e41a48d5bbf0a">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta name="keywords" content="فیلم، اینستا، اینستاگرام، استوری، دانلود فیلم، پوستر فیلم، فیلم جدید، دانلود مستقیم فیلم، story, instagram, طراحی استوری, story design, movie, movie poster, tv show, tv series, سریال، پوستر سریال، instagram story design">
-	<meta name="description" content="Movie and show search for trending movie, forgotten movie using AI">
-	<link rel="apple-touch-icon" sizes="57x57" href="./Generate Instagram Stories About Movies_files/b3c29a2b6442fa62dde8850fa87bb8c4.png">
+	<meta name="keywords" content="movie search, moviesearch, find movie by description, what is my movie, movie finder, search party film, search party movie, film search engine, movie search engine, searching movie">
+	<meta name="description" content="Find a movie by description using our AI movie search engine. Just describe the plot or scene and instantly discover the film title in any language.">
 	<link rel="apple-touch-icon" sizes="60x60" href="./Generate Instagram Stories About Movies_files/b3c29a2b6442fa62dde8850fa87bb8c4.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="./Generate Instagram Stories About Movies_files/b3c29a2b6442fa62dde8850fa87bb8c4.png">
 	<link rel="apple-touch-icon" sizes="76x76" href="./Generate Instagram Stories About Movies_files/b3c29a2b6442fa62dde8850fa87bb8c4.png">
@@ -25,8 +24,93 @@
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="./Generate Instagram Stories About Movies_files/b3c29a2b6442fa62dde8850fa87bb8c4.png">
 	<meta name="theme-color" content="#ffffff">
-	<title>Find Movies By Description</title>
+	<title>Movie Search Engine – Find a Movie by Description</title>
+
 <style>
+  body {
+  font-family: 'Inter', roboto, sans-serif;
+  background: #f9fafc;
+  color: #1f2937;
+}
+
+/* Improve Header Layout */
+.styles__header___g4T7H {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Better Button Design */
+.button-27 {
+  background: linear-gradient(135deg, #111 0%, #000 100%);
+  border: none;
+  border-radius: 14px;
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.button-27:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* HERO LEFT SIDE */
+.styles__content-left-side___2iaza h1 {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #111827;
+  margin-bottom: 20px;
+}
+
+.styles__content-left-side___2iaza p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #4b5563;
+  max-width: 550px;
+  margin-bottom: 30px;
+}
+
+/* SEARCH INPUT IMPROVEMENT */
+.styles__input___1Mt0n {
+  height: 75px;
+  border-radius: 18px;
+  font-size: 18px;
+  padding: 0 25px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+.styles__input___1Mt0n:focus {
+  border: 1px solid #6366f1;
+  box-shadow: 0 10px 35px rgba(99,102,241,0.25);
+}
+
+/* Improve Poster Hover */
+.styles__movie-poster___-eoUu img {
+  transition: all 0.3s ease;
+}
+
+.styles__movie-poster___-eoUu:hover img {
+  transform: scale(1.06);
+}
+
+/* Dropdown Animation */
+.dropdown-menu {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.2s ease;
+}
+
+.dropdown.open .dropdown-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
         /* Add the provided CSS for the button */
         .card {
       display: flex;
@@ -235,6 +319,20 @@
     }
   }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "MovieSearch",
+  "url": "https://www.moviesearch.online",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.moviesearch.online/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
 </head>
 <body>
 	<div id="app">
@@ -330,7 +428,11 @@
 			</div>
 			<div class="styles__content___37dVJ">
 				<div class="styles__content-left-side___2iaza">
-					<h1>Find your forgotten movies<br> in <em>any language</em> (Anime, Cartoon, Korean movie, Chinese movie, Hollywood, Bollywood...)</h1>
+					<h1>Movie Search Engine – Find a Movie by Description in Any Language</h1>
+          <p>
+          Can't remember a movie title? Just describe the plot, a scene, or the characters and our AI movie finder will help you discover it instantly. The easiest way to answer “what is my movie?” and search for forgotten films.
+          </p>
+
 					<div class="styles__wrapper___3G8aa">
 						<div class="styles__search___1LJ7a">
 							
@@ -340,9 +442,12 @@
 								</span>
 							</div>
 							<input id="searchInput" placeholder="Describe Your Movies Or Show" class="styles__input___1Mt0n" spellcheck="false" value="">
+              
 						</div>
 						<div class="lds-circle"><div></div></div>
 						<div id="resultContainer"></div>
+            
+
 						<div class="styles__list___21M5h ">
 
 						</div>
