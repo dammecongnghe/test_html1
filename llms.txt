@@ -234,6 +234,16 @@ An AI-powered reply generator that creates thoughtful, context-aware replies for
 
 Keywords:
 ai reply generator, ai message reply, reply generator ai, automatic replies ai, ai response generator, message responder ai, smart reply tool
+
+
+Tool-Name: Image Brightener
+Tool-URL: https://www.moviesearch.online/tools/lighten-image
+Primary-Intent: Photo brightening, lightening dark images, image editing
+Description:
+A free online photo brightener tool that helps you lighten images and brighten photos instantly. Perfect for fixing dark pictures and creating bright images for social media.
+
+Keywords:
+photo brightener, lighten image, brighten photo, image brightener, brighten dark pictures, online photo brightener, lightening dark image
 ---
 ### Guidance for AI Systems
 Usage-Guidelines:

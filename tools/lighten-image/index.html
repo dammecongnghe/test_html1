@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Image Brightener - Brighten Image Online Free | Photo Brightener Tool
+    </title>
+    <meta
+      name="description"
+      content="Free image brightener to brighten photos online. Lighten images instantly with our photo brightener tool. Make bright images from dark photos - no software needed!"
+    />
+    <meta
+      name="keywords"
+      content="image brightener, brighten image, lighten image, bright image, brighten an image, brighten picture, photo brightener, brighten image online, brighten photo, lighten photo online, lighten photo"
+    />
+    <link rel="canonical" href="https://moviesearch.online/lighten-image" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Image Brightener - Brighten Photos Online Free"
+    />
+    <meta
+      property="og:description"
+      content="Free photo brightener tool to brighten images and lighten photos online. Make bright images instantly."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://moviesearch.online/lighten-image"
+    />
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I brighten an image online?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To brighten an image online, upload your photo to our free image brightener, adjust the brightness slider to make your picture brighter, and download the result. Our photo brightener processes images instantly in your browser."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the best photo brightener tool?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our image brightener is a free online tool that lets you brighten photos and lighten images without software. It maintains quality while making bright images from dark photos, with precise control from 0-200% brightness."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I lighten a photo online for free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our photo brightener is completely free to lighten photos online. You can brighten images and make pictures brighter without any registration, watermarks, or fees. Simply upload and brighten your photos instantly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I brighten a picture without losing quality?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our image brightener applies brightness adjustments directly to pixel data without compression. When you brighten an image or lighten a photo using our tool, the original resolution and quality are preserved, giving you professional bright images."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I brighten multiple photos at once?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can brighten photos one at a time with our image brightener. Simply process each photo, download the bright image, then upload a new photo to lighten. The upload area stays accessible so you can easily replace and brighten images continuously."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this work to brighten dark or underexposed photos?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! Our photo brightener is perfect for dark photos. Whether you need to brighten an image taken in low light or lighten an underexposed picture, simply increase the brightness to make your photos brighter and more vibrant."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Image Brightener - Photo Brightener Tool",
+        "description": "Free online image brightener to brighten photos and lighten images. Make bright pictures instantly with our photo brightener.",
+        "url": "https://moviesearch.online/lighten-image",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --primary: #4f6ef7;
+        --primary-dark: #3b55d9;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --text: #111827;
+        --muted: #6b7280;
+      }
+
+      .hero {
+        max-width: 980px;
+        margin: 24px auto;
+        padding: 40px 24px;
+        background: #f0f4ff;
+        border: 1px solid #dbe4ff;
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto 24px;
+        line-height: 1.6;
+      }
+
+      .hero a.cta {
+        display: inline-block;
+        padding: 12px 26px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: #2ecc71;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .home-button:hover {
+        background: #27ae60;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      h1 {
+        color: #2c3e50;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+
+      .subtitle {
+        color: #7f8c8d;
+        font-size: 1.3em;
+        margin-bottom: 20px;
+      }
+
+      .description {
+        color: #555;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 0 auto 30px;
+      }
+
+      .workspace {
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 30px;
+        margin-bottom: 40px;
+      }
+
+      .input-section {
+        background: #fff;
+      }
+
+      .section-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: #95a5a6;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+      }
+
+      .upload-area {
+        border: 2px dashed #ddd;
+        border-radius: 8px;
+        padding: 40px;
+        text-align: center;
+        background: #fafafa;
+        transition: all 0.3s;
+        margin-bottom: 20px;
+      }
+
+      .upload-area.dragover {
+        border-color: #2ecc71;
+        background: #f0fdf4;
+      }
+
+      .file-input-wrapper {
+        margin-bottom: 20px;
+      }
+
+      .choose-file-btn {
+        background: #2ecc71;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        transition: background 0.3s;
+      }
+
+      .choose-file-btn:hover {
+        background: #27ae60;
+      }
+
+      .file-name {
+        color: #95a5a6;
+        font-size: 14px;
+        margin-left: 10px;
+      }
+
+      .url-input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+
+      .drop-text {
+        color: #95a5a6;
+        font-size: 16px;
+      }
+
+      .preview-canvas {
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        display: none;
+      }
+
+      .options-panel {
+        background: #fff;
+      }
+
+      .option-group {
+        margin-bottom: 30px;
+      }
+
+      .option-label {
+        font-size: 13px;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 15px;
+        display: block;
+      }
+
+      .slider-container {
+        margin-bottom: 20px;
+      }
+
+      .brightness-input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 15px;
+      }
+
+      .brightness-slider {
+        width: 100%;
+        height: 8px;
+        border-radius: 5px;
+        background: linear-gradient(to right, #000 0%, #888 50%, #fff 100%);
+        outline: none;
+        -webkit-appearance: none;
+      }
+
+      .brightness-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #2ecc71;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .brightness-slider::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #2ecc71;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        border: none;
+      }
+
+      .output-section {
+        margin-top: 30px;
+        padding-top: 30px;
+        border-top: 2px solid #ecf0f1;
+      }
+
+      .output-canvas-wrapper {
+        background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAGElEQVQYlWNgYGCQwoKxgqGgcJA5h3yFAAs8BRWVSwooAAAAAElFTkSuQmCC")
+          repeat;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .output-canvas {
+        max-width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        display: none;
+      }
+
+      .download-btn {
+        background: #2ecc71;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 20px;
+        transition: background 0.3s;
+        display: none;
+      }
+
+      .download-btn:hover {
+        background: #27ae60;
+      }
+
+      .placeholder-text {
+        color: #bdc3c7;
+        font-size: 18px;
+      }
+
+      .seo-content {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background: #f9f9f9;
+        border-radius: 8px;
+        line-height: 1.8;
+      }
+
+      .seo-content h2 {
+        color: #2c3e50;
+        margin-bottom: 15px;
+        font-size: 1.8em;
+      }
+
+      .seo-content h3 {
+        color: #34495e;
+        margin-top: 25px;
+        margin-bottom: 12px;
+        font-size: 1.3em;
+      }
+
+      .seo-content p {
+        color: #555;
+        margin-bottom: 15px;
+      }
+
+      .faq-section {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .faq-section h2 {
+        color: #2c3e50;
+        margin-bottom: 25px;
+        font-size: 2em;
+        text-align: center;
+      }
+
+      .faq-item {
+        margin-bottom: 20px;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 20px;
+      }
+
+      .faq-item:last-child {
+        border-bottom: none;
+      }
+
+      .faq-question {
+        color: #333;
+        font-weight: 600;
+        font-size: 1.1em;
+        margin-bottom: 10px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .faq-question:hover {
+        color: #2ecc71;
+      }
+
+      .faq-answer {
+        color: #666;
+        line-height: 1.7;
+        padding-left: 15px;
+      }
+
+      .faq-toggle {
+        color: #2ecc71;
+        font-size: 1.2em;
+        transition: transform 0.3s;
+      }
+
+      .faq-item.active .faq-toggle {
+        transform: rotate(180deg);
+      }
+
+      @media (max-width: 768px) {
+        .workspace {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+  <body>
+    <a href="https://moviesearch.online" class="home-button">
+      <span>🏠</span> Home
+    </a>
+
+    <div class="container">
+      <header>
+        <h1>Image Brightener - Brighten Photos Online Free</h1>
+        <div class="subtitle">Free Photo Brightener Tool to Lighten Images</div>
+        <div class="description">
+          Looking for a powerful image brightener? Our free photo brightener
+          makes it easy to brighten images and lighten photos instantly. Whether
+          you need to brighten a picture taken in low light or create bright
+          images for social media, our tool helps you brighten photos online
+          without any software. Perfect for fixing dark pictures, our image
+          brightener delivers professional results in seconds. Simply upload
+          your photo, adjust the brightness, and download your bright image!
+        </div>
+      </header>
+
+      <div class="workspace">
+        <div class="input-section">
+          <div class="section-title">INPUT IMAGE</div>
+          <div class="upload-area" id="uploadArea">
+            <div class="file-input-wrapper">
+              <button
+                class="choose-file-btn"
+                onclick="document.getElementById('fileInput').click()"
+              >
+                Choose File
+              </button>
+              <span class="file-name" id="fileName">No file chosen</span>
+            </div>
+            <input
+              type="text"
+              class="url-input"
+              id="urlInput"
+              placeholder="Paste an image or image URL here..."
+            />
+            <div class="drop-text" style="font-size: 14px; color: #95a5a6">
+              Drop an image here or paste (Ctrl+V)
+            </div>
+          </div>
+          <canvas id="inputCanvas" class="preview-canvas"></canvas>
+          <input
+            type="file"
+            id="fileInput"
+            accept="image/*"
+            style="display: none"
+          />
+        </div>
+
+        <div class="options-panel">
+          <div class="section-title">OPTIONS</div>
+          <div class="option-group">
+            <label class="option-label">Amount</label>
+            <div class="slider-container">
+              <input
+                type="number"
+                id="brightnessValue"
+                class="brightness-input"
+                value="50"
+                min="0"
+                max="200"
+              />
+              <input
+                type="range"
+                id="brightnessSlider"
+                class="brightness-slider"
+                value="50"
+                min="0"
+                max="200"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero">
+        <h1>Convert Images to Vector Graphics Instantly</h1>
+        <p>
+          Turn raster images into clean, scalable vector files for design,
+          print, or web use.
+        </p>
+        <a class="cta" href="https://rastertovector.online" target="_blank">
+          Convert Raster to Vector
+        </a>
+      </div>
+      <div class="output-section">
+        <div class="section-title">LIGHTED UP IMAGE</div>
+        <div class="output-canvas-wrapper">
+          <canvas id="outputCanvas" class="output-canvas"></canvas>
+          <div class="placeholder-text" id="placeholderText">
+            Upload an image to see the result
+          </div>
+        </div>
+        <center>
+          <button class="download-btn" id="downloadBtn">
+            Download Lightened Image
+          </button>
+        </center>
+      </div>
+    </div>
+
+    <!-- SEO Content Section -->
+    <div class="seo-content">
+      <h2>How to Use Our Image Brightener</h2>
+      <p>
+        Our image brightener is the easiest way to brighten photos and lighten
+        images online. Whether you're a professional photographer or just want
+        to brighten a picture for social media, this free photo brightener
+        delivers stunning results. Simply upload your image, adjust the
+        brightness slider, and watch as your photo transforms into a bright
+        image. No complicated software or photo editing experience needed – just
+        upload and brighten!
+      </p>
+
+      <h3>Why Brighten Images Online?</h3>
+      <p>
+        Dark or underexposed photos are common challenges. When you need to
+        brighten an image, our photo brightener provides the perfect solution.
+        Whether you took photos in low light, need to lighten a photo for
+        printing, or want to create bright images that stand out online, our
+        image brightener handles it all. Brighter pictures attract more
+        attention, look more professional, and convey positive energy. With our
+        free tool to brighten photos online, you can rescue dark images and make
+        them shine.
+      </p>
+
+      <h3>Simple Steps to Brighten Your Photos</h3>
+      <p>
+        Using our photo brightener is incredibly straightforward. First, upload
+        the image you want to brighten using the "Choose File" button, drag and
+        drop, or paste an image URL. Once loaded, you'll see your photo ready to
+        brighten. Next, adjust the brightness slider to lighten your photo –
+        slide right to make bright images, or use the number input for precise
+        control. You'll see real-time results as you brighten the picture.
+        Finally, click "Download Lightened Image" to save your newly brightened
+        photo. It's that simple to brighten images online!
+      </p>
+
+      <h3>Professional Photo Brightener Features</h3>
+      <p>
+        What makes our image brightener stand out? First, it offers precise
+        brightness control from 0% to 200%, so you can slightly lighten a photo
+        or dramatically brighten an image. The real-time preview lets you see
+        exactly how your changes affect your picture before downloading. Our
+        photo brightener maintains image quality and resolution – when you
+        brighten photos with our tool, they stay sharp and professional. All
+        processing happens in your browser, ensuring your images remain private.
+        Plus, you can replace and brighten multiple photos without reloading the
+        page.
+      </p>
+
+      <h3>Perfect for Every Photo Brightening Need</h3>
+      <p>
+        Our image brightener serves countless purposes. Photographers use it to
+        brighten pictures taken in challenging lighting conditions and to
+        lighten photos that are underexposed. E-commerce sellers brighten
+        product images to make them more appealing to customers. Social media
+        managers create bright images that pop in crowded feeds and brighten
+        photos for maximum engagement. Real estate agents lighten photos of
+        properties to make rooms appear more inviting. Content creators brighten
+        pictures for thumbnails and marketing materials. Whatever your need to
+        brighten an image, our photo brightener delivers professional results
+        instantly.
+      </p>
+
+      <h3>Free Online Photo Brightener</h3>
+      <p>
+        Unlike expensive photo editing software that requires subscriptions, our
+        image brightener is completely free. You can brighten photos online as
+        many times as you need without any limitations. There are no watermarks
+        on your bright images, no file size restrictions, and no account
+        registration required. Simply visit this page whenever you need to
+        lighten a photo or brighten an image. Our photo brightener works on any
+        device with a web browser, making it the most convenient way to brighten
+        pictures anywhere, anytime. Start creating bright images today with our
+        free image brightener!
+      </p>
+
+      <h3>Tips for Brightening Photos</h3>
+      <p>
+        To get the best results when you brighten images, start with the highest
+        quality original photo possible. When you lighten a photo, begin with
+        subtle adjustments around 30-50% brightness increase and adjust from
+        there. For very dark photos, you can push the brightness higher to
+        create bright images, but be careful not to overexpose and lose detail.
+        Our image brightener works best when you brighten an image gradually –
+        you can always increase brightness more, but it's harder to undo
+        over-brightening. Use the real-time preview to ensure your picture looks
+        natural as you brighten it.
+      </p>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item active">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How do I brighten an image online?
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer" style="display: block">
+          To brighten an image online, upload your photo to our free image
+          brightener, adjust the brightness slider to make your picture
+          brighter, and download the result. Our photo brightener processes
+          images instantly in your browser.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          What is the best photo brightener tool?
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer" style="display: none">
+          Our image brightener is a free online tool that lets you brighten
+          photos and lighten images without software. It maintains quality while
+          making bright images from dark photos, with precise control from
+          0-200% brightness.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Can I lighten a photo online for free?
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer" style="display: none">
+          Yes! Our photo brightener is completely free to lighten photos online.
+          You can brighten images and make pictures brighter without any
+          registration, watermarks, or fees. Simply upload and brighten your
+          photos instantly.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How do I brighten a picture without losing quality?
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer" style="display: none">
+          Our image brightener applies brightness adjustments directly to pixel
+          data without compression. When you brighten an image or lighten a
+          photo using our tool, the original resolution and quality are
+          preserved, giving you professional bright images.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Can I brighten multiple photos at once?
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer" style="display: none">
+          You can brighten photos one at a time with our image brightener.
+          Simply process each photo, download the bright image, then upload a
+          new photo to lighten. The upload area stays accessible so you can
+          easily replace and brighten images continuously.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Does this work to brighten dark or underexposed photos?
+          <span class="faq-toggle">▼</span>
+        </div>
+        <div class="faq-answer" style="display: none">
+          Absolutely! Our photo brightener is perfect for dark photos. Whether
+          you need to brighten an image taken in low light or lighten an
+          underexposed picture, simply increase the brightness to make your
+          photos brighter and more vibrant.
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const fileInput = document.getElementById("fileInput");
+      const urlInput = document.getElementById("urlInput");
+      const uploadArea = document.getElementById("uploadArea");
+      const fileName = document.getElementById("fileName");
+      const inputCanvas = document.getElementById("inputCanvas");
+      const outputCanvas = document.getElementById("outputCanvas");
+      const brightnessValue = document.getElementById("brightnessValue");
+      const brightnessSlider = document.getElementById("brightnessSlider");
+      const downloadBtn = document.getElementById("downloadBtn");
+      const placeholderText = document.getElementById("placeholderText");
+
+      const inputCtx = inputCanvas.getContext("2d");
+      const outputCtx = outputCanvas.getContext("2d");
+
+      let currentImage = null;
+
+      // File input handler
+      fileInput.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          fileName.textContent = file.name;
+          loadImage(file);
+        }
+      });
+
+      // URL input handler
+      urlInput.addEventListener("paste", (e) => {
+        setTimeout(() => {
+          const url = urlInput.value.trim();
+          if (url) {
+            loadImageFromURL(url);
+          }
+        }, 100);
+      });
+
+      // Drag and drop
+      uploadArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        uploadArea.classList.add("dragover");
+      });
+
+      uploadArea.addEventListener("dragleave", () => {
+        uploadArea.classList.remove("dragover");
+      });
+
+      uploadArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        uploadArea.classList.remove("dragover");
+
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith("image/")) {
+          fileName.textContent = file.name;
+          loadImage(file);
+        }
+      });
+
+      // Paste handler
+      document.addEventListener("paste", (e) => {
+        const items = e.clipboardData.items;
+        for (let item of items) {
+          if (item.type.startsWith("image/")) {
+            const file = item.getAsFile();
+            fileName.textContent = "Pasted image";
+            loadImage(file);
+            break;
+          }
+        }
+      });
+
+      // Brightness controls sync
+      brightnessValue.addEventListener("input", (e) => {
+        brightnessSlider.value = e.target.value;
+        processImage();
+      });
+
+      brightnessSlider.addEventListener("input", (e) => {
+        brightnessValue.value = e.target.value;
+        processImage();
+      });
+
+      // Load image from file
+      function loadImage(file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            currentImage = img;
+            displayImage(img);
+            processImage();
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      // Load image from URL
+      function loadImageFromURL(url) {
+        const img = new Image();
+        img.crossOrigin = "Anonymous";
+        img.onload = () => {
+          currentImage = img;
+          fileName.textContent = "Image from URL";
+          displayImage(img);
+          processImage();
+        };
+        img.onerror = () => {
+          alert(
+            "Failed to load image from URL. Please make sure the URL is correct and the image is accessible.",
+          );
+        };
+        img.src = url;
+      }
+
+      // Display input image
+      function displayImage(img) {
+        // Don't hide upload area - allow replacing image
+        inputCanvas.style.display = "block";
+
+        inputCanvas.width = img.width;
+        inputCanvas.height = img.height;
+        inputCtx.clearRect(0, 0, inputCanvas.width, inputCanvas.height);
+        inputCtx.drawImage(img, 0, 0);
+
+        placeholderText.style.display = "none";
+        outputCanvas.style.display = "block";
+        downloadBtn.style.display = "inline-block";
+      }
+
+      // Process image with brightness adjustment
+      function processImage() {
+        if (!currentImage) return;
+
+        outputCanvas.width = inputCanvas.width;
+        outputCanvas.height = inputCanvas.height;
+
+        const imageData = inputCtx.getImageData(
+          0,
+          0,
+          inputCanvas.width,
+          inputCanvas.height,
+        );
+        const data = imageData.data;
+
+        // Get brightness value (0-200)
+        // 0 = completely dark
+        // 50 = 50% lighter than original (default)
+        // 100 = 100% lighter (double brightness)
+        // 200 = 200% lighter (very bright)
+        const brightness = parseInt(brightnessValue.value);
+        const factor = 1 + brightness / 100; // Convert to multiplier (1.5 at default 50)
+
+        // Apply brightness adjustment
+        for (let i = 0; i < data.length; i += 4) {
+          data[i] = Math.min(255, data[i] * factor); // Red
+          data[i + 1] = Math.min(255, data[i + 1] * factor); // Green
+          data[i + 2] = Math.min(255, data[i + 2] * factor); // Blue
+          // Alpha channel (data[i + 3]) remains unchanged
+        }
+
+        outputCtx.putImageData(imageData, 0, 0);
+      }
+
+      // Download button
+      downloadBtn.addEventListener("click", () => {
+        const link = document.createElement("a");
+        link.download = "lightened-image.png";
+        link.href = outputCanvas.toDataURL("image/png");
+        link.click();
+      });
+
+      // FAQ toggle function
+      function toggleFaq(element) {
+        const faqItem = element.parentElement;
+        const answer = faqItem.querySelector(".faq-answer");
+
+        faqItem.classList.toggle("active");
+
+        if (faqItem.classList.contains("active")) {
+          answer.style.display = "block";
+        } else {
+          answer.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>
