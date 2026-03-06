@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Twitter GIF Downloader</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <script src="https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.js"></script>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui;
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        width: 720px;
+        max-width: 90%;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 30px;
+        border-radius: 14px;
+        backdrop-filter: blur(12px);
+      }
+
+      h1 {
+        margin-top: 0;
+        text-align: center;
+      }
+
+      input {
+        width: 100%;
+        padding: 14px;
+        border-radius: 8px;
+        border: none;
+        margin-top: 10px;
+        box-sizing: border-box;
+      }
+
+      button {
+        margin-top: 12px;
+        padding: 12px 18px;
+        border: none;
+        border-radius: 8px;
+        background: #3b82f6;
+        color: white;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      button:hover {
+        background: #2563eb;
+      }
+
+      button:disabled {
+        background: #64748b;
+        cursor: not-allowed;
+      }
+
+      .secondary {
+        background: #10b981;
+      }
+
+      .secondary:hover {
+        background: #059669;
+      }
+
+      video {
+        width: 100%;
+        margin-top: 20px;
+        border-radius: 10px;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      #status {
+        margin-top: 15px;
+        opacity: 0.8;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .progress {
+        margin-top: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        height: 8px;
+        overflow: hidden;
+      }
+
+      .progress-bar {
+        height: 100%;
+        background: #10b981;
+        width: 0%;
+        transition: width 0.3s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Twitter GIF Downloader</h1>
+
+      <input id="tweetInput" placeholder="Paste Tweet URL or ID" />
+
+      <button onclick="fetchTweet()">Fetch Tweet</button>
+
+      <div id="preview"></div>
+
+      <div id="status"></div>
+      <div id="progressContainer" style="display: none">
+        <div class="progress">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let mp4URL = null;
+
+      function extractID(text) {
+        let match = text.match(/status\/(\d+)/);
+        if (match) return match[1];
+        if (/^\d+$/.test(text)) return text;
+        return null;
+      }
+
+      async function fetchTweet() {
+        const input = document.getElementById("tweetInput").value.trim();
+        const id = extractID(input);
+
+        if (!id) {
+          alert("Invalid tweet link or ID");
+          return;
+        }
+
+        document.getElementById("status").innerText = "Fetching tweet...";
+        document.getElementById("preview").innerHTML = "";
+
+        try {
+          const res = await fetch(
+            "https://www.picbolt.co/api/templates/tweet-screenshot",
+            {
+              method: "PUT",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ tweetId: id }),
+            },
+          );
+
+          if (!res.ok) {
+            throw new Error("Failed to fetch tweet");
+          }
+
+          const data = await res.json();
+
+          if (!data.tweet || !data.tweet.video || !data.tweet.video.variants) {
+            throw new Error("No video found in this tweet");
+          }
+
+          // Find the best quality MP4
+          const mp4Variants = data.tweet.video.variants.filter((v) =>
+            v.src.includes(".mp4"),
+          );
+          if (mp4Variants.length === 0) {
+            throw new Error("No MP4 video found");
+          }
+
+          // Sort by bitrate if available, otherwise use first
+          mp4URL = mp4Variants.sort(
+            (a, b) => (b.bitrate || 0) - (a.bitrate || 0),
+          )[0].src;
+
+          document.getElementById("preview").innerHTML = `
+<video id="video" controls autoplay loop crossorigin="anonymous">
+  <source src="${mp4URL}" type="video/mp4">
+</video>
+
+<div class="buttons">
+  <button onclick="downloadMP4()">Download MP4</button>
+  <button class="secondary" onclick="convertGIF()">Convert to GIF</button>
+</div>
+`;
+
+          document.getElementById("status").innerText =
+            "Video ready! Click 'Convert to GIF' to create a GIF.";
+        } catch (error) {
+          console.error(error);
+          document.getElementById("status").innerText =
+            "Error: " + error.message;
+        }
+      }
+
+      function downloadMP4() {
+        if (!mp4URL) {
+          alert("No video loaded");
+          return;
+        }
+
+        const a = document.createElement("a");
+        a.href = mp4URL;
+        a.download = "twitter-video.mp4";
+        a.click();
+      }
+
+      async function convertGIF() {
+        const video = document.getElementById("video");
+
+        if (!video) {
+          alert("Load video first");
+          return;
+        }
+
+        // Wait for video to be loaded
+        if (video.readyState < 2) {
+          document.getElementById("status").innerText =
+            "Waiting for video to load...";
+          await new Promise((resolve) => {
+            video.addEventListener("loadeddata", resolve, { once: true });
+          });
+        }
+
+        const convertBtn = event.target;
+        convertBtn.disabled = true;
+        convertBtn.textContent = "Converting...";
+
+        document.getElementById("status").innerText =
+          "Converting to GIF... This may take a minute.";
+        document.getElementById("progressContainer").style.display = "block";
+
+        try {
+          const canvas = document.createElement("canvas");
+          const ctx = canvas.getContext("2d");
+
+          // Limit dimensions for reasonable GIF size
+          const maxWidth = 480;
+          const scale = Math.min(1, maxWidth / video.videoWidth);
+
+          canvas.width = Math.floor(video.videoWidth * scale);
+          canvas.height = Math.floor(video.videoHeight * scale);
+
+          const gif = new GIF({
+            workers: 2,
+            quality: 10,
+            width: canvas.width,
+            height: canvas.height,
+            workerScript: "./gif.worker.js",
+          });
+
+          const duration = Math.min(video.duration, 10); // Limit to 10 seconds
+          const fps = 10; // 10 frames per second for reasonable file size
+          const totalFrames = Math.floor(duration * fps);
+          let frameCount = 0;
+
+          // Capture frames
+          for (let t = 0; t < duration; t += 1 / fps) {
+            video.currentTime = t;
+            await new Promise((resolve) => {
+              video.onseeked = resolve;
+            });
+
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            gif.addFrame(canvas, { copy: true, delay: 100 });
+
+            frameCount++;
+            const progress = (frameCount / totalFrames) * 50; // First 50% is capturing
+            document.getElementById("progressBar").style.width = progress + "%";
+          }
+
+          // Rendering progress
+          gif.on("progress", function (p) {
+            const progress = 50 + p * 50; // Last 50% is rendering
+            document.getElementById("progressBar").style.width = progress + "%";
+          });
+
+          gif.on("finished", function (blob) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "twitter.gif";
+            a.click();
+
+            document.getElementById("status").innerText =
+              "GIF downloaded successfully!";
+            document.getElementById("progressContainer").style.display = "none";
+            document.getElementById("progressBar").style.width = "0%";
+
+            convertBtn.disabled = false;
+            convertBtn.textContent = "Convert to GIF";
+
+            // Show file size
+            const sizeMB = (blob.size / 1024 / 1024).toFixed(2);
+            document.getElementById("status").innerText =
+              `GIF downloaded! (${sizeMB} MB)`;
+          });
+
+          gif.on("error", function (error) {
+            console.error("GIF encoding error:", error);
+            document.getElementById("status").innerText = "Error creating GIF";
+            document.getElementById("progressContainer").style.display = "none";
+            convertBtn.disabled = false;
+            convertBtn.textContent = "Convert to GIF";
+          });
+
+          gif.render();
+        } catch (error) {
+          console.error("Conversion error:", error);
+          document.getElementById("status").innerText =
+            "Error: " + error.message;
+          document.getElementById("progressContainer").style.display = "none";
+          convertBtn.disabled = false;
+          convertBtn.textContent = "Convert to GIF";
+        }
+      }
+    </script>
+  </body>
+</html>
