@@ -2,12 +2,171 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Twitter GIF Downloader</title>
+    <title>
+      Twitter GIF Downloader - Download GIF from Twitter & Tweet to GIF
+      Converter
+    </title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Free Twitter GIF downloader to download GIF from Twitter and convert tweet to GIF. Save Twitter GIFs easily - best GIF downloader for Twitter with no registration required!"
+    />
+    <meta
+      name="keywords"
+      content="twitter gif downloader, download twitter gif, twitter gif download, twitter to gif, tweet to gif, twitter gif dl, download gif from twitter, save twitter gif, gif from twitter, download gif from tweet, gif downloader twitter"
+    />
+    <link
+      rel="canonical"
+      href="https://moviesearch.online/twitter-gif-downloader"
+    />
 
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Twitter GIF Downloader - Download GIF from Twitter Free"
+    />
+    <meta
+      property="og:description"
+      content="Free tool to download Twitter GIF and convert tweet to GIF. Save GIFs from Twitter instantly!"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://moviesearch.online/twitter-gif-downloader"
+    />
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I download a GIF from Twitter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To download a GIF from Twitter, paste the tweet URL or ID into our Twitter GIF downloader, click 'Fetch Tweet', and then click 'Download MP4' or 'Convert to GIF'. Our free tool makes it easy to save Twitter GIFs to your device."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I convert a tweet to GIF for free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our Twitter to GIF converter is completely free. Simply paste the Twitter URL, and our tool will convert the tweet to GIF format that you can download and share anywhere."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I save a Twitter GIF to my phone?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To save a Twitter GIF, paste the tweet link into our GIF downloader for Twitter, wait for the video to load, then click 'Convert to GIF' or 'Download MP4'. The file will save directly to your phone's downloads folder."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the best Twitter GIF downloader?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our Twitter GIF downloader is the best free option because it works directly in your browser, requires no registration, supports both MP4 and GIF formats, and lets you download GIF from Twitter with just a tweet URL or ID."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I download GIF from a private Twitter account?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No, you can only download Twitter GIFs from public tweets. Our Twitter GIF download tool can only access publicly available tweets. Private or protected tweets cannot be downloaded."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is it legal to download GIFs from Twitter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Downloading GIF from Twitter for personal use is generally acceptable, but you should respect copyright and the original creator's rights. Don't redistribute or use downloaded Twitter GIFs commercially without permission."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Twitter GIF Downloader",
+        "description": "Free online tool to download GIF from Twitter and convert tweet to GIF. Save Twitter GIFs easily.",
+        "url": "https://moviesearch.online/twitter-gif-downloader",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.js"></script>
 
     <style>
+      :root {
+        --primary: #4f6ef7;
+        --primary-dark: #3b55d9;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --text: #111827;
+        --muted: #6b7280;
+      }
+      .hero {
+        max-width: 980px;
+        margin: 24px auto;
+        padding: 40px 24px;
+        background: #f0f4ff;
+        border: 1px solid #dbe4ff;
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto 24px;
+        line-height: 1.6;
+      }
+
+      .hero a.cta {
+        display: inline-block;
+        padding: 12px 26px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
       body {
         margin: 0;
         font-family: system-ui;
@@ -26,6 +185,31 @@
         padding: 30px;
         border-radius: 14px;
         backdrop-filter: blur(12px);
+      }
+
+      .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: #1d9bf0;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+      }
+
+      .home-button:hover {
+        background: #1a8cd8;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       }
 
       h1 {
@@ -108,13 +292,42 @@
   </head>
 
   <body>
-    <div class="container">
-      <h1>Twitter GIF Downloader</h1>
+    <a href="https://moviesearch.online" class="home-button">
+      <span>🏠</span> Home
+    </a>
 
-      <input id="tweetInput" placeholder="Paste Tweet URL or ID" />
+    <div class="container">
+      <h1>Twitter GIF Downloader - Download GIF from Twitter</h1>
+
+      <p
+        style="
+          text-align: center;
+          opacity: 0.9;
+          margin-bottom: 20px;
+          line-height: 1.6;
+        "
+      >
+        Free online tool to download Twitter GIF and convert tweet to GIF. Save
+        GIFs from Twitter easily - paste any tweet URL or ID to download GIF
+        from Twitter instantly!
+      </p>
+
+      <input
+        id="tweetInput"
+        placeholder="Paste Tweet URL or ID (e.g., https://twitter.com/user/status/123456)"
+      />
 
       <button onclick="fetchTweet()">Fetch Tweet</button>
-
+      <div class="hero">
+        <h1>Convert Images to Vector Graphics Instantly</h1>
+        <p>
+          Turn raster images into clean, scalable vector files for design,
+          print, or web use.
+        </p>
+        <a class="cta" href="https://rastertovector.online" target="_blank">
+          Convert Raster to Vector
+        </a>
+      </div>
       <div id="preview"></div>
 
       <div id="status"></div>
@@ -122,6 +335,191 @@
         <div class="progress">
           <div class="progress-bar" id="progressBar"></div>
         </div>
+      </div>
+    </div>
+
+    <!-- SEO Content Section -->
+    <div class="container" style="margin-top: 30px">
+      <h2 style="color: white; margin-bottom: 15px">
+        How to Download GIF from Twitter
+      </h2>
+      <p style="opacity: 0.9; line-height: 1.8; margin-bottom: 15px">
+        Our Twitter GIF downloader makes it incredibly easy to download Twitter
+        GIF files and save them to your device. Whether you want to download GIF
+        from Twitter to share with friends or convert a tweet to GIF for your
+        projects, this free Twitter to GIF tool handles everything in your
+        browser. No registration, no limits - just paste the Twitter URL and
+        download!
+      </p>
+
+      <h3 style="color: white; margin-top: 25px; margin-bottom: 12px">
+        Why Use Our Twitter GIF Download Tool?
+      </h3>
+      <p style="opacity: 0.9; line-height: 1.8; margin-bottom: 15px">
+        When you need to save Twitter GIF content, our GIF downloader for
+        Twitter offers the best experience. Unlike other tools, we let you
+        download GIF from tweet in two formats: keep it as MP4 for smaller file
+        sizes, or convert tweet to GIF for maximum compatibility. Our Twitter
+        GIF dl tool works on any device - phone, tablet, or computer - making it
+        the perfect solution for downloading GIF from Twitter anywhere.
+      </p>
+
+      <h3 style="color: white; margin-top: 25px; margin-bottom: 12px">
+        Steps to Save Twitter GIF
+      </h3>
+      <p style="opacity: 0.9; line-height: 1.8; margin-bottom: 15px">
+        To download a GIF from Twitter using our tool: First, find the tweet
+        containing the GIF you want to save. Copy the tweet URL or just the
+        tweet ID. Paste it into our Twitter GIF downloader above and click
+        "Fetch Tweet". Once the video loads, you can either download the MP4
+        directly or click "Convert to GIF" to create an actual GIF file. Our
+        tool automatically handles the conversion, making it simple to download
+        Twitter GIF content in your preferred format.
+      </p>
+
+      <h3 style="color: white; margin-top: 25px; margin-bottom: 12px">
+        Twitter to GIF Conversion Features
+      </h3>
+      <p style="opacity: 0.9; line-height: 1.8; margin-bottom: 15px">
+        Our Twitter to GIF converter includes advanced features to give you the
+        best results. When you convert a tweet to GIF, we optimize the file size
+        to keep it under 10MB while maintaining quality. The GIF from Twitter
+        will play smoothly at 10 frames per second, and you can download GIF
+        from tweet in seconds. This Twitter GIF download tool works completely
+        in your browser - no uploads to external servers, keeping your downloads
+        private and fast.
+      </p>
+
+      <h3 style="color: white; margin-top: 25px; margin-bottom: 12px">
+        Best Free Twitter GIF Downloader
+      </h3>
+      <p style="opacity: 0.9; line-height: 1.8; margin-bottom: 15px">
+        Looking for a reliable way to save Twitter GIF files? Our GIF downloader
+        Twitter tool is completely free with no hidden costs or limitations.
+        Unlike other Twitter GIF dl services that require accounts or charge
+        fees, we let you download unlimited GIFs from Twitter without any
+        restrictions. Whether you need to download one GIF from Twitter or
+        hundreds, our tool is always free and ready to use. Simply paste the
+        tweet link and start downloading Twitter GIF content immediately!
+      </p>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="container" style="margin-top: 30px; margin-bottom: 40px">
+      <h2 style="color: white; margin-bottom: 25px; text-align: center">
+        Frequently Asked Questions
+      </h2>
+
+      <div
+        style="
+          background: rgba(255, 255, 255, 0.05);
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #1d9bf0; margin-bottom: 10px; font-size: 1.1em">
+          How do I download a GIF from Twitter?
+        </h3>
+        <p style="opacity: 0.9; line-height: 1.7">
+          To download a GIF from Twitter, paste the tweet URL or ID into our
+          Twitter GIF downloader, click 'Fetch Tweet', and then click 'Download
+          MP4' or 'Convert to GIF'. Our free tool makes it easy to save Twitter
+          GIFs to your device.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: rgba(255, 255, 255, 0.05);
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #1d9bf0; margin-bottom: 10px; font-size: 1.1em">
+          Can I convert a tweet to GIF for free?
+        </h3>
+        <p style="opacity: 0.9; line-height: 1.7">
+          Yes! Our Twitter to GIF converter is completely free. Simply paste the
+          Twitter URL, and our tool will convert the tweet to GIF format that
+          you can download and share anywhere.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: rgba(255, 255, 255, 0.05);
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #1d9bf0; margin-bottom: 10px; font-size: 1.1em">
+          How do I save a Twitter GIF to my phone?
+        </h3>
+        <p style="opacity: 0.9; line-height: 1.7">
+          To save a Twitter GIF, paste the tweet link into our GIF downloader
+          for Twitter, wait for the video to load, then click 'Convert to GIF'
+          or 'Download MP4'. The file will save directly to your phone's
+          downloads folder.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: rgba(255, 255, 255, 0.05);
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #1d9bf0; margin-bottom: 10px; font-size: 1.1em">
+          What's the best Twitter GIF downloader?
+        </h3>
+        <p style="opacity: 0.9; line-height: 1.7">
+          Our Twitter GIF downloader is the best free option because it works
+          directly in your browser, requires no registration, supports both MP4
+          and GIF formats, and lets you download GIF from Twitter with just a
+          tweet URL or ID.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: rgba(255, 255, 255, 0.05);
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #1d9bf0; margin-bottom: 10px; font-size: 1.1em">
+          Can I download GIF from a private Twitter account?
+        </h3>
+        <p style="opacity: 0.9; line-height: 1.7">
+          No, you can only download Twitter GIFs from public tweets. Our Twitter
+          GIF download tool can only access publicly available tweets. Private
+          or protected tweets cannot be downloaded.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: rgba(255, 255, 255, 0.05);
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #1d9bf0; margin-bottom: 10px; font-size: 1.1em">
+          Is it legal to download GIFs from Twitter?
+        </h3>
+        <p style="opacity: 0.9; line-height: 1.7">
+          Downloading GIF from Twitter for personal use is generally acceptable,
+          but you should respect copyright and the original creator's rights.
+          Don't redistribute or use downloaded Twitter GIFs commercially without
+          permission.
+        </p>
       </div>
     </div>
 
@@ -338,8 +736,7 @@
             quality: 10,
             width: canvas.width,
             height: canvas.height,
-            workerScript:
-              "https://www.moviesearch.online/tools/twitter-gif-downloader/gif.worker.js", // Local path - put gif.worker.js in same folder
+            workerScript: "./gif.worker.js", // Local path - put gif.worker.js in same folder
           });
 
           const duration = Math.min(video.duration, 10); // Limit to 10 seconds
