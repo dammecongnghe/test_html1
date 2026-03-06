@@ -157,16 +157,25 @@
             },
           );
 
+          if (!res.ok) {
+            throw new Error("Failed to fetch tweet");
+          }
+
           const data = await res.json();
 
           if (!data.tweet || !data.tweet.video || !data.tweet.video.variants) {
             throw new Error("No video found in this tweet");
           }
 
+          // Find the best quality MP4
           const mp4Variants = data.tweet.video.variants.filter((v) =>
             v.src.includes(".mp4"),
           );
+          if (mp4Variants.length === 0) {
+            throw new Error("No MP4 video found");
+          }
 
+          // Sort by bitrate if available, otherwise use first
           mp4URL = mp4Variants.sort(
             (a, b) => (b.bitrate || 0) - (a.bitrate || 0),
           )[0].src;
@@ -178,30 +187,114 @@
 
 <div class="buttons">
   <button onclick="downloadMP4()">Download MP4</button>
-  <button onclick="openVideo()">Open Video</button>
   <button class="secondary" onclick="convertGIF()">Convert to GIF</button>
 </div>
-
-<iframe id="hiddenDownloader" style="display:none"></iframe>
 `;
 
-          document.getElementById("status").innerText = "Video ready.";
-        } catch (err) {
-          document.getElementById("status").innerText = err.message;
+          // Load video through fetch to bypass CORS
+          const videoElement = document.getElementById("video");
+          loadVideoWithoutReferer(mp4URL, videoElement);
+
+          document.getElementById("status").innerText =
+            "Video ready! Click 'Convert to GIF' to create a GIF.";
+        } catch (error) {
+          console.error(error);
+          document.getElementById("status").innerText =
+            "Error: " + error.message;
+        }
+      }
+
+      // Load video without sending referer to bypass Twitter's CORS
+      async function loadVideoWithoutReferer(url, videoElement) {
+        try {
+          // Method 1: Use CORS proxy
+          const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(url)}`;
+
+          const response = await fetch(proxyUrl);
+          if (!response.ok) throw new Error("Proxy failed");
+
+          const blob = await response.blob();
+          const objectUrl = URL.createObjectURL(blob);
+
+          videoElement.src = objectUrl;
+          mp4URL = objectUrl; // Update for download
+        } catch (error) {
+          console.warn("Proxy method failed, trying alternative:", error);
+
+          try {
+            // Method 2: Try fetching with no-referrer policy
+            const response = await fetch(url, {
+              referrerPolicy: "no-referrer",
+              mode: "cors",
+            });
+
+            const blob = await response.blob();
+            const objectUrl = URL.createObjectURL(blob);
+
+            videoElement.src = objectUrl;
+            mp4URL = objectUrl;
+          } catch (error2) {
+            console.warn("No-referrer method failed:", error2);
+
+            // Method 3: Try using an iframe approach
+            const iframe = document.createElement("iframe");
+            iframe.style.display = "none";
+            iframe.sandbox = "allow-same-origin";
+            document.body.appendChild(iframe);
+
+            const iframeDoc =
+              iframe.contentDocument || iframe.contentWindow.document;
+            iframeDoc.open();
+            iframeDoc.write(`
+              <video id="v" crossorigin="anonymous">
+                <source src="${url}" type="video/mp4">
+              </video>
+              <script>
+                const v = document.getElementById('v');
+                v.onloadeddata = function() {
+                  parent.postMessage({type: 'videoLoaded', src: v.src}, '*');
+                };
+              <\/script>
+            `);
+            iframeDoc.close();
+
+            // Fallback: Just set the URL directly
+            setTimeout(() => {
+              videoElement.src = url;
+            }, 2000);
+          }
         }
       }
 
       function downloadMP4() {
-        if (!mp4URL) return;
+        if (!mp4URL) {
+          alert("No video loaded");
+          return;
+        }
 
-        // Trick used by big downloader sites
-        const iframe = document.getElementById("hiddenDownloader");
-        iframe.src = mp4URL;
-      }
-
-      function openVideo() {
-        if (!mp4URL) return;
-        window.open(mp4URL, "_blank");
+        // If it's a blob URL, download directly
+        if (mp4URL.startsWith("blob:")) {
+          const a = document.createElement("a");
+          a.href = mp4URL;
+          a.download = "twitter-video.mp4";
+          a.click();
+        } else {
+          // Use fetch to download without referer
+          fetch(`https://corsproxy.io/?${encodeURIComponent(mp4URL)}`)
+            .then((res) => res.blob())
+            .then((blob) => {
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement("a");
+              a.href = url;
+              a.download = "twitter-video.mp4";
+              a.click();
+            })
+            .catch((error) => {
+              alert(
+                "Download failed. Please try right-click > Save video as...",
+              );
+            });
+        }
       }
 
       async function convertGIF() {
@@ -212,54 +305,106 @@
           return;
         }
 
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
-
-        const maxWidth = 480;
-        const scale = Math.min(1, maxWidth / video.videoWidth);
-
-        canvas.width = video.videoWidth * scale;
-        canvas.height = video.videoHeight * scale;
-
-        const gif = new GIF({
-          workers: 2,
-          quality: 10,
-          width: canvas.width,
-          height: canvas.height,
-        });
-
-        const duration = Math.min(video.duration, 8);
-        const fps = 10;
-
-        for (let t = 0; t < duration; t += 1 / fps) {
-          video.currentTime = t;
-
+        // Wait for video to be loaded
+        if (video.readyState < 2) {
+          document.getElementById("status").innerText =
+            "Waiting for video to load...";
           await new Promise((resolve) => {
-            video.onseeked = resolve;
-          });
-
-          ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-          gif.addFrame(canvas, {
-            copy: true,
-            delay: 100,
+            video.addEventListener("loadeddata", resolve, { once: true });
           });
         }
 
-        document.getElementById("status").innerText = "Rendering GIF...";
+        const convertBtn = event.target;
+        convertBtn.disabled = true;
+        convertBtn.textContent = "Converting...";
 
-        gif.on("finished", function (blob) {
-          const url = URL.createObjectURL(blob);
+        document.getElementById("status").innerText =
+          "Converting to GIF... This may take a minute.";
+        document.getElementById("progressContainer").style.display = "block";
 
-          const a = document.createElement("a");
-          a.href = url;
-          a.download = "twitter.gif";
-          a.click();
+        try {
+          const canvas = document.createElement("canvas");
+          const ctx = canvas.getContext("2d");
 
-          document.getElementById("status").innerText = "GIF Downloaded";
-        });
+          // Limit dimensions for reasonable GIF size
+          const maxWidth = 480;
+          const scale = Math.min(1, maxWidth / video.videoWidth);
 
-        gif.render();
+          canvas.width = Math.floor(video.videoWidth * scale);
+          canvas.height = Math.floor(video.videoHeight * scale);
+
+          const gif = new GIF({
+            workers: 2,
+            quality: 10,
+            width: canvas.width,
+            height: canvas.height,
+            workerScript: "./gif.worker.js", // Local path - put gif.worker.js in same folder
+          });
+
+          const duration = Math.min(video.duration, 10); // Limit to 10 seconds
+          const fps = 10; // 10 frames per second for reasonable file size
+          const totalFrames = Math.floor(duration * fps);
+          let frameCount = 0;
+
+          // Capture frames
+          for (let t = 0; t < duration; t += 1 / fps) {
+            video.currentTime = t;
+            await new Promise((resolve) => {
+              video.onseeked = resolve;
+            });
+
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            gif.addFrame(canvas, { copy: true, delay: 100 });
+
+            frameCount++;
+            const progress = (frameCount / totalFrames) * 50; // First 50% is capturing
+            document.getElementById("progressBar").style.width = progress + "%";
+          }
+
+          // Rendering progress
+          gif.on("progress", function (p) {
+            const progress = 50 + p * 50; // Last 50% is rendering
+            document.getElementById("progressBar").style.width = progress + "%";
+          });
+
+          gif.on("finished", function (blob) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "twitter.gif";
+            a.click();
+
+            document.getElementById("status").innerText =
+              "GIF downloaded successfully!";
+            document.getElementById("progressContainer").style.display = "none";
+            document.getElementById("progressBar").style.width = "0%";
+
+            convertBtn.disabled = false;
+            convertBtn.textContent = "Convert to GIF";
+
+            // Show file size
+            const sizeMB = (blob.size / 1024 / 1024).toFixed(2);
+            document.getElementById("status").innerText =
+              `GIF downloaded! (${sizeMB} MB)`;
+          });
+
+          gif.on("error", function (error) {
+            console.error("GIF encoding error:", error);
+            document.getElementById("status").innerText = "Error creating GIF";
+            document.getElementById("progressContainer").style.display = "none";
+            convertBtn.disabled = false;
+            convertBtn.textContent = "Convert to GIF";
+          });
+
+          gif.render();
+        } catch (error) {
+          console.error("Conversion error:", error);
+          document.getElementById("status").innerText =
+            "Error: " + error.message;
+          document.getElementById("progressContainer").style.display = "none";
+          convertBtn.disabled = false;
+          convertBtn.textContent = "Convert to GIF";
+        }
       }
     </script>
   </body>
