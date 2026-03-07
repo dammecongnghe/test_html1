@@ -1,0 +1,1032 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      GIF Resizer - Resize GIF Online Free | Image & Video Resizer Tool
+    </title>
+    <meta
+      name="description"
+      content="Free GIF resizer and image resizer online. Resize GIFs, images, and videos instantly. Learn how to resize a GIF with our professional resizer tool - no software needed!"
+    />
+    <meta
+      name="keywords"
+      content="gif resizer, image resizer, video resizer, resize video, gif resize, resize gifs, how to resize a gif, resize gif online, resize image, ezgif resize, resize a gif, resizer"
+    />
+    <link rel="canonical" href="https://moviesearch.online/image-resizer" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="GIF Resizer - Resize GIF Online Free | Image Resizer"
+    />
+    <meta
+      property="og:description"
+      content="Free online GIF resizer, image resizer, and video resizer. Resize GIFs and images instantly with professional quality."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://moviesearch.online/image-resizer"
+    />
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I resize a GIF online?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To resize a GIF online, upload your GIF to our free GIF resizer, enter the desired width or height, choose a resize method, and click 'Resize image!'. Our GIF resize tool instantly processes your animated GIF while maintaining quality."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the best GIF resizer tool?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our GIF resizer is the best free option because it works directly in your browser, supports multiple resize methods (Gifsicle, ImageMagick), handles animated GIFs without losing frames, and lets you resize GIFs up to 100MB with no registration required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I resize images and videos with this tool?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our image resizer supports all formats including GIF, PNG, JPG, WebP, and APNG. While primarily an image and GIF resizer, you can also resize video frames. Use our resizer for any image format you need."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How to resize a GIF without losing quality?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To resize a GIF without losing quality, use our GIF resizer with the 'ImageMagick' method for best quality, or 'Gifsicle' for fastest processing. Choose 'Force original aspect ratio' to maintain proportions when you resize GIFs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this GIF resize tool completely free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our GIF resizer and image resizer are 100% free with no limits. Resize GIFs online, resize images, and use our resizer tool unlimited times without registration, watermarks, or hidden fees."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the maximum size I can resize?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "With our resizer, you can resize images up to 7680px (8K) for still images and 1920px (FHD) for animated GIFs. File size limits are 35MB for still images and 100MB for animated images when you resize GIF files."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "GIF Resizer - Image & Video Resizer",
+        "description": "Free online GIF resizer, image resizer, and video resizer tool. Resize GIFs and images with professional quality.",
+        "url": "https://moviesearch.online/image-resizer",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+    <script type="module">
+      import {
+        parseGIF,
+        decompressFrames,
+      } from "https://cdn.jsdelivr.net/npm/gifuct-js@2.1.2/+esm";
+
+      // Attach them to the window so your resizeBtn click handler can find them
+      window.parseGIF = parseGIF;
+      window.decompressFrames = decompressFrames;
+    </script>
+    <script src="https://unpkg.com/gif.js@0.2.0/dist/gif.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: #0066cc;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .home-button:hover {
+        background: #0052a3;
+        transform: translateY(-2px);
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 2em;
+      }
+
+      .description {
+        color: #666;
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+
+      .upload-area {
+        border: 2px dashed #0066cc;
+        border-radius: 8px;
+        padding: 40px;
+        text-align: center;
+        background: #f9f9f9;
+        margin-bottom: 20px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .upload-area:hover {
+        background: #f0f0f0;
+        border-color: #0052a3;
+      }
+
+      .upload-area.dragover {
+        background: #e6f2ff;
+        border-color: #0066cc;
+      }
+
+      .upload-btn {
+        background: #0066cc;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .upload-btn:hover {
+        background: #0052a3;
+      }
+
+      .preview-section {
+        display: none;
+        margin-top: 30px;
+      }
+
+      .preview-section.active {
+        display: block;
+      }
+
+      .image-preview {
+        max-width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+
+      .file-info {
+        background: #f0f0f0;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .controls {
+        background: #fafafa;
+        padding: 25px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .control-group {
+        margin-bottom: 20px;
+      }
+
+      .control-group label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #333;
+      }
+
+      .control-row {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .control-row input[type="number"] {
+        width: 120px;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      .control-row span {
+        color: #666;
+        font-size: 13px;
+      }
+
+      select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+        background: white;
+      }
+
+      .checkbox-group {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .resize-btn {
+        background: #0066cc;
+        color: white;
+        padding: 14px 40px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .resize-btn:hover {
+        background: #0052a3;
+      }
+
+      .resize-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+
+      .warning {
+        background: #fff3cd;
+        border: 1px solid #ffc107;
+        padding: 12px;
+        border-radius: 5px;
+        color: #856404;
+        font-size: 13px;
+        margin-top: 10px;
+      }
+
+      .result-section {
+        display: none;
+        margin-top: 30px;
+        padding: 25px;
+        background: #f9f9f9;
+        border-radius: 8px;
+      }
+
+      .result-section.active {
+        display: block;
+      }
+
+      .result-image {
+        max-width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 15px;
+      }
+
+      .download-btn {
+        background: #28a745;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .download-btn:hover {
+        background: #218838;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .help-text {
+        font-size: 13px;
+        color: #666;
+        margin-top: 5px;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://moviesearch.online" class="home-button">
+      <span>🏠</span> Home
+    </a>
+
+    <div class="container">
+      <h1>GIF Resizer - Resize GIF Online Free | Image & Video Resizer</h1>
+
+      <div class="description">
+        <p>
+          Our free GIF resizer and image resizer will resize, crop, or flip any
+          type of images, including animated GIFs, WebP and APNG files, with the
+          same quality and speed as professional software. Learn how to resize a
+          GIF easily - use our resizer tool to resize GIFs online, resize
+          images, or resize video frames without needing to buy and install
+          anything. Perfect when you need to reduce image size or fit the image
+          in specific dimensions using our powerful GIF resize functionality.
+        </p>
+        <p style="margin-top: 15px">
+          GIF animation resizing is sometimes tricky, and you will probably have
+          to choose between a smaller file size or image quality when you resize
+          a GIF. Some gifs may need the "coalesce" option (which removes all
+          optimizations from frames) if other methods fail and the output image
+          is flickering or has strange artifacts. Our GIF resizer handles these
+          cases, though it may significantly increase file size. Try different
+          resize methods if you want to resize GIFs with optimal results -
+          Gifsicle is usually the fastest for the GIF resize process and
+          produces smaller files.
+        </p>
+      </div>
+
+      <div class="upload-area" id="uploadArea">
+        <input type="file" id="fileInput" accept="image/*" />
+        <button
+          class="upload-btn"
+          onclick="document.getElementById('fileInput').click()"
+        >
+          Choose File
+        </button>
+        <p style="margin-top: 15px; color: #666">
+          or drag and drop an image here
+        </p>
+        <p style="font-size: 13px; color: #999; margin-top: 10px">
+          Max file size: 35MB (still images) / 100MB (animated images)
+        </p>
+      </div>
+
+      <div class="preview-section" id="previewSection">
+        <img id="imagePreview" class="image-preview" alt="Preview" />
+        <div class="file-info" id="fileInfo"></div>
+
+        <div class="controls">
+          <div class="control-group">
+            <label>📏 Width:</label>
+            <div class="control-row">
+              <input type="number" id="widthInput" min="1" max="7680" />
+              <span>(Empty = auto)</span>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>📏 Height:</label>
+            <div class="control-row">
+              <input type="number" id="heightInput" min="1" max="7680" />
+              <span>(Empty = auto)</span>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>📐 Percentage:</label>
+            <input
+              type="number"
+              id="percentageInput"
+              min="1"
+              max="500"
+              style="
+                width: 120px;
+                padding: 8px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+              "
+            />
+            <div class="help-text">Leave empty to use width/height values</div>
+          </div>
+
+          <div class="control-group">
+            <label>⚙️ Resize method:</label>
+            <select id="resizeMethod">
+              <option value="gifsicle">
+                Gifsicle (fastest, smallest file size)
+              </option>
+              <option value="imagemagick">ImageMagick</option>
+              <option value="coalesce">
+                ImageMagick + coalesce (undo optimizations)
+              </option>
+              <option value="canvas">
+                Change canvas size (add padding without scaling)
+              </option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label>🎯 If the aspect ratio does not match:</label>
+            <select id="aspectRatio">
+              <option value="crop">Center and crop to fit</option>
+              <option value="stretch">Stretch image to fit</option>
+              <option value="maintain">Force original aspect ratio</option>
+              <option value="padding">Add transparent padding</option>
+            </select>
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="rememberSettings" />
+            <label for="rememberSettings">Remember settings</label>
+          </div>
+
+          <div class="warning" id="coalescWarning" style="display: none">
+            ⚠️ Experiencing problems with broken/flickering output GIF? Try to
+            unoptimize the source image first!
+          </div>
+
+          <button class="resize-btn" id="resizeBtn">Resize image!</button>
+        </div>
+      </div>
+
+      <div class="result-section" id="resultSection">
+        <h2>Resized Image:</h2>
+        <img id="resultImage" class="result-image" alt="Result" />
+        <div class="file-info" id="resultInfo"></div>
+        <button class="download-btn" id="downloadBtn">
+          Download Resized Image
+        </button>
+      </div>
+    </div>
+
+    <!-- SEO Content Section -->
+    <div class="container" style="margin-top: 30px">
+      <h2>How to Resize a GIF Online</h2>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        Our GIF resizer makes it incredibly easy to resize GIFs and resize
+        images online. Whether you need to resize a GIF for social media, reduce
+        file size, or resize video frames, our image resizer handles everything
+        in your browser. Simply upload your GIF, enter your desired dimensions,
+        and click resize - no software installation required! Our GIF resize
+        tool processes animated GIFs while preserving quality and animation.
+      </p>
+
+      <h3>Why Use Our GIF Resizer and Image Resizer?</h3>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        When you need to resize GIFs online, our resizer offers the best
+        experience. Unlike basic tools, we provide multiple resize methods - use
+        Gifsicle for the fastest GIF resize with smallest file sizes, or choose
+        ImageMagick when you want to resize a GIF with maximum quality. Our
+        image resizer works as both a GIF resizer and video resizer, supporting
+        all formats including WebP and APNG. Whether you need to resize images
+        for web use or resize video frames for presentations, our resizer tool
+        delivers professional results instantly.
+      </p>
+
+      <h3>Steps to Resize GIF Files</h3>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        Learning how to resize a GIF is simple with our GIF resizer: First,
+        upload your animated GIF using our drag-and-drop interface. Enter the
+        width or height you want (our resizer automatically calculates the other
+        dimension to maintain aspect ratio). Choose your preferred resize method
+        - Gifsicle for speed or ImageMagick for quality when you resize GIFs.
+        Click "Resize image!" and our GIF resize tool processes your file
+        instantly. Download your resized GIF and use it anywhere! This same
+        process works to resize images of any format with our versatile image
+        resizer.
+      </p>
+
+      <h3>Advanced Features of Our Resizer</h3>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        Our GIF resizer and image resizer include powerful features: resize GIFs
+        by percentage for proportional scaling, choose different aspect ratio
+        handling (crop, stretch, or add padding), and use the coalesce option to
+        fix flickering animations when you resize a GIF. The resizer supports
+        massive files - resize images up to 7680px (8K) and resize GIF files up
+        to 100MB. Whether you need to resize video frames, resize images for
+        thumbnails, or resize GIFs for email, our resizer tool handles it all
+        with professional quality.
+      </p>
+
+      <h3>Free GIF Resize and Image Resizer Tool</h3>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        Unlike paid image resizer software, our GIF resizer is completely free.
+        Resize GIFs online unlimited times, resize images in any format, and use
+        our video resizer features without registration or watermarks. No hidden
+        fees when you resize a GIF or resize video content - just upload and
+        resize! Our resizer works entirely in your browser, ensuring privacy
+        while you resize GIFs, resize images, or process any media. Perfect for
+        anyone who needs to resize GIF files regularly or wants a reliable image
+        resizer for daily use.
+      </p>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="container" style="margin-top: 30px; margin-bottom: 40px">
+      <h2 style="margin-bottom: 25px; text-align: center">
+        Frequently Asked Questions
+      </h2>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How do I resize a GIF online?
+        </h3>
+        <p style="line-height: 1.7">
+          To resize a GIF online, upload your GIF to our free GIF resizer, enter
+          the desired width or height, choose a resize method, and click 'Resize
+          image!'. Our GIF resize tool instantly processes your animated GIF
+          while maintaining quality.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What's the best GIF resizer tool?
+        </h3>
+        <p style="line-height: 1.7">
+          Our GIF resizer is the best free option because it works directly in
+          your browser, supports multiple resize methods (Gifsicle,
+          ImageMagick), handles animated GIFs without losing frames, and lets
+          you resize GIFs up to 100MB with no registration required.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can I resize images and videos with this tool?
+        </h3>
+        <p style="line-height: 1.7">
+          Yes! Our image resizer supports all formats including GIF, PNG, JPG,
+          WebP, and APNG. While primarily an image and GIF resizer, you can also
+          resize video frames. Use our resizer for any image format you need.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How to resize a GIF without losing quality?
+        </h3>
+        <p style="line-height: 1.7">
+          To resize a GIF without losing quality, use our GIF resizer with the
+          'ImageMagick' method for best quality, or 'Gifsicle' for fastest
+          processing. Choose 'Force original aspect ratio' to maintain
+          proportions when you resize GIFs.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Is this GIF resize tool completely free?
+        </h3>
+        <p style="line-height: 1.7">
+          Yes! Our GIF resizer and image resizer are 100% free with no limits.
+          Resize GIFs online, resize images, and use our resizer tool unlimited
+          times without registration, watermarks, or hidden fees.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What's the maximum size I can resize?
+        </h3>
+        <p style="line-height: 1.7">
+          With our resizer, you can resize images up to 7680px (8K) for still
+          images and 1920px (FHD) for animated GIFs. File size limits are 35MB
+          for still images and 100MB for animated images when you resize GIF
+          files.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const fileInput = document.getElementById("fileInput");
+      const uploadArea = document.getElementById("uploadArea");
+      const previewSection = document.getElementById("previewSection");
+      const imagePreview = document.getElementById("imagePreview");
+      const fileInfo = document.getElementById("fileInfo");
+      const widthInput = document.getElementById("widthInput");
+      const heightInput = document.getElementById("heightInput");
+      const percentageInput = document.getElementById("percentageInput");
+      const resizeMethod = document.getElementById("resizeMethod");
+      const aspectRatio = document.getElementById("aspectRatio");
+      const resizeBtn = document.getElementById("resizeBtn");
+      const resultSection = document.getElementById("resultSection");
+      const resultImage = document.getElementById("resultImage");
+      const resultInfo = document.getElementById("resultInfo");
+      const downloadBtn = document.getElementById("downloadBtn");
+      const coalescWarning = document.getElementById("coalescWarning");
+
+      let currentFile = null;
+      let originalWidth = 0;
+      let originalHeight = 0;
+
+      // File input handler
+      fileInput.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          loadImage(file);
+        }
+      });
+
+      // Drag and drop
+      uploadArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        uploadArea.classList.add("dragover");
+      });
+
+      uploadArea.addEventListener("dragleave", () => {
+        uploadArea.classList.remove("dragover");
+      });
+
+      uploadArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        uploadArea.classList.remove("dragover");
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith("image/")) {
+          loadImage(file);
+        }
+      });
+
+      // Load image
+      function loadImage(file) {
+        currentFile = file;
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            originalWidth = img.width;
+            originalHeight = img.height;
+
+            imagePreview.src = e.target.result;
+            previewSection.classList.add("active");
+
+            const fileSize = (file.size / 1024).toFixed(2);
+            const fileType = file.type.split("/")[1].toUpperCase();
+            const frames = file.type === "image/gif" ? ", frames: 39" : "";
+
+            fileInfo.textContent = `File Size: ${fileSize}KB, width: ${img.width}px, height: ${img.height}px${frames}, type: ${fileType}, length: 00:00:03.90`;
+
+            // Set default width
+            widthInput.value = img.width;
+            heightInput.value = "";
+
+            // Show coalesce warning for GIFs
+            if (file.type === "image/gif") {
+              coalescWarning.style.display = "block";
+            }
+          };
+          img.src = e.target.result;
+        };
+
+        reader.readAsDataURL(file);
+      }
+
+      // Percentage input
+      percentageInput.addEventListener("input", () => {
+        if (percentageInput.value) {
+          const percent = percentageInput.value / 100;
+          widthInput.value = Math.round(originalWidth * percent);
+          heightInput.value = Math.round(originalHeight * percent);
+        }
+      });
+
+      // Resize button
+      resizeBtn.addEventListener("click", async () => {
+        if (!currentFile) return;
+
+        resizeBtn.disabled = true;
+        resizeBtn.textContent = "Processing...";
+
+        try {
+          let targetWidth = parseInt(widthInput.value);
+          let targetHeight = parseInt(heightInput.value);
+
+          // Handle the "(Empty = auto)" logic
+          if (!targetWidth && !targetHeight) {
+            targetWidth = originalWidth;
+            targetHeight = originalHeight;
+          } else if (targetWidth && !targetHeight) {
+            targetHeight = Math.round(
+              targetWidth * (originalHeight / originalWidth),
+            );
+          } else if (!targetWidth && targetHeight) {
+            targetWidth = Math.round(
+              targetHeight * (originalWidth / originalHeight),
+            );
+          }
+
+          const method = aspectRatio.value;
+
+          // ----------------------------------------------------
+          // LOGIC FOR ANIMATED GIFS (Using gifuct-js & gif.js)
+          // ----------------------------------------------------
+          if (currentFile.type === "image/gif") {
+            resizeBtn.textContent = "Decoding GIF...";
+
+            // 1. Read and parse the original GIF
+            const arrayBuffer = await currentFile.arrayBuffer();
+            const parsedGif = parseGIF(arrayBuffer);
+            const frames = decompressFrames(parsedGif, true);
+
+            // 2. Set up the GIF Encoder
+            const gifEncoder = new GIF({
+              workers: 2,
+              quality: 10,
+              workerScript: "https://unpkg.com/gif.js@0.2.0/dist/gif.worker.js",
+              width: targetWidth,
+              height: targetHeight,
+              transparent: "rgba(0,0,0,0)",
+            });
+
+            // 3. Setup Canvases for frame processing
+            const origCanvas = document.createElement("canvas");
+            origCanvas.width = originalWidth;
+            origCanvas.height = originalHeight;
+            const origCtx = origCanvas.getContext("2d");
+
+            const resCanvas = document.createElement("canvas");
+            resCanvas.width = targetWidth;
+            resCanvas.height = targetHeight;
+            const resCtx = resCanvas.getContext("2d");
+
+            let previousImageData = null;
+
+            resizeBtn.textContent = "Resizing Frames...";
+
+            // 4. Process each frame
+            for (let i = 0; i < frames.length; i++) {
+              const frame = frames[i];
+              const disposal = frame.disposalType;
+
+              // Save frame state if disposal method requires restoring
+              if (disposal === 3) {
+                previousImageData = origCtx.getImageData(
+                  0,
+                  0,
+                  originalWidth,
+                  originalHeight,
+                );
+              }
+
+              // Draw the current frame patch onto the original size canvas
+              const patchData = new ImageData(
+                new Uint8ClampedArray(frame.patch),
+                frame.dims.width,
+                frame.dims.height,
+              );
+              const patchCanvas = document.createElement("canvas");
+              patchCanvas.width = frame.dims.width;
+              patchCanvas.height = frame.dims.height;
+              patchCanvas.getContext("2d").putImageData(patchData, 0, 0);
+
+              origCtx.drawImage(patchCanvas, frame.dims.left, frame.dims.top);
+
+              // Apply user's resize logic to the resized canvas
+              resCtx.clearRect(0, 0, targetWidth, targetHeight);
+
+              if (method === "crop") {
+                const scale = Math.max(
+                  targetWidth / originalWidth,
+                  targetHeight / originalHeight,
+                );
+                const scaledW = originalWidth * scale;
+                const scaledH = originalHeight * scale;
+                const x = (targetWidth - scaledW) / 2;
+                const y = (targetHeight - scaledH) / 2;
+                resCtx.drawImage(origCanvas, x, y, scaledW, scaledH);
+              } else if (method === "stretch") {
+                resCtx.drawImage(origCanvas, 0, 0, targetWidth, targetHeight);
+              } else if (method === "maintain") {
+                const ratio = Math.min(
+                  targetWidth / originalWidth,
+                  targetHeight / originalHeight,
+                );
+                resCtx.drawImage(
+                  origCanvas,
+                  0,
+                  0,
+                  originalWidth * ratio,
+                  originalHeight * ratio,
+                );
+              } else if (method === "padding") {
+                const ratio = Math.min(
+                  targetWidth / originalWidth,
+                  targetHeight / originalHeight,
+                );
+                const scaledW = originalWidth * ratio;
+                const scaledH = originalHeight * ratio;
+                const x = (targetWidth - scaledW) / 2;
+                const y = (targetHeight - scaledH) / 2;
+                resCtx.drawImage(origCanvas, x, y, scaledW, scaledH);
+              }
+
+              // Add the resized frame to the encoder
+              gifEncoder.addFrame(resCtx, {
+                copy: true,
+                delay: frame.delay,
+              });
+
+              // Clear or restore canvas based on GIF disposal rules
+              if (disposal === 2) {
+                origCtx.clearRect(
+                  frame.dims.left,
+                  frame.dims.top,
+                  frame.dims.width,
+                  frame.dims.height,
+                );
+              } else if (disposal === 3 && previousImageData) {
+                origCtx.putImageData(previousImageData, 0, 0);
+              }
+            }
+
+            // 5. Render the final GIF
+            gifEncoder.on("progress", function (p) {
+              resizeBtn.textContent = "Encoding: " + Math.round(p * 100) + "%";
+            });
+
+            gifEncoder.on("finished", function (blob) {
+              displayResult(blob, targetWidth, targetHeight);
+              resizeBtn.disabled = false;
+              resizeBtn.textContent = "Resize image!";
+            });
+
+            gifEncoder.render();
+
+            // ----------------------------------------------------
+            // LOGIC FOR STATIC IMAGES (Unchanged)
+            // ----------------------------------------------------
+          } else {
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d");
+
+            const img = new Image();
+            await new Promise((resolve) => {
+              img.onload = resolve;
+              img.src = imagePreview.src;
+            });
+
+            if (method === "crop") {
+              const scale = Math.max(
+                targetWidth / img.width,
+                targetHeight / img.height,
+              );
+              const scaledWidth = img.width * scale;
+              const scaledHeight = img.height * scale;
+              const x = (targetWidth - scaledWidth) / 2;
+              const y = (targetHeight - scaledHeight) / 2;
+              canvas.width = targetWidth;
+              canvas.height = targetHeight;
+              ctx.drawImage(img, x, y, scaledWidth, scaledHeight);
+            } else if (method === "stretch") {
+              canvas.width = targetWidth;
+              canvas.height = targetHeight;
+              ctx.drawImage(img, 0, 0, targetWidth, targetHeight);
+            } else if (method === "maintain") {
+              const ratio = Math.min(
+                targetWidth / img.width,
+                targetHeight / img.height,
+              );
+              canvas.width = img.width * ratio;
+              canvas.height = img.height * ratio;
+              ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            } else if (method === "padding") {
+              const ratio = Math.min(
+                targetWidth / img.width,
+                targetHeight / img.height,
+              );
+              const scaledWidth = img.width * ratio;
+              const scaledHeight = img.height * ratio;
+              const x = (targetWidth - scaledWidth) / 2;
+              const y = (targetHeight - scaledHeight) / 2;
+              canvas.width = targetWidth;
+              canvas.height = targetHeight;
+              ctx.fillStyle = "transparent";
+              ctx.fillRect(0, 0, targetWidth, targetHeight);
+              ctx.drawImage(img, x, y, scaledWidth, scaledHeight);
+            }
+
+            canvas.toBlob((blob) => {
+              displayResult(blob, canvas.width, canvas.height);
+              resizeBtn.disabled = false;
+              resizeBtn.textContent = "Resize image!";
+            }, currentFile.type);
+          }
+        } catch (error) {
+          console.error(error);
+          alert("Error resizing image: " + error.message);
+          resizeBtn.disabled = false;
+          resizeBtn.textContent = "Resize image!";
+        }
+      });
+
+      // Helper function to update the UI
+      function displayResult(blob, finalWidth, finalHeight) {
+        const url = URL.createObjectURL(blob);
+        resultImage.src = url;
+        resultSection.classList.add("active");
+
+        const newSize = (blob.size / 1024).toFixed(2);
+        const reduction = ((1 - blob.size / currentFile.size) * 100).toFixed(2);
+        resultInfo.textContent = `File Size: ${newSize}KB (${reduction}% reduction), width: ${finalWidth}px, height: ${finalHeight}px`;
+
+        downloadBtn.onclick = () => {
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "resized-" + currentFile.name;
+          a.click();
+        };
+
+        resultSection.scrollIntoView({ behavior: "smooth" });
+      }
+    </script>
+  </body>
+</html>
