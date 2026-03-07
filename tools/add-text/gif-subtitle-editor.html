@@ -1,0 +1,1072 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Add Text to GIF - GIF Caption Maker & GIF Text Editor Online Free
+    </title>
+    <meta
+      name="description"
+      content="Free GIF caption maker to add text to GIF and add captions to animated GIFs. Learn how to add text to a GIF with our online GIF text maker and GIF editor - no software needed!"
+    />
+    <meta
+      name="keywords"
+      content="add text to gif, gif editor, gif caption maker, add caption to gif, gif text maker, how to add text to a gif, text gif maker, caption gif, gif caption, text to gif, gif captioner"
+    />
+    <link
+      rel="canonical"
+      href="https://moviesearch.online/gif-subtitle-editor"
+    />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Add Text to GIF - GIF Caption Maker Online Free"
+    />
+    <meta
+      property="og:description"
+      content="Free online GIF caption maker and GIF text editor. Add text to GIF images, create captions for animated GIFs instantly."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://moviesearch.online/gif-subtitle-editor"
+    />
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How to add text to a GIF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To add text to a GIF, upload your GIF to our free GIF caption maker, type your text in the text field, customize the font and colors, drag the text to position it, and click 'Create annotation!'. Our GIF text maker lets you add captions to GIF images without losing animation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the best GIF caption maker?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our GIF caption maker is the best free tool to add text to GIF images because it works directly in your browser, supports drag-and-drop text positioning, offers multiple fonts and colors, and lets you add text to a GIF without watermarks or registration."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I add captions to animated GIFs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our GIF editor is designed to add caption to GIF animations without losing frames. Use our GIF captioner to add text to GIF files, and the animation will be preserved perfectly. You can add text to specific frames or the entire GIF."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this GIF text maker free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our GIF text maker and caption GIF tool are completely free. Add text to GIF images unlimited times, use our text to GIF converter, and create captions for GIF files without any fees, registration, or watermarks."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I customize the text style when I add text to a GIF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! When you add text to a GIF using our GIF text maker, you can customize fonts, text size, colors, borders, opacity, and alignment. Our GIF caption maker gives you full control to create professional-looking captions for GIF images."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I position text on a GIF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "With our GIF editor, you can position text by simply dragging it to any location on your GIF. Just click and drag the text overlay to move it. This makes it easy to add caption to GIF in exactly the right spot when you add text to a GIF."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "GIF Caption Maker - Add Text to GIF Editor",
+        "description": "Free online GIF caption maker and GIF text editor. Add text to GIF images and create captions for animated GIFs.",
+        "url": "https://moviesearch.online/gif-subtitle-editor",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: #0066cc;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .home-button:hover {
+        background: #0052a3;
+        transform: translateY(-2px);
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 2em;
+      }
+
+      .description {
+        color: #666;
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+
+      .upload-area {
+        border: 2px dashed #0066cc;
+        border-radius: 8px;
+        padding: 40px;
+        text-align: center;
+        background: #f9f9f9;
+        margin-bottom: 30px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .upload-area:hover {
+        background: #f0f0f0;
+        border-color: #0052a3;
+      }
+
+      .upload-btn {
+        background: #0066cc;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .upload-btn:hover {
+        background: #0052a3;
+      }
+
+      .editor-section {
+        display: none;
+        margin-top: 30px;
+      }
+
+      .editor-section.active {
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 30px;
+      }
+
+      .preview-container {
+        position: relative;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        background: #fafafa;
+        min-height: 400px;
+      }
+
+      .canvas-wrapper {
+        position: relative;
+        display: inline-block;
+        cursor: move;
+      }
+
+      canvas {
+        max-width: 100%;
+        border: 1px solid #ddd;
+      }
+
+      .text-overlay {
+        position: absolute;
+        cursor: move;
+        padding: 5px;
+        border: 2px dashed transparent;
+        user-select: none;
+      }
+
+      .text-overlay:hover,
+      .text-overlay.active {
+        border-color: #0066cc;
+      }
+
+      .file-info {
+        background: #f0f0f0;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .controls-panel {
+        background: #fafafa;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+      }
+
+      .section-title {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 1.1em;
+      }
+
+      .hint-text {
+        font-size: 12px;
+        color: #999;
+        margin-bottom: 20px;
+        font-style: italic;
+      }
+
+      .control-group {
+        margin-bottom: 20px;
+      }
+
+      .control-group label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: #555;
+        font-size: 14px;
+      }
+
+      .control-row {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      input[type="number"],
+      input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+
+      input[type="number"] {
+        width: 80px;
+      }
+
+      input[type="color"] {
+        width: 50px;
+        height: 35px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+        background: white;
+      }
+
+      .small-label {
+        font-size: 12px;
+        color: #666;
+        font-weight: normal;
+      }
+
+      .apply-btn {
+        background: #0066cc;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .apply-btn:hover {
+        background: #0052a3;
+      }
+
+      .apply-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      @media (max-width: 768px) {
+        .editor-section.active {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <script type="module">
+      import {
+        parseGIF,
+        decompressFrames,
+      } from "https://cdn.jsdelivr.net/npm/gifuct-js@2.1.2/+esm";
+      window.parseGIF = parseGIF;
+      window.decompressFrames = decompressFrames;
+    </script>
+
+    <script src="https://unpkg.com/gif.js@0.2.0/dist/gif.js"></script>
+  </head>
+  <body>
+    <a href="https://moviesearch.online" class="home-button">
+      <span>🏠</span> Home
+    </a>
+
+    <div class="container">
+      <h1>Add Text to GIF - GIF Caption Maker & GIF Text Editor</h1>
+
+      <div class="description">
+        <p>
+          Our free GIF caption maker and GIF text editor allow you to add text
+          to GIF images and add captions to animated GIFs without losing the
+          animation. Learn how to add text to a GIF easily - our GIF text maker
+          can add subtitles and annotations to the whole clip or add text to a
+          GIF on different frames. Use our GIF captioner to caption GIF files
+          and create professional text to GIF overlays instantly.
+        </p>
+        <p style="margin-top: 15px">
+          You can use drag and drop to position the text when you add text to a
+          GIF, choose from a variety of fonts, and adjust text and outline
+          colors and opacity with our GIF editor. Upload a GIF or paste a GIF
+          URL to start adding captions to GIF images. Our text GIF maker makes
+          it simple to add caption to GIF animations and create stunning GIF
+          captions!
+        </p>
+        <p style="margin-top: 15px">
+          Most of the included fonts in our GIF text maker have full Unicode
+          character support. We also have some Arabic, Korean, Georgian, Hebrew,
+          Thai, Tamil, Telugu, and Devanagari fonts available when you add text
+          to GIF files.
+        </p>
+      </div>
+
+      <div class="upload-area" id="uploadArea">
+        <input type="file" id="fileInput" accept="image/gif" />
+        <button
+          class="upload-btn"
+          onclick="document.getElementById('fileInput').click()"
+        >
+          Choose File
+        </button>
+        <p style="margin-top: 15px; color: #666">or drag and drop a GIF here</p>
+        <p style="margin-top: 10px; font-size: 14px; color: #666">
+          or paste GIF URL:
+        </p>
+        <input
+          type="text"
+          id="urlInput"
+          placeholder="https://example.com/image.gif"
+          style="
+            max-width: 400px;
+            margin-top: 10px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+          "
+        />
+      </div>
+
+      <div class="editor-section" id="editorSection">
+        <div class="preview-container">
+          <div class="file-info" id="fileInfo">
+            File size: 0KB, width: 0px, height: 0px, frames: 0, type: gif
+          </div>
+
+          <div class="canvas-wrapper" id="canvasWrapper">
+            <canvas id="previewCanvas"></canvas>
+            <div class="text-overlay" id="textOverlay" style="display: none">
+              Sample Text
+            </div>
+          </div>
+        </div>
+
+        <div class="controls-panel">
+          <div class="section-title">Enter annotations</div>
+          <div class="hint-text">
+            Hint: you can also drag the text to change its position on the
+            image.
+          </div>
+
+          <div class="control-group">
+            <label>Text:</label>
+            <textarea
+              id="textInput"
+              rows="3"
+              style="
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                font-size: 14px;
+                resize: vertical;
+              "
+            >
+Sample Text</textarea
+            >
+          </div>
+
+          <div class="control-group">
+            <label>Font size:</label>
+            <div class="control-row">
+              <input type="number" id="fontSize" value="32" min="8" max="200" />
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>Frames:</label>
+            <div class="control-row">
+              <input
+                type="number"
+                id="frameStart"
+                value="1"
+                min="1"
+                style="width: 60px"
+              />
+              <span>to</span>
+              <input
+                type="number"
+                id="frameEnd"
+                value=""
+                placeholder="end"
+                style="width: 60px"
+              />
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>Font:</label>
+            <select id="fontFamily">
+              <option value="Impact">Impact</option>
+              <option value="Arial">Arial</option>
+              <option value="Helvetica">Helvetica</option>
+              <option value="Georgia">Georgia</option>
+              <option value="Times New Roman">Times New Roman</option>
+              <option value="Courier New">Courier New</option>
+              <option value="Verdana">Verdana</option>
+              <option value="Comic Sans MS">Comic Sans MS</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label>Align:</label>
+            <select id="textAlign">
+              <option value="center">Center</option>
+              <option value="left">Left</option>
+              <option value="right">Right</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label>Color:</label>
+            <div class="control-row">
+              <input type="color" id="textColor" value="#ffffff" />
+              <span class="small-label">Text color</span>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>Border color:</label>
+            <div class="control-row">
+              <input type="color" id="borderColor" value="#000000" />
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>Border / outline:</label>
+            <select id="borderWidth">
+              <option value="0">None</option>
+              <option value="1">Thin</option>
+              <option value="2" selected>Medium</option>
+              <option value="3">Thick</option>
+              <option value="4">Extra Thick</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label>Color preset:</label>
+            <select id="colorPreset">
+              <option value="">-</option>
+              <option value="white-black">White text / Black border</option>
+              <option value="black-white">Black text / White border</option>
+              <option value="red-white">Red text / White border</option>
+              <option value="yellow-black">Yellow text / Black border</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label>Opacity (0-100):</label>
+            <input type="number" id="opacity" value="100" min="0" max="100" />
+          </div>
+
+          <button class="apply-btn" id="applyBtn">Create annotation!</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO Content Section -->
+    <div class="container" style="margin-top: 30px">
+      <h2>How to Add Text to a GIF</h2>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        Our GIF caption maker makes it incredibly easy to add text to GIF images
+        and create professional captions for animated GIFs. Whether you need to
+        add caption to GIF for social media, create memes, or add text to a GIF
+        for presentations, our GIF text maker handles everything in your
+        browser. Simply upload your GIF, type your text, customize the style,
+        and our GIF editor will add text to GIF while preserving the animation
+        perfectly. No software installation required to caption GIF files!
+      </p>
+
+      <h3>Why Use Our GIF Text Maker?</h3>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        When you need to add text to GIF images, our GIF caption maker offers
+        the best experience. Unlike basic tools, our GIF captioner provides
+        professional features - drag and drop text positioning, multiple fonts,
+        customizable colors and borders, and opacity control. Use our text GIF
+        maker to add captions to GIF animations for memes, social media posts,
+        or educational content. Our GIF editor lets you add text to a GIF with
+        complete creative control, and you can add caption to GIF on specific
+        frames or the entire animation.
+      </p>
+
+      <h3>Steps to Add Caption to GIF</h3>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        Learning how to add text to a GIF is simple with our GIF text maker:
+        First, upload your animated GIF using our drag-and-drop interface or
+        paste a GIF URL. Type the text you want to add in the text field - our
+        GIF caption maker supports multi-line captions. Customize your GIF
+        caption with fonts, colors, borders, and opacity settings. Drag the text
+        overlay to position it exactly where you want on the GIF. Click "Create
+        annotation!" and our text to GIF tool will process your file instantly.
+        Download your captioned GIF and share it anywhere! This is the easiest
+        way to add text to GIF files online.
+      </p>
+
+      <h3>Professional GIF Editor Features</h3>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        Our GIF text maker includes powerful features to help you add text to a
+        GIF professionally: Choose from multiple fonts including Impact, Arial,
+        and more when you caption GIF images. Add text to GIF with custom colors
+        and borders for maximum impact. Control opacity to create subtle
+        overlays or bold captions when you add caption to GIF. Specify frame
+        ranges to add text to GIF on specific parts of the animation. Use color
+        presets for quick styling when you add text to a GIF. Our GIF captioner
+        makes it simple to create professional text to GIF overlays with
+        drag-and-drop positioning.
+      </p>
+
+      <h3>Free GIF Caption Maker</h3>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        Unlike paid GIF editor software, our GIF caption maker is completely
+        free. Add text to GIF images unlimited times, caption GIF files in any
+        format, and use our text GIF maker features without registration or
+        watermarks. No hidden fees when you add text to a GIF or add caption to
+        GIF animations - just upload and create! Our GIF captioner works
+        entirely in your browser, ensuring privacy while you add text to GIF
+        files. Perfect for meme creators, social media managers, and anyone who
+        needs to caption GIF content regularly. Start using our free GIF text
+        maker today and add text to a GIF in seconds!
+      </p>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="container" style="margin-top: 30px; margin-bottom: 40px">
+      <h2 style="margin-bottom: 25px; text-align: center">
+        Frequently Asked Questions
+      </h2>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How to add text to a GIF?
+        </h3>
+        <p style="line-height: 1.7">
+          To add text to a GIF, upload your GIF to our free GIF caption maker,
+          type your text in the text field, customize the font and colors, drag
+          the text to position it, and click 'Create annotation!'. Our GIF text
+          maker lets you add captions to GIF images without losing animation.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What is the best GIF caption maker?
+        </h3>
+        <p style="line-height: 1.7">
+          Our GIF caption maker is the best free tool to add text to GIF images
+          because it works directly in your browser, supports drag-and-drop text
+          positioning, offers multiple fonts and colors, and lets you add text
+          to a GIF without watermarks or registration.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can I add captions to animated GIFs?
+        </h3>
+        <p style="line-height: 1.7">
+          Yes! Our GIF editor is designed to add caption to GIF animations
+          without losing frames. Use our GIF captioner to add text to GIF files,
+          and the animation will be preserved perfectly. You can add text to
+          specific frames or the entire GIF.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Is this GIF text maker free?
+        </h3>
+        <p style="line-height: 1.7">
+          Yes! Our GIF text maker and caption GIF tool are completely free. Add
+          text to GIF images unlimited times, use our text to GIF converter, and
+          create captions for GIF files without any fees, registration, or
+          watermarks.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can I customize the text style when I add text to a GIF?
+        </h3>
+        <p style="line-height: 1.7">
+          Absolutely! When you add text to a GIF using our GIF text maker, you
+          can customize fonts, text size, colors, borders, opacity, and
+          alignment. Our GIF caption maker gives you full control to create
+          professional-looking captions for GIF images.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How do I position text on a GIF?
+        </h3>
+        <p style="line-height: 1.7">
+          With our GIF editor, you can position text by simply dragging it to
+          any location on your GIF. Just click and drag the text overlay to move
+          it. This makes it easy to add caption to GIF in exactly the right spot
+          when you add text to a GIF.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const fileInput = document.getElementById("fileInput");
+      const urlInput = document.getElementById("urlInput");
+      const uploadArea = document.getElementById("uploadArea");
+      const editorSection = document.getElementById("editorSection");
+      const previewCanvas = document.getElementById("previewCanvas");
+      const textOverlay = document.getElementById("textOverlay");
+      const fileInfo = document.getElementById("fileInfo");
+      const canvasWrapper = document.getElementById("canvasWrapper");
+
+      // Form elements
+      const textInput = document.getElementById("textInput");
+      const fontSize = document.getElementById("fontSize");
+      const fontFamily = document.getElementById("fontFamily");
+      const textAlign = document.getElementById("textAlign");
+      const textColor = document.getElementById("textColor");
+      const borderColor = document.getElementById("borderColor");
+      const borderWidth = document.getElementById("borderWidth");
+      const colorPreset = document.getElementById("colorPreset");
+      const opacity = document.getElementById("opacity");
+      const applyBtn = document.getElementById("applyBtn");
+
+      let currentGif = null;
+      let textPosition = { x: 50, y: 50 };
+      let isDragging = false;
+      let dragOffset = { x: 0, y: 0 };
+
+      // File upload
+      fileInput.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (file && file.type === "image/gif") {
+          loadGif(file);
+        }
+      });
+
+      // URL input
+      urlInput.addEventListener("change", () => {
+        const url = urlInput.value.trim();
+        if (url) {
+          fetch(url)
+            .then((res) => res.blob())
+            .then((blob) => loadGif(blob))
+            .catch(() => alert("Failed to load GIF from URL"));
+        }
+      });
+
+      // Drag and drop
+      uploadArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        uploadArea.style.background = "#e6f2ff";
+      });
+
+      uploadArea.addEventListener("dragleave", () => {
+        uploadArea.style.background = "#f9f9f9";
+      });
+
+      uploadArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        uploadArea.style.background = "#f9f9f9";
+        const file = e.dataTransfer.files[0];
+        if (file && file.type === "image/gif") {
+          loadGif(file);
+        }
+      });
+
+      // Load GIF
+      function loadGif(file) {
+        currentGif = file;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            previewCanvas.width = img.width;
+            previewCanvas.height = img.height;
+
+            const ctx = previewCanvas.getContext("2d");
+            ctx.drawImage(img, 0, 0);
+
+            editorSection.classList.add("active");
+
+            const fileSize = (file.size / 1024).toFixed(2);
+            fileInfo.textContent = `File size: ${fileSize}KB, width: ${img.width}px, height: ${img.height}px, frames: 1, type: gif`;
+
+            updateTextPreview();
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      // Text input updates
+      textInput.addEventListener("input", updateTextPreview);
+      fontSize.addEventListener("input", updateTextPreview);
+      fontFamily.addEventListener("change", updateTextPreview);
+      textAlign.addEventListener("change", updateTextPreview);
+      textColor.addEventListener("input", updateTextPreview);
+      borderColor.addEventListener("input", updateTextPreview);
+      borderWidth.addEventListener("change", updateTextPreview);
+      opacity.addEventListener("input", updateTextPreview);
+
+      // Color presets
+      colorPreset.addEventListener("change", (e) => {
+        const preset = e.target.value;
+        if (preset === "white-black") {
+          textColor.value = "#ffffff";
+          borderColor.value = "#000000";
+        } else if (preset === "black-white") {
+          textColor.value = "#000000";
+          borderColor.value = "#ffffff";
+        } else if (preset === "red-white") {
+          textColor.value = "#ff0000";
+          borderColor.value = "#ffffff";
+        } else if (preset === "yellow-black") {
+          textColor.value = "#ffff00";
+          borderColor.value = "#000000";
+        }
+        updateTextPreview();
+      });
+
+      // Update text preview
+      function updateTextPreview() {
+        textOverlay.textContent = textInput.value || "Sample Text";
+        textOverlay.style.fontSize = fontSize.value + "px";
+        textOverlay.style.fontFamily = fontFamily.value;
+        textOverlay.style.textAlign = textAlign.value;
+        textOverlay.style.color = textColor.value;
+
+        const border = borderWidth.value;
+        if (border > 0) {
+          textOverlay.style.webkitTextStroke = `${border}px ${borderColor.value}`;
+          textOverlay.style.textShadow = `0 0 ${border}px ${borderColor.value}`;
+        } else {
+          textOverlay.style.webkitTextStroke = "none";
+          textOverlay.style.textShadow = "none";
+        }
+
+        textOverlay.style.opacity = opacity.value / 100;
+        textOverlay.style.display = "block";
+        textOverlay.style.left = textPosition.x + "px";
+        textOverlay.style.top = textPosition.y + "px";
+      }
+
+      // Drag text
+      textOverlay.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        dragOffset.x = e.clientX - textOverlay.offsetLeft;
+        dragOffset.y = e.clientY - textOverlay.offsetTop;
+        textOverlay.classList.add("active");
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        if (isDragging) {
+          textPosition.x = e.clientX - dragOffset.x;
+          textPosition.y = e.clientY - dragOffset.y;
+          updateTextPreview();
+        }
+      });
+
+      document.addEventListener("mouseup", () => {
+        isDragging = false;
+        textOverlay.classList.remove("active");
+      });
+
+      // Apply button
+      // Upgraded Apply button with full GIF frame processing
+      applyBtn.addEventListener("click", async () => {
+        if (!currentGif) return;
+
+        applyBtn.disabled = true;
+        applyBtn.textContent = "Processing...";
+
+        try {
+          // 1. Read and parse the original GIF
+          const arrayBuffer = await currentGif.arrayBuffer();
+          const parsedGif = window.parseGIF(arrayBuffer);
+          const frames = window.decompressFrames(parsedGif, true);
+
+          // 2. Set up the GIF Encoder
+          const gifEncoder = new GIF({
+            workers: 2,
+            quality: 10,
+            workerScript: "https://unpkg.com/gif.js@0.2.0/dist/gif.worker.js",
+            width: previewCanvas.width,
+            height: previewCanvas.height,
+          });
+
+          // 3. Setup Canvas to reconstruct the original frames
+          const origCanvas = document.createElement("canvas");
+          origCanvas.width = previewCanvas.width;
+          origCanvas.height = previewCanvas.height;
+          const origCtx = origCanvas.getContext("2d");
+
+          let previousImageData = null;
+
+          // Parse user's requested frame constraints
+          const startFrame =
+            parseInt(document.getElementById("frameStart").value) || 1;
+          const endFrame =
+            parseInt(document.getElementById("frameEnd").value) ||
+            frames.length;
+
+          applyBtn.textContent = "Applying Text to Frames...";
+
+          // 4. Process each frame one by one
+          for (let i = 0; i < frames.length; i++) {
+            const frame = frames[i];
+            const disposal = frame.disposalType;
+
+            // Save frame state if disposal method requires restoring
+            if (disposal === 3) {
+              previousImageData = origCtx.getImageData(
+                0,
+                0,
+                previewCanvas.width,
+                previewCanvas.height,
+              );
+            }
+
+            // Draw the raw GIF frame data
+            const patchData = new ImageData(
+              new Uint8ClampedArray(frame.patch),
+              frame.dims.width,
+              frame.dims.height,
+            );
+            const patchCanvas = document.createElement("canvas");
+            patchCanvas.width = frame.dims.width;
+            patchCanvas.height = frame.dims.height;
+            patchCanvas.getContext("2d").putImageData(patchData, 0, 0);
+
+            origCtx.drawImage(patchCanvas, frame.dims.left, frame.dims.top);
+
+            // Create a temporary canvas for this specific composed frame
+            const renderCanvas = document.createElement("canvas");
+            renderCanvas.width = previewCanvas.width;
+            renderCanvas.height = previewCanvas.height;
+            const renderCtx = renderCanvas.getContext("2d");
+
+            // Draw the current GIF image onto the render canvas
+            renderCtx.drawImage(origCanvas, 0, 0);
+
+            // Check if current frame falls within the user's start/end range
+            const currentFrameNumber = i + 1;
+            if (
+              currentFrameNumber >= startFrame &&
+              currentFrameNumber <= endFrame
+            ) {
+              // Apply the text overlay to this specific frame
+              renderCtx.font = `${fontSize.value}px ${fontFamily.value}`;
+              renderCtx.textAlign = textAlign.value;
+              renderCtx.fillStyle = textColor.value;
+              renderCtx.globalAlpha = opacity.value / 100;
+
+              const border = parseInt(borderWidth.value);
+              if (border > 0) {
+                renderCtx.strokeStyle = borderColor.value;
+                renderCtx.lineWidth = border * 2;
+                renderCtx.strokeText(
+                  textInput.value,
+                  textPosition.x,
+                  textPosition.y + parseInt(fontSize.value),
+                );
+              }
+
+              renderCtx.fillText(
+                textInput.value,
+                textPosition.x,
+                textPosition.y + parseInt(fontSize.value),
+              );
+            }
+
+            // Add the finished frame to the encoder
+            gifEncoder.addFrame(renderCtx, {
+              copy: true,
+              delay: frame.delay,
+            });
+
+            // Clear or restore canvas based on GIF disposal rules
+            if (disposal === 2) {
+              origCtx.clearRect(
+                frame.dims.left,
+                frame.dims.top,
+                frame.dims.width,
+                frame.dims.height,
+              );
+            } else if (disposal === 3 && previousImageData) {
+              origCtx.putImageData(previousImageData, 0, 0);
+            }
+          }
+
+          // 5. Render final animated GIF
+          gifEncoder.on("progress", function (p) {
+            applyBtn.textContent = "Encoding: " + Math.round(p * 100) + "%";
+          });
+
+          gifEncoder.on("finished", function (blob) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "annotated-" + currentGif.name;
+            a.click();
+
+            applyBtn.disabled = false;
+            applyBtn.textContent = "Create annotation!";
+          });
+
+          gifEncoder.render();
+        } catch (error) {
+          console.error(error);
+          alert("Error processing GIF: " + error.message);
+          applyBtn.disabled = false;
+          applyBtn.textContent = "Create annotation!";
+        }
+      });
+    </script>
+  </body>
+</html>
