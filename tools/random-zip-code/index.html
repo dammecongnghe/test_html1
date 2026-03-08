@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Random Zip Code Generator - US Zip Code & Fake Zip Code Generator Free
+    </title>
+    <meta
+      name="description"
+      content="Free random zip code generator to generate US zip code and fake zip codes. Create random zipcode, random US zip code, and random postal code online instantly."
+    />
+    <meta
+      name="keywords"
+      content="random zip code, zip code generator, us zip code, random zipcode, random us zip code, fake zip code, random zip code us, random zip code generator, random postal code, us zip code generator, fake zip codes"
+    />
+    <link rel="canonical" href="https://moviesearch.online/random-zip-code" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Random Zip Code Generator - US Zip Code Generator Online"
+    />
+    <meta
+      property="og:description"
+      content="Free random zip code generator. Generate US zip code, fake zip codes, and random postal codes online."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://moviesearch.online/random-zip-code"
+    />
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I generate a random zip code?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To generate a random zip code, click any preset button (5, 10, or 15 zip codes) in our free random zip code generator. Our US zip code generator will create random zipcode with city and state names. Generate random US zip code, fake zip code, and random postal code instantly using our zip code generator."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a random zip code generator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A random zip code generator is a tool that creates random zipcode for testing and exploration. Our US zip code generator provides random US zip code with authentic city names. Use our zip code generator to create fake zip code and random postal code for development purposes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I generate fake zip codes for testing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our random zip code generator is perfect for creating fake zip codes. Generate random zipcode for testing applications, forms, or databases. Our US zip code generator creates random US zip code that looks authentic. Use our zip code generator to create fake zip code and random postal code safely."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this random zip code generator free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! Our random zip code generator and US zip code generator are 100% free. Generate random zipcode unlimited times, create random US zip code, fake zip code, and random postal code without fees. Use our zip code generator to create fake zip codes as often as needed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the difference between random zip code and fake zip code?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A random zip code from our random zip code generator uses real US zip code data from actual cities. A fake zip code can be any random zipcode used for testing. Our US zip code generator provides both - random US zip code from real locations and random postal code for testing purposes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I download the generated zip codes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our random zip code generator includes a download feature. After you generate random zipcode, click Download to save as CSV. Our US zip code generator exports random US zip code, fake zip codes, and random postal code with city and state information for easy use."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Random Zip Code Generator - US Zip Code Generator",
+        "description": "Free random zip code generator and US zip code generator. Generate random zipcode, fake zip codes, and random postal codes online.",
+        "url": "https://moviesearch.online/random-zip-code",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --primary: #4f6ef7;
+        --primary-dark: #3b55d9;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --text: #111827;
+        --muted: #6b7280;
+      }
+      .hero {
+        max-width: 980px;
+        margin: 24px auto;
+        padding: 40px 24px;
+        background: #f0f4ff;
+        border: 1px solid #dbe4ff;
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto 24px;
+        line-height: 1.6;
+      }
+
+      .hero a.cta {
+        display: inline-block;
+        padding: 12px 26px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: #0066cc;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .home-button:hover {
+        background: #0052a3;
+        transform: translateY(-2px);
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 2em;
+        text-align: center;
+      }
+
+      h2 {
+        color: #333;
+        margin: 30px 0 15px;
+        font-size: 1.5em;
+      }
+
+      .description {
+        color: #666;
+        margin-bottom: 30px;
+        line-height: 1.8;
+        text-align: center;
+      }
+
+      .controls {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+
+      .preset-btn {
+        padding: 10px 20px;
+        background: #17a2b8;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+
+      .preset-btn:hover {
+        background: #138496;
+      }
+
+      .generate-btn {
+        padding: 12px 30px;
+        background: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .generate-btn:hover {
+        background: #218838;
+      }
+
+      .action-btns {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+
+      .action-btn {
+        padding: 8px 20px;
+        background: white;
+        color: #666;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.3s;
+      }
+
+      .action-btn:hover {
+        background: #f0f0f0;
+      }
+
+      .zip-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      .zip-card {
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+        transition: all 0.3s;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .zip-card:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
+      }
+
+      .zip-code {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .city-name {
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 3px;
+      }
+
+      .state-name {
+        font-size: 12px;
+        color: #999;
+      }
+
+      .copy-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 20px;
+        height: 20px;
+        background: #f0f0f0;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .zip-card:hover .copy-icon {
+        opacity: 1;
+      }
+
+      .info-section {
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+
+      .info-section h3 {
+        color: #0066cc;
+        margin-bottom: 10px;
+      }
+
+      .features-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .features-list li {
+        padding: 8px 0;
+        padding-left: 25px;
+        position: relative;
+      }
+
+      .features-list li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #28a745;
+        font-weight: bold;
+        font-size: 18px;
+      }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+  <body>
+    <a href="https://moviesearch.online" class="home-button">
+      <span>🏠</span> Home
+    </a>
+
+    <div class="container">
+      <h1>Random Zip Code Generator - US Zip Code & Fake Zip Code Generator</h1>
+
+      <div class="description">
+        <p>
+          Free random zip code generator to create random zipcode and US zip
+          code online. Our random US zip code tool helps you generate random zip
+          code, fake zip code, and random postal code with authentic city and
+          state names. Use our zip code generator to create random zipcode for
+          testing, development, or exploration. The US zip code generator
+          provides random zip code US data when you mail, post, or ship
+          something from one state to another state in the US.
+        </p>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <button class="preset-btn" onclick="generateZipCodes(5)">
+          5 Zip Codes
+        </button>
+        <button class="preset-btn" onclick="generateZipCodes(10)">
+          10 Zip Codes
+        </button>
+        <button class="preset-btn" onclick="generateZipCodes(15)">
+          15 Zip Codes
+        </button>
+        <button
+          class="preset-btn"
+          onclick="generateZipCodes(Math.floor(Math.random() * 10) + 5)"
+        >
+          Random
+        </button>
+        <button class="preset-btn" onclick="showCustomInput()">Custom</button>
+        <button class="generate-btn" onclick="generateZipCodes(10)">
+          Generate
+        </button>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-btns">
+        <button class="action-btn" onclick="showAll()">Show All</button>
+        <button class="action-btn" onclick="downloadZipCodes()">
+          ⬇️ Download
+        </button>
+      </div>
+
+      <!-- Zip Code Grid -->
+      <div class="zip-grid" id="zipGrid">
+        <!-- Zip codes will be displayed here -->
+      </div>
+      <div class="hero">
+        <h1>Convert Images to Vector Graphics Instantly</h1>
+        <p>
+          Turn raster images into clean, scalable vector files for design,
+          print, or web use.
+        </p>
+        <a class="cta" href="https://rastertovector.online" target="_blank">
+          Convert Raster to Vector
+        </a>
+      </div>
+      <!-- What is US ZIP Codes -->
+      <div class="info-section">
+        <h2>What is US ZIP Codes?</h2>
+        <p style="color: #666; line-height: 1.8">
+          The US zip code is a five-digit code that is used to identify a
+          specific geographic delivery area. Zip codes are added to mailing
+          addresses in order to ensure that mail is properly delivered.
+        </p>
+        <p style="color: #666; line-height: 1.8; margin-top: 10px">
+          While zip codes are most commonly associated with the United States,
+          they are actually used in a number of other countries as well. Zip
+          codes are an important part of the USPS delivery system, and they are
+          used extensively by businesses and consumers alike. If you're ever
+          unsure of a zip code, you can always check the USPS website for more
+          information.
+        </p>
+      </div>
+
+      <!-- Features -->
+      <div class="info-section">
+        <h2>What can you do with Zip Code randomizer Tool?</h2>
+        <ul class="features-list">
+          <li>
+            It helps to generate zip codes with the city name and state name.
+            Peoples use zip codes in addresses for sending posts, parcels, and
+            shipping services.
+          </li>
+          <li>
+            This tool can be used to generate Fake Zip Codes and know more about
+            different zip codes.
+          </li>
+          <li>
+            Online Random Zip Code tool works well on Windows, MAC, Linux,
+            Chrome, Firefox, Edge, and Safari.
+          </li>
+        </ul>
+      </div>
+
+      <!-- SEO Content Section -->
+      <h2>How to Use Our Random Zip Code Generator</h2>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our free random zip code generator makes it easy to generate random
+        zipcode and US zip code instantly. Whether you need a random US zip code
+        for testing, fake zip code for development, or random postal code for
+        forms, our zip code generator handles it all. Simply click a preset
+        button to generate random zip code - choose 5, 10, 15, or custom
+        amounts. Our US zip code generator creates random zipcode with authentic
+        city and state names. No software installation required - our random zip
+        code generator works online to create fake zip codes and random US zip
+        code. Use our free zip code generator to generate random zip code US
+        data instantly!
+      </p>
+
+      <h3>Generate Random US Zip Code with City Names</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        When you generate random zip code using our random zip code generator,
+        you get authentic US zip code data with real city and state names. Our
+        random zipcode tool includes 50+ locations across America. Use our US
+        zip code generator to create random US zip code from major cities like
+        New York, Los Angeles, Chicago, and more. The zip code generator
+        provides random postal code with geographic information. Whether you
+        need to generate random zip code for testing or create fake zip code for
+        development, our random zip code generator delivers authentic random US
+        zip code with accurate city names!
+      </p>
+
+      <h3>Create Fake Zip Codes for Testing & Development</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our random zip code generator is perfect for creating fake zip codes for
+        testing applications. Use our zip code generator to generate random
+        zipcode for form validation, database testing, or software development.
+        The US zip code generator creates random US zip code that looks
+        authentic but is used for testing purposes. Our random zip code
+        generator provides fake zip code and random postal code safely. Whether
+        you need to generate random zip code for unit tests or create fake zip
+        codes for QA testing, our zip code generator makes it simple to create
+        random zipcode and random US zip code for all your development needs!
+      </p>
+
+      <h3>Random Postal Code & US Zip Code Generator Features</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our random zip code generator offers powerful features to generate
+        random zipcode effectively. When you use our US zip code generator, you
+        can create 5, 10, 15, or custom amounts of random US zip code. The zip
+        code generator includes click-to-copy functionality - click any random
+        zip code to copy it instantly. Our random zipcode tool shows city and
+        state names for each US zip code. Use our random zip code generator to
+        download fake zip codes as CSV files. The random postal code feature
+        works in all browsers. Whether you generate random zip code once or use
+        our US zip code generator regularly, our zip code generator makes it
+        easy to create random US zip code and fake zip code!
+      </p>
+
+      <h3>Why Use Our Random Zip Code Generator</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        There are many reasons to use our random zip code generator and US zip
+        code generator. Our zip code generator is completely free - generate
+        random zipcode unlimited times, create random US zip code, fake zip
+        code, and random postal code without restrictions. The random zip code
+        generator works entirely in your browser to generate random zip code,
+        ensuring privacy and speed. No registration needed to use our US zip
+        code generator and create fake zip codes. Our random zipcode tool
+        includes real city and state names when you generate random US zip code.
+        The zip code generator offers download functionality to export random
+        postal code data. Whether you need to generate random zip code for
+        testing or create random US zip code for development, our random zip
+        code generator and US zip code generator deliver professional fake zip
+        codes!
+      </p>
+
+      <h3>Free Random Zip Code Generator & US Zip Code Tool</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Unlike paid tools, our random zip code generator and US zip code
+        generator are completely free. Generate random zipcode unlimited times,
+        create random US zip code without fees, and make fake zip codes as often
+        as needed - all free! No registration required to use our zip code
+        generator or generate random zip code. Our random zip code generator
+        works entirely online when you create random US zip code and random
+        postal code, ensuring fast processing. Perfect for developers who need
+        to generate random zipcode for testing, QA teams who want fake zip code
+        for validation, or anyone who needs a free US zip code generator to
+        create random zip code. Start using our random zip code generator today
+        to generate random zipcode, create fake zip codes, and get random US zip
+        code instantly!
+      </p>
+
+      <!-- FAQ Section -->
+      <h2 style="margin-top: 40px; margin-bottom: 25px; text-align: center">
+        Frequently Asked Questions
+      </h2>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How do I generate a random zip code?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          To generate a random zip code, click any preset button (5, 10, or 15
+          zip codes) in our free random zip code generator. Our US zip code
+          generator will create random zipcode with city and state names.
+          Generate random US zip code, fake zip code, and random postal code
+          instantly using our zip code generator.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What is a random zip code generator?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          A random zip code generator is a tool that creates random zipcode for
+          testing and exploration. Our US zip code generator provides random US
+          zip code with authentic city names. Use our zip code generator to
+          create fake zip code and random postal code for development purposes.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can I generate fake zip codes for testing?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Yes! Our random zip code generator is perfect for creating fake zip
+          codes. Generate random zipcode for testing applications, forms, or
+          databases. Our US zip code generator creates random US zip code that
+          looks authentic. Use our zip code generator to create fake zip code
+          and random postal code safely.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Is this random zip code generator free?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Absolutely! Our random zip code generator and US zip code generator
+          are 100% free. Generate random zipcode unlimited times, create random
+          US zip code, fake zip code, and random postal code without fees. Use
+          our zip code generator to create fake zip codes as often as needed.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What's the difference between random zip code and fake zip code?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          A random zip code from our random zip code generator uses real US zip
+          code data from actual cities. A fake zip code can be any random
+          zipcode used for testing. Our US zip code generator provides both -
+          random US zip code from real locations and random postal code for
+          testing purposes.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can I download the generated zip codes?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Yes! Our random zip code generator includes a download feature. After
+          you generate random zipcode, click Download to save as CSV. Our US zip
+          code generator exports random US zip code, fake zip codes, and random
+          postal code with city and state information for easy use.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // Sample US zip codes with cities and states
+      const zipCodeData = [
+        { zip: "04662", city: "Northeast Harbor", state: "Maine" },
+        { zip: "14738", city: "Franklinville", state: "New York" },
+        { zip: "68023", city: "Fort Calhoun", state: "Nebraska" },
+        { zip: "17563", city: "Peach Bottom", state: "Pennsylvania" },
+        { zip: "92704", city: "Santa Ana", state: "California" },
+        { zip: "84003", city: "American Fork", state: "Utah" },
+        { zip: "28119", city: "Newell", state: "North Carolina" },
+        { zip: "05488", city: "Swanton", state: "Vermont" },
+        { zip: "30022", city: "Alpharetta", state: "Georgia" },
+        { zip: "10001", city: "New York", state: "New York" },
+        { zip: "90001", city: "Los Angeles", state: "California" },
+        { zip: "60601", city: "Chicago", state: "Illinois" },
+        { zip: "77001", city: "Houston", state: "Texas" },
+        { zip: "85001", city: "Phoenix", state: "Arizona" },
+        { zip: "19101", city: "Philadelphia", state: "Pennsylvania" },
+        { zip: "78201", city: "San Antonio", state: "Texas" },
+        { zip: "92101", city: "San Diego", state: "California" },
+        { zip: "75201", city: "Dallas", state: "Texas" },
+        { zip: "95101", city: "San Jose", state: "California" },
+        { zip: "78701", city: "Austin", state: "Texas" },
+        { zip: "32801", city: "Jacksonville", state: "Florida" },
+        { zip: "94102", city: "San Francisco", state: "California" },
+        { zip: "46201", city: "Indianapolis", state: "Indiana" },
+        { zip: "43201", city: "Columbus", state: "Ohio" },
+        { zip: "28201", city: "Charlotte", state: "North Carolina" },
+        { zip: "98101", city: "Seattle", state: "Washington" },
+        { zip: "80201", city: "Denver", state: "Colorado" },
+        { zip: "20001", city: "Washington", state: "DC" },
+        { zip: "02101", city: "Boston", state: "Massachusetts" },
+        { zip: "37201", city: "Nashville", state: "Tennessee" },
+        { zip: "73101", city: "Oklahoma City", state: "Oklahoma" },
+        { zip: "97201", city: "Portland", state: "Oregon" },
+        { zip: "89101", city: "Las Vegas", state: "Nevada" },
+        { zip: "48201", city: "Detroit", state: "Michigan" },
+        { zip: "38101", city: "Memphis", state: "Tennessee" },
+        { zip: "40201", city: "Louisville", state: "Kentucky" },
+        { zip: "21201", city: "Baltimore", state: "Maryland" },
+        { zip: "53201", city: "Milwaukee", state: "Wisconsin" },
+        { zip: "87101", city: "Albuquerque", state: "New Mexico" },
+        { zip: "85701", city: "Tucson", state: "Arizona" },
+        { zip: "93701", city: "Fresno", state: "California" },
+        { zip: "95814", city: "Sacramento", state: "California" },
+        { zip: "64101", city: "Kansas City", state: "Missouri" },
+        { zip: "33101", city: "Miami", state: "Florida" },
+        { zip: "30301", city: "Atlanta", state: "Georgia" },
+        { zip: "80014", city: "Aurora", state: "Colorado" },
+        { zip: "44101", city: "Cleveland", state: "Ohio" },
+        { zip: "70112", city: "New Orleans", state: "Louisiana" },
+        { zip: "55401", city: "Minneapolis", state: "Minnesota" },
+        { zip: "74101", city: "Tulsa", state: "Oklahoma" },
+      ];
+
+      function generateZipCodes(count) {
+        const zipGrid = document.getElementById("zipGrid");
+        zipGrid.innerHTML = "";
+
+        // Shuffle and select random zip codes
+        const shuffled = zipCodeData.sort(() => 0.5 - Math.random());
+        const selected = shuffled.slice(0, Math.min(count, zipCodeData.length));
+
+        selected.forEach((data) => {
+          const card = document.createElement("div");
+          card.className = "zip-card";
+          card.onclick = () => copyZipCode(data.zip);
+
+          card.innerHTML = `
+                    <div class="copy-icon">📋</div>
+                    <div class="zip-code">${data.zip}</div>
+                    <div class="city-name">${data.city}</div>
+                    <div class="state-name">${data.state}</div>
+                `;
+
+          zipGrid.appendChild(card);
+        });
+      }
+
+      function copyZipCode(zip) {
+        navigator.clipboard.writeText(zip).then(() => {
+          // Show temporary notification
+          const notification = document.createElement("div");
+          notification.textContent = `Copied: ${zip}`;
+          notification.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: #28a745;
+                    color: white;
+                    padding: 12px 20px;
+                    border-radius: 5px;
+                    z-index: 9999;
+                    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+                `;
+          document.body.appendChild(notification);
+
+          setTimeout(() => {
+            notification.remove();
+          }, 2000);
+        });
+      }
+
+      function showCustomInput() {
+        const count = prompt(
+          "How many zip codes do you want to generate? (1-50)",
+          "10",
+        );
+        if (count && !isNaN(count)) {
+          const num = Math.max(1, Math.min(50, parseInt(count)));
+          generateZipCodes(num);
+        }
+      }
+
+      function showAll() {
+        generateZipCodes(zipCodeData.length);
+      }
+
+      function downloadZipCodes() {
+        const zipGrid = document.getElementById("zipGrid");
+        const cards = zipGrid.querySelectorAll(".zip-card");
+
+        if (cards.length === 0) {
+          alert("Please generate zip codes first");
+          return;
+        }
+
+        let csvContent = "Zip Code,City,State\n";
+
+        cards.forEach((card) => {
+          const zip = card.querySelector(".zip-code").textContent;
+          const city = card.querySelector(".city-name").textContent;
+          const state = card.querySelector(".state-name").textContent;
+          csvContent += `${zip},"${city}","${state}"\n`;
+        });
+
+        const blob = new Blob([csvContent], { type: "text/csv" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "random-zip-codes.csv";
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      // Generate initial 10 zip codes on load
+      window.addEventListener("load", () => {
+        generateZipCodes(10);
+      });
+    </script>
+  </body>
+</html>
