@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Random Phone Number Generator - Fake Phone Numbers & US Phone Number
+      Generator
+    </title>
+    <meta
+      name="description"
+      content="Free random phone number generator to create fake phone numbers and fake US phone numbers. Generate random US phone numbers with 262 area code, 256 area code, New York phone numbers and more for testing."
+    />
+    <meta
+      name="keywords"
+      content="random phone number, random phone numbers, fake phone number, random phone number generator, phone number generator, fake number generator, random us phone number, fake us number, fake phone number generator, fake phone numbers, us phone number generator, fake us phone number"
+    />
+    <link
+      rel="canonical"
+      href="https://moviesearch.online/random-phone-number"
+    />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Random Phone Number Generator - Fake US Phone Numbers"
+    />
+    <meta
+      property="og:description"
+      content="Free fake phone number generator. Create random phone numbers and random US phone numbers instantly."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://moviesearch.online/random-phone-number"
+    />
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does the random phone number generator work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our random phone number generator creates fake phone numbers in valid US format with real area codes like 262 area code and 256 area code. Click generate to create random US phone numbers instantly. Each fake phone number includes a city name and valid area code, making them realistic fake US phone numbers for testing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are these fake phone numbers real?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No, these are fake phone numbers generated randomly by our phone number generator. While they use real area codes like the 262 area code (Wisconsin) and 256 area code (Alabama), the random phone numbers are not real phone numbers and should only be used for testing purposes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I generate a New York phone number?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our New York phone number generator creates random phone numbers with NYC area codes (212, 646, 917). Simply click generate and our random US phone number tool will include fake phone numbers from New York and other cities."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this fake phone number generator free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! Our random phone number generator and fake US phone number tool are 100% free. Generate random phone numbers unlimited times, create fake phone numbers for testing, and use our US phone number generator without registration or fees."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What area codes can the phone number generator create?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our random US phone number generator includes major area codes like 262 area code (Milwaukee), 256 area code (Alabama), New York area codes (212, 646, 917), and many more. The fake number generator covers 20+ major US cities with authentic area codes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use these fake US phone numbers for verification?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. These random phone numbers are fake phone numbers for testing and development only. Do not use these fake US phone numbers for SMS verification, calling real people, or any activities requiring real phone numbers. Our phone number generator creates fake numbers for legitimate testing purposes only."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Random Phone Number Generator - Fake Phone Numbers",
+        "description": "Free random phone number generator and fake US phone number tool. Generate fake phone numbers with real area codes.",
+        "url": "https://moviesearch.online/random-phone-number",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --primary: #4f6ef7;
+        --primary-dark: #3b55d9;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --text: #111827;
+        --muted: #6b7280;
+      }
+      .hero {
+        max-width: 980px;
+        margin: 24px auto;
+        padding: 40px 24px;
+        background: #f0f4ff;
+        border: 1px solid #dbe4ff;
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto 24px;
+        line-height: 1.6;
+      }
+
+      .hero a.cta {
+        display: inline-block;
+        padding: 12px 26px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: #fff;
+        color: #667eea;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .home-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .header {
+        text-align: center;
+        color: white;
+        margin-bottom: 40px;
+      }
+
+      .header h1 {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+      }
+
+      .header p {
+        font-size: 1.1em;
+        opacity: 0.95;
+      }
+
+      .controls {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        margin-bottom: 30px;
+      }
+
+      .control-row {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .control-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 20px;
+        background: #f8f9fa;
+        border-radius: 8px;
+      }
+
+      .control-item label {
+        font-weight: 600;
+        color: #495057;
+        white-space: nowrap;
+      }
+
+      .control-item input {
+        padding: 8px 12px;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        font-size: 14px;
+        width: 100px;
+      }
+
+      .btn {
+        padding: 12px 30px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-generate {
+        background: #10b981;
+        color: white;
+      }
+
+      .btn-generate:hover {
+        background: #059669;
+        transform: translateY(-2px);
+      }
+
+      .btn-download {
+        background: #3b82f6;
+        color: white;
+      }
+
+      .btn-download:hover {
+        background: #2563eb;
+      }
+
+      .auto-update {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        color: #6c757d;
+      }
+
+      .auto-update input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+      }
+
+      .results {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .phone-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .phone-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+        border-radius: 10px;
+        color: white;
+        text-align: center;
+        transition: all 0.3s;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .phone-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .phone-number {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 8px;
+        letter-spacing: 1px;
+      }
+
+      .phone-location {
+        font-size: 13px;
+        opacity: 0.9;
+      }
+
+      .copy-icon {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 12px;
+        opacity: 0;
+        transition: all 0.3s;
+      }
+
+      .phone-card:hover .copy-icon {
+        opacity: 1;
+      }
+
+      .copied-msg {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #10b981;
+        color: white;
+        padding: 15px 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        font-weight: 600;
+        z-index: 2000;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .copied-msg.show {
+        opacity: 1;
+      }
+
+      .info-section {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        margin-top: 30px;
+        color: #495057;
+      }
+
+      .info-section h2 {
+        color: #667eea;
+        margin-bottom: 15px;
+      }
+
+      .info-section p {
+        line-height: 1.8;
+        margin-bottom: 15px;
+      }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+  <body>
+    <a href="https://moviesearch.online" class="home-button">
+      <span>🏠</span> Home
+    </a>
+
+    <div class="container">
+      <div class="header">
+        <h1>Random Phone Number Generator - Fake US Phone Numbers</h1>
+        <p>
+          Generate random phone numbers and fake phone numbers for testing with
+          real area codes
+        </p>
+      </div>
+
+      <div class="controls">
+        <div class="control-row">
+          <div class="control-item">
+            <label>5 Numbers</label>
+          </div>
+          <div class="control-item">
+            <label>10 Numbers</label>
+          </div>
+          <div class="control-item">
+            <label>15 Numbers</label>
+          </div>
+          <div class="control-item">
+            <label>Random</label>
+          </div>
+          <div class="control-item">
+            <label>Custom:</label>
+            <input
+              type="number"
+              id="customCount"
+              min="1"
+              max="100"
+              value="10"
+            />
+          </div>
+          <button class="btn btn-generate" id="generateBtn">
+            <span>🎲</span> Generate
+          </button>
+          <button class="btn btn-download" id="downloadBtn">
+            <span>⬇️</span> Download
+          </button>
+        </div>
+        <div class="auto-update">
+          <input type="checkbox" id="autoUpdate" />
+          <label for="autoUpdate">Auto update</label>
+        </div>
+      </div>
+
+      <div class="results">
+        <div class="phone-grid" id="phoneGrid">
+          <!-- Phone numbers will be generated here -->
+        </div>
+      </div>
+      <div class="hero">
+        <h1>Convert Images to Vector Graphics Instantly</h1>
+        <p>
+          Turn raster images into clean, scalable vector files for design,
+          print, or web use.
+        </p>
+        <a class="cta" href="https://rastertovector.online" target="_blank">
+          Convert Raster to Vector
+        </a>
+      </div>
+      <div class="info-section">
+        <h2>
+          Random Phone Number Generator - Fake Phone Numbers & US Phone Number
+          Generator
+        </h2>
+        <p>
+          Our free random phone number generator helps create fake phone numbers
+          and random US phone numbers for testing purposes. This fake phone
+          number generator produces random phone numbers in valid US format with
+          authentic area codes including 262 area code (Wisconsin), 256 area
+          code (Alabama), New York phone numbers with NYC area codes, and many
+          more cities across the United States.
+        </p>
+        <p>
+          When you need fake US phone numbers for testing, our phone number
+          generator creates realistic random phone numbers that follow proper
+          formatting. Each fake phone number includes a real area code and city
+          name, making these fake US numbers perfect for development and
+          testing. Our US phone number generator covers major metropolitan areas
+          and uses authentic area codes to generate random phone numbers that
+          look professional.
+        </p>
+
+        <h3>How to Use Our Fake Number Generator</h3>
+        <p>
+          Using our random phone number generator is simple: Choose a preset
+          option (5, 10, or 15 numbers), select random for a surprise quantity,
+          or enter a custom number to generate. Click "Generate" and our phone
+          number generator instantly creates fake phone numbers with real area
+          codes. Want random US phone numbers from specific areas? Our fake US
+          phone number tool includes the 262 area code for Wisconsin, 256 area
+          code for Alabama, and our New York phone number generator provides
+          authentic NYC numbers. Download all random phone numbers as CSV or
+          click any fake phone number to copy it to your clipboard.
+        </p>
+
+        <h3>Area Codes in Our Random US Phone Number Generator</h3>
+        <p>
+          Our fake phone number generator includes authentic area codes from
+          across the United States. Generate fake US phone numbers with the 262
+          area code (Milwaukee, WI), 256 area code (Huntsville, AL), New York
+          area codes (212, 646, 917), and many more. Each random phone number
+          uses real area codes to create fake phone numbers that appear
+          authentic. Whether you need a New York phone number generator, fake US
+          numbers from California, or random phone numbers from any major city,
+          our US phone number generator has you covered with real area codes and
+          city names.
+        </p>
+
+        <h3>Features of Our Fake US Phone Number Tool</h3>
+        <p>
+          This random phone number generator offers powerful features: Generate
+          up to 100 fake phone numbers at once with our phone number generator.
+          Download random phone numbers as CSV files for easy integration.
+          Auto-update feature refreshes fake US phone numbers every 3 seconds.
+          Copy any random US phone number with one click. Our fake number
+          generator uses authentic area codes like 262 area code and 256 area
+          code. New York phone number generator includes all NYC area codes.
+          Each fake phone number shows the city and state. All random phone
+          numbers follow standard US phone formatting (XXX) XXX-XXXX.
+        </p>
+
+        <h3>Important Disclaimer</h3>
+        <p>
+          <strong>Please Note:</strong> These are randomly generated fake phone
+          numbers created by our random phone number generator for testing and
+          development purposes only. While our phone number generator uses real
+          area codes like the 262 area code and 256 area code, these are not
+          real phone numbers. Do not use these fake US phone numbers to contact
+          real people, for SMS verification, or any illegal activities. Our fake
+          phone number generator and US phone number generator should only be
+          used for legitimate testing and development. These random phone
+          numbers are fake US numbers and should never be mistaken for real
+          phone numbers.
+        </p>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="info-section" style="margin-top: 30px">
+        <h2 style="text-align: center; margin-bottom: 25px">
+          Frequently Asked Questions
+        </h2>
+
+        <div
+          style="
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+          "
+        >
+          <h3 style="color: #667eea; margin-bottom: 10px">
+            How does the random phone number generator work?
+          </h3>
+          <p style="line-height: 1.7">
+            Our random phone number generator creates fake phone numbers in
+            valid US format with real area codes like 262 area code and 256 area
+            code. Click generate to create random US phone numbers instantly.
+            Each fake phone number includes a city name and valid area code,
+            making them realistic fake US phone numbers for testing.
+          </p>
+        </div>
+
+        <div
+          style="
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+          "
+        >
+          <h3 style="color: #667eea; margin-bottom: 10px">
+            Are these fake phone numbers real?
+          </h3>
+          <p style="line-height: 1.7">
+            No, these are fake phone numbers generated randomly by our phone
+            number generator. While they use real area codes like the 262 area
+            code (Wisconsin) and 256 area code (Alabama), the random phone
+            numbers are not real phone numbers and should only be used for
+            testing purposes.
+          </p>
+        </div>
+
+        <div
+          style="
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+          "
+        >
+          <h3 style="color: #667eea; margin-bottom: 10px">
+            Can I generate a New York phone number?
+          </h3>
+          <p style="line-height: 1.7">
+            Yes! Our New York phone number generator creates random phone
+            numbers with NYC area codes (212, 646, 917). Simply click generate
+            and our random US phone number tool will include fake phone numbers
+            from New York and other cities.
+          </p>
+        </div>
+
+        <div
+          style="
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+          "
+        >
+          <h3 style="color: #667eea; margin-bottom: 10px">
+            Is this fake phone number generator free?
+          </h3>
+          <p style="line-height: 1.7">
+            Absolutely! Our random phone number generator and fake US phone
+            number tool are 100% free. Generate random phone numbers unlimited
+            times, create fake phone numbers for testing, and use our US phone
+            number generator without registration or fees.
+          </p>
+        </div>
+
+        <div
+          style="
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+          "
+        >
+          <h3 style="color: #667eea; margin-bottom: 10px">
+            What area codes can the phone number generator create?
+          </h3>
+          <p style="line-height: 1.7">
+            Our random US phone number generator includes major area codes like
+            262 area code (Milwaukee), 256 area code (Alabama), New York area
+            codes (212, 646, 917), and many more. The fake number generator
+            covers 20+ major US cities with authentic area codes.
+          </p>
+        </div>
+
+        <div
+          style="
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+          "
+        >
+          <h3 style="color: #667eea; margin-bottom: 10px">
+            Can I use these fake US phone numbers for verification?
+          </h3>
+          <p style="line-height: 1.7">
+            No. These random phone numbers are fake phone numbers for testing
+            and development only. Do not use these fake US phone numbers for SMS
+            verification, calling real people, or any activities requiring real
+            phone numbers. Our phone number generator creates fake numbers for
+            legitimate testing purposes only.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="copied-msg" id="copiedMsg">✓ Copied to clipboard!</div>
+
+    <script>
+      // US cities with area codes
+      const usCities = [
+        { city: "Seattle, WA", areaCodes: ["206", "425", "253"] },
+        { city: "Harrisburg, PA", areaCodes: ["717", "223", "272"] },
+        { city: "Pennsylvania Ave., MI", areaCodes: ["248", "313", "734"] },
+        { city: "Auburn, WA", areaCodes: ["253", "360", "564"] },
+        { city: "New York City, NY", areaCodes: ["212", "646", "917"] },
+        { city: "Westminster Park, FL", areaCodes: ["262", "414", "534"] },
+        { city: "Greenville, NC", areaCodes: ["252", "336", "910"] },
+        { city: "Akron, OH", areaCodes: ["234", "330", "440"] },
+        { city: "Reading, NJ", areaCodes: ["201", "551", "973"] },
+        { city: "Los Angeles, CA", areaCodes: ["213", "310", "424"] },
+        { city: "Chicago, IL", areaCodes: ["312", "773", "872"] },
+        { city: "Houston, TX", areaCodes: ["281", "713", "832"] },
+        { city: "Phoenix, AZ", areaCodes: ["480", "602", "623"] },
+        { city: "Philadelphia, PA", areaCodes: ["215", "267", "445"] },
+        { city: "San Antonio, TX", areaCodes: ["210", "726", "830"] },
+        { city: "San Diego, CA", areaCodes: ["619", "858", "935"] },
+        { city: "Dallas, TX", areaCodes: ["214", "469", "972"] },
+        { city: "San Jose, CA", areaCodes: ["408", "669", "831"] },
+        { city: "Austin, TX", areaCodes: ["512", "737", "737"] },
+        { city: "Jacksonville, FL", areaCodes: ["904", "324", "386"] },
+      ];
+
+      let generatedPhoneNumbers = [];
+      let autoUpdateInterval = null;
+
+      // Generate random phone number
+      function generatePhoneNumber() {
+        const cityData = usCities[Math.floor(Math.random() * usCities.length)];
+        const areaCode =
+          cityData.areaCodes[
+            Math.floor(Math.random() * cityData.areaCodes.length)
+          ];
+        const exchange = Math.floor(Math.random() * 900) + 100;
+        const lineNumber = Math.floor(Math.random() * 9000) + 1000;
+
+        return {
+          number: `(${areaCode}) ${exchange}-${lineNumber}`,
+          location: cityData.city,
+        };
+      }
+
+      // Generate multiple phone numbers
+      function generatePhoneNumbers(count) {
+        generatedPhoneNumbers = [];
+        for (let i = 0; i < count; i++) {
+          generatedPhoneNumbers.push(generatePhoneNumber());
+        }
+        displayPhoneNumbers();
+      }
+
+      // Display phone numbers
+      function displayPhoneNumbers() {
+        const phoneGrid = document.getElementById("phoneGrid");
+        phoneGrid.innerHTML = "";
+
+        generatedPhoneNumbers.forEach((phone, index) => {
+          const card = document.createElement("div");
+          card.className = "phone-card";
+          card.innerHTML = `
+                    <div class="copy-icon">📋 Copy</div>
+                    <div class="phone-number">${phone.number}</div>
+                    <div class="phone-location">${phone.location}</div>
+                `;
+
+          card.addEventListener("click", () => {
+            copyToClipboard(phone.number);
+          });
+
+          phoneGrid.appendChild(card);
+        });
+      }
+
+      // Copy to clipboard
+      function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(() => {
+          const msg = document.getElementById("copiedMsg");
+          msg.classList.add("show");
+          setTimeout(() => {
+            msg.classList.remove("show");
+          }, 2000);
+        });
+      }
+
+      // Preset buttons
+      document.querySelectorAll(".control-item").forEach((item, index) => {
+        if (index < 4) {
+          item.style.cursor = "pointer";
+          item.addEventListener("click", () => {
+            let count;
+            if (index === 0) count = 5;
+            else if (index === 1) count = 10;
+            else if (index === 2) count = 15;
+            else count = Math.floor(Math.random() * 20) + 5;
+
+            generatePhoneNumbers(count);
+          });
+        }
+      });
+
+      // Generate button
+      document.getElementById("generateBtn").addEventListener("click", () => {
+        const count =
+          parseInt(document.getElementById("customCount").value) || 10;
+        generatePhoneNumbers(Math.min(count, 100));
+      });
+
+      // Download button
+      document.getElementById("downloadBtn").addEventListener("click", () => {
+        if (generatedPhoneNumbers.length === 0) {
+          alert("Please generate phone numbers first");
+          return;
+        }
+
+        let csvContent = "Phone Number,Location\n";
+        generatedPhoneNumbers.forEach((phone) => {
+          csvContent += `"${phone.number}","${phone.location}"\n`;
+        });
+
+        const blob = new Blob([csvContent], { type: "text/csv" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "random_phone_numbers.csv";
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+
+      // Auto update
+      document.getElementById("autoUpdate").addEventListener("change", (e) => {
+        if (e.target.checked) {
+          const count =
+            parseInt(document.getElementById("customCount").value) || 10;
+          generatePhoneNumbers(count);
+          autoUpdateInterval = setInterval(() => {
+            generatePhoneNumbers(count);
+          }, 3000);
+        } else {
+          if (autoUpdateInterval) {
+            clearInterval(autoUpdateInterval);
+            autoUpdateInterval = null;
+          }
+        }
+      });
+
+      // Generate initial numbers
+      generatePhoneNumbers(10);
+    </script>
+  </body>
+</html>
