@@ -51,6 +51,13 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://www.moviesearch.online/tools/gif-frame-extractor</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+
 
   <url>
     <loc>https://www.moviesearch.online/tools/create-transparent-png</loc>
