@@ -1,0 +1,974 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GIF Speed Changer - Slow Down GIF & Speed Up GIF Online Free</title>
+    <meta
+      name="description"
+      content="Free GIF speed changer to slow down GIF and speed up GIF online. Learn how to slow down a GIF, change GIF speed, and create slow motion or fast GIF animations instantly."
+    />
+    <meta
+      name="keywords"
+      content="gif speed changer, slow down gif, speed up gif, gif speed up, change gif speed, slow gif, slow down a gif, how to slow down a gif, speed up a gif, fast gif, gif slow down"
+    />
+    <link rel="canonical" href="https://moviesearch.online/gif-speed-changer" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="GIF Speed Changer - Slow Down GIF & Speed Up GIF"
+    />
+    <meta
+      property="og:description"
+      content="Free tool to change GIF speed, slow down GIF, and speed up GIF animations online."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://moviesearch.online/gif-speed-changer"
+    />
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How to slow down a GIF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To slow down a GIF, upload your GIF to our GIF speed changer, enter a percentage below 100% (like 50% for 2x slower), and click 'Change speed!'. Our tool will slow down the GIF and create a slow GIF animation. You can slow down a GIF by any amount to create the perfect slow motion effect."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I speed up a GIF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To speed up a GIF, use our GIF speed changer and enter a percentage above 100% (like 200% for 2x faster). Our tool will speed up the GIF instantly, creating a fast GIF animation. You can GIF speed up by any amount to make your animation run faster."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the best way to change GIF speed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The best way to change GIF speed is using our free GIF speed changer with percentage mode. To slow down a GIF use 50% (2x slower), to speed up GIF use 200% (2x faster). This method preserves the relative timing between frames when you change GIF speed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I make a GIF slow motion?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! To make a slow GIF or slow motion effect, use our GIF speed changer with a low percentage like 25% or 50%. This will slow down the GIF significantly. Our tool is perfect for creating slow GIF animations and learning how to slow down a GIF for dramatic effect."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this GIF speed changer free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our GIF speed changer is completely free. Slow down GIF, speed up GIF, and change GIF speed unlimited times. Create slow GIF or fast GIF animations, speed up a GIF, or GIF slow down without any fees or registration."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much can I slow down or speed up a GIF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can slow down a GIF or speed up GIF by any percentage from 1% to 1000%. To slow down a GIF dramatically, use 10-50%. To speed up a GIF significantly, use 200-500%. Our GIF speed changer gives you complete control to change GIF speed and create any effect from slow GIF to fast GIF."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "GIF Speed Changer - Slow Down & Speed Up GIF",
+        "description": "Free GIF speed changer to slow down GIF and speed up GIF animations online.",
+        "url": "https://moviesearch.online/gif-speed-changer",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --primary: #4f6ef7;
+        --primary-dark: #3b55d9;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --text: #111827;
+        --muted: #6b7280;
+      }
+      .hero {
+        max-width: 980px;
+        margin: 24px auto;
+        padding: 40px 24px;
+        background: #f0f4ff;
+        border: 1px solid #dbe4ff;
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto 24px;
+        line-height: 1.6;
+      }
+
+      .hero a.cta {
+        display: inline-block;
+        padding: 12px 26px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: #0066cc;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .home-button:hover {
+        background: #0052a3;
+        transform: translateY(-2px);
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 2em;
+      }
+
+      .description {
+        color: #666;
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+
+      .upload-area {
+        border: 2px dashed #0066cc;
+        border-radius: 8px;
+        padding: 40px;
+        text-align: center;
+        background: #f9f9f9;
+        margin-bottom: 30px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .upload-area:hover {
+        background: #f0f0f0;
+        border-color: #0052a3;
+      }
+
+      .upload-btn {
+        background: #0066cc;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .upload-btn:hover {
+        background: #0052a3;
+      }
+
+      .preview-section {
+        display: none;
+        margin-bottom: 30px;
+      }
+
+      .preview-section.active {
+        display: block;
+      }
+
+      .preview-container {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .preview-container img {
+        max-width: 100%;
+        max-height: 400px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+      }
+
+      .file-info {
+        background: #f0f0f0;
+        padding: 12px;
+        border-radius: 5px;
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .controls-section {
+        background: #fafafa;
+        padding: 25px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .control-group {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+      }
+
+      .control-group input {
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        width: 120px;
+      }
+
+      .control-group select {
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        background: white;
+        min-width: 200px;
+      }
+
+      .change-speed-btn {
+        background: #0066cc;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .change-speed-btn:hover {
+        background: #0052a3;
+      }
+
+      .change-speed-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+
+      .warning-box {
+        background: #fff3cd;
+        border: 1px solid #ffc107;
+        padding: 15px;
+        border-radius: 5px;
+        color: #856404;
+        font-size: 13px;
+        margin-top: 15px;
+      }
+
+      .warning-box strong {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .result-section {
+        display: none;
+        margin-top: 30px;
+      }
+
+      .result-section.active {
+        display: block;
+      }
+
+      .result-preview {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .result-preview img {
+        max-width: 100%;
+        max-height: 400px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+      }
+
+      .download-btn {
+        background: #28a745;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        display: inline-block;
+      }
+
+      .download-btn:hover {
+        background: #218838;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .speed-examples {
+        font-size: 13px;
+        color: #666;
+        margin-top: 10px;
+        font-style: italic;
+      }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+  <body>
+    <a href="https://moviesearch.online" class="home-button">
+      <span>🏠</span> Home
+    </a>
+
+    <div class="container">
+      <h1>GIF Speed Changer - Slow Down GIF & Speed Up GIF Online</h1>
+
+      <div class="description">
+        <p>
+          This free GIF speed changer is a tool for adjusting GIF animation
+          speed - slow down GIF animations or speed up GIF to make them run
+          faster. Change GIF speed to correct wrong timing, create a slow GIF
+          for slow motion effects, or speed up a GIF that's too slow. Learn how
+          to slow down a GIF and create the perfect fast GIF animation with our
+          easy-to-use tool.
+        </p>
+        <p style="margin-top: 15px">
+          To change GIF speed proportionally, use "% of current speed" from the
+          dropdown. Entering 200% will speed up GIF 2x faster (fast GIF), 50%
+          will slow down a GIF 2x slower (slow GIF). Our GIF speed changer makes
+          it easy to GIF speed up or GIF slow down while maintaining smoothness.
+          However, if you slow down GIF too much, it may lose smoothness in the
+          animation.
+        </p>
+        <p style="margin-top: 15px">
+          Alternatively, when you change GIF speed, you can specify precise
+          delay time in one-hundredths (1/100) of a second between frames; a
+          longer delay equals a slower animation when you slow down a GIF. If
+          some frames display longer than others, this option will overwrite it
+          when you speed up a GIF or slow down GIF, which may distort the flow
+          of the animation.
+        </p>
+      </div>
+      <div class="hero">
+        <h1>Convert Images to Vector Graphics Instantly</h1>
+        <p>
+          Turn raster images into clean, scalable vector files for design,
+          print, or web use.
+        </p>
+        <a class="cta" href="https://rastertovector.online" target="_blank">
+          Convert Raster to Vector
+        </a>
+      </div>
+
+      <div class="upload-area" id="uploadArea">
+        <input
+          type="file"
+          id="fileInput"
+          accept="image/gif,image/apng,image/webp"
+        />
+        <button
+          class="upload-btn"
+          onclick="document.getElementById('fileInput').click()"
+        >
+          Choose File
+        </button>
+        <p style="margin-top: 15px; color: #666">
+          or drag and drop a GIF/APNG/WebP here
+        </p>
+      </div>
+
+      <div class="preview-section" id="previewSection">
+        <div class="preview-container">
+          <img id="previewImage" src="" alt="Preview" />
+        </div>
+
+        <div class="file-info" id="fileInfo">
+          File size: 0KB, width: 0px, height: 0px, frames: 0, type: gif
+        </div>
+
+        <div class="controls-section">
+          <div class="control-group">
+            <input
+              type="number"
+              id="speedValue"
+              value="150"
+              min="1"
+              max="1000"
+            />
+            <select id="speedType">
+              <option value="percentage">% of current speed</option>
+              <option value="delay">1/100 of a second delay</option>
+            </select>
+          </div>
+
+          <button class="change-speed-btn" id="changeSpeedBtn">
+            Change speed!
+          </button>
+
+          <div class="speed-examples">
+            Examples: 200% = 2x faster, 50% = 2x slower, 10 = 0.1 second delay
+            between frames
+          </div>
+
+          <div class="warning-box">
+            <strong>⚠️ Warning:</strong>
+            Most browsers and image viewers (including Chrome) may ignore values
+            smaller than 2 hundredths of a second, so if you enter 0 or 1, the
+            animation will default to a slower speed when viewed in such
+            programs. These are technically valid values but probably shouldn't
+            be used unless you have some specific use for the file. If you use
+            percentage option, it will never use values smaller than 2 for GIF
+            files (50fps).
+          </div>
+        </div>
+      </div>
+
+      <div class="result-section" id="resultSection">
+        <h2>Modified GIF:</h2>
+        <div class="result-preview">
+          <img id="resultImage" src="" alt="Result" />
+        </div>
+        <div class="file-info" id="resultInfo">
+          Modified animation with new speed
+        </div>
+        <button class="download-btn" id="downloadBtn">
+          Download Modified GIF
+        </button>
+      </div>
+    </div>
+
+    <!-- SEO Content Section -->
+    <div class="container" style="margin-top: 30px">
+      <h2>How to Use Our GIF Speed Changer</h2>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        Our GIF speed changer makes it easy to slow down GIF animations and
+        speed up GIF files instantly. Whether you need to change GIF speed for
+        social media, create a slow GIF for dramatic effect, or speed up a GIF
+        that's playing too slowly, our tool handles everything in your browser.
+        Simply upload your animated GIF, choose whether to slow down a GIF or
+        speed up GIF using percentages, and click "Change speed!" to GIF speed
+        up or GIF slow down. No software installation required to change GIF
+        speed - our free GIF speed changer works online!
+      </p>
+
+      <h3>How to Slow Down a GIF</h3>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        Learning how to slow down a GIF is simple with our GIF speed changer. To
+        slow down GIF animations, upload your GIF and enter a percentage below
+        100% - for example, 50% will slow down a GIF by half speed (2x slower),
+        creating a slow GIF or slow motion effect. Enter 25% to slow down GIF
+        even more dramatically. Our tool makes it easy to GIF slow down for any
+        purpose, whether you want a slow GIF for emphasis or need to slow down a
+        GIF to analyze frame-by-frame details. You can slow down a GIF by any
+        amount from 1% to 99% to create the perfect slow motion animation.
+      </p>
+
+      <h3>How to Speed Up a GIF</h3>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        Want to speed up a GIF that's playing too slowly? Our GIF speed changer
+        makes it easy to speed up GIF animations and create a fast GIF. To GIF
+        speed up, enter a percentage above 100% - use 200% to speed up GIF 2x
+        faster, or 300% to speed up a GIF 3x faster. Our tool will speed up GIF
+        instantly, creating a fast GIF animation that runs at your desired
+        speed. Whether you need to speed up a GIF slightly (150%) or
+        dramatically (500%), our GIF speed changer gives you complete control to
+        change GIF speed and create the perfect fast GIF animation.
+      </p>
+
+      <h3>Change GIF Speed with Percentage or Frame Delay</h3>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        Our GIF speed changer offers two methods to change GIF speed. Use
+        percentage mode to proportionally slow down GIF or speed up GIF while
+        maintaining the relative timing between frames - perfect when you want
+        to slow down a GIF or GIF speed up uniformly. Alternatively, use frame
+        delay mode to set exact timing in hundredths of a second when you change
+        GIF speed. This method is great for precise control when you slow down
+        GIF or speed up a GIF, though it overwrites variable frame timing.
+        Choose the best method for your needs - whether creating a slow GIF,
+        fast GIF, or anything in between, our GIF speed changer handles it!
+      </p>
+
+      <h3>Tips for Best Results When You Change GIF Speed</h3>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        To get the best results when you slow down GIF or speed up GIF
+        animations: When you slow down a GIF, avoid going below 25% as extremely
+        slow GIF animations may lose smoothness. To speed up a GIF effectively,
+        try 150-300% for a noticeable fast GIF without looking choppy. Our GIF
+        speed changer automatically ensures values never go below 2/100 second
+        (50fps limit) when you change GIF speed using percentages. If you want
+        to GIF speed up dramatically or slow down GIF significantly, use
+        percentage mode for best results. Preview your slow GIF or fast GIF
+        before downloading to ensure the GIF slow down or speed up effect looks
+        perfect!
+      </p>
+
+      <h3>Free GIF Speed Changer Tool</h3>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        Unlike paid software, our GIF speed changer is completely free. Slow
+        down GIF animations unlimited times, speed up GIF files as often as
+        needed, and change GIF speed without registration or watermarks. No
+        hidden fees when you slow down a GIF or speed up a GIF - just upload and
+        process! Our tool works entirely in your browser to GIF speed up or GIF
+        slow down, ensuring privacy. Perfect for content creators who need to
+        slow down GIF for emphasis, speed up a GIF for excitement, or change GIF
+        speed for any creative purpose. Start using our free GIF speed changer
+        today to create the perfect slow GIF or fast GIF animation!
+      </p>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="container" style="margin-top: 30px; margin-bottom: 40px">
+      <h2 style="margin-bottom: 25px; text-align: center">
+        Frequently Asked Questions
+      </h2>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How to slow down a GIF?
+        </h3>
+        <p style="line-height: 1.7">
+          To slow down a GIF, upload your GIF to our GIF speed changer, enter a
+          percentage below 100% (like 50% for 2x slower), and click 'Change
+          speed!'. Our tool will slow down the GIF and create a slow GIF
+          animation. You can slow down a GIF by any amount to create the perfect
+          slow motion effect.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How do I speed up a GIF?
+        </h3>
+        <p style="line-height: 1.7">
+          To speed up a GIF, use our GIF speed changer and enter a percentage
+          above 100% (like 200% for 2x faster). Our tool will speed up the GIF
+          instantly, creating a fast GIF animation. You can GIF speed up by any
+          amount to make your animation run faster.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What's the best way to change GIF speed?
+        </h3>
+        <p style="line-height: 1.7">
+          The best way to change GIF speed is using our free GIF speed changer
+          with percentage mode. To slow down a GIF use 50% (2x slower), to speed
+          up GIF use 200% (2x faster). This method preserves the relative timing
+          between frames when you change GIF speed.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can I make a GIF slow motion?
+        </h3>
+        <p style="line-height: 1.7">
+          Yes! To make a slow GIF or slow motion effect, use our GIF speed
+          changer with a low percentage like 25% or 50%. This will slow down the
+          GIF significantly. Our tool is perfect for creating slow GIF
+          animations and learning how to slow down a GIF for dramatic effect.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Is this GIF speed changer free?
+        </h3>
+        <p style="line-height: 1.7">
+          Yes! Our GIF speed changer is completely free. Slow down GIF, speed up
+          GIF, and change GIF speed unlimited times. Create slow GIF or fast GIF
+          animations, speed up a GIF, or GIF slow down without any fees or
+          registration.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How much can I slow down or speed up a GIF?
+        </h3>
+        <p style="line-height: 1.7">
+          You can slow down a GIF or speed up GIF by any percentage from 1% to
+          1000%. To slow down a GIF dramatically, use 10-50%. To speed up a GIF
+          significantly, use 200-500%. Our GIF speed changer gives you complete
+          control to change GIF speed and create any effect from slow GIF to
+          fast GIF.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const fileInput = document.getElementById("fileInput");
+      const uploadArea = document.getElementById("uploadArea");
+      const previewSection = document.getElementById("previewSection");
+      const previewImage = document.getElementById("previewImage");
+      const fileInfo = document.getElementById("fileInfo");
+      const speedValue = document.getElementById("speedValue");
+      const speedType = document.getElementById("speedType");
+      const changeSpeedBtn = document.getElementById("changeSpeedBtn");
+      const resultSection = document.getElementById("resultSection");
+      const resultImage = document.getElementById("resultImage");
+      const resultInfo = document.getElementById("resultInfo");
+      const downloadBtn = document.getElementById("downloadBtn");
+
+      let currentFile = null;
+      let modifiedBlob = null;
+
+      // File upload handlers
+      fileInput.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (file) loadImage(file);
+      });
+
+      uploadArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        uploadArea.style.background = "#e6f2ff";
+      });
+
+      uploadArea.addEventListener("dragleave", () => {
+        uploadArea.style.background = "#f9f9f9";
+      });
+
+      uploadArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        uploadArea.style.background = "#f9f9f9";
+        const file = e.dataTransfer.files[0];
+        if (file) loadImage(file);
+      });
+
+      // Load image
+      function loadImage(file) {
+        currentFile = file;
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+          previewImage.src = e.target.result;
+          previewSection.classList.add("active");
+
+          const img = new Image();
+          img.onload = () => {
+            const fileSize = (file.size / 1024).toFixed(2);
+            const fileType = file.type.split("/")[1].toUpperCase();
+            fileInfo.textContent = `File size: ${fileSize}KB, width: ${img.width}px, height: ${img.height}px, type: ${fileType}`;
+          };
+          img.src = e.target.result;
+        };
+
+        reader.readAsDataURL(file);
+      }
+
+      // --- THE MAGIC: Modify GIF Binary Data ---
+      // --- THE MAGIC: Modify GIF Binary Data ---
+      function modifyGifDelay(buffer, value, type) {
+        const view = new DataView(buffer);
+        let offset = 0;
+
+        // Verify GIF header (GIF87a or GIF89a)
+        if (
+          view.getUint8(0) !== 0x47 ||
+          view.getUint8(1) !== 0x49 ||
+          view.getUint8(2) !== 0x46
+        ) {
+          throw new Error("Not a valid GIF file");
+        }
+        offset += 6;
+
+        // Logical Screen Descriptor
+        const packedField = view.getUint8(offset + 4);
+        const globalColorTableFlag = (packedField & 0x80) !== 0;
+        const globalColorTableSize = 2 << (packedField & 0x07);
+        offset += 7;
+
+        if (globalColorTableFlag) {
+          offset += 3 * globalColorTableSize;
+        }
+
+        // Loop through blocks
+        while (offset < buffer.byteLength) {
+          const introducer = view.getUint8(offset);
+
+          if (introducer === 0x21) {
+            // Extension Introducer
+            const label = view.getUint8(offset + 1);
+
+            if (label === 0xf9) {
+              // Graphic Control Extension (Contains Delay)
+              const blockSize = view.getUint8(offset + 2);
+              if (blockSize === 4) {
+                const currentDelay = view.getUint16(offset + 4, true); // Little endian
+                let newDelay;
+
+                if (type === "percentage") {
+                  const speedMultiplier = value / 100;
+                  newDelay = Math.round(currentDelay / speedMultiplier);
+                  if (newDelay < 2) newDelay = 2; // Keep at least 2 (50fps) limit for browsers
+                } else {
+                  newDelay = Math.round(value);
+                }
+
+                // Overwrite the delay bytes
+                view.setUint16(offset + 4, newDelay, true);
+              }
+
+              // Safely skip past this extension block
+              offset += 2;
+              while (offset < buffer.byteLength) {
+                const subBlockSize = view.getUint8(offset);
+                offset++;
+                if (subBlockSize === 0) break;
+                offset += subBlockSize;
+              }
+            } else {
+              // Skip other extensions safely (Comments, Application Data)
+              offset += 2;
+              while (offset < buffer.byteLength) {
+                const subBlockSize = view.getUint8(offset);
+                offset++;
+                if (subBlockSize === 0) break;
+                offset += subBlockSize;
+              }
+            }
+          } else if (introducer === 0x2c) {
+            // Image Descriptor
+            // THIS IS THE BUG FIX: Correctly finding the local packed field
+            const localPackedField = view.getUint8(offset + 9);
+            offset += 10; // Skip the 10-byte Image Descriptor header
+
+            const localColorTableFlag = (localPackedField & 0x80) !== 0;
+            const localColorTableSize = 2 << (localPackedField & 0x07);
+
+            if (localColorTableFlag) {
+              offset += 3 * localColorTableSize;
+            }
+            offset++; // Skip LZW Minimum Code Size
+
+            // Skip image pixel data sub-blocks
+            while (offset < buffer.byteLength) {
+              const subBlockSize = view.getUint8(offset);
+              offset++;
+              if (subBlockSize === 0) break;
+              offset += subBlockSize;
+            }
+          } else if (introducer === 0x3b) {
+            // Trailer (End of GIF)
+            break;
+          } else {
+            offset++; // Fallback
+          }
+        }
+      }
+
+      // Change speed button
+      changeSpeedBtn.addEventListener("click", async () => {
+        if (!currentFile) {
+          alert("Please upload a file first");
+          return;
+        }
+
+        if (currentFile.type !== "image/gif") {
+          alert(
+            "This speed changer currently only supports standard .gif files.",
+          );
+          return;
+        }
+
+        const value = parseFloat(speedValue.value);
+        const type = speedType.value;
+
+        if (isNaN(value) || value <= 0) {
+          alert("Please enter a valid positive number");
+          return;
+        }
+
+        changeSpeedBtn.disabled = true;
+        changeSpeedBtn.textContent = "Processing...";
+
+        try {
+          // Read file as ArrayBuffer for binary manipulation
+          const buffer = await currentFile.arrayBuffer();
+
+          // Clone buffer so we don't permanently alter the original upload if they want to try a new speed
+          const clonedBuffer = buffer.slice(0);
+
+          // Apply speed modifications
+          modifyGifDelay(clonedBuffer, value, type);
+
+          // Create output file
+          modifiedBlob = new Blob([clonedBuffer], { type: "image/gif" });
+
+          // Display result
+          const newUrl = URL.createObjectURL(modifiedBlob);
+          resultImage.src = newUrl;
+          resultSection.classList.add("active");
+
+          let speedDescription;
+          if (type === "percentage") {
+            if (value > 100) {
+              speedDescription = `Speed increased by ${(value - 100).toFixed(0)}% (${(value / 100).toFixed(1)}x faster)`;
+            } else if (value < 100) {
+              speedDescription = `Speed decreased by ${(100 - value).toFixed(0)}% (${(100 / value).toFixed(1)}x slower)`;
+            } else {
+              speedDescription = "Speed unchanged (100%)";
+            }
+          } else {
+            speedDescription = `Frame delay set to ${value}/100 second (${(value / 100).toFixed(2)}s between frames)`;
+          }
+
+          resultInfo.textContent = `Modified animation: ${speedDescription}`;
+          resultSection.scrollIntoView({ behavior: "smooth" });
+        } catch (error) {
+          console.error(error);
+          alert("Error processing file. The GIF might be corrupted.");
+        } finally {
+          changeSpeedBtn.disabled = false;
+          changeSpeedBtn.textContent = "Change speed!";
+        }
+      });
+
+      // Download button
+      downloadBtn.addEventListener("click", () => {
+        if (!modifiedBlob) return;
+        const url = URL.createObjectURL(modifiedBlob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "speed_changed_" + (currentFile.name || "animation.gif");
+        a.click();
+        URL.revokeObjectURL(url); // Clean up memory
+      });
+
+      // Speed type change
+      speedType.addEventListener("change", (e) => {
+        if (e.target.value === "percentage") {
+          speedValue.value = 150;
+          speedValue.min = 1;
+        } else {
+          speedValue.value = 10;
+          speedValue.min = 0;
+        }
+      });
+    </script>
+  </body>
+</html>
