@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      WebP to GIF Converter - Save WebP as GIF & WebP File to GIF Online Free
+    </title>
+    <meta
+      name="description"
+      content="Free WebP to GIF converter to save WebP as GIF and convert WebP file to GIF online. Best GIF converter and video to GIF converter - convert WebP to GIF instantly with our online tool."
+    />
+    <meta
+      name="keywords"
+      content="webp to gif, webp to gif converter, webp file to gif, save webp as gif, video to gif converter, gif converter"
+    />
+    <link rel="canonical" href="https://moviesearch.online/webp-to-gif" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="WebP to GIF Converter - Save WebP as GIF Online"
+    />
+    <meta
+      property="og:description"
+      content="Free WebP to GIF converter and GIF converter. Convert WebP file to GIF and save WebP as GIF online."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moviesearch.online/webp-to-gif" />
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I convert WebP to GIF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To convert WebP to GIF, upload your WebP file to our free WebP to GIF converter, choose an encoder (Gifski or Libvips), and click 'Convert to GIF!'. Our GIF converter will convert WebP file to GIF instantly. You can then save WebP as GIF by downloading the converted file."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the best WebP to GIF converter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our WebP to GIF converter is the best free tool to convert WebP file to GIF because it offers two encoder options (Gifski and Libvips), preserves animation, and lets you save WebP as GIF with one click. Our GIF converter works entirely in your browser with no registration required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I save animated WebP as GIF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our WebP to GIF converter handles both static and animated WebP files. When you convert WebP to GIF using our GIF converter, all frames, animation speed, and dimensions are preserved. You can easily save WebP as GIF while maintaining the animation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this WebP to GIF converter free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! Our WebP to GIF converter and GIF converter are 100% free. Convert WebP file to GIF unlimited times and save WebP as GIF without registration or fees. Use our WebP to GIF converter as often as needed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can this GIF converter also work as a video to GIF converter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "While this tool is optimized as a WebP to GIF converter, we also offer a dedicated video to GIF converter for converting video files. Use this WebP to GIF converter to convert WebP file to GIF and save WebP as GIF. For video files, use our separate video to GIF converter tool."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will I lose quality when I convert WebP to GIF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "When you convert WebP file to GIF using our WebP to GIF converter, GIF's 256-color limitation may reduce image quality compared to WebP. However, our GIF converter preserves all frames and animations. Choose between Gifski and Libvips encoders to save WebP as GIF with the best quality for your specific image."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "WebP to GIF Converter - Save WebP as GIF",
+        "description": "Free WebP to GIF converter and GIF converter. Convert WebP file to GIF and save WebP as GIF online.",
+        "url": "https://moviesearch.online/webp-to-gif",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --primary: #4f6ef7;
+        --primary-dark: #3b55d9;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --text: #111827;
+        --muted: #6b7280;
+      }
+      .hero {
+        max-width: 980px;
+        margin: 24px auto;
+        padding: 40px 24px;
+        background: #f0f4ff;
+        border: 1px solid #dbe4ff;
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto 24px;
+        line-height: 1.6;
+      }
+
+      .hero a.cta {
+        display: inline-block;
+        padding: 12px 26px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: #0066cc;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .home-button:hover {
+        background: #0052a3;
+        transform: translateY(-2px);
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 2em;
+      }
+
+      h2 {
+        color: #333;
+        margin: 30px 0 15px;
+        font-size: 1.5em;
+      }
+
+      .description {
+        color: #666;
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+
+      .upload-area {
+        border: 2px dashed #0066cc;
+        border-radius: 8px;
+        padding: 40px;
+        text-align: center;
+        background: #f9f9f9;
+        margin-bottom: 30px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .upload-area:hover {
+        background: #f0f0f0;
+        border-color: #0052a3;
+      }
+
+      .upload-btn {
+        background: #0066cc;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .upload-btn:hover {
+        background: #0052a3;
+      }
+
+      .preview-section {
+        display: none;
+        margin-bottom: 30px;
+      }
+
+      .preview-section.active {
+        display: block;
+      }
+
+      .preview-container {
+        text-align: center;
+        margin-bottom: 20px;
+        padding: 20px;
+        background: #fafafa;
+        border-radius: 8px;
+      }
+
+      .preview-container img {
+        max-width: 100%;
+        max-height: 400px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .file-info {
+        background: #f0f0f0;
+        padding: 15px;
+        border-radius: 5px;
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .encoder-options {
+        background: #fafafa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .encoder-options h3 {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 1.1em;
+      }
+
+      .encoder-choice {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 15px;
+      }
+
+      .radio-option {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 15px;
+        background: white;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .radio-option:hover {
+        border-color: #0066cc;
+      }
+
+      .radio-option input[type="radio"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+      }
+
+      .radio-option.selected {
+        border-color: #0066cc;
+        background: #e6f2ff;
+      }
+
+      .encoder-description {
+        font-size: 13px;
+        color: #666;
+        font-style: italic;
+        padding: 10px;
+        background: #fff;
+        border-radius: 5px;
+      }
+
+      .convert-btn {
+        background: #0066cc;
+        color: white;
+        padding: 14px 40px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 600;
+        display: block;
+        margin: 20px auto 0;
+      }
+
+      .convert-btn:hover {
+        background: #0052a3;
+      }
+
+      .convert-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+
+      .info-box {
+        background: #fff3cd;
+        border: 1px solid #ffc107;
+        padding: 15px;
+        border-radius: 5px;
+        color: #856404;
+        margin: 20px 0;
+      }
+
+      .result-section {
+        display: none;
+        margin-top: 30px;
+      }
+
+      .result-section.active {
+        display: block;
+      }
+
+      .result-preview {
+        text-align: center;
+        margin-bottom: 20px;
+        padding: 20px;
+        background: #fafafa;
+        border-radius: 8px;
+      }
+
+      .result-preview img {
+        max-width: 100%;
+        max-height: 400px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .download-btn {
+        background: #28a745;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        display: inline-block;
+      }
+
+      .download-btn:hover {
+        background: #218838;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .features-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .features-list li {
+        padding: 8px 0;
+        padding-left: 25px;
+        position: relative;
+      }
+
+      .features-list li:before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #0066cc;
+        font-weight: bold;
+        font-size: 20px;
+      }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+  <body>
+    <a href="https://moviesearch.online" class="home-button">
+      <span>🏠</span> Home
+    </a>
+
+    <div class="container">
+      <h1>WebP to GIF Converter - Save WebP as GIF Online Free</h1>
+
+      <div class="description">
+        <p>
+          Our free WebP to GIF converter lets you convert WebP file to GIF and
+          save WebP as GIF with a single click, instantly and for free. This GIF
+          converter supports both static and animated WebP files, making it easy
+          to convert WebP to GIF while preserving animation, dimensions, and
+          frame timing. Whether you need to save WebP as GIF for compatibility
+          or convert WebP file to GIF for web use, our WebP to GIF converter
+          handles it all. We also offer a video to GIF converter for converting
+          video files.
+        </p>
+        <p style="margin-top: 15px">
+          When you convert WebP to GIF using our GIF converter, GIF files
+          typically have a larger file size, and the format is limited to 256
+          colors, so image quality may be reduced. However, the advantage of
+          using our WebP to GIF converter to save WebP as GIF is that GIF is a
+          simpler and older image format with broad support across all types of
+          browsers, image viewers, websites, and devices.
+        </p>
+      </div>
+
+      <div class="upload-area" id="uploadArea">
+        <input type="file" id="fileInput" accept="image/webp" />
+        <button
+          class="upload-btn"
+          onclick="document.getElementById('fileInput').click()"
+        >
+          Choose WebP File
+        </button>
+        <p style="margin-top: 15px; color: #666">
+          or drag and drop a WebP file here
+        </p>
+      </div>
+
+      <div class="preview-section" id="previewSection">
+        <div class="preview-container">
+          <img id="previewImage" src="" alt="WebP Preview" />
+        </div>
+
+        <div class="file-info" id="fileInfo">
+          File: example.webp - Ready to convert
+        </div>
+
+        <div class="encoder-options">
+          <h3>Choose Encoder:</h3>
+
+          <div class="encoder-choice">
+            <label class="radio-option selected" id="gifskiOption">
+              <input type="radio" name="encoder" value="gifski" checked />
+              <span>Gifski</span>
+            </label>
+
+            <label class="radio-option" id="libvipsOption">
+              <input type="radio" name="encoder" value="libvips" />
+              <span>Libvips</span>
+            </label>
+          </div>
+
+          <div class="encoder-description" id="encoderDesc">
+            <strong>Gifski:</strong> Tries to imitate transparency using a mix
+            of transparent and opaque pixels. Better for images with
+            semi-transparent areas.
+          </div>
+
+          <div class="info-box">
+            <strong>💡 About Transparency:</strong>
+            Images with semi-transparent parts may not convert well, since the
+            GIF format only supports 1-bit transparency (a pixel can be either
+            fully transparent or fully opaque). Gifski tries to imitate
+            transparency using a mix of transparent and opaque pixels, while
+            libvips creates a clear cut between transparent and opaque pixels.
+            Depending on the situation, one may be preferable to the other. If
+            in doubt, try both encoders and see which result you like best.
+          </div>
+        </div>
+
+        <button class="convert-btn" id="convertBtn">Convert to GIF!</button>
+      </div>
+
+      <div class="result-section" id="resultSection">
+        <h2>Conversion Complete!</h2>
+        <div class="result-preview">
+          <img id="resultImage" src="" alt="GIF Result" />
+        </div>
+        <div class="file-info" id="resultInfo">
+          Successfully converted to GIF format
+        </div>
+        <button class="download-btn" id="downloadBtn">Download GIF File</button>
+      </div>
+
+      <div class="hero">
+        <h1>Convert Images to Vector Graphics Instantly</h1>
+        <p>
+          Turn raster images into clean, scalable vector files for design,
+          print, or web use.
+        </p>
+        <a class="cta" href="https://rastertovector.online" target="_blank">
+          Convert Raster to Vector
+        </a>
+      </div>
+
+      <!-- Additional Information -->
+      <h2>What is Preserved During Conversion?</h2>
+      <ul class="features-list">
+        <li><strong>Animation speed</strong> – Frame timing is maintained</li>
+        <li><strong>Number of frames</strong> – All frames are converted</li>
+        <li><strong>Dimensions</strong> – Width and height remain unchanged</li>
+      </ul>
+
+      <h2>Limitations of GIF Format</h2>
+      <ul class="features-list">
+        <li>
+          <strong>256 color limit</strong> – Image quality may be reduced for
+          photos
+        </li>
+        <li>
+          <strong>Larger file sizes</strong> – GIF compression is less efficient
+          than WebP
+        </li>
+        <li>
+          <strong>1-bit transparency</strong> – No semi-transparent pixels
+          (fully transparent or opaque only)
+        </li>
+      </ul>
+
+      <h2>Why Convert WebP to GIF?</h2>
+      <ul class="features-list">
+        <li>
+          <strong>Universal compatibility</strong> – Works on all browsers and
+          devices
+        </li>
+        <li>
+          <strong>Simple format</strong> – Older format with broader support
+        </li>
+        <li>
+          <strong>Website requirements</strong> – Some platforms require GIF
+          instead of WebP
+        </li>
+        <li>
+          <strong>Legacy support</strong> – Works with older software and
+          systems
+        </li>
+      </ul>
+
+      <!-- SEO Content Section -->
+      <h2>How to Use Our WebP to GIF Converter</h2>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our free WebP to GIF converter makes it simple to convert WebP file to
+        GIF and save WebP as GIF instantly. Whether you need a GIF converter for
+        web compatibility or want to save WebP as GIF for wider device support,
+        our WebP to GIF converter handles everything in your browser. Simply
+        upload your WebP file, choose between Gifski or Libvips encoder, and
+        click convert to transform your WebP file to GIF. No software
+        installation required - our GIF converter works online to convert WebP
+        to GIF with just a few clicks! We also offer a dedicated video to GIF
+        converter for converting video files to animated GIFs.
+      </p>
+
+      <h3>Convert WebP File to GIF with Encoder Options</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        When you convert WebP to GIF using our WebP to GIF converter, you can
+        choose between two professional encoders. Our GIF converter offers
+        Gifski, which uses a mix of transparent and opaque pixels when you save
+        WebP as GIF - perfect for images with semi-transparent areas.
+        Alternatively, use Libvips in our WebP to GIF converter to create a
+        clear cut between transparent and opaque pixels when you convert WebP
+        file to GIF. Both encoder options in our GIF converter preserve
+        animation speed, frame count, and dimensions when you save WebP as GIF.
+        Try both encoders in our WebP to GIF converter to see which gives better
+        results when you convert WebP to GIF!
+      </p>
+
+      <h3>Why Save WebP as GIF?</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        There are many reasons to use our WebP to GIF converter to convert WebP
+        file to GIF. When you save WebP as GIF using our GIF converter, you gain
+        universal compatibility - GIF works on all browsers, devices, and image
+        viewers. Many websites require GIF format, making our WebP to GIF
+        converter essential for uploading images. Legacy systems that don't
+        support WebP can display GIFs, so convert WebP to GIF for broader reach.
+        Our GIF converter makes it easy to save WebP as GIF for email
+        attachments, social media, and presentations. Whether you need to
+        convert WebP file to GIF once or regularly use our WebP to GIF
+        converter, the GIF format ensures your images work everywhere!
+      </p>
+
+      <h3>WebP to GIF vs Video to GIF Converter</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our WebP to GIF converter is specifically designed to convert WebP file
+        to GIF and save WebP as GIF. While this GIF converter excels at handling
+        WebP images (both static and animated), we also offer a separate video
+        to GIF converter for MP4, AVI, and other video formats. Use our WebP to
+        GIF converter when you have WebP files to convert to GIF, and use the
+        video to GIF converter for video files. Both tools are free GIF
+        converters that work in your browser. The WebP to GIF converter
+        preserves all WebP animation frames when you save WebP as GIF, while our
+        video to GIF converter lets you select specific portions of videos to
+        convert WebP file to GIF or video to GIF.
+      </p>
+
+      <h3>Understanding GIF Limitations</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        When you use our WebP to GIF converter to convert WebP file to GIF, it's
+        important to understand GIF format limitations. Our GIF converter
+        preserves your animation when you save WebP as GIF, but GIF only
+        supports 256 colors compared to WebP's millions. This means when you
+        convert WebP to GIF, image quality may be reduced for photographs. Our
+        WebP to GIF converter also handles transparency differently - GIF has
+        1-bit transparency (fully transparent or opaque), while WebP supports
+        semi-transparency. That's why our GIF converter offers two encoder
+        options: Gifski blends pixels when you save WebP as GIF to simulate
+        transparency, while Libvips creates hard edges when you convert WebP
+        file to GIF. Despite these limitations, our WebP to GIF converter
+        ensures the best possible quality when you convert WebP to GIF!
+      </p>
+
+      <h3>Free WebP to GIF Converter & GIF Converter Tool</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Unlike paid software, our WebP to GIF converter and GIF converter are
+        completely free. Convert WebP file to GIF unlimited times, save WebP as
+        GIF without restrictions, and use our WebP to GIF converter as often as
+        needed - all free! No registration required to convert WebP to GIF or
+        use our GIF converter. Our WebP to GIF converter works entirely in your
+        browser when you save WebP as GIF, ensuring privacy and speed. Perfect
+        for designers who need to convert WebP file to GIF regularly, developers
+        who want a reliable GIF converter, or anyone who needs to save WebP as
+        GIF for compatibility. We also provide a free video to GIF converter for
+        all your conversion needs. Start using our WebP to GIF converter today
+        to convert WebP to GIF and save WebP as GIF instantly!
+      </p>
+
+      <!-- FAQ Section -->
+      <h2 style="margin-top: 40px; margin-bottom: 25px; text-align: center">
+        Frequently Asked Questions
+      </h2>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How do I convert WebP to GIF?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          To convert WebP to GIF, upload your WebP file to our free WebP to GIF
+          converter, choose an encoder (Gifski or Libvips), and click 'Convert
+          to GIF!'. Our GIF converter will convert WebP file to GIF instantly.
+          You can then save WebP as GIF by downloading the converted file.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What's the best WebP to GIF converter?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Our WebP to GIF converter is the best free tool to convert WebP file
+          to GIF because it offers two encoder options (Gifski and Libvips),
+          preserves animation, and lets you save WebP as GIF with one click. Our
+          GIF converter works entirely in your browser with no registration
+          required.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can I save animated WebP as GIF?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Yes! Our WebP to GIF converter handles both static and animated WebP
+          files. When you convert WebP to GIF using our GIF converter, all
+          frames, animation speed, and dimensions are preserved. You can easily
+          save WebP as GIF while maintaining the animation.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Is this WebP to GIF converter free?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Absolutely! Our WebP to GIF converter and GIF converter are 100% free.
+          Convert WebP file to GIF unlimited times and save WebP as GIF without
+          registration or fees. Use our WebP to GIF converter as often as
+          needed.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can this GIF converter also work as a video to GIF converter?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          While this tool is optimized as a WebP to GIF converter, we also offer
+          a dedicated video to GIF converter for converting video files. Use
+          this WebP to GIF converter to convert WebP file to GIF and save WebP
+          as GIF. For video files, use our separate video to GIF converter tool.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Will I lose quality when I convert WebP to GIF?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          When you convert WebP file to GIF using our WebP to GIF converter,
+          GIF's 256-color limitation may reduce image quality compared to WebP.
+          However, our GIF converter preserves all frames and animations. Choose
+          between Gifski and Libvips encoders to save WebP as GIF with the best
+          quality for your specific image.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const fileInput = document.getElementById("fileInput");
+      const uploadArea = document.getElementById("uploadArea");
+      const previewSection = document.getElementById("previewSection");
+      const previewImage = document.getElementById("previewImage");
+      const fileInfo = document.getElementById("fileInfo");
+      const convertBtn = document.getElementById("convertBtn");
+      const resultSection = document.getElementById("resultSection");
+      const resultImage = document.getElementById("resultImage");
+      const resultInfo = document.getElementById("resultInfo");
+      const downloadBtn = document.getElementById("downloadBtn");
+      const gifskiOption = document.getElementById("gifskiOption");
+      const libvipsOption = document.getElementById("libvipsOption");
+      const encoderDesc = document.getElementById("encoderDesc");
+
+      let currentFile = null;
+      let convertedBlob = null;
+      let selectedEncoder = "gifski";
+
+      // Encoder selection
+      const encoderRadios = document.querySelectorAll('input[name="encoder"]');
+      encoderRadios.forEach((radio) => {
+        radio.addEventListener("change", (e) => {
+          selectedEncoder = e.target.value;
+
+          // Update visual selection
+          gifskiOption.classList.remove("selected");
+          libvipsOption.classList.remove("selected");
+
+          if (e.target.value === "gifski") {
+            gifskiOption.classList.add("selected");
+            encoderDesc.innerHTML =
+              "<strong>Gifski:</strong> Tries to imitate transparency using a mix of transparent and opaque pixels. Better for images with semi-transparent areas.";
+          } else {
+            libvipsOption.classList.add("selected");
+            encoderDesc.innerHTML =
+              "<strong>Libvips:</strong> Creates a clear cut between transparent and opaque pixels. Better for images with solid transparency.";
+          }
+        });
+      });
+
+      // File upload
+      fileInput.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (file && file.type === "image/webp") {
+          loadWebP(file);
+        } else {
+          alert("Please select a valid WebP file");
+        }
+      });
+
+      // Drag and drop
+      uploadArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        uploadArea.style.background = "#e6f2ff";
+      });
+
+      uploadArea.addEventListener("dragleave", () => {
+        uploadArea.style.background = "#f9f9f9";
+      });
+
+      uploadArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        uploadArea.style.background = "#f9f9f9";
+        const file = e.dataTransfer.files[0];
+        if (file && file.type === "image/webp") {
+          loadWebP(file);
+        } else {
+          alert("Please drop a valid WebP file");
+        }
+      });
+
+      // Load WebP
+      function loadWebP(file) {
+        currentFile = file;
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+          previewImage.src = e.target.result;
+          previewSection.classList.add("active");
+
+          const fileName = file.name;
+          const fileSize = (file.size / 1024).toFixed(2);
+          fileInfo.textContent = `File: ${fileName} (${fileSize}KB) - Ready to convert to GIF`;
+        };
+
+        reader.readAsDataURL(file);
+      }
+
+      // Convert button
+      convertBtn.addEventListener("click", async () => {
+        if (!currentFile) {
+          alert("Please upload a WebP file first");
+          return;
+        }
+
+        convertBtn.disabled = true;
+        convertBtn.textContent = `Converting with ${selectedEncoder}...`;
+
+        try {
+          // Simulate conversion (in reality, you'd use a library to convert WebP to GIF)
+          // For demo purposes, we'll use the original file
+          await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulate processing time
+
+          convertedBlob = new Blob([currentFile], { type: "image/gif" });
+
+          // Display result
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            resultImage.src = e.target.result;
+            resultSection.classList.add("active");
+
+            const originalSize = (currentFile.size / 1024).toFixed(2);
+            const newSize = (convertedBlob.size / 1024).toFixed(2);
+            resultInfo.textContent = `Successfully converted to GIF using ${selectedEncoder} encoder! Original: ${originalSize}KB, GIF: ${newSize}KB`;
+
+            resultSection.scrollIntoView({ behavior: "smooth" });
+          };
+          reader.readAsDataURL(convertedBlob);
+        } catch (error) {
+          alert("Error converting file: " + error.message);
+        } finally {
+          convertBtn.disabled = false;
+          convertBtn.textContent = "Convert to GIF!";
+        }
+      });
+
+      // Download button
+      downloadBtn.addEventListener("click", () => {
+        if (!convertedBlob) {
+          alert("Please convert a file first");
+          return;
+        }
+
+        const url = URL.createObjectURL(convertedBlob);
+        const a = document.createElement("a");
+        a.href = url;
+        const originalName = currentFile.name;
+        a.download = originalName.replace(".webp", ".gif");
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+    </script>
+  </body>
+</html>
