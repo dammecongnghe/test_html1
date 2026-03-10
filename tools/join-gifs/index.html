@@ -1,903 +1,1093 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Combine GIFs - GIF Combiner & Merger to Combine GIFs Online Free</title>
-    <meta name="description" content="Free GIF combiner to combine GIFs online and merge GIFs. Combine two GIFs, combine 2 GIFs, and combine GIFs into one using our online GIF merger tool instantly.">
-    <meta name="keywords" content="combine gifs, gif combiner, gif merger, combine two gifs, combine gifs online, merge gifs, combine 2 gifs, combine gifs into one">
-    <link rel="canonical" href="https://moviesearch.online/join-gifs">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Combine GIFs - GIF Combiner & Merger to Combine GIFs Online Free
+    </title>
+    <meta
+      name="description"
+      content="Free GIF combiner to combine GIFs online and merge GIFs. Combine two GIFs, combine 2 GIFs, and combine GIFs into one using our online GIF merger tool instantly."
+    />
+    <meta
+      name="keywords"
+      content="combine gifs, gif combiner, gif merger, combine two gifs, combine gifs online, merge gifs, combine 2 gifs, combine gifs into one"
+    />
+    <link rel="canonical" href="https://moviesearch.online/join-gifs" />
+
     <!-- gif.js library for animated GIF encoding -->
     <script src="https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.js"></script>
     <!-- omggif for GIF decoding/parsing -->
     <script src="https://cdn.jsdelivr.net/npm/omggif@1.0.10/omggif.min.js"></script>
-    
+
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Combine GIFs - GIF Combiner to Merge GIFs Online">
-    <meta property="og:description" content="Free GIF combiner and GIF merger. Combine two GIFs, merge GIFs, and combine GIFs into one online.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://moviesearch.online/join-gifs">
-    
+    <meta
+      property="og:title"
+      content="Combine GIFs - GIF Combiner to Merge GIFs Online"
+    />
+    <meta
+      property="og:description"
+      content="Free GIF combiner and GIF merger. Combine two GIFs, merge GIFs, and combine GIFs into one online."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moviesearch.online/join-gifs" />
+
     <!-- FAQ Schema -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How do I combine GIFs online?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "To combine GIFs online, upload 2-4 GIF files to our free GIF combiner, choose a layout (horizontal, vertical, or grid), and click 'Combine GIFs!'. Our GIF merger will combine two GIFs or combine multiple GIFs into one instantly. You can then download your merged GIF."
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I combine GIFs online?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To combine GIFs online, upload 2-4 GIF files to our free GIF combiner, choose a layout (horizontal, vertical, or grid), and click 'Combine GIFs!'. Our GIF merger will combine two GIFs or combine multiple GIFs into one instantly. You can then download your merged GIF."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the best GIF combiner tool?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our GIF combiner is the best free tool to combine GIFs online because it offers three layout options (horizontal, vertical, grid), lets you merge GIFs with live preview, and allows you to combine 2 GIFs or up to 4 GIFs. Our GIF merger works entirely in your browser with no registration required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I combine two GIFs side by side?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Use our GIF combiner's horizontal layout to combine two GIFs side by side. Upload your GIFs, select horizontal layout, and our GIF merger will combine the GIFs online next to each other. You can combine 2 GIFs or more and merge GIFs into one seamless animation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this GIF combiner free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! Our GIF combiner and GIF merger are 100% free. Combine GIFs online unlimited times, merge GIFs, combine two GIFs, and combine GIFs into one without registration or fees. Use our tool to combine 2 GIFs or more as often as needed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many GIFs can I combine at once?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can combine 2-4 GIFs using our GIF combiner. Combine two GIFs, combine 2 GIFs, or combine up to 4 GIFs in a 2x2 grid layout. Our GIF merger lets you merge GIFs online and combine GIFs into one unified animation with horizontal, vertical, or grid arrangements."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What layouts can I use to combine GIFs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our GIF combiner offers three layouts to combine GIFs online: Horizontal (side-by-side) to combine two GIFs next to each other, Vertical (stacked) to merge GIFs on top of each other, and 2x2 Grid to combine 4 GIFs. Choose any layout in our GIF merger to combine GIFs into one."
+            }
           }
-        },
-        {
-          "@type": "Question",
-          "name": "What's the best GIF combiner tool?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Our GIF combiner is the best free tool to combine GIFs online because it offers three layout options (horizontal, vertical, grid), lets you merge GIFs with live preview, and allows you to combine 2 GIFs or up to 4 GIFs. Our GIF merger works entirely in your browser with no registration required."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I combine two GIFs side by side?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes! Use our GIF combiner's horizontal layout to combine two GIFs side by side. Upload your GIFs, select horizontal layout, and our GIF merger will combine the GIFs online next to each other. You can combine 2 GIFs or more and merge GIFs into one seamless animation."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is this GIF combiner free?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Absolutely! Our GIF combiner and GIF merger are 100% free. Combine GIFs online unlimited times, merge GIFs, combine two GIFs, and combine GIFs into one without registration or fees. Use our tool to combine 2 GIFs or more as often as needed."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How many GIFs can I combine at once?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "You can combine 2-4 GIFs using our GIF combiner. Combine two GIFs, combine 2 GIFs, or combine up to 4 GIFs in a 2x2 grid layout. Our GIF merger lets you merge GIFs online and combine GIFs into one unified animation with horizontal, vertical, or grid arrangements."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What layouts can I use to combine GIFs?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Our GIF combiner offers three layouts to combine GIFs online: Horizontal (side-by-side) to combine two GIFs next to each other, Vertical (stacked) to merge GIFs on top of each other, and 2x2 Grid to combine 4 GIFs. Choose any layout in our GIF merger to combine GIFs into one."
-          }
-        }
-      ]
-    }
+        ]
+      }
     </script>
-    
+
     <!-- WebApplication Schema -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "GIF Combiner - Combine GIFs & Merge GIFs Online",
-      "description": "Free GIF combiner and GIF merger. Combine two GIFs, merge GIFs, and combine GIFs into one online.",
-      "url": "https://moviesearch.online/join-gifs",
-      "applicationCategory": "MultimediaApplication",
-      "operatingSystem": "Any",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "GIF Combiner - Combine GIFs & Merge GIFs Online",
+        "description": "Free GIF combiner and GIF merger. Combine two GIFs, merge GIFs, and combine GIFs into one online.",
+        "url": "https://moviesearch.online/join-gifs",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
       }
-    }
     </script>
-    
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: #f5f5f5;
-            padding: 20px;
-            line-height: 1.6;
-        }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+        line-height: 1.6;
+      }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
 
-        .home-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: #0066cc;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: all 0.3s;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+      .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: #0066cc;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
 
-        .home-button:hover {
-            background: #0052a3;
-            transform: translateY(-2px);
-        }
+      .home-button:hover {
+        background: #0052a3;
+        transform: translateY(-2px);
+      }
 
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 2em;
-        }
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 2em;
+      }
 
-        h2 {
-            color: #333;
-            margin: 30px 0 15px;
-            font-size: 1.5em;
-        }
+      h2 {
+        color: #333;
+        margin: 30px 0 15px;
+        font-size: 1.5em;
+      }
 
-        h3 {
-            color: #444;
-            margin: 20px 0 10px;
-            font-size: 1.2em;
-        }
+      h3 {
+        color: #444;
+        margin: 20px 0 10px;
+        font-size: 1.2em;
+      }
 
-        .description {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.8;
-        }
+      .description {
+        color: #666;
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
 
-        .upload-area {
-            border: 2px dashed #0066cc;
-            border-radius: 8px;
-            padding: 40px;
-            text-align: center;
-            background: #f9f9f9;
-            margin-bottom: 30px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
+      .upload-area {
+        border: 2px dashed #0066cc;
+        border-radius: 8px;
+        padding: 40px;
+        text-align: center;
+        background: #f9f9f9;
+        margin-bottom: 30px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
 
-        .upload-area:hover {
-            background: #f0f0f0;
-            border-color: #0052a3;
-        }
+      .upload-area:hover {
+        background: #f0f0f0;
+        border-color: #0052a3;
+      }
 
-        .upload-btn {
-            background: #0066cc;
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-        }
+      .upload-btn {
+        background: #0066cc;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+      }
 
-        .upload-btn:hover {
-            background: #0052a3;
-        }
+      .upload-btn:hover {
+        background: #0052a3;
+      }
 
-        .layout-options {
-            background: #fafafa;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            display: none;
-        }
+      .layout-options {
+        background: #fafafa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        display: none;
+      }
 
-        .layout-options.active {
-            display: block;
-        }
+      .layout-options.active {
+        display: block;
+      }
 
-        .layout-options h3 {
-            margin-top: 0;
-        }
+      .layout-options h3 {
+        margin-top: 0;
+      }
 
-        .layout-buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-top: 15px;
-        }
+      .layout-buttons {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-top: 15px;
+      }
 
-        .layout-btn {
-            flex: 1;
-            min-width: 150px;
-            padding: 15px;
-            border: 2px solid #ddd;
-            background: white;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-align: center;
-        }
+      .layout-btn {
+        flex: 1;
+        min-width: 150px;
+        padding: 15px;
+        border: 2px solid #ddd;
+        background: white;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-align: center;
+      }
 
-        .layout-btn:hover {
-            border-color: #0066cc;
-        }
+      .layout-btn:hover {
+        border-color: #0066cc;
+      }
 
-        .layout-btn.selected {
-            border-color: #0066cc;
-            background: #e6f2ff;
-        }
+      .layout-btn.selected {
+        border-color: #0066cc;
+        background: #e6f2ff;
+      }
 
-        .layout-btn .icon {
-            font-size: 2em;
-            margin-bottom: 8px;
-        }
+      .layout-btn .icon {
+        font-size: 2em;
+        margin-bottom: 8px;
+      }
 
-        .preview-section {
-            display: none;
-            margin-bottom: 30px;
-        }
+      .preview-section {
+        display: none;
+        margin-bottom: 30px;
+      }
 
-        .preview-section.active {
-            display: block;
-        }
+      .preview-section.active {
+        display: block;
+      }
 
-        .preview-container {
-            background: #fafafa;
-            padding: 20px;
-            border-radius: 8px;
-            min-height: 300px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
+      .preview-container {
+        background: #fafafa;
+        padding: 20px;
+        border-radius: 8px;
+        min-height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
 
-        .preview-container.horizontal {
-            flex-direction: row;
-        }
+      .preview-container.horizontal {
+        flex-direction: row;
+      }
 
-        .preview-container.vertical {
-            flex-direction: column;
-        }
+      .preview-container.vertical {
+        flex-direction: column;
+      }
 
-        .preview-container.grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
+      .preview-container.grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
 
-        .gif-preview {
-            max-width: 300px;
-            max-height: 300px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            cursor: move;
-        }
+      .gif-preview {
+        max-width: 300px;
+        max-height: 300px;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        cursor: move;
+      }
 
-        .combine-btn {
-            background: #0066cc;
-            color: white;
-            padding: 14px 40px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            font-weight: 600;
-            display: block;
-            margin: 20px auto;
-        }
+      .combine-btn {
+        background: #0066cc;
+        color: white;
+        padding: 14px 40px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 600;
+        display: block;
+        margin: 20px auto;
+      }
 
-        .combine-btn:hover {
-            background: #0052a3;
-        }
+      .combine-btn:hover {
+        background: #0052a3;
+      }
 
-        .combine-btn:disabled {
-            background: #ccc;
-            cursor: not-allowed;
-        }
+      .combine-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
 
-        .result-section {
-            display: none;
-            margin-top: 30px;
-        }
+      .result-section {
+        display: none;
+        margin-top: 30px;
+      }
 
-        .result-section.active {
-            display: block;
-        }
+      .result-section.active {
+        display: block;
+      }
 
-        .result-preview {
-            text-align: center;
-            margin-bottom: 20px;
-            padding: 20px;
-            background: #fafafa;
-            border-radius: 8px;
-        }
+      .result-preview {
+        text-align: center;
+        margin-bottom: 20px;
+        padding: 20px;
+        background: #fafafa;
+        border-radius: 8px;
+      }
 
-        .result-preview img {
-            max-width: 100%;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
+      .result-preview img {
+        max-width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
 
-        .download-btn {
-            background: #28a745;
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            display: inline-block;
-        }
+      .download-btn {
+        background: #28a745;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        display: inline-block;
+      }
 
-        .download-btn:hover {
-            background: #218838;
-        }
+      .download-btn:hover {
+        background: #218838;
+      }
 
-        input[type="file"] {
-            display: none;
-        }
+      input[type="file"] {
+        display: none;
+      }
 
-        .info-box {
-            background: #e3f2fd;
-            border: 1px solid #2196f3;
-            padding: 15px;
-            border-radius: 5px;
-            color: #1565c0;
-            margin: 20px 0;
-        }
+      .info-box {
+        background: #e3f2fd;
+        border: 1px solid #2196f3;
+        padding: 15px;
+        border-radius: 5px;
+        color: #1565c0;
+        margin: 20px 0;
+      }
 
-        .info-box strong {
-            display: block;
-            margin-bottom: 5px;
-        }
+      .info-box strong {
+        display: block;
+        margin-bottom: 5px;
+      }
 
-        .features-list {
-            list-style: none;
-            padding: 0;
-        }
+      .features-list {
+        list-style: none;
+        padding: 0;
+      }
 
-        .features-list li {
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
-        }
+      .features-list li {
+        padding: 8px 0;
+        padding-left: 25px;
+        position: relative;
+      }
 
-        .features-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #28a745;
-            font-weight: bold;
-            font-size: 18px;
-        }
+      .features-list li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #28a745;
+        font-weight: bold;
+        font-size: 18px;
+      }
 
-        .steps-list {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
+      .steps-list {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
 
-        .steps-list ol {
-            padding-left: 20px;
-        }
+      .steps-list ol {
+        padding-left: 20px;
+      }
 
-        .steps-list li {
-            margin: 10px 0;
-            line-height: 1.8;
-        }
+      .steps-list li {
+        margin: 10px 0;
+        line-height: 1.8;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <a href="https://moviesearch.online" class="home-button">
-        <span>🏠</span> Home
+      <span>🏠</span> Home
     </a>
 
     <div class="container">
-        <h1>Combine GIFs - GIF Combiner & GIF Merger to Merge GIFs Online</h1>
-        
-        <div class="description">
-            <p>
-                Free GIF combiner to combine GIFs online and merge GIFs horizontally, vertically, or in a grid. Our GIF merger lets you combine two GIFs, 
-                combine 2 GIFs, or combine GIFs into one seamless animation. Use our online GIF combiner to merge GIFs and combine multiple GIF images 
-                with your choice of layout - side-by-side, stacked, or 2x2 grid. Upload your GIF or WebP files and combine GIFs into one with just a few clicks!
-            </p>
+      <h1>Combine GIFs - GIF Combiner & GIF Merger to Merge GIFs Online</h1>
+
+      <div class="description">
+        <p>
+          Free GIF combiner to combine GIFs online and merge GIFs horizontally,
+          vertically, or in a grid. Our GIF merger lets you combine two GIFs,
+          combine 2 GIFs, or combine GIFs into one seamless animation. Use our
+          online GIF combiner to merge GIFs and combine multiple GIF images with
+          your choice of layout - side-by-side, stacked, or 2x2 grid. Upload
+          your GIF or WebP files and combine GIFs into one with just a few
+          clicks!
+        </p>
+      </div>
+
+      <div class="upload-area" id="uploadArea">
+        <input
+          type="file"
+          id="fileInput"
+          accept="image/gif,image/webp"
+          multiple
+        />
+        <button
+          class="upload-btn"
+          onclick="document.getElementById('fileInput').click()"
+        >
+          Upload GIFs (2-4 files)
+        </button>
+        <p style="margin-top: 15px; color: #666">
+          or drag and drop GIF/WebP files here
+        </p>
+        <p style="font-size: 13px; color: #999; margin-top: 5px">
+          Upload 2-4 animated GIFs or WebP files
+        </p>
+      </div>
+
+      <div class="layout-options" id="layoutOptions">
+        <h3>Choose Layout:</h3>
+        <div class="layout-buttons">
+          <div
+            class="layout-btn selected"
+            id="horizontalBtn"
+            onclick="selectLayout('horizontal')"
+          >
+            <div class="icon">⬌</div>
+            <div><strong>Horizontal</strong></div>
+            <div style="font-size: 13px; color: #666">Side-by-side</div>
+          </div>
+          <div
+            class="layout-btn"
+            id="verticalBtn"
+            onclick="selectLayout('vertical')"
+          >
+            <div class="icon">⬍</div>
+            <div><strong>Vertical</strong></div>
+            <div style="font-size: 13px; color: #666">Stacked</div>
+          </div>
+          <div class="layout-btn" id="gridBtn" onclick="selectLayout('grid')">
+            <div class="icon">▦</div>
+            <div><strong>2x2 Grid</strong></div>
+            <div style="font-size: 13px; color: #666">4 images</div>
+          </div>
         </div>
+      </div>
 
-        <div class="upload-area" id="uploadArea">
-            <input type="file" id="fileInput" accept="image/gif,image/webp" multiple>
-            <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
-                Upload GIFs (2-4 files)
-            </button>
-            <p style="margin-top: 15px; color: #666;">or drag and drop GIF/WebP files here</p>
-            <p style="font-size: 13px; color: #999; margin-top: 5px;">Upload 2-4 animated GIFs or WebP files</p>
+      <div class="preview-section" id="previewSection">
+        <h3>Preview Arrangement:</h3>
+        <div class="preview-container horizontal" id="previewContainer">
+          <!-- GIF previews will be inserted here -->
         </div>
+        <button class="combine-btn" id="combineBtn">Combine GIFs!</button>
+      </div>
 
-        <div class="layout-options" id="layoutOptions">
-            <h3>Choose Layout:</h3>
-            <div class="layout-buttons">
-                <div class="layout-btn selected" id="horizontalBtn" onclick="selectLayout('horizontal')">
-                    <div class="icon">⬌</div>
-                    <div><strong>Horizontal</strong></div>
-                    <div style="font-size: 13px; color: #666;">Side-by-side</div>
-                </div>
-                <div class="layout-btn" id="verticalBtn" onclick="selectLayout('vertical')">
-                    <div class="icon">⬍</div>
-                    <div><strong>Vertical</strong></div>
-                    <div style="font-size: 13px; color: #666;">Stacked</div>
-                </div>
-                <div class="layout-btn" id="gridBtn" onclick="selectLayout('grid')">
-                    <div class="icon">▦</div>
-                    <div><strong>2x2 Grid</strong></div>
-                    <div style="font-size: 13px; color: #666;">4 images</div>
-                </div>
-            </div>
+      <div class="result-section" id="resultSection">
+        <h2>Combined GIF Result:</h2>
+        <div class="result-preview">
+          <img id="resultImage" src="" alt="Combined GIF" />
         </div>
-
-        <div class="preview-section" id="previewSection">
-            <h3>Preview Arrangement:</h3>
-            <div class="preview-container horizontal" id="previewContainer">
-                <!-- GIF previews will be inserted here -->
-            </div>
-            <button class="combine-btn" id="combineBtn">Combine GIFs!</button>
+        <div style="text-align: center">
+          <button class="download-btn" id="downloadBtn">
+            Download Combined GIF
+          </button>
         </div>
+      </div>
 
-        <div class="result-section" id="resultSection">
-            <h2>Combined GIF Result:</h2>
-            <div class="result-preview">
-                <img id="resultImage" src="" alt="Combined GIF">
-            </div>
-            <div style="text-align: center;">
-                <button class="download-btn" id="downloadBtn">Download Combined GIF</button>
-            </div>
-        </div>
-
-        <!-- How It Works -->
-        <h2>How It Works</h2>
-        <div class="steps-list">
-            <ol>
-                <li><strong>Upload Your GIFs:</strong> Simply select and upload two or more animated GIFs or WebP files (up to 4 for grid layout).</li>
-                <li><strong>Choose Layout:</strong> Decide how you want to join them:
-                    <ul style="margin-top: 8px;">
-                        <li><strong>Horizontally (side-by-side)</strong> - Places images next to each other</li>
-                        <li><strong>Vertically (stacked)</strong> - Places images on top of each other</li>
-                        <li><strong>2x2 Grid</strong> - Arranges 4 images in a 2x2 grid pattern</li>
-                    </ul>
-                </li>
-                <li><strong>Arrange Images:</strong> View your uploaded images in the preview area with your chosen layout.</li>
-                <li><strong>Combine and Download:</strong> Once you're happy with the arrangement, click the "Combine" button to join them into one animated file. Download your newly created GIF instantly!</li>
-            </ol>
-        </div>
-
-        <!-- Supported Formats -->
-        <h2>Supported File Formats</h2>
-        <ul class="features-list">
-            <li><strong>GIF (Graphics Interchange Format)</strong> - The most popular format for short animations.</li>
-            <li><strong>WebP</strong> - A modern format that offers higher compression for images and animations.</li>
-        </ul>
-
-        <!-- Best Practices -->
-        <h2>Best Practices for Optimal Results</h2>
-        <div class="info-box">
-            <strong>💡 Tips for Best Results:</strong>
-            <ul style="margin-top: 10px; padding-left: 20px;">
-                <li><strong>Matching Sizes:</strong> For a smooth result, try to use GIFs with similar widths (for vertical joins) or similar heights (for horizontal joins). You can use our resizer tool to resize GIFs.</li>
-                <li><strong>Consistent Frame Rates:</strong> To avoid choppy playback and large file size, it's recommended to use GIFs with matching frame rates and frame count. Mismatched frame rates may result in uneven animations.</li>
-                <li><strong>Limit File Sizes:</strong> For faster processing, consider uploading GIFs of reasonable file sizes. Larger files may take more time to process.</li>
+      <!-- How It Works -->
+      <h2>How It Works</h2>
+      <div class="steps-list">
+        <ol>
+          <li>
+            <strong>Upload Your GIFs:</strong> Simply select and upload two or
+            more animated GIFs or WebP files (up to 4 for grid layout).
+          </li>
+          <li>
+            <strong>Choose Layout:</strong> Decide how you want to join them:
+            <ul style="margin-top: 8px">
+              <li>
+                <strong>Horizontally (side-by-side)</strong> - Places images
+                next to each other
+              </li>
+              <li>
+                <strong>Vertically (stacked)</strong> - Places images on top of
+                each other
+              </li>
+              <li>
+                <strong>2x2 Grid</strong> - Arranges 4 images in a 2x2 grid
+                pattern
+              </li>
             </ul>
-        </div>
+          </li>
+          <li>
+            <strong>Arrange Images:</strong> View your uploaded images in the
+            preview area with your chosen layout.
+          </li>
+          <li>
+            <strong>Combine and Download:</strong> Once you're happy with the
+            arrangement, click the "Combine" button to join them into one
+            animated file. Download your newly created GIF instantly!
+          </li>
+        </ol>
+      </div>
 
-        <!-- SEO Content Section -->
-        <h2>How to Combine GIFs Online with Our GIF Combiner</h2>
-        <p style="margin-bottom: 15px; color: #666; line-height: 1.8;">
-            Our free GIF combiner makes it easy to combine GIFs online and merge GIFs into one animation. Whether you need to combine two GIFs side-by-side, 
-            combine 2 GIFs vertically, or combine GIFs into one 2x2 grid, our GIF merger handles it all. Simply upload your GIF files to our GIF combiner, 
-            choose your preferred layout, and combine GIFs online with one click. No software installation required - our GIF merger works in your browser 
-            to merge GIFs and combine GIFs into one seamless animation. Use our GIF combiner to combine two GIFs or up to 4 GIFs instantly!
+      <!-- Supported Formats -->
+      <h2>Supported File Formats</h2>
+      <ul class="features-list">
+        <li>
+          <strong>GIF (Graphics Interchange Format)</strong> - The most popular
+          format for short animations.
+        </li>
+        <li>
+          <strong>WebP</strong> - A modern format that offers higher compression
+          for images and animations.
+        </li>
+      </ul>
+
+      <!-- Best Practices -->
+      <h2>Best Practices for Optimal Results</h2>
+      <div class="info-box">
+        <strong>💡 Tips for Best Results:</strong>
+        <ul style="margin-top: 10px; padding-left: 20px">
+          <li>
+            <strong>Matching Sizes:</strong> For a smooth result, try to use
+            GIFs with similar widths (for vertical joins) or similar heights
+            (for horizontal joins). You can use our resizer tool to resize GIFs.
+          </li>
+          <li>
+            <strong>Consistent Frame Rates:</strong> To avoid choppy playback
+            and large file size, it's recommended to use GIFs with matching
+            frame rates and frame count. Mismatched frame rates may result in
+            uneven animations.
+          </li>
+          <li>
+            <strong>Limit File Sizes:</strong> For faster processing, consider
+            uploading GIFs of reasonable file sizes. Larger files may take more
+            time to process.
+          </li>
+        </ul>
+      </div>
+
+      <!-- SEO Content Section -->
+      <h2>How to Combine GIFs Online with Our GIF Combiner</h2>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our free GIF combiner makes it easy to combine GIFs online and merge
+        GIFs into one animation. Whether you need to combine two GIFs
+        side-by-side, combine 2 GIFs vertically, or combine GIFs into one 2x2
+        grid, our GIF merger handles it all. Simply upload your GIF files to our
+        GIF combiner, choose your preferred layout, and combine GIFs online with
+        one click. No software installation required - our GIF merger works in
+        your browser to merge GIFs and combine GIFs into one seamless animation.
+        Use our GIF combiner to combine two GIFs or up to 4 GIFs instantly!
+      </p>
+
+      <h3>Combine Two GIFs with Different Layouts</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        When you combine GIFs online using our GIF combiner, you can choose from
+        three powerful layouts. Use horizontal layout in our GIF merger to
+        combine two GIFs side-by-side - perfect when you want to merge GIFs for
+        comparison or storytelling. Select vertical layout in our GIF combiner
+        to combine 2 GIFs stacked on top of each other and combine GIFs into one
+        tall animation. Or use the 2x2 grid option in our GIF merger to combine
+        4 GIFs and merge GIFs into one organized grid layout. Each layout in our
+        GIF combiner lets you combine GIFs online while preserving animation
+        quality. Try all three layouts to see which works best when you combine
+        two GIFs or combine multiple GIFs!
+      </p>
+
+      <h3>Merge GIFs and Combine GIFs into One Animation</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our GIF merger is the perfect tool to merge GIFs and combine GIFs into
+        one unified animation. When you combine GIFs online with our GIF
+        combiner, all frame timing, animation speed, and dimensions are
+        preserved. Use our GIF merger to combine two GIFs from different
+        sources, combine 2 GIFs for social media, or combine GIFs into one for
+        presentations. The GIF combiner supports both static and animated GIFs,
+        so you can merge GIFs of any type and combine GIFs online without
+        quality loss. Whether you combine two GIFs or combine multiple GIFs, our
+        GIF merger delivers professional results every time!
+      </p>
+
+      <h3>Why Use Our GIF Combiner to Combine GIFs Online</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        There are many reasons to use our GIF combiner and GIF merger to combine
+        GIFs online. Our tool is completely free - combine two GIFs, merge GIFs,
+        combine 2 GIFs, and combine GIFs into one without any fees. The GIF
+        combiner works entirely in your browser to combine GIFs online, ensuring
+        privacy and speed. No registration needed to use our GIF merger and
+        combine two GIFs or more. Our GIF combiner offers three layout options
+        to merge GIFs exactly how you want. The live preview in our GIF merger
+        shows your result before you combine GIFs into one. Whether you need to
+        combine 2 GIFs for a meme or combine multiple GIFs for work, our GIF
+        combiner makes it simple to merge GIFs and combine GIFs online!
+      </p>
+
+      <h3>Best Practices When You Combine GIFs Online</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        To get the best results when you combine GIFs online with our GIF
+        combiner, follow these tips. When you combine two GIFs horizontally, use
+        GIFs with similar heights so the GIF merger can merge GIFs smoothly. To
+        combine 2 GIFs vertically, use similar widths in our GIF combiner for
+        best alignment. For consistent playback when you combine GIFs into one,
+        try to merge GIFs with matching frame rates using our GIF merger. Upload
+        reasonable file sizes to combine GIFs online faster with our GIF
+        combiner. Use our resizer tool before you combine two GIFs if dimensions
+        need adjustment. Following these practices ensures smooth results when
+        you merge GIFs and combine GIFs into one with our GIF combiner!
+      </p>
+
+      <h3>Free GIF Combiner & GIF Merger Tool</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Unlike paid software, our GIF combiner and GIF merger are completely
+        free. Combine GIFs online unlimited times, merge GIFs without
+        restrictions, combine two GIFs as often as needed, and combine GIFs into
+        one for free! No registration required to use our GIF combiner or
+        combine 2 GIFs. Our GIF merger works entirely in your browser when you
+        combine GIFs online, ensuring fast processing. Perfect for content
+        creators who need to merge GIFs regularly, social media managers who
+        want to combine two GIFs for posts, or anyone who needs a free GIF
+        combiner to combine GIFs into one. Start using our GIF merger today to
+        combine GIFs online and merge GIFs instantly!
+      </p>
+
+      <!-- FAQ Section -->
+      <h2 style="margin-top: 40px; margin-bottom: 25px; text-align: center">
+        Frequently Asked Questions
+      </h2>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How do I combine GIFs online?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          To combine GIFs online, upload 2-4 GIF files to our free GIF combiner,
+          choose a layout (horizontal, vertical, or grid), and click 'Combine
+          GIFs!'. Our GIF merger will combine two GIFs or combine multiple GIFs
+          into one instantly. You can then download your merged GIF.
         </p>
+      </div>
 
-        <h3>Combine Two GIFs with Different Layouts</h3>
-        <p style="margin-bottom: 15px; color: #666; line-height: 1.8;">
-            When you combine GIFs online using our GIF combiner, you can choose from three powerful layouts. Use horizontal layout in our GIF merger to 
-            combine two GIFs side-by-side - perfect when you want to merge GIFs for comparison or storytelling. Select vertical layout in our GIF combiner 
-            to combine 2 GIFs stacked on top of each other and combine GIFs into one tall animation. Or use the 2x2 grid option in our GIF merger to combine 
-            4 GIFs and merge GIFs into one organized grid layout. Each layout in our GIF combiner lets you combine GIFs online while preserving animation 
-            quality. Try all three layouts to see which works best when you combine two GIFs or combine multiple GIFs!
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What's the best GIF combiner tool?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Our GIF combiner is the best free tool to combine GIFs online because
+          it offers three layout options (horizontal, vertical, grid), lets you
+          merge GIFs with live preview, and allows you to combine 2 GIFs or up
+          to 4 GIFs. Our GIF merger works entirely in your browser with no
+          registration required.
         </p>
+      </div>
 
-        <h3>Merge GIFs and Combine GIFs into One Animation</h3>
-        <p style="margin-bottom: 15px; color: #666; line-height: 1.8;">
-            Our GIF merger is the perfect tool to merge GIFs and combine GIFs into one unified animation. When you combine GIFs online with our GIF combiner, 
-            all frame timing, animation speed, and dimensions are preserved. Use our GIF merger to combine two GIFs from different sources, combine 2 GIFs 
-            for social media, or combine GIFs into one for presentations. The GIF combiner supports both static and animated GIFs, so you can merge GIFs of 
-            any type and combine GIFs online without quality loss. Whether you combine two GIFs or combine multiple GIFs, our GIF merger delivers professional 
-            results every time!
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can I combine two GIFs side by side?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Yes! Use our GIF combiner's horizontal layout to combine two GIFs side
+          by side. Upload your GIFs, select horizontal layout, and our GIF
+          merger will combine the GIFs online next to each other. You can
+          combine 2 GIFs or more and merge GIFs into one seamless animation.
         </p>
+      </div>
 
-        <h3>Why Use Our GIF Combiner to Combine GIFs Online</h3>
-        <p style="margin-bottom: 15px; color: #666; line-height: 1.8;">
-            There are many reasons to use our GIF combiner and GIF merger to combine GIFs online. Our tool is completely free - combine two GIFs, merge GIFs, 
-            combine 2 GIFs, and combine GIFs into one without any fees. The GIF combiner works entirely in your browser to combine GIFs online, ensuring 
-            privacy and speed. No registration needed to use our GIF merger and combine two GIFs or more. Our GIF combiner offers three layout options to 
-            merge GIFs exactly how you want. The live preview in our GIF merger shows your result before you combine GIFs into one. Whether you need to 
-            combine 2 GIFs for a meme or combine multiple GIFs for work, our GIF combiner makes it simple to merge GIFs and combine GIFs online!
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Is this GIF combiner free?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Absolutely! Our GIF combiner and GIF merger are 100% free. Combine
+          GIFs online unlimited times, merge GIFs, combine two GIFs, and combine
+          GIFs into one without registration or fees. Use our tool to combine 2
+          GIFs or more as often as needed.
         </p>
+      </div>
 
-        <h3>Best Practices When You Combine GIFs Online</h3>
-        <p style="margin-bottom: 15px; color: #666; line-height: 1.8;">
-            To get the best results when you combine GIFs online with our GIF combiner, follow these tips. When you combine two GIFs horizontally, use GIFs 
-            with similar heights so the GIF merger can merge GIFs smoothly. To combine 2 GIFs vertically, use similar widths in our GIF combiner for best 
-            alignment. For consistent playback when you combine GIFs into one, try to merge GIFs with matching frame rates using our GIF merger. Upload 
-            reasonable file sizes to combine GIFs online faster with our GIF combiner. Use our resizer tool before you combine two GIFs if dimensions need 
-            adjustment. Following these practices ensures smooth results when you merge GIFs and combine GIFs into one with our GIF combiner!
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How many GIFs can I combine at once?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          You can combine 2-4 GIFs using our GIF combiner. Combine two GIFs,
+          combine 2 GIFs, or combine up to 4 GIFs in a 2x2 grid layout. Our GIF
+          merger lets you merge GIFs online and combine GIFs into one unified
+          animation with horizontal, vertical, or grid arrangements.
         </p>
+      </div>
 
-        <h3>Free GIF Combiner & GIF Merger Tool</h3>
-        <p style="margin-bottom: 15px; color: #666; line-height: 1.8;">
-            Unlike paid software, our GIF combiner and GIF merger are completely free. Combine GIFs online unlimited times, merge GIFs without restrictions, 
-            combine two GIFs as often as needed, and combine GIFs into one for free! No registration required to use our GIF combiner or combine 2 GIFs. 
-            Our GIF merger works entirely in your browser when you combine GIFs online, ensuring fast processing. Perfect for content creators who need to 
-            merge GIFs regularly, social media managers who want to combine two GIFs for posts, or anyone who needs a free GIF combiner to combine GIFs into 
-            one. Start using our GIF merger today to combine GIFs online and merge GIFs instantly!
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What layouts can I use to combine GIFs?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Our GIF combiner offers three layouts to combine GIFs online:
+          Horizontal (side-by-side) to combine two GIFs next to each other,
+          Vertical (stacked) to merge GIFs on top of each other, and 2x2 Grid to
+          combine 4 GIFs. Choose any layout in our GIF merger to combine GIFs
+          into one.
         </p>
-
-        <!-- FAQ Section -->
-        <h2 style="margin-top: 40px; margin-bottom: 25px; text-align: center;">Frequently Asked Questions</h2>
-        
-        <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
-            <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em;">How do I combine GIFs online?</h3>
-            <p style="line-height: 1.7; color: #666;">
-                To combine GIFs online, upload 2-4 GIF files to our free GIF combiner, choose a layout (horizontal, vertical, or grid), and click 
-                'Combine GIFs!'. Our GIF merger will combine two GIFs or combine multiple GIFs into one instantly. You can then download your merged GIF.
-            </p>
-        </div>
-
-        <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
-            <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em;">What's the best GIF combiner tool?</h3>
-            <p style="line-height: 1.7; color: #666;">
-                Our GIF combiner is the best free tool to combine GIFs online because it offers three layout options (horizontal, vertical, grid), lets 
-                you merge GIFs with live preview, and allows you to combine 2 GIFs or up to 4 GIFs. Our GIF merger works entirely in your browser with 
-                no registration required.
-            </p>
-        </div>
-
-        <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
-            <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em;">Can I combine two GIFs side by side?</h3>
-            <p style="line-height: 1.7; color: #666;">
-                Yes! Use our GIF combiner's horizontal layout to combine two GIFs side by side. Upload your GIFs, select horizontal layout, and our 
-                GIF merger will combine the GIFs online next to each other. You can combine 2 GIFs or more and merge GIFs into one seamless animation.
-            </p>
-        </div>
-
-        <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
-            <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em;">Is this GIF combiner free?</h3>
-            <p style="line-height: 1.7; color: #666;">
-                Absolutely! Our GIF combiner and GIF merger are 100% free. Combine GIFs online unlimited times, merge GIFs, combine two GIFs, and combine 
-                GIFs into one without registration or fees. Use our tool to combine 2 GIFs or more as often as needed.
-            </p>
-        </div>
-
-        <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
-            <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em;">How many GIFs can I combine at once?</h3>
-            <p style="line-height: 1.7; color: #666;">
-                You can combine 2-4 GIFs using our GIF combiner. Combine two GIFs, combine 2 GIFs, or combine up to 4 GIFs in a 2x2 grid layout. Our GIF 
-                merger lets you merge GIFs online and combine GIFs into one unified animation with horizontal, vertical, or grid arrangements.
-            </p>
-        </div>
-
-        <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
-            <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em;">What layouts can I use to combine GIFs?</h3>
-            <p style="line-height: 1.7; color: #666;">
-                Our GIF combiner offers three layouts to combine GIFs online: Horizontal (side-by-side) to combine two GIFs next to each other, Vertical 
-                (stacked) to merge GIFs on top of each other, and 2x2 Grid to combine 4 GIFs. Choose any layout in our GIF merger to combine GIFs into one.
-            </p>
-        </div>
+      </div>
     </div>
 
     <script>
-        const fileInput = document.getElementById('fileInput');
-        const uploadArea = document.getElementById('uploadArea');
-        const layoutOptions = document.getElementById('layoutOptions');
-        const previewSection = document.getElementById('previewSection');
-        const previewContainer = document.getElementById('previewContainer');
-        const combineBtn = document.getElementById('combineBtn');
-        const resultSection = document.getElementById('resultSection');
-        const resultImage = document.getElementById('resultImage');
-        const downloadBtn = document.getElementById('downloadBtn');
+      const fileInput = document.getElementById("fileInput");
+      const uploadArea = document.getElementById("uploadArea");
+      const layoutOptions = document.getElementById("layoutOptions");
+      const previewSection = document.getElementById("previewSection");
+      const previewContainer = document.getElementById("previewContainer");
+      const combineBtn = document.getElementById("combineBtn");
+      const resultSection = document.getElementById("resultSection");
+      const resultImage = document.getElementById("resultImage");
+      const downloadBtn = document.getElementById("downloadBtn");
 
-        let uploadedFiles = [];
-        let selectedLayout = 'horizontal';
-        let combinedBlob = null;
+      let uploadedFiles = [];
+      let selectedLayout = "horizontal";
+      let combinedBlob = null;
 
-        // File upload
-        fileInput.addEventListener('change', (e) => {
-            const files = Array.from(e.target.files);
-            if (files.length >= 2 && files.length <= 4) {
-                uploadedFiles = files;
-                showLayoutOptions();
-                showPreview();
-            } else {
-                alert('Please upload 2-4 GIF or WebP files');
-            }
+      // File upload
+      fileInput.addEventListener("change", (e) => {
+        const files = Array.from(e.target.files);
+        if (files.length >= 2 && files.length <= 4) {
+          uploadedFiles = files;
+          showLayoutOptions();
+          showPreview();
+        } else {
+          alert("Please upload 2-4 GIF or WebP files");
+        }
+      });
+
+      // Drag and drop
+      uploadArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        uploadArea.style.background = "#e6f2ff";
+      });
+
+      uploadArea.addEventListener("dragleave", () => {
+        uploadArea.style.background = "#f9f9f9";
+      });
+
+      uploadArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        uploadArea.style.background = "#f9f9f9";
+        const files = Array.from(e.dataTransfer.files);
+        if (files.length >= 2 && files.length <= 4) {
+          uploadedFiles = files;
+          showLayoutOptions();
+          showPreview();
+        } else {
+          alert("Please upload 2-4 GIF or WebP files");
+        }
+      });
+
+      // Layout selection
+      function selectLayout(layout) {
+        selectedLayout = layout;
+
+        // Update button selection
+        document.getElementById("horizontalBtn").classList.remove("selected");
+        document.getElementById("verticalBtn").classList.remove("selected");
+        document.getElementById("gridBtn").classList.remove("selected");
+
+        if (layout === "horizontal") {
+          document.getElementById("horizontalBtn").classList.add("selected");
+        } else if (layout === "vertical") {
+          document.getElementById("verticalBtn").classList.add("selected");
+        } else {
+          document.getElementById("gridBtn").classList.add("selected");
+        }
+
+        showPreview();
+      }
+
+      // Show layout options
+      function showLayoutOptions() {
+        layoutOptions.classList.add("active");
+      }
+
+      // Show preview
+      function showPreview() {
+        previewContainer.innerHTML = "";
+        previewContainer.className = "preview-container " + selectedLayout;
+
+        uploadedFiles.forEach((file, index) => {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            const img = document.createElement("img");
+            img.src = e.target.result;
+            img.className = "gif-preview";
+            img.alt = `GIF ${index + 1}`;
+            previewContainer.appendChild(img);
+          };
+          reader.readAsDataURL(file);
         });
 
-        // Drag and drop
-        uploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadArea.style.background = '#e6f2ff';
-        });
+        previewSection.classList.add("active");
+      }
 
-        uploadArea.addEventListener('dragleave', () => {
-            uploadArea.style.background = '#f9f9f9';
-        });
-
-        uploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadArea.style.background = '#f9f9f9';
-            const files = Array.from(e.dataTransfer.files);
-            if (files.length >= 2 && files.length <= 4) {
-                uploadedFiles = files;
-                showLayoutOptions();
-                showPreview();
-            } else {
-                alert('Please upload 2-4 GIF or WebP files');
-            }
-        });
-
-        // Layout selection
-        function selectLayout(layout) {
-            selectedLayout = layout;
-            
-            // Update button selection
-            document.getElementById('horizontalBtn').classList.remove('selected');
-            document.getElementById('verticalBtn').classList.remove('selected');
-            document.getElementById('gridBtn').classList.remove('selected');
-            
-            if (layout === 'horizontal') {
-                document.getElementById('horizontalBtn').classList.add('selected');
-            } else if (layout === 'vertical') {
-                document.getElementById('verticalBtn').classList.add('selected');
-            } else {
-                document.getElementById('gridBtn').classList.add('selected');
-            }
-            
-            showPreview();
-        }
-
-        // Show layout options
-        function showLayoutOptions() {
-            layoutOptions.classList.add('active');
-        }
-
-        // Show preview
-        function showPreview() {
-            previewContainer.innerHTML = '';
-            previewContainer.className = 'preview-container ' + selectedLayout;
-            
-            uploadedFiles.forEach((file, index) => {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    img.className = 'gif-preview';
-                    img.alt = `GIF ${index + 1}`;
-                    previewContainer.appendChild(img);
-                };
-                reader.readAsDataURL(file);
-            });
-            
-            previewSection.classList.add('active');
-        }
-
-        // Helper function to parse GIF frames using omggif
-        async function parseGifFrames(file) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onload = async (e) => {
-                    try {
-                        const arrayBuffer = e.target.result;
-                        const uintArray = new Uint8Array(arrayBuffer);
-                        const gifReader = new GifReader(uintArray);
-                        
-                        const numFrames = gifReader.numFrames();
-                        const width = gifReader.width;
-                        const height = gifReader.height;
-                        const frames = [];
-                        
-                        // Extract each frame
-                        for (let i = 0; i < numFrames; i++) {
-                            const frameInfo = gifReader.frameInfo(i);
-                            const imageData = new Uint8ClampedArray(width * height * 4);
-                            gifReader.decodeAndBlitFrameRGBA(i, imageData);
-                            
-                            frames.push({
-                                data: imageData,
-                                delay: frameInfo.delay * 10 || 100, // Convert to milliseconds
-                                width: width,
-                                height: height
-                            });
-                        }
-                        
-                        resolve({
-                            frames: frames,
-                            width: width,
-                            height: height
-                        });
-                    } catch (error) {
-                        console.error('Error parsing GIF:', error);
-                        reject(error);
-                    }
-                };
-                reader.onerror = reject;
-                reader.readAsArrayBuffer(file);
-            });
-        }
-
-        // Helper function to render frame data to canvas
-        function renderFrameToCanvas(frameData, canvas) {
-            const ctx = canvas.getContext('2d');
-            const imageData = ctx.createImageData(frameData.width, frameData.height);
-            imageData.data.set(frameData.data);
-            ctx.putImageData(imageData, 0, 0);
-        }
-
-        // Combine button
-        combineBtn.addEventListener('click', async () => {
-            if (uploadedFiles.length < 2) {
-                alert('Please upload at least 2 GIF files');
-                return;
-            }
-
-            combineBtn.disabled = true;
-            combineBtn.textContent = 'Combining...';
-
+      // Helper function to parse GIF frames using omggif
+      async function parseGifFrames(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = async (e) => {
             try {
-                // Parse all GIFs
-                const gifs = await Promise.all(uploadedFiles.map(parseGifFrames));
-                
-                // Calculate canvas dimensions based on layout
-                let canvasWidth, canvasHeight;
-                
-                if (selectedLayout === 'horizontal') {
-                    canvasWidth = gifs.reduce((sum, gif) => sum + gif.width, 0);
-                    canvasHeight = Math.max(...gifs.map(gif => gif.height));
-                } else if (selectedLayout === 'vertical') {
-                    canvasWidth = Math.max(...gifs.map(gif => gif.width));
-                    canvasHeight = gifs.reduce((sum, gif) => sum + gif.height, 0);
-                } else { // grid
-                    const maxWidth = Math.max(...gifs.map(gif => gif.width));
-                    const maxHeight = Math.max(...gifs.map(gif => gif.height));
-                    canvasWidth = maxWidth * 2;
-                    canvasHeight = maxHeight * 2;
-                }
+              const arrayBuffer = e.target.result;
+              const uintArray = new Uint8Array(arrayBuffer);
+              const gifReader = new GifReader(uintArray);
 
-                // Find maximum frame count
-                const maxFrames = Math.max(...gifs.map(gif => gif.frames.length));
+              const numFrames = gifReader.numFrames();
+              const width = gifReader.width;
+              const height = gifReader.height;
+              const frames = [];
 
-                // Create GIF encoder
-                const gifEncoder = new GIF({
-                    workers: 2,
-                    quality: 10,
-                    width: canvasWidth,
-                    height: canvasHeight,
-                    workerScript: 'https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.worker.js'
+              // Extract each frame
+              for (let i = 0; i < numFrames; i++) {
+                const frameInfo = gifReader.frameInfo(i);
+                const imageData = new Uint8ClampedArray(width * height * 4);
+                gifReader.decodeAndBlitFrameRGBA(i, imageData);
+
+                frames.push({
+                  data: imageData,
+                  delay: frameInfo.delay * 10 || 100, // Convert to milliseconds
+                  width: width,
+                  height: height,
                 });
+              }
 
-                // Create canvases for each GIF
-                const gifCanvases = gifs.map(gif => {
-                    const canvas = document.createElement('canvas');
-                    canvas.width = gif.width;
-                    canvas.height = gif.height;
-                    return canvas;
-                });
-
-                // Create main canvas for combining
-                const mainCanvas = document.createElement('canvas');
-                mainCanvas.width = canvasWidth;
-                mainCanvas.height = canvasHeight;
-                const mainCtx = mainCanvas.getContext('2d');
-
-                // Process each frame
-                for (let frameIndex = 0; frameIndex < maxFrames; frameIndex++) {
-                    mainCtx.clearRect(0, 0, canvasWidth, canvasHeight);
-                    
-                    // Render each GIF's current frame to its canvas
-                    gifs.forEach((gif, gifIndex) => {
-                        const currentFrameIndex = frameIndex % gif.frames.length;
-                        const frameData = gif.frames[currentFrameIndex];
-                        renderFrameToCanvas(frameData, gifCanvases[gifIndex]);
-                    });
-                    
-                    // Combine frames based on layout
-                    if (selectedLayout === 'horizontal') {
-                        let xOffset = 0;
-                        gifCanvases.forEach((canvas) => {
-                            mainCtx.drawImage(canvas, xOffset, 0);
-                            xOffset += canvas.width;
-                        });
-                    } else if (selectedLayout === 'vertical') {
-                        let yOffset = 0;
-                        gifCanvases.forEach((canvas) => {
-                            mainCtx.drawImage(canvas, 0, yOffset);
-                            yOffset += canvas.height;
-                        });
-                    } else { // grid (2x2)
-                        const positions = [
-                            { x: 0, y: 0 },
-                            { x: canvasWidth / 2, y: 0 },
-                            { x: 0, y: canvasHeight / 2 },
-                            { x: canvasWidth / 2, y: canvasHeight / 2 }
-                        ];
-                        gifCanvases.forEach((canvas, i) => {
-                            if (i < 4) {
-                                mainCtx.drawImage(canvas, positions[i].x, positions[i].y, canvasWidth / 2, canvasHeight / 2);
-                            }
-                        });
-                    }
-                    
-                    // Get delay from first GIF's frame
-                    const delay = gifs[0].frames[frameIndex % gifs[0].frames.length].delay;
-                    gifEncoder.addFrame(mainCtx, {copy: true, delay: delay});
-                }
-
-                // Render the GIF
-                gifEncoder.on('finished', (blob) => {
-                    combinedBlob = blob;
-                    
-                    // Display result
-                    const url = URL.createObjectURL(blob);
-                    resultImage.src = url;
-                    resultSection.classList.add('active');
-                    resultSection.scrollIntoView({ behavior: 'smooth' });
-                    
-                    combineBtn.disabled = false;
-                    combineBtn.textContent = 'Combine GIFs!';
-                });
-
-                gifEncoder.on('progress', (p) => {
-                    combineBtn.textContent = `Processing... ${Math.round(p * 100)}%`;
-                });
-
-                gifEncoder.render();
-
+              resolve({
+                frames: frames,
+                width: width,
+                height: height,
+              });
             } catch (error) {
-                alert('Error combining files: ' + error.message);
-                console.error('Combine error:', error);
-                combineBtn.disabled = false;
-                combineBtn.textContent = 'Combine GIFs!';
+              console.error("Error parsing GIF:", error);
+              reject(error);
             }
+          };
+          reader.onerror = reject;
+          reader.readAsArrayBuffer(file);
         });
+      }
 
-        // Download button
-        downloadBtn.addEventListener('click', () => {
-            if (!combinedBlob) {
-                alert('Please combine GIFs first');
-                return;
+      // Helper function to render frame data to canvas
+      function renderFrameToCanvas(frameData, canvas) {
+        const ctx = canvas.getContext("2d");
+        const imageData = ctx.createImageData(
+          frameData.width,
+          frameData.height,
+        );
+        imageData.data.set(frameData.data);
+        ctx.putImageData(imageData, 0, 0);
+      }
+
+      // Combine button
+      combineBtn.addEventListener("click", async () => {
+        if (uploadedFiles.length < 2) {
+          alert("Please upload at least 2 GIF files");
+          return;
+        }
+
+        combineBtn.disabled = true;
+        combineBtn.textContent = "Combining...";
+
+        try {
+          // Parse all GIFs
+          const gifs = await Promise.all(uploadedFiles.map(parseGifFrames));
+
+          // Calculate canvas dimensions based on layout
+          let canvasWidth, canvasHeight;
+
+          if (selectedLayout === "horizontal") {
+            canvasWidth = gifs.reduce((sum, gif) => sum + gif.width, 0);
+            canvasHeight = Math.max(...gifs.map((gif) => gif.height));
+          } else if (selectedLayout === "vertical") {
+            canvasWidth = Math.max(...gifs.map((gif) => gif.width));
+            canvasHeight = gifs.reduce((sum, gif) => sum + gif.height, 0);
+          } else {
+            // grid
+            const maxWidth = Math.max(...gifs.map((gif) => gif.width));
+            const maxHeight = Math.max(...gifs.map((gif) => gif.height));
+            canvasWidth = maxWidth * 2;
+            canvasHeight = maxHeight * 2;
+          }
+
+          // Find maximum frame count
+          const maxFrames = Math.max(...gifs.map((gif) => gif.frames.length));
+
+          // Create GIF encoder
+          const gifEncoder = new GIF({
+            workers: 2,
+            quality: 10,
+            width: canvasWidth,
+            height: canvasHeight,
+            workerScript:
+              "https://www.moviesearch.online/tools/join-gifs/gif.worker.js",
+          });
+
+          // Create canvases for each GIF
+          const gifCanvases = gifs.map((gif) => {
+            const canvas = document.createElement("canvas");
+            canvas.width = gif.width;
+            canvas.height = gif.height;
+            return canvas;
+          });
+
+          // Create main canvas for combining
+          const mainCanvas = document.createElement("canvas");
+          mainCanvas.width = canvasWidth;
+          mainCanvas.height = canvasHeight;
+          const mainCtx = mainCanvas.getContext("2d");
+
+          // Process each frame
+          for (let frameIndex = 0; frameIndex < maxFrames; frameIndex++) {
+            mainCtx.clearRect(0, 0, canvasWidth, canvasHeight);
+
+            // Render each GIF's current frame to its canvas
+            gifs.forEach((gif, gifIndex) => {
+              const currentFrameIndex = frameIndex % gif.frames.length;
+              const frameData = gif.frames[currentFrameIndex];
+              renderFrameToCanvas(frameData, gifCanvases[gifIndex]);
+            });
+
+            // Combine frames based on layout
+            if (selectedLayout === "horizontal") {
+              let xOffset = 0;
+              gifCanvases.forEach((canvas) => {
+                mainCtx.drawImage(canvas, xOffset, 0);
+                xOffset += canvas.width;
+              });
+            } else if (selectedLayout === "vertical") {
+              let yOffset = 0;
+              gifCanvases.forEach((canvas) => {
+                mainCtx.drawImage(canvas, 0, yOffset);
+                yOffset += canvas.height;
+              });
+            } else {
+              // grid (2x2)
+              const positions = [
+                { x: 0, y: 0 },
+                { x: canvasWidth / 2, y: 0 },
+                { x: 0, y: canvasHeight / 2 },
+                { x: canvasWidth / 2, y: canvasHeight / 2 },
+              ];
+              gifCanvases.forEach((canvas, i) => {
+                if (i < 4) {
+                  mainCtx.drawImage(
+                    canvas,
+                    positions[i].x,
+                    positions[i].y,
+                    canvasWidth / 2,
+                    canvasHeight / 2,
+                  );
+                }
+              });
             }
 
-            const url = URL.createObjectURL(combinedBlob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `combined_${selectedLayout}.gif`;
-            a.click();
-            URL.revokeObjectURL(url);
-        });
+            // Get delay from first GIF's frame
+            const delay =
+              gifs[0].frames[frameIndex % gifs[0].frames.length].delay;
+            gifEncoder.addFrame(mainCtx, { copy: true, delay: delay });
+          }
+
+          // Render the GIF
+          gifEncoder.on("finished", (blob) => {
+            combinedBlob = blob;
+
+            // Display result
+            const url = URL.createObjectURL(blob);
+            resultImage.src = url;
+            resultSection.classList.add("active");
+            resultSection.scrollIntoView({ behavior: "smooth" });
+
+            combineBtn.disabled = false;
+            combineBtn.textContent = "Combine GIFs!";
+          });
+
+          gifEncoder.on("progress", (p) => {
+            combineBtn.textContent = `Processing... ${Math.round(p * 100)}%`;
+          });
+
+          gifEncoder.render();
+        } catch (error) {
+          alert("Error combining files: " + error.message);
+          console.error("Combine error:", error);
+          combineBtn.disabled = false;
+          combineBtn.textContent = "Combine GIFs!";
+        }
+      });
+
+      // Download button
+      downloadBtn.addEventListener("click", () => {
+        if (!combinedBlob) {
+          alert("Please combine GIFs first");
+          return;
+        }
+
+        const url = URL.createObjectURL(combinedBlob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `combined_${selectedLayout}.gif`;
+        a.click();
+        URL.revokeObjectURL(url);
+      });
     </script>
-</body>
+  </body>
 </html>
