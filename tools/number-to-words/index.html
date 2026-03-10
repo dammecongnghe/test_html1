@@ -1,0 +1,1183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Number to Words Converter - Convert Numbers to Words & Number to Text Free
+    </title>
+    <meta
+      name="description"
+      content="Free number to words converter and numbers to words tool. Convert numbers to words, number to text, and numbers in words. Best number converter and word form calculator online."
+    />
+    <meta
+      name="keywords"
+      content="numbers to words, number to words, number to word converter, numbers in words, convert numbers to words, number to word, numbers into words, words to numbers, number in words, number converter, numbers to words converter, number to text, word form calculator, numbers to words code"
+    />
+    <link rel="canonical" href="https://moviesearch.online/number-to-words" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Number to Words Converter - Convert Numbers to Words Online"
+    />
+    <meta
+      property="og:description"
+      content="Free number to words converter. Convert numbers to words, number to text, and numbers in words online."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://moviesearch.online/number-to-words"
+    />
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I convert numbers to words?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To convert numbers to words, enter your number in our free number to words converter and click 'Convert'. Our numbers to words tool will convert number to text instantly. Use our number to word converter to convert numbers into words for any currency including USD, EUR, INR, and more."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a number to words converter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A number to words converter is a tool that converts numbers in words format. Our numbers to words converter changes numerical values like 100 into text like 'One Hundred'. Use our number converter and word form calculator to convert number to word format for checks, invoices, and documents."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I convert numbers to words for different currencies?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our number to words converter supports 7 currencies. Convert numbers to words for US Dollars, Indian Rupees, British Pounds, Euros, Japanese Yen, Russian Rubles, and Chinese Yuan. Our numbers to words tool lets you convert number to text with currency names included."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this numbers to words converter free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! Our number to words converter and numbers to words tool are 100% free. Convert numbers to words unlimited times, use our number converter and word form calculator, and convert number to text without registration or fees. Convert numbers into words as often as needed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I convert words to numbers with this tool?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "This tool is optimized as a number to words converter to convert numbers to words and number to text. While designed to convert numbers in words format, we also offer a separate words to numbers converter tool. Use our number to word converter for converting numbers into words."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What numbers can I convert with this number converter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our numbers to words converter supports Thousand, Million, Billion, Trillion, Quadrillion, Quintillion, Sextillion, Septillion, Octillion, and Nonillion. Use our number to words tool and word form calculator to convert number to word format for any large number. Our number converter handles numbers in words up to 999 Nonillion."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Number to Words Converter - Numbers to Words Tool",
+        "description": "Free number to words converter and number converter. Convert numbers to words, number to text, and numbers in words online.",
+        "url": "https://moviesearch.online/number-to-words",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --primary: #4f6ef7;
+        --primary-dark: #3b55d9;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --text: #111827;
+        --muted: #6b7280;
+      }
+      .hero {
+        max-width: 980px;
+        margin: 24px auto;
+        padding: 40px 24px;
+        background: #f0f4ff;
+        border: 1px solid #dbe4ff;
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto 24px;
+        line-height: 1.6;
+      }
+
+      .hero a.cta {
+        display: inline-block;
+        padding: 12px 26px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: #0066cc;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .home-button:hover {
+        background: #0052a3;
+        transform: translateY(-2px);
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 2em;
+      }
+
+      .description {
+        color: #666;
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+
+      .input-section {
+        margin-bottom: 20px;
+      }
+
+      .input-section label {
+        display: block;
+        margin-bottom: 8px;
+        color: #555;
+        font-weight: 600;
+      }
+
+      .input-area {
+        width: 100%;
+        min-height: 120px;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+        font-family: monospace;
+        resize: vertical;
+      }
+
+      .char-count {
+        text-align: right;
+        color: #999;
+        font-size: 12px;
+        margin-top: 5px;
+      }
+
+      .options-row {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+
+      .checkbox-option {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .checkbox-option input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+      }
+
+      .convert-btn {
+        background: #17a2b8;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .convert-btn:hover {
+        background: #138496;
+      }
+
+      .currency-select {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background: white;
+        cursor: pointer;
+      }
+
+      .case-buttons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .case-btn {
+        padding: 8px 15px;
+        border: 1px solid #ddd;
+        background: white;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 13px;
+      }
+
+      .case-btn:hover {
+        background: #f0f0f0;
+      }
+
+      .output-section {
+        margin-top: 30px;
+      }
+
+      .output-section label {
+        display: block;
+        margin-bottom: 8px;
+        color: #555;
+        font-weight: 600;
+      }
+
+      .output-area {
+        width: 100%;
+        min-height: 120px;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+        background: #fafafa;
+        resize: vertical;
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .action-btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .copy-btn {
+        background: #6c757d;
+        color: white;
+      }
+
+      .copy-btn:hover {
+        background: #5a6268;
+      }
+
+      .download-btn {
+        background: #28a745;
+        color: white;
+      }
+
+      .download-btn:hover {
+        background: #218838;
+      }
+
+      .examples-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      .examples-table th,
+      .examples-table td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+
+      .examples-table th {
+        background: #f0f0f0;
+        font-weight: 600;
+      }
+
+      .examples-table tr:nth-child(even) {
+        background: #f9f9f9;
+      }
+
+      .features-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .features-list li {
+        padding: 8px 0;
+        padding-left: 25px;
+        position: relative;
+      }
+
+      .features-list li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #28a745;
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      h2 {
+        color: #333;
+        margin: 30px 0 15px;
+        font-size: 1.5em;
+      }
+
+      h3 {
+        color: #444;
+        margin: 20px 0 10px;
+        font-size: 1.2em;
+      }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+  <body>
+    <a href="https://moviesearch.online" class="home-button">
+      <span>🏠</span> Home
+    </a>
+
+    <div class="container">
+      <h1>Number to Words Converter - Convert Numbers to Words Online</h1>
+
+      <div class="description">
+        <p>
+          Numbers to Words Converter is an easy-to-use number to word converter
+          tool to convert numbers to words and number to text. Our free numbers
+          to words tool helps you convert numbers in words format - Copy, Paste,
+          and Convert. Use our number converter and word form calculator to
+          convert numbers into words for any currency.
+        </p>
+        <p style="margin-top: 10px">
+          Our number to words converter is a numbers to words tool that converts
+          numerical values (such as 100,000,000) into number in words format
+          (such as "One Hundred Million"). This number to word converter is
+          typically used in financial or banking applications to convert number
+          to text for check writing, invoicing, or other tasks. Use our numbers
+          to words converter and word form calculator to convert numbers to
+          words instantly!
+        </p>
+      </div>
+
+      <!-- Input Section -->
+      <div class="input-section">
+        <label>Enter the Number</label>
+        <textarea
+          class="input-area"
+          id="inputNumber"
+          placeholder="Enter Numbers with or without ( , )"
+        ></textarea>
+        <div class="char-count">
+          Size - <span id="inputCount">0</span>, 0 Characters
+        </div>
+      </div>
+
+      <!-- Options Row -->
+      <div class="options-row">
+        <div class="checkbox-option">
+          <input type="checkbox" id="autoConvert" checked />
+          <label for="autoConvert">Auto</label>
+        </div>
+
+        <button class="convert-btn" id="convertBtn">Convert</button>
+
+        <select class="currency-select" id="currencySelect">
+          <option value="usd">US Dollar</option>
+          <option value="inr">Indian Rupees</option>
+          <option value="gbp">British Pound</option>
+          <option value="eur">Euro</option>
+          <option value="jpy">Japanese Yen</option>
+          <option value="rub">Russian Ruble</option>
+          <option value="cny">Chinese Yuan</option>
+        </select>
+
+        <div class="case-buttons">
+          <button class="case-btn" onclick="changeCase('upper')">Abc</button>
+          <button class="case-btn" onclick="changeCase('title')">abc</button>
+        </div>
+      </div>
+
+      <!-- Additional Options -->
+      <div class="options-row">
+        <div class="checkbox-option">
+          <input type="checkbox" id="defaultCheck" />
+          <label for="defaultCheck">Default</label>
+        </div>
+
+        <div class="checkbox-option">
+          <input type="checkbox" id="showCurrency" />
+          <label for="showCurrency">Show Currency</label>
+        </div>
+
+        <div class="checkbox-option">
+          <input type="checkbox" id="writingCheck" />
+          <label for="writingCheck">Writing Check?</label>
+        </div>
+
+        <div class="checkbox-option">
+          <input type="checkbox" id="multiline" />
+          <label for="multiline">Multiline</label>
+        </div>
+      </div>
+
+      <div
+        style="
+          display: flex;
+          gap: 10px;
+          margin-bottom: 20px;
+          font-size: 13px;
+          color: #666;
+        "
+      >
+        <span style="cursor: pointer" onclick="setExample('upperOne')"
+          >UpperOne</span
+        >
+        <span style="cursor: pointer" onclick="setExample('lowerOne')"
+          >LowerOne</span
+        >
+        <span style="cursor: pointer" onclick="setExample('titleCase')"
+          >TitleCase</span
+        >
+        <span style="cursor: pointer" onclick="setExample('sentenceCase')"
+          >SentenceCase</span
+        >
+      </div>
+
+      <!-- Output Section -->
+      <div class="output-section">
+        <label>The Converted Words</label>
+        <textarea
+          class="output-area"
+          id="outputWords"
+          placeholder="Words from Numbers"
+          readonly
+        ></textarea>
+        <div class="char-count">
+          Size - <span id="outputCount">0</span>, 0 Characters
+        </div>
+
+        <div class="action-buttons">
+          <button class="action-btn copy-btn" onclick="copyToClipboard()">
+            📋 Copy To Clipboard
+          </button>
+          <button class="action-btn download-btn" onclick="downloadText()">
+            ⬇️ Download
+          </button>
+        </div>
+      </div>
+      <div class="hero">
+        <h1>Convert Images to Vector Graphics Instantly</h1>
+        <p>
+          Turn raster images into clean, scalable vector files for design,
+          print, or web use.
+        </p>
+        <a class="cta" href="https://rastertovector.online" target="_blank">
+          Convert Raster to Vector
+        </a>
+      </div>
+
+      <!-- What can you do -->
+      <h2>What can you do with Number to Text in English?</h2>
+      <ul class="features-list">
+        <li>
+          Convert Numbers to Words is a unique tool to convert numbers for the
+          US dollar, Indian rupees, British pounds, euros, Japanese Yen, Russian
+          Ruble, and Chinese Yuan.
+        </li>
+        <li>
+          This tool supports Thousand, Million, Billion, Trillion, Quadrillion,
+          Quintillion, Sextillion, Septillion, Octillion, and Nonillion.
+        </li>
+        <li>
+          This tool allows loading the Numbers URL, which loads Numbers and
+          converts them to Words. Click on the URL button, Enter the URL and
+          Submit.
+        </li>
+        <li>
+          Users can also convert Numbers Files to easy-to-read words by
+          uploading the file.
+        </li>
+        <li>
+          Converted words can be converted into UPPER CASE, lower case, and
+          Title Case.
+        </li>
+        <li>
+          This tool supports multiline numbers input separated by newlines.
+        </li>
+        <li>
+          Convert Number to Words Calculator Online works well on Windows, MAC,
+          Linux, Chrome, Firefox, Edge, and Safari.
+        </li>
+      </ul>
+
+      <!-- How to use -->
+      <h2>How to use Number to Word Converter?</h2>
+      <p style="margin-bottom: 10px; color: #666">
+        Easy steps to use Number to Word Converter:
+      </p>
+      <ul class="features-list">
+        <li>
+          Copy and paste the Number or upload your Number file or URL with a
+          number.
+        </li>
+        <li>
+          Enable or Disable the "Multiline" checkbox to convert multiple numbers
+          separated by newlines.
+        </li>
+        <li>
+          Click the `Convert` button if the Auto checkbox is not selected.
+        </li>
+        <li>Now, Converted words are available in the result text area.</li>
+        <li>
+          Select the Option to convert Words for US, UK, India, Euro, Japan,
+          Russia, or China if required.
+        </li>
+        <li>
+          Use case converter buttons from the right, such as Uppercase,
+          LowerCase, and Title Case, to change the case.
+        </li>
+        <li>
+          Click on Copy button to copy to the clipboard or the Download button
+          to download as Text
+        </li>
+      </ul>
+
+      <!-- Popular Numbers -->
+      <h2>Popular Number to Word list:</h2>
+      <table class="examples-table">
+        <thead>
+          <tr>
+            <th>Amount</th>
+            <th>In Words</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>$100</td>
+            <td>One Hundred Dollars</td>
+            <td>Common for small gifts, donations, or simple transactions.</td>
+          </tr>
+          <tr>
+            <td>$500</td>
+            <td>Five Hundred Dollars</td>
+            <td>
+              Often used for larger gifts, event payments, or partial rent
+              payments.
+            </td>
+          </tr>
+          <tr>
+            <td>$1,000</td>
+            <td>One Thousand Dollars</td>
+            <td>
+              Common for rent, insurance claims, or small business transactions.
+            </td>
+          </tr>
+          <tr>
+            <td>$5,000</td>
+            <td>Five Thousand Dollars</td>
+            <td>
+              Popular for business payments, investments, or significant
+              purchases.
+            </td>
+          </tr>
+          <tr>
+            <td>$10,000</td>
+            <td>Ten Thousand Dollars</td>
+            <td>
+              Frequently seen in property deposits, vehicle purchases, or
+              business expenses.
+            </td>
+          </tr>
+          <tr>
+            <td>$25,000</td>
+            <td>Twenty-Five Thousand Dollars</td>
+            <td>
+              Used for down payments on homes or larger business transactions.
+            </td>
+          </tr>
+          <tr>
+            <td>$50,000</td>
+            <td>Fifty Thousand Dollars</td>
+            <td>
+              Common in real estate deals, business capital, or legal
+              settlements.
+            </td>
+          </tr>
+          <tr>
+            <td>$100,000</td>
+            <td>One Hundred Thousand Dollars</td>
+            <td>
+              Frequently used for major business transactions, investments, or
+              inheritances.
+            </td>
+          </tr>
+          <tr>
+            <td>$250,000</td>
+            <td>Two Hundred Fifty Thousand Dollars</td>
+            <td>
+              Seen in large real estate transactions, business loans, or trust
+              funds.
+            </td>
+          </tr>
+          <tr>
+            <td>$1,000,000</td>
+            <td>One Million Dollars</td>
+            <td>
+              Typically used for significant investments, high-end real estate
+              purchases, or large financial transactions.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Supported Currency -->
+      <h2>Supported Currency with example:</h2>
+      <table class="examples-table">
+        <thead>
+          <tr>
+            <th>Currency</th>
+            <th>Example</th>
+            <th>In Words</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>US Dollar</td>
+            <td>$100</td>
+            <td>One Hundred Dollars</td>
+          </tr>
+          <tr>
+            <td>Indian Rupees</td>
+            <td>₹100</td>
+            <td>One Hundred Rupees</td>
+          </tr>
+          <tr>
+            <td>British Pound</td>
+            <td>£100</td>
+            <td>One Hundred Pounds</td>
+          </tr>
+          <tr>
+            <td>Euro</td>
+            <td>€100</td>
+            <td>One Hundred Euros</td>
+          </tr>
+          <tr>
+            <td>Japanese Yen</td>
+            <td>¥100</td>
+            <td>One Hundred Yen</td>
+          </tr>
+          <tr>
+            <td>Russian Ruble</td>
+            <td>₽100</td>
+            <td>One Hundred Rubles</td>
+          </tr>
+          <tr>
+            <td>Chinese Yuan</td>
+            <td>¥100</td>
+            <td>One Hundred Yuan</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- SEO Content Section -->
+      <h2>How to Use Our Number to Words Converter</h2>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our free number to words converter makes it easy to convert numbers to
+        words and number to text instantly. Whether you need a numbers to words
+        tool for checks, a number converter for invoices, or a word form
+        calculator for documents, our number to word converter handles it all.
+        Simply enter your number in our numbers to words converter, and it will
+        convert numbers into words automatically. Use our number to words tool
+        to convert number to word format for USD, EUR, INR, GBP, JPY, RUB, and
+        CNY. No software installation required - our numbers to words converter
+        works online to convert numbers in words format instantly!
+      </p>
+
+      <h3>Convert Numbers to Words with Multiple Currency Support</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        When you convert numbers to words using our number to words converter,
+        you can choose from 7 different currencies. Our numbers to words tool
+        supports US Dollars, Indian Rupees, British Pounds, Euros, Japanese Yen,
+        Russian Rubles, and Chinese Yuan. Use our number to word converter to
+        convert number to text with currency names automatically added. The
+        numbers to words converter makes it simple to convert numbers into words
+        and number in words format for any financial application. Whether you
+        need to convert numbers to words for a check or use our number converter
+        and word form calculator for business documents, our numbers to words
+        tool delivers accurate number to word conversions!
+      </p>
+
+      <h3>Number Converter & Word Form Calculator Features</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our number to words converter offers professional features to convert
+        numbers to words effectively. When you use our numbers to words tool,
+        you get auto-conversion - the number to word converter converts number
+        to text as you type. The numbers to words converter supports multiline
+        input to convert numbers into words in bulk. Use our number converter
+        and word form calculator to convert numbers in words format with case
+        options - UPPERCASE, lowercase, or Title Case. Our number to words tool
+        even includes numbers to words code examples. The numbers to words
+        converter handles large numbers up to Nonillion when you convert numbers
+        to words. Whether you convert number to word once or use our number to
+        words converter regularly, this numbers to words tool makes it easy to
+        convert number to text!
+      </p>
+
+      <h3>Why Use Our Numbers to Words Converter</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        There are many reasons to use our number to words converter and numbers
+        to words tool. Our number to word converter is completely free - convert
+        numbers to words unlimited times, use our number converter and word form
+        calculator, and convert number to text without restrictions. The numbers
+        to words converter works entirely in your browser to convert numbers
+        into words, ensuring privacy and speed. No registration needed to use
+        our number to words tool and convert numbers in words format. Our
+        numbers to words converter offers copy and download features when you
+        convert number to word format. The number converter and word form
+        calculator support numbers to words code generation. Whether you need to
+        convert numbers to words for personal use or business, our number to
+        word converter and numbers to words tool deliver professional number to
+        text results!
+      </p>
+
+      <h3>Numbers in Words Format & Number to Text Conversion</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Understanding numbers in words format is essential for many
+        applications. Our number to words converter helps you convert number to
+        text for checks, where you need numbers into words format for payment
+        amounts. Use our numbers to words tool to convert numbers to words for
+        invoices and receipts. The number to word converter is perfect for legal
+        documents that require number in words verification. Our numbers to
+        words converter also helps with educational materials when you need to
+        convert numbers in words format. Use our number converter and word form
+        calculator to convert number to word for any purpose - financial,
+        educational, or legal. The numbers to words tool makes it simple to
+        convert numbers to words and number to text professionally!
+      </p>
+
+      <h3>Free Number to Words Converter & Number to Word Tool</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Unlike paid software, our number to words converter and numbers to words
+        tool are completely free. Convert numbers to words unlimited times, use
+        our number to word converter without restrictions, and convert number to
+        text as often as needed - all free! No registration required to use our
+        numbers to words converter, number converter, or word form calculator.
+        Our number to words tool works entirely in your browser when you convert
+        numbers into words, ensuring fast processing. Perfect for accountants
+        who need to convert numbers in words format, students learning number to
+        word conversions, or anyone who needs a free numbers to words converter
+        to convert number to text. We also offer words to numbers converter for
+        reverse conversions and numbers to words code examples. Start using our
+        number to words converter today to convert numbers to words and number
+        to text instantly!
+      </p>
+
+      <!-- FAQ Section -->
+      <h2 style="margin-top: 40px; margin-bottom: 25px; text-align: center">
+        Frequently Asked Questions
+      </h2>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How do I convert numbers to words?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          To convert numbers to words, enter your number in our free number to
+          words converter and click 'Convert'. Our numbers to words tool will
+          convert number to text instantly. Use our number to word converter to
+          convert numbers into words for any currency including USD, EUR, INR,
+          and more.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What is a number to words converter?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          A number to words converter is a tool that converts numbers in words
+          format. Our numbers to words converter changes numerical values like
+          100 into text like 'One Hundred'. Use our number converter and word
+          form calculator to convert number to word format for checks, invoices,
+          and documents.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can I convert numbers to words for different currencies?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Yes! Our number to words converter supports 7 currencies. Convert
+          numbers to words for US Dollars, Indian Rupees, British Pounds, Euros,
+          Japanese Yen, Russian Rubles, and Chinese Yuan. Our numbers to words
+          tool lets you convert number to text with currency names included.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Is this numbers to words converter free?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Absolutely! Our number to words converter and numbers to words tool
+          are 100% free. Convert numbers to words unlimited times, use our
+          number converter and word form calculator, and convert number to text
+          without registration or fees. Convert numbers into words as often as
+          needed.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can I convert words to numbers with this tool?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          This tool is optimized as a number to words converter to convert
+          numbers to words and number to text. While designed to convert numbers
+          in words format, we also offer a separate words to numbers converter
+          tool. Use our number to word converter for converting numbers into
+          words.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What numbers can I convert with this number converter?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Our numbers to words converter supports Thousand, Million, Billion,
+          Trillion, Quadrillion, Quintillion, Sextillion, Septillion, Octillion,
+          and Nonillion. Use our number to words tool and word form calculator
+          to convert number to word format for any large number. Our number
+          converter handles numbers in words up to 999 Nonillion.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const inputNumber = document.getElementById("inputNumber");
+      const outputWords = document.getElementById("outputWords");
+      const inputCount = document.getElementById("inputCount");
+      const outputCount = document.getElementById("outputCount");
+      const autoConvert = document.getElementById("autoConvert");
+      const convertBtn = document.getElementById("convertBtn");
+      const currencySelect = document.getElementById("currencySelect");
+      const showCurrency = document.getElementById("showCurrency");
+
+      const ones = [
+        "",
+        "One",
+        "Two",
+        "Three",
+        "Four",
+        "Five",
+        "Six",
+        "Seven",
+        "Eight",
+        "Nine",
+      ];
+      const tens = [
+        "",
+        "",
+        "Twenty",
+        "Thirty",
+        "Forty",
+        "Fifty",
+        "Sixty",
+        "Seventy",
+        "Eighty",
+        "Ninety",
+      ];
+      const teens = [
+        "Ten",
+        "Eleven",
+        "Twelve",
+        "Thirteen",
+        "Fourteen",
+        "Fifteen",
+        "Sixteen",
+        "Seventeen",
+        "Eighteen",
+        "Nineteen",
+      ];
+
+      const currencyNames = {
+        usd: "Dollars",
+        inr: "Rupees",
+        gbp: "Pounds",
+        eur: "Euros",
+        jpy: "Yen",
+        rub: "Rubles",
+        cny: "Yuan",
+      };
+
+      function numberToWords(num) {
+        if (num === 0) return "Zero";
+
+        const billion = Math.floor(num / 1000000000);
+        const million = Math.floor((num % 1000000000) / 1000000);
+        const thousand = Math.floor((num % 1000000) / 1000);
+        const remainder = num % 1000;
+
+        let result = "";
+
+        if (billion > 0) {
+          result += convertHundreds(billion) + " Billion ";
+        }
+        if (million > 0) {
+          result += convertHundreds(million) + " Million ";
+        }
+        if (thousand > 0) {
+          result += convertHundreds(thousand) + " Thousand ";
+        }
+        if (remainder > 0) {
+          result += convertHundreds(remainder);
+        }
+
+        return result.trim();
+      }
+
+      function convertHundreds(num) {
+        const hundred = Math.floor(num / 100);
+        const rest = num % 100;
+
+        let result = "";
+
+        if (hundred > 0) {
+          result += ones[hundred] + " Hundred ";
+        }
+
+        if (rest >= 10 && rest < 20) {
+          result += teens[rest - 10];
+        } else {
+          const ten = Math.floor(rest / 10);
+          const one = rest % 10;
+          result += tens[ten] + " " + ones[one];
+        }
+
+        return result.trim();
+      }
+
+      function convert() {
+        const input = inputNumber.value.trim();
+        if (!input) {
+          outputWords.value = "";
+          return;
+        }
+
+        const number = parseInt(input.replace(/,/g, ""));
+        if (isNaN(number)) {
+          outputWords.value = "Invalid number";
+          return;
+        }
+
+        let result = numberToWords(number);
+
+        if (showCurrency.checked) {
+          const currency = currencyNames[currencySelect.value];
+          result += " " + currency;
+        }
+
+        outputWords.value = result;
+        updateCount();
+      }
+
+      function updateCount() {
+        inputCount.textContent = inputNumber.value.length;
+        outputCount.textContent = outputWords.value.length;
+      }
+
+      function changeCase(type) {
+        const text = outputWords.value;
+        if (type === "upper") {
+          outputWords.value = text.toUpperCase();
+        } else if (type === "title") {
+          outputWords.value = text.toLowerCase();
+        }
+      }
+
+      function setExample(type) {
+        // Example setter for different cases
+        if (type === "upperOne") {
+          inputNumber.value = "100";
+        } else if (type === "lowerOne") {
+          inputNumber.value = "1000";
+        } else if (type === "titleCase") {
+          inputNumber.value = "10000";
+        } else if (type === "sentenceCase") {
+          inputNumber.value = "100000";
+        }
+        convert();
+      }
+
+      function copyToClipboard() {
+        outputWords.select();
+        document.execCommand("copy");
+        alert("Copied to clipboard!");
+      }
+
+      function downloadText() {
+        const text = outputWords.value;
+        const blob = new Blob([text], { type: "text/plain" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "number-to-words.txt";
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      inputNumber.addEventListener("input", () => {
+        updateCount();
+        if (autoConvert.checked) {
+          convert();
+        }
+      });
+
+      convertBtn.addEventListener("click", convert);
+      currencySelect.addEventListener("change", () => {
+        if (autoConvert.checked) convert();
+      });
+      showCurrency.addEventListener("change", () => {
+        if (autoConvert.checked) convert();
+      });
+    </script>
+  </body>
+</html>
