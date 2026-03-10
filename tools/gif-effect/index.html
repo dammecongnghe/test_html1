@@ -1035,6 +1035,9 @@
       let gifFrames = [];
       let isGif = false;
       let originalGifData = null;
+      let animationInterval = null;
+      let currentFrameIndex = 0;
+      let isPlaying = false;
 
       // Tab switching
       function switchTab(tab) {
@@ -1077,6 +1080,9 @@
         currentFile = file;
         isGif = file.type === "image/gif";
 
+        // Stop any existing animation
+        stopAnimation();
+
         if (isGif) {
           // Parse GIF frames
           const arrayBuffer = await file.arrayBuffer();
@@ -1105,11 +1111,12 @@
             originalGifData = {
               width: gifReader.width,
               height: gifReader.height,
-              frames: gifFrames,
+              frames: [...gifFrames],
             };
 
-            // Display first frame
-            displayFrame(0);
+            // Start animated preview
+            currentFrameIndex = 0;
+            startAnimation();
           } catch (error) {
             console.error("Error parsing GIF:", error);
             alert("Error loading GIF. Loading as static image instead.");
@@ -1133,7 +1140,45 @@
         reader.readAsDataURL(file);
       }
 
+      // Animation control functions
+      function startAnimation() {
+        if (!isGif || gifFrames.length === 0) return;
+
+        stopAnimation(); // Clear any existing interval
+        isPlaying = true;
+        currentFrameIndex = 0;
+
+        const playNextFrame = () => {
+          displayFrame(currentFrameIndex);
+
+          const delay = gifFrames[currentFrameIndex].delay;
+          currentFrameIndex = (currentFrameIndex + 1) % gifFrames.length;
+
+          animationInterval = setTimeout(playNextFrame, delay);
+        };
+
+        playNextFrame();
+      }
+
+      function stopAnimation() {
+        if (animationInterval) {
+          clearTimeout(animationInterval);
+          animationInterval = null;
+        }
+        isPlaying = false;
+      }
+
+      function toggleAnimation() {
+        if (isPlaying) {
+          stopAnimation();
+        } else {
+          startAnimation();
+        }
+      }
+
       function displayFrame(frameIndex) {
+        if (!isGif || !gifFrames[frameIndex]) return;
+
         const frame = gifFrames[frameIndex];
         const canvas = document.createElement("canvas");
         canvas.width = frame.width;
@@ -1217,6 +1262,10 @@
           return;
         }
 
+        // Stop animation during processing
+        const wasPlaying = isPlaying;
+        stopAnimation();
+
         // Animated GIF processing
         const btn = event.target;
         btn.disabled = true;
@@ -1240,10 +1289,17 @@
         }
 
         gifFrames = processedFrames;
-        displayFrame(0);
+        currentFrameIndex = 0;
 
         btn.disabled = false;
         btn.textContent = preset.charAt(0).toUpperCase() + preset.slice(1);
+
+        // Resume animation if it was playing
+        if (wasPlaying) {
+          startAnimation();
+        } else {
+          displayFrame(0);
+        }
       }
 
       function applyPresetToImageData(data, preset) {
@@ -1306,6 +1362,10 @@
           return;
         }
 
+        // Stop animation during processing
+        const wasPlaying = isPlaying;
+        stopAnimation();
+
         // Process GIF frames
         const processedFrames = [];
         for (let i = 0; i < gifFrames.length; i++) {
@@ -1318,7 +1378,14 @@
         }
 
         gifFrames = processedFrames;
-        displayFrame(0);
+        currentFrameIndex = 0;
+
+        // Resume animation
+        if (wasPlaying) {
+          startAnimation();
+        } else {
+          displayFrame(0);
+        }
       }
 
       // Apply changes (color adjustments with CSS filters for real-time preview)
@@ -1374,6 +1441,10 @@
           return;
         }
 
+        // Stop animation during processing
+        const wasPlaying = isPlaying;
+        stopAnimation();
+
         // Process GIF frames
         const processedFrames = [];
         for (let i = 0; i < gifFrames.length; i++) {
@@ -1407,7 +1478,14 @@
         }
 
         gifFrames = processedFrames;
-        displayFrame(0);
+        currentFrameIndex = 0;
+
+        // Resume animation
+        if (wasPlaying) {
+          startAnimation();
+        } else {
+          displayFrame(0);
+        }
       }
 
       function quickRotate(angle) {
@@ -1437,6 +1515,10 @@
           return;
         }
 
+        // Stop animation during processing
+        const wasPlaying = isPlaying;
+        stopAnimation();
+
         // Process GIF frames with rotation
         const processedFrames = [];
         for (let i = 0; i < gifFrames.length; i++) {
@@ -1461,7 +1543,14 @@
         }
 
         gifFrames = processedFrames;
-        displayFrame(0);
+        currentFrameIndex = 0;
+
+        // Resume animation
+        if (wasPlaying) {
+          startAnimation();
+        } else {
+          displayFrame(0);
+        }
       }
 
       function applyTransform() {
@@ -1471,8 +1560,10 @@
 
       function gifEffect(effect) {
         if (effect === "reverse" && isGif) {
+          stopAnimation();
           gifFrames.reverse();
-          displayFrame(0);
+          currentFrameIndex = 0;
+          startAnimation();
         } else {
           alert(
             `GIF effect "${effect}" requires additional configuration. Current frame count: ${gifFrames.length}`,
@@ -1516,6 +1607,10 @@
           return;
         }
 
+        // Stop animation during processing
+        const wasPlaying = isPlaying;
+        stopAnimation();
+
         // Process GIF frames
         const processedFrames = [];
         for (let i = 0; i < gifFrames.length; i++) {
@@ -1526,7 +1621,14 @@
         }
 
         gifFrames = processedFrames;
-        displayFrame(0);
+        currentFrameIndex = 0;
+
+        // Resume animation
+        if (wasPlaying) {
+          startAnimation();
+        } else {
+          displayFrame(0);
+        }
       }
 
       function applyEffectToContext(ctx, canvas, effect) {
@@ -1547,7 +1649,7 @@
           case "emboss":
             for (let i = 0; i < data.length; i += 4) {
               const gray = (data[i] + data[i + 1] + data[i + 2]) / 3;
-              data[i] = data[i + 1] = data[i + 2] = gray + 128;
+              data[i] = data[i + 1] = data[i + 2] = Math.min(255, gray + 128);
             }
             break;
           case "noise":
@@ -1617,6 +1719,10 @@
           return;
         }
 
+        // Stop animation during export
+        const wasPlaying = isPlaying;
+        stopAnimation();
+
         // Download animated GIF
         const btn = event.target;
         btn.disabled = true;
@@ -1676,6 +1782,11 @@
 
           btn.disabled = false;
           btn.textContent = "Download Edited Image";
+
+          // Resume animation
+          if (wasPlaying) {
+            startAnimation();
+          }
         });
 
         gif.render();
@@ -1704,6 +1815,13 @@
         const file = e.dataTransfer.files[0];
         if (file) {
           loadImage(file);
+        }
+      });
+
+      // Click on preview to toggle play/pause
+      previewImage.addEventListener("click", () => {
+        if (isGif) {
+          toggleAnimation();
         }
       });
     </script>
