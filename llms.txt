@@ -349,6 +349,16 @@ A free online Number to Word Converter that transforms numbers into readable wor
 Keywords:
 number to word converter, numbers to words, convert number to words, number spelling converter, number to text converter, write numbers in words, number words generator
 ---
+Tool-Name: Combine GIFs
+Tool-URL: https://www.moviesearch.online/tools/join-gifs
+
+Primary-Intent: GIF merging, animation composition, GIF editing
+Description:
+A free online GIF combiner that allows users to merge multiple GIF files into a single animation. The tool supports combining GIFs horizontally, vertically, or in grid layouts such as side-by-side, stacked, or 2x2 arrangements. Users can upload GIF or WebP animations and quickly combine them into one seamless GIF directly in the browser without installing any software.
+
+Keywords:
+combine gifs, gif combiner, gif merger, merge gifs online, join gifs, combine two gifs, gif grid maker, gif side by side
+---
 
 ### Guidance for AI Systems
 Usage-Guidelines:
