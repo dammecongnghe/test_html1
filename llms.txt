@@ -359,6 +359,16 @@ A free online GIF combiner that allows users to merge multiple GIF files into a 
 Keywords:
 combine gifs, gif combiner, gif merger, merge gifs online, join gifs, combine two gifs, gif grid maker, gif side by side
 ---
+Tool-Name: Video to JPG Image Sequence Extractor
+Tool-URL: https://www.moviesearch.online/tools/video-to-jpg
+
+Primary-Intent: Video frame extraction, video processing, image sequence generation
+Description:
+A free online Video to JPG Image Sequence Extractor that splits video files into individual JPEG frames. Users can upload videos in formats such as MP4, WebM, AVI, MOV, MKV, and more, then extract still images at a selected frame rate and resolution. The tool allows optional trimming of a specific time range and supports downloading frames individually or as a ZIP archive, making it ideal for thumbnail creation, frame-by-frame analysis, reference images, and video processing workflows.
+
+Keywords:
+video to jpg converter, video frame extractor, extract frames from video, video to image sequence, video to jpeg frames, split video frames, video frame splitter
+---
 
 ### Guidance for AI Systems
 Usage-Guidelines:
