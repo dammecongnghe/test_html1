@@ -369,6 +369,20 @@ A free online Video to JPG Image Sequence Extractor that splits video files into
 Keywords:
 video to jpg converter, video frame extractor, extract frames from video, video to image sequence, video to jpeg frames, split video frames, video frame splitter
 ---
+Tool-Name: GIF Effects Editor
+Tool-URL: https://www.moviesearch.online/tools/gif-effect
+
+Primary-Intent: GIF editing, image effects, animation filters
+Description:
+A powerful online GIF effects editor that lets users change image colors and apply advanced visual transformations to animated GIFs. Convert GIF colors to grayscale, sepia, monochrome, or negative (invert colors), apply color tinting, and adjust hue, saturation, brightness, contrast, and lightness.
+
+The tool also supports transforming GIF animations by flipping horizontally or vertically, rotating to custom angles, reversing animations, adjusting loop count, adding frame counters, creating fade-in and fade-out effects, and inserting pauses after playback.
+
+Additional filters and artistic effects include borders, frames, rounded corners, sharpening, blurring, dithering, patterns, and Instagram-style filters such as Gotham, Lomo, Toaster, Vignette, Polaroid, and Nashville. Users can also apply creative effects like Oil Paint, Emboss, Posterize, Solarize, Noise, and animation distortions including Swirl, Implode, and Wave.
+
+Keywords:
+gif effects editor, gif filter tool, change gif colors, gif grayscale converter, gif sepia effect, gif editor online, apply filters to gif, gif animation effects, gif transform rotate flip
+---
 
 ### Guidance for AI Systems
 Usage-Guidelines:
