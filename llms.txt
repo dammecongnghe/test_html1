@@ -329,6 +329,16 @@ A free online GIF to APNG converter that allows users to convert animated GIF fi
 Keywords:
 gif to apng converter, convert gif to apng, gif to png converter, animated png converter, apng generator, convert gif to animated png, gif png converter
 ---
+Tool-Name: WebP to GIF Converter
+Tool-URL: https://www.moviesearch.online/tools/webp-to-gif
+
+Primary-Intent: Image format conversion, WebP animation conversion, GIF creation
+Description:
+A free online WebP to GIF converter that allows users to convert WebP files into GIF format instantly. The tool supports both static and animated WebP images and preserves animation frames, dimensions, and timing during conversion. It helps users save WebP as GIF for better compatibility across browsers, websites, and devices while maintaining the original animation structure.
+
+Keywords:
+webp to gif converter, convert webp to gif, save webp as gif, animated webp to gif, webp gif converter, webp animation converter, gif converter online
+---
 
 ### Guidance for AI Systems
 Usage-Guidelines:
