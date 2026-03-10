@@ -1,0 +1,1040 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Video to JPG Converter - Convert Video to Frames & MP4 to JPG Free
+    </title>
+    <meta
+      name="description"
+      content="Free video to JPG converter to convert video to frames and MP4 to JPG. Split video into frames, convert video to image sequence, and convert video to JPG online instantly."
+    />
+    <meta
+      name="keywords"
+      content="mp4 to jpg, video to jpg, video to image sequence, video to image, video to jpg converter, video to frames, convert video to jpg, split video into frames, convert video to frames, free video to jpg converter"
+    />
+    <link rel="canonical" href="https://moviesearch.online/video-to-jpg" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Video to JPG Converter - Convert Video to Frames Online"
+    />
+    <meta
+      property="og:description"
+      content="Free video to JPG converter. Convert video to frames, MP4 to JPG, and split video into frames online."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moviesearch.online/video-to-jpg" />
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I convert video to JPG?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To convert video to JPG, upload your video to our free video to JPG converter, set frame rate and resolution, and click 'Extract Frames to JPG!'. Our tool will convert video to frames and split video into frames as JPG images. You can convert video to image sequence from MP4, WebM, AVI, MOV, and more formats."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I convert MP4 to JPG?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our video to JPG converter easily converts MP4 to JPG. Upload your MP4 file to convert video to JPG and split video into frames. Our MP4 to JPG tool extracts video to frames as individual JPG images. Convert video to image sequence from any MP4 video."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I split video into frames?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To split video into frames, use our video to JPG converter. Upload your video, choose frame rate (1-30 FPS), and convert video to frames. Our tool will split video into frames and let you convert video to image sequence. Download all frames or convert video to JPG individually."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this video to JPG converter free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! Our video to JPG converter is a free video to JPG converter. Convert video to frames unlimited times, convert MP4 to JPG, split video into frames, and convert video to image sequence without fees or registration. Use our tool to convert video to JPG as often as needed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What video formats can I convert to JPG?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our video to JPG converter supports all major formats. Convert video to JPG from MP4, WebM, AVI, MOV, MKV, and more. Use our tool to convert MP4 to JPG, split video into frames from any format, and convert video to frames with ease. Our video to image converter handles any video format."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I choose the quality when I convert video to frames?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! When you convert video to JPG using our video to JPG converter, you can choose resolution up to 1920px Full HD. Select frame rate (1-30 FPS) to control how many frames to extract. Our tool lets you split video into frames at your preferred quality when you convert video to image sequence."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Video to JPG Converter - Convert Video to Frames",
+        "description": "Free video to JPG converter. Convert video to frames, MP4 to JPG, and split video into frames online.",
+        "url": "https://moviesearch.online/video-to-jpg",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <!-- JSZip library for creating ZIP archives -->
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #4f6ef7;
+        --primary-dark: #3b55d9;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --text: #111827;
+        --muted: #6b7280;
+      }
+      .hero {
+        max-width: 980px;
+        margin: 24px auto;
+        padding: 40px 24px;
+        background: #f0f4ff;
+        border: 1px solid #dbe4ff;
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto 24px;
+        line-height: 1.6;
+      }
+
+      .hero a.cta {
+        display: inline-block;
+        padding: 12px 26px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: #0066cc;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .home-button:hover {
+        background: #0052a3;
+        transform: translateY(-2px);
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 2em;
+      }
+
+      h2 {
+        color: #333;
+        margin: 30px 0 15px;
+        font-size: 1.5em;
+      }
+
+      .description {
+        color: #666;
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #ddd;
+      }
+
+      .tab {
+        padding: 12px 24px;
+        background: #f0f0f0;
+        border: none;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: 600;
+        border-radius: 5px 5px 0 0;
+        transition: all 0.3s;
+      }
+
+      .tab.active {
+        background: #0066cc;
+        color: white;
+      }
+
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      .upload-area {
+        border: 2px dashed #0066cc;
+        border-radius: 8px;
+        padding: 40px;
+        text-align: center;
+        background: #f9f9f9;
+        margin-bottom: 30px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .upload-area:hover {
+        background: #f0f0f0;
+        border-color: #0052a3;
+      }
+
+      .upload-btn {
+        background: #0066cc;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .upload-btn:hover {
+        background: #0052a3;
+      }
+
+      .options-section {
+        background: #fafafa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        display: none;
+      }
+
+      .options-section.active {
+        display: block;
+      }
+
+      .option-group {
+        margin-bottom: 15px;
+      }
+
+      .option-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: #555;
+      }
+
+      .option-group input,
+      .option-group select {
+        width: 100%;
+        max-width: 300px;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .checkbox-group {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .checkbox-group input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+      }
+
+      .convert-btn {
+        background: #0066cc;
+        color: white;
+        padding: 14px 40px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 600;
+        display: block;
+        margin: 20px auto;
+      }
+
+      .convert-btn:hover {
+        background: #0052a3;
+      }
+
+      .convert-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+
+      .frames-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+        margin: 20px 0;
+      }
+
+      .frame-item {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        background: white;
+        text-align: center;
+      }
+
+      .frame-item img {
+        width: 100%;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .frame-info {
+        font-size: 12px;
+        color: #666;
+        margin-top: 5px;
+      }
+
+      .download-section {
+        display: none;
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      .download-section.active {
+        display: block;
+      }
+
+      .download-btn {
+        background: #28a745;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 10px;
+      }
+
+      .download-btn:hover {
+        background: #218838;
+      }
+
+      .edit-btn {
+        background: #17a2b8;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 10px;
+      }
+
+      .edit-btn:hover {
+        background: #138496;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .info-box {
+        background: #e3f2fd;
+        border: 1px solid #2196f3;
+        padding: 15px;
+        border-radius: 5px;
+        color: #1565c0;
+        margin: 20px 0;
+      }
+
+      .features-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .features-list li {
+        padding: 8px 0;
+        padding-left: 25px;
+        position: relative;
+      }
+
+      .features-list li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #28a745;
+        font-weight: bold;
+        font-size: 18px;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+  <body>
+    <a href="https://moviesearch.online" class="home-button">
+      <span>🏠</span> Home
+    </a>
+
+    <div class="container">
+      <h1>Video to JPG Converter - Convert Video to Frames & MP4 to JPG</h1>
+
+      <div class="description">
+        <p>
+          Free video to JPG converter to convert video to frames and extract
+          video to image sequence. Our MP4 to JPG tool helps you split video
+          into frames and convert video to JPG from any video format - MP4,
+          WebM, AVI, MOV, MKV, and more. Use our video to frames converter to
+          convert video to image sequence at your chosen frame rate (1-30 FPS)
+          and resolution (up to 1920px Full HD). Perfect for creating
+          thumbnails, analyzing footage frame-by-frame, extracting reference
+          images, or preparing video to image sequences for further processing.
+        </p>
+        <p style="margin-top: 10px">
+          Upload your video to our video to JPG converter, select the size and
+          frames-per-second rate, optionally trim to a specific time range, and
+          click "Convert to JPG!" to split video into frames. The tool displays
+          all extracted frames and lets you download them individually or as a
+          ZIP archive. Use the "ZIP only" option to skip the preview and get
+          your video to frames download faster.
+        </p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab('video')">
+          Video to JPG
+        </button>
+        <button class="tab" onclick="switchTab('animated')">
+          GIF/APNG Frame Splitter
+        </button>
+      </div>
+
+      <!-- Video to JPG Tab -->
+      <div class="tab-content active" id="videoTab">
+        <div class="upload-area" id="videoUploadArea">
+          <input type="file" id="videoInput" accept="video/*" />
+          <button
+            class="upload-btn"
+            onclick="document.getElementById('videoInput').click()"
+          >
+            Upload Video File
+          </button>
+          <p style="margin-top: 15px; color: #666">
+            or drag and drop a video file here
+          </p>
+          <p style="font-size: 13px; color: #999; margin-top: 5px">
+            Supports: MP4, WebM, AVI, MOV, MKV, and more
+          </p>
+        </div>
+
+        <div class="options-section" id="videoOptions">
+          <h3>Extraction Options:</h3>
+
+          <div class="option-group">
+            <label>Frame Rate (FPS):</label>
+            <input type="number" id="fps" value="1" min="1" max="30" />
+            <small style="color: #666">Extract 1-30 frames per second</small>
+          </div>
+
+          <div class="option-group">
+            <label>Maximum Width (px):</label>
+            <select id="resolution">
+              <option value="640">640px</option>
+              <option value="1280">1280px HD</option>
+              <option value="1920" selected>1920px Full HD</option>
+            </select>
+          </div>
+
+          <div class="option-group">
+            <label>Start Time (seconds):</label>
+            <input type="number" id="startTime" value="0" min="0" step="0.1" />
+          </div>
+
+          <div class="option-group">
+            <label>End Time (seconds - leave 0 for full video):</label>
+            <input type="number" id="endTime" value="0" min="0" step="0.1" />
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="zipOnly" />
+            <label for="zipOnly"
+              >ZIP only (skip preview, faster download)</label
+            >
+          </div>
+
+          <button class="convert-btn" id="extractBtn">
+            Extract Frames to JPG!
+          </button>
+        </div>
+      </div>
+
+      <!-- Animated Image Frame Splitter Tab -->
+      <div class="tab-content" id="animatedTab">
+        <div class="description">
+          <p>
+            This online tool is designed to convert animated images into a
+            sequence of individual frames so you can edit or view them
+            separately. GIF explode tool, splitter, decompiler - call it
+            whatever you want. It can extract individual frames from various
+            animated image formats such as GIF, APNG, WebP, AVIF, JXL, ANI, and
+            MNG.
+          </p>
+        </div>
+
+        <div class="upload-area" id="animatedUploadArea">
+          <input
+            type="file"
+            id="animatedInput"
+            accept="image/gif,image/apng,image/webp"
+          />
+          <button
+            class="upload-btn"
+            onclick="document.getElementById('animatedInput').click()"
+          >
+            Upload Animated Image
+          </button>
+          <p style="margin-top: 15px; color: #666">
+            or drag and drop an animated image here
+          </p>
+          <p style="font-size: 13px; color: #999; margin-top: 5px">
+            Supports: GIF, APNG, WebP, AVIF, JXL, MNG
+          </p>
+        </div>
+
+        <button class="convert-btn" id="splitBtn" style="display: none">
+          Split Frames!
+        </button>
+
+        <div class="info-box">
+          <strong>💡 After Extraction:</strong>
+          <ul style="margin-top: 10px; padding-left: 20px">
+            <li>
+              Download specific frames by right-clicking the image and selecting
+              "Save image as..."
+            </li>
+            <li>
+              Save all frames at once as a ZIP file by clicking "Download frames
+              as ZIP archive"
+            </li>
+            <li>
+              Click "Edit animation" to rearrange frame order or remove frames
+              and restore the animation
+            </li>
+            <li>
+              File names preserve frame order and duration for easy recreation
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Results Section -->
+      <div class="download-section" id="resultsSection">
+        <h2>Extracted Frames:</h2>
+        <p id="frameCount" style="color: #666; margin-bottom: 20px"></p>
+
+        <div class="frames-grid" id="framesGrid">
+          <!-- Frames will be displayed here -->
+        </div>
+
+        <div style="margin-top: 30px">
+          <button class="download-btn" id="downloadZipBtn">
+            📦 Download Frames as ZIP Archive
+          </button>
+          <button class="edit-btn" id="editAnimBtn">✏️ Edit Animation</button>
+        </div>
+      </div>
+      <div class="hero">
+        <h1>Convert Images to Vector Graphics Instantly</h1>
+        <p>
+          Turn raster images into clean, scalable vector files for design,
+          print, or web use.
+        </p>
+        <a class="cta" href="https://rastertovector.online" target="_blank">
+          Convert Raster to Vector
+        </a>
+      </div>
+      <!-- Features Section -->
+      <h2>Features & Supported Formats</h2>
+
+      <h3>Video to JPG Converter:</h3>
+      <ul class="features-list">
+        <li>
+          Extract frames from MP4, WebM, AVI, MOV, MKV, and more video formats
+        </li>
+        <li>Adjustable frame rate: 1-30 FPS</li>
+        <li>Resolution options: up to 1920px Full HD</li>
+        <li>Time range trimming: extract frames from specific portions</li>
+        <li>ZIP only option for faster processing</li>
+        <li>Perfect for thumbnails, analysis, and reference images</li>
+      </ul>
+
+      <h3>Animated Image Frame Splitter:</h3>
+      <ul class="features-list">
+        <li>Support for GIF, APNG, WebP, AVIF, JXL, ANI, and MNG formats</li>
+        <li>Extract all frames individually</li>
+        <li>Download specific frames or entire sequence as ZIP</li>
+        <li>Edit animation: rearrange or remove frames</li>
+        <li>Preserves frame timing and order information</li>
+        <li>Easy re-import to GIF maker for recreation</li>
+      </ul>
+
+      <h2>Use Cases</h2>
+      <ul class="features-list">
+        <li>
+          <strong>Thumbnail Creation:</strong> Extract key frames for video
+          thumbnails
+        </li>
+        <li>
+          <strong>Frame-by-Frame Analysis:</strong> Analyze footage in detail
+        </li>
+        <li>
+          <strong>Reference Images:</strong> Extract still images for art and
+          design
+        </li>
+        <li>
+          <strong>GIF Editing:</strong> Split animated GIFs to edit individual
+          frames
+        </li>
+        <li>
+          <strong>Image Sequences:</strong> Prepare sequences for animation or
+          processing
+        </li>
+        <li>
+          <strong>Quality Checking:</strong> Inspect video or animation quality
+          frame-by-frame
+        </li>
+      </ul>
+
+      <!-- SEO Content Section -->
+      <h2>How to Use Our Video to JPG Converter</h2>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our free video to JPG converter makes it easy to convert video to frames
+        and MP4 to JPG instantly. Whether you need to split video into frames
+        for thumbnails, convert video to image sequence for analysis, or convert
+        video to JPG for reference images, our video to frames tool handles it
+        all. Simply upload your video file to our video to JPG converter, choose
+        frame rate and resolution, and convert video to frames with one click.
+        No software installation required - our MP4 to JPG converter works
+        online to split video into frames and convert video to image sequence.
+        Use our free video to JPG converter to convert video to JPG from MP4,
+        WebM, AVI, MOV, MKV, and more!
+      </p>
+
+      <h3>Convert Video to Frames with Frame Rate Control</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        When you convert video to JPG using our video to JPG converter, you have
+        full control over frame extraction. Use our video to frames tool to
+        split video into frames at 1-30 FPS - choose 1 FPS to convert video to
+        image sequence sparingly, or 30 FPS to convert video to frames densely.
+        Our MP4 to JPG converter lets you convert video to JPG at any frame
+        rate. Whether you need to split video into frames for every second or
+        convert video to image sequence with many frames, our video to JPG
+        converter gives you complete control. The video to frames feature makes
+        it simple to convert video to JPG exactly how you need!
+      </p>
+
+      <h3>MP4 to JPG & Multi-Format Support</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our video to JPG converter isn't just an MP4 to JPG tool - it supports
+        all major video formats. Convert video to frames from MP4, WebM, AVI,
+        MOV, MKV, and more using our video to JPG converter. Use our MP4 to JPG
+        feature to split video into frames from MP4 files, or convert video to
+        image sequence from any format. The video to frames converter handles
+        all formats when you convert video to JPG. Whether you need to convert
+        MP4 to JPG specifically or split video into frames from other formats,
+        our free video to JPG converter delivers. Convert video to image
+        sequence from any source with our versatile video to JPG converter!
+      </p>
+
+      <h3>Split Video into Frames with Resolution Options</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Quality matters when you convert video to JPG, which is why our video to
+        JPG converter offers resolution control. Use our video to frames tool to
+        split video into frames at 640px, 1280px HD, or 1920px Full HD. When you
+        convert video to image sequence with our MP4 to JPG converter, choose
+        the resolution that matches your needs. Our video to JPG converter
+        maintains quality when you convert video to frames at high resolution.
+        Whether you split video into frames for web use or convert video to JPG
+        for professional projects, our video to frames tool ensures quality. Use
+        our free video to JPG converter to convert video to image sequence at
+        your preferred resolution!
+      </p>
+
+      <h3>Time Range Trimming & ZIP Download</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our video to JPG converter offers advanced features to convert video to
+        frames efficiently. Use time range trimming in our video to frames tool
+        to split video into frames from specific portions - perfect when you
+        only need to convert video to JPG from part of a video. Set start and
+        end times to convert video to image sequence from selected sections. Our
+        MP4 to JPG converter also includes ZIP download - get all frames when
+        you convert video to frames in one archive. Enable "ZIP only" in our
+        video to JPG converter to skip preview and convert video to JPG faster.
+        Whether you split video into frames from full videos or portions, our
+        free video to JPG converter makes downloading easy!
+      </p>
+
+      <h3>Free Video to JPG Converter Tool</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Unlike paid software, our video to JPG converter and MP4 to JPG tool are
+        completely free. Convert video to frames unlimited times, split video
+        into frames without restrictions, and convert video to image sequence as
+        often as needed - all free! No registration required to use our video to
+        JPG converter or convert video to JPG. Our video to frames tool works
+        entirely in your browser when you split video into frames, ensuring
+        privacy and speed. Perfect for content creators who need to convert MP4
+        to JPG regularly, video editors who want to convert video to frames for
+        editing, or anyone who needs a free video to JPG converter to convert
+        video to image sequence. Start using our video to JPG converter today to
+        split video into frames and convert video to JPG instantly!
+      </p>
+
+      <!-- FAQ Section -->
+      <h2 style="margin-top: 40px; margin-bottom: 25px; text-align: center">
+        Frequently Asked Questions
+      </h2>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How do I convert video to JPG?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          To convert video to JPG, upload your video to our free video to JPG
+          converter, set frame rate and resolution, and click 'Extract Frames to
+          JPG!'. Our tool will convert video to frames and split video into
+          frames as JPG images. You can convert video to image sequence from
+          MP4, WebM, AVI, MOV, and more formats.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can I convert MP4 to JPG?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Yes! Our video to JPG converter easily converts MP4 to JPG. Upload
+          your MP4 file to convert video to JPG and split video into frames. Our
+          MP4 to JPG tool extracts video to frames as individual JPG images.
+          Convert video to image sequence from any MP4 video.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How do I split video into frames?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          To split video into frames, use our video to JPG converter. Upload
+          your video, choose frame rate (1-30 FPS), and convert video to frames.
+          Our tool will split video into frames and let you convert video to
+          image sequence. Download all frames or convert video to JPG
+          individually.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Is this video to JPG converter free?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Absolutely! Our video to JPG converter is a free video to JPG
+          converter. Convert video to frames unlimited times, convert MP4 to
+          JPG, split video into frames, and convert video to image sequence
+          without fees or registration. Use our tool to convert video to JPG as
+          often as needed.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What video formats can I convert to JPG?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Our video to JPG converter supports all major formats. Convert video
+          to JPG from MP4, WebM, AVI, MOV, MKV, and more. Use our tool to
+          convert MP4 to JPG, split video into frames from any format, and
+          convert video to frames with ease. Our video to image converter
+          handles any video format.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can I choose the quality when I convert video to frames?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Yes! When you convert video to JPG using our video to JPG converter,
+          you can choose resolution up to 1920px Full HD. Select frame rate
+          (1-30 FPS) to control how many frames to extract. Our tool lets you
+          split video into frames at your preferred quality when you convert
+          video to image sequence.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      let currentTab = "video";
+      const zip = new JSZip(); // Initialize JSZip
+
+      function switchTab(tab) {
+        currentTab = tab;
+        document
+          .querySelectorAll(".tab")
+          .forEach((t) => t.classList.remove("active"));
+        document
+          .querySelectorAll(".tab-content")
+          .forEach((c) => c.classList.remove("active"));
+        if (tab === "video") {
+          document.querySelectorAll(".tab")[0].classList.add("active");
+          document.getElementById("videoTab").classList.add("active");
+        } else {
+          document.querySelectorAll(".tab")[1].classList.add("active");
+          document.getElementById("animatedTab").classList.add("active");
+        }
+      }
+
+      const videoInput = document.getElementById("videoInput");
+      const videoOptions = document.getElementById("videoOptions");
+      const extractBtn = document.getElementById("extractBtn");
+      const endTimeInput = document.getElementById("endTime");
+      const framesGrid = document.getElementById("framesGrid");
+      const downloadZipBtn = document.getElementById("downloadZipBtn");
+
+      // Detect video upload and set default duration
+      videoInput.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const tempVideo = document.createElement("video");
+          tempVideo.preload = "metadata";
+          tempVideo.onloadedmetadata = function () {
+            endTimeInput.value = tempVideo.duration.toFixed(2); // Set default to end of video
+            videoOptions.classList.add("active");
+            URL.revokeObjectURL(tempVideo.src);
+          };
+          tempVideo.src = URL.createObjectURL(file);
+        }
+      });
+
+      // Extraction Process
+      extractBtn.addEventListener("click", async () => {
+        const file = videoInput.files[0];
+        if (!file) return alert("Please upload a video");
+
+        extractBtn.disabled = true;
+        extractBtn.textContent = "Processing Frames...";
+        framesGrid.innerHTML = "";
+
+        const video = document.createElement("video");
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+
+        video.src = URL.createObjectURL(file);
+        video.muted = true;
+
+        video.onloadedmetadata = async () => {
+          const fps = parseInt(document.getElementById("fps").value);
+          const maxWidth = parseInt(
+            document.getElementById("resolution").value,
+          );
+          const scale = maxWidth / video.videoWidth;
+
+          canvas.width = maxWidth;
+          canvas.height = video.videoHeight * scale;
+
+          const startTime =
+            parseFloat(document.getElementById("startTime").value) || 0;
+          const endTime = parseFloat(endTimeInput.value);
+
+          let currentTime = startTime;
+          const interval = 1 / fps;
+
+          while (currentTime <= endTime) {
+            video.currentTime = currentTime;
+            await new Promise((res) => {
+              video.onseeked = res;
+            });
+
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            const dataUrl = canvas.toDataURL("image/jpeg", 0.8);
+
+            // Add to UI
+            const frameDiv = document.createElement("div");
+            frameDiv.className = "frame-item";
+            frameDiv.innerHTML = `
+                    <img src="${dataUrl}" style="width:100%; border-radius:5px;">
+                    <div class="frame-info">Frame_${currentTime.toFixed(2)}.jpg</div>
+                `;
+            framesGrid.appendChild(frameDiv);
+
+            currentTime += interval;
+          }
+
+          document.getElementById("resultsSection").classList.add("active");
+          document.getElementById("frameCount").textContent =
+            `Extracted ${framesGrid.children.length} frames.`;
+          extractBtn.disabled = false;
+          extractBtn.textContent = "Extract Frames to JPG!";
+        };
+      });
+
+      // ZIP Download Logic
+      downloadZipBtn.addEventListener("click", async () => {
+        const images = framesGrid.querySelectorAll("img");
+        if (images.length === 0) return alert("No frames to download!");
+
+        downloadZipBtn.disabled = true;
+        downloadZipBtn.textContent = "Generating ZIP...";
+
+        const zip = new JSZip();
+        const folder = zip.folder("video_frames");
+
+        images.forEach((img, index) => {
+          // Remove the "data:image/jpeg;base64," part to get raw base64 data
+          const imageData = img.src.split(",")[1];
+          folder.file(`frame_${index + 1}.jpg`, imageData, { base64: true });
+        });
+
+        const content = await zip.generateAsync({ type: "blob" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(content);
+        link.download = "extracted_frames.zip";
+        link.click();
+
+        downloadZipBtn.disabled = false;
+        downloadZipBtn.textContent = "📦 Download Frames as ZIP Archive";
+      });
+    </script>
+  </body>
+</html>
