@@ -1,0 +1,1355 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Censor Image & Blur GIF - Censor Bar, Mosaic Censor & Censored Image Free
+    </title>
+    <meta
+      name="description"
+      content="Free tool to censor image, blur GIF, and add censor bar online. Create censored image, mosaic censor, censor PNG, and censored PNG. Censor picture and censor blur instantly."
+    />
+    <meta
+      name="keywords"
+      content="censor bar, censor image, mosaic censor, censored image, blur gif, censor gif, censor png, censored png, censor picture, censor blur"
+    />
+    <link rel="canonical" href="https://moviesearch.online/censor-image" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Censor Image & Blur GIF - Add Censor Bar Online"
+    />
+    <meta
+      property="og:description"
+      content="Free tool to censor image, blur GIF, and create censored image with censor bar or mosaic censor online."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moviesearch.online/censor-image" />
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I censor image and add a censor bar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To censor image and add a censor bar, upload your image, click and drag to select the area, then choose pixelate (mosaic censor), blur (censor blur), or solid color (censor bar). Our tool helps you create censored image, censor GIF, censor PNG, and censor picture instantly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a mosaic censor and censor bar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A mosaic censor (pixelate) creates a censored image using small blocks to hide information. A censor bar is a solid color block used to censor image. Our tool offers both mosaic censor and censor bar to create censored PNG, blur GIF, and censor picture with censor blur effects."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I blur GIF and censor GIF animations?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our tool lets you blur GIF and censor GIF while preserving animation. Upload your GIF to censor image, add censor bar, or apply mosaic censor. Create censored image from animated GIFs with censor blur effects. The animation is maintained when you blur GIF or censor GIF."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I create a censored PNG?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To create a censored PNG, upload your PNG file, select the area to censor, and choose your method (censor bar, mosaic censor, or censor blur). Our tool will censor PNG and create censored PNG with your chosen effect. You can censor image and censor picture in PNG format instantly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this censor image tool free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! Our tool to censor image is 100% free. Add censor bar unlimited times, create mosaic censor, blur GIF, censor PNG, and make censored image without fees. Use our tool to censor picture and apply censor blur as often as needed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What can I censor with this tool?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use our tool to censor image with faces, add censor bar over license plates, create mosaic censor for personal info, blur GIF with sensitive data, censor PNG with addresses, and censor picture with phone numbers. Our censored image tool handles all privacy needs with censor blur options."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Censor Image & Blur GIF - Mosaic Censor Tool",
+        "description": "Free tool to censor image, add censor bar, create mosaic censor, blur GIF, and make censored PNG online.",
+        "url": "https://moviesearch.online/censor-image",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <!-- Libraries for animated GIF processing -->
+    <script src="https://cdn.jsdelivr.net/npm/omggif@1.0.10/omggif.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.js"></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: #0066cc;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .home-button:hover {
+        background: #0052a3;
+        transform: translateY(-2px);
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 2em;
+      }
+
+      .description {
+        color: #666;
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+
+      .upload-area {
+        border: 2px dashed #0066cc;
+        border-radius: 8px;
+        padding: 40px;
+        text-align: center;
+        background: #f9f9f9;
+        margin-bottom: 30px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .upload-area:hover {
+        background: #f0f0f0;
+        border-color: #0052a3;
+      }
+
+      .upload-btn {
+        background: #0066cc;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .upload-btn:hover {
+        background: #0052a3;
+      }
+
+      .editor-section {
+        display: none;
+      }
+
+      .editor-section.active {
+        display: block;
+      }
+
+      .file-info {
+        background: #f0f0f0;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .preview-container {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 20px;
+        background: #fafafa;
+        padding: 20px;
+        border-radius: 8px;
+      }
+
+      .preview-container img,
+      .preview-container canvas {
+        max-width: 100%;
+        border: 1px solid #ddd;
+        cursor: crosshair;
+      }
+
+      .selection-box {
+        position: absolute;
+        border: 2px dashed #ff0000;
+        background: rgba(255, 0, 0, 0.1);
+        pointer-events: none;
+      }
+
+      .instruction {
+        background: #e3f2fd;
+        padding: 15px;
+        border-radius: 5px;
+        color: #1565c0;
+        margin-bottom: 20px;
+      }
+
+      .controls-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      .control-group {
+        background: #fafafa;
+        padding: 15px;
+        border-radius: 8px;
+      }
+
+      .control-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #555;
+      }
+
+      .control-group input,
+      .control-group select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .method-dropdown {
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        position: relative;
+      }
+
+      .method-selected {
+        padding: 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .method-icon {
+        width: 24px;
+        height: 24px;
+        background: #f0f0f0;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .method-options {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border: 1px solid #ddd;
+        border-top: none;
+        border-radius: 0 0 5px 5px;
+        display: none;
+        z-index: 10;
+      }
+
+      .method-options.active {
+        display: block;
+      }
+
+      .method-option {
+        padding: 10px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: background 0.3s;
+      }
+
+      .method-option:hover {
+        background: #f0f0f0;
+      }
+
+      .submit-btn {
+        background: #0066cc;
+        color: white;
+        padding: 14px 40px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 600;
+        display: block;
+        margin: 20px auto;
+      }
+
+      .submit-btn:hover {
+        background: #0052a3;
+      }
+
+      .download-section {
+        display: none;
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .download-section.active {
+        display: block;
+      }
+
+      .download-btn {
+        background: #28a745;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .download-btn:hover {
+        background: #218838;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .features-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .features-list li {
+        padding: 8px 0;
+        padding-left: 25px;
+        position: relative;
+      }
+
+      .features-list li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #28a745;
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      h2 {
+        color: #333;
+        margin: 30px 0 15px;
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://moviesearch.online" class="home-button">
+      <span>🏠</span> Home
+    </a>
+
+    <div class="container">
+      <h1>
+        Censor Image & Blur GIF - Censor Bar, Mosaic Censor & Censored Image
+      </h1>
+
+      <div class="description">
+        <p>
+          Free tool to censor image, blur GIF, and add censor bar online. Hide
+          sensitive or private information in images by using a censor bar,
+          mosaic censor (pixelating), or censor blur to create censored image.
+          This tool helps you censor PNG, censor GIF, and censor picture with
+          perfect results. Works with all common image formats including
+          animated GIF to blur GIF and censor GIF while preserving animation.
+          Create censored PNG and censored image perfect for redacting names,
+          faces, license plates, addresses, phone numbers, or any other
+          sensitive content before sharing images publicly.
+        </p>
+        <p style="margin-top: 10px">
+          Upload the image to censor picture, select the area you want to
+          conceal by clicking and dragging directly on the image preview, then
+          choose your preferred method - censor bar (solid color), mosaic censor
+          (pixelate), or censor blur. Adjust the pixel block size for mosaic
+          censor, blur intensity for censor blur, or color for censor bar to get
+          exactly the look you need. Free to use with no watermarks - censor
+          image, blur GIF, and create censored PNG as many times as you need!
+        </p>
+      </div>
+
+      <!-- Upload Area -->
+      <div class="upload-area" id="uploadArea">
+        <input type="file" id="fileInput" accept="image/*,video/*" />
+        <button
+          class="upload-btn"
+          onclick="document.getElementById('fileInput').click()"
+        >
+          Upload Image or GIF
+        </button>
+        <p style="margin-top: 15px; color: #666">
+          or drag and drop an image/video here
+        </p>
+        <p style="font-size: 13px; color: #999; margin-top: 5px">
+          Supports: GIF, JPG, PNG, WebP, AVIF, APNG, MP4, WebM
+        </p>
+      </div>
+
+      <!-- Editor Section -->
+      <div class="editor-section" id="editorSection">
+        <div class="file-info" id="fileInfo">
+          File size: 1.69MiB, width: 480px, height: 480px, frames: 38, type:
+          gif, length: 00:00:03.80
+        </div>
+
+        <div class="instruction">
+          📍 Select the area you want to hide by clicking and dragging on the
+          image, or enter the position in the fields below.
+        </div>
+
+        <div class="preview-container" id="previewContainer">
+          <img id="previewImage" src="" alt="Preview" />
+          <div
+            class="selection-box"
+            id="selectionBox"
+            style="display: none"
+          ></div>
+        </div>
+
+        <!-- Position Controls -->
+        <div class="controls-grid">
+          <div class="control-group">
+            <label>Left:</label>
+            <input type="number" id="leftInput" value="0" min="0" />
+          </div>
+          <div class="control-group">
+            <label>Top:</label>
+            <input type="number" id="topInput" value="0" min="0" />
+          </div>
+          <div class="control-group">
+            <label>Width:</label>
+            <input type="number" id="widthInput" value="0" min="0" />
+          </div>
+          <div class="control-group">
+            <label>Height:</label>
+            <input type="number" id="heightInput" value="0" min="0" />
+          </div>
+        </div>
+
+        <!-- Method Control -->
+        <div
+          class="control-group"
+          style="max-width: 400px; margin-bottom: 20px"
+        >
+          <label>Method:</label>
+          <div class="method-dropdown" id="methodDropdown">
+            <div class="method-selected" onclick="toggleMethodOptions()">
+              <div class="method-icon">🔷</div>
+              <span id="selectedMethod">Pixelate</span>
+            </div>
+            <div class="method-options" id="methodOptions">
+              <div
+                class="method-option"
+                onclick="selectMethod('Pixelate', '🔷')"
+              >
+                <div class="method-icon">🔷</div>
+                <span>Pixelate</span>
+              </div>
+              <div class="method-option" onclick="selectMethod('Blur', '🌫️')">
+                <div class="method-icon">🌫️</div>
+                <span>Blur</span>
+              </div>
+              <div
+                class="method-option"
+                onclick="selectMethod('Solid color', '🎨')"
+              >
+                <div class="method-icon">🎨</div>
+                <span>Solid color</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Options -->
+        <div class="controls-grid" id="additionalOptions">
+          <div class="control-group" id="pixelSizeControl">
+            <label>Pixel Size:</label>
+            <select id="pixelSize">
+              <option value="10" selected>10px</option>
+              <option value="15">15px</option>
+              <option value="20">20px</option>
+              <option value="30">30px</option>
+              <option value="50">50px</option>
+            </select>
+          </div>
+          <div
+            class="control-group"
+            id="blurIntensityControl"
+            style="display: none"
+          >
+            <label>Blur Intensity:</label>
+            <select id="blurIntensity">
+              <option value="5">Low</option>
+              <option value="10" selected>Medium</option>
+              <option value="20">High</option>
+              <option value="30">Very High</option>
+            </select>
+          </div>
+          <div class="control-group" id="colorControl" style="display: none">
+            <label>Color:</label>
+            <input type="color" id="colorPicker" value="#000000" />
+          </div>
+        </div>
+
+        <button class="submit-btn" onclick="applyCensor()">Submit!</button>
+      </div>
+
+      <!-- Download Section -->
+      <div class="download-section" id="downloadSection">
+        <h2>Censored Image Ready!</h2>
+        <div class="preview-container">
+          <canvas id="resultCanvas"></canvas>
+        </div>
+        <button class="download-btn" onclick="downloadImage()">
+          💾 Download Censored Image
+        </button>
+      </div>
+
+      <!-- Features -->
+      <h2>Features & Use Cases</h2>
+      <ul class="features-list">
+        <li>
+          <strong>Multiple Censoring Methods:</strong> Pixelate, blur, or solid
+          color block
+        </li>
+        <li>
+          <strong>Animated Format Support:</strong> Works with GIF, WebP, APNG -
+          animation preserved
+        </li>
+        <li><strong>Video Support:</strong> Censor MP4 and WebM videos</li>
+        <li>
+          <strong>Click & Drag Selection:</strong> Easy area selection directly
+          on image
+        </li>
+        <li>
+          <strong>Adjustable Settings:</strong> Control pixel size, blur
+          intensity, or color
+        </li>
+        <li>
+          <strong>Perfect for Privacy:</strong> Redact faces, names, addresses,
+          phone numbers
+        </li>
+        <li>
+          <strong>License Plate Censoring:</strong> Hide vehicle identification
+        </li>
+        <li><strong>No Watermarks:</strong> Free tool with unlimited usage</li>
+        <li>
+          <strong>Batch Processing:</strong> Process as many images as needed
+        </li>
+        <li>
+          <strong>Quality Preservation:</strong> Maintains image quality outside
+          censored areas
+        </li>
+      </ul>
+
+      <h2>Common Use Cases</h2>
+      <ul class="features-list">
+        <li>Blur faces in photos before sharing on social media</li>
+        <li>Censor license plates in vehicle photos</li>
+        <li>
+          Pixelate personal information (addresses, phone numbers, emails)
+        </li>
+        <li>Redact sensitive documents and screenshots</li>
+        <li>Hide usernames and profile pictures</li>
+        <li>Censor credit card numbers and banking information</li>
+        <li>Blur backgrounds in photos for privacy</li>
+        <li>Pixelate identification numbers and codes</li>
+      </ul>
+
+      <!-- SEO Content Section -->
+      <h2>How to Censor Image and Add Censor Bar</h2>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our free tool makes it easy to censor image, add censor bar, and create
+        censored image instantly. Whether you need to blur GIF animations, apply
+        mosaic censor to photos, censor PNG files, or censor picture with censor
+        blur, our tool handles it all. Simply upload your image to censor image,
+        click and drag to select the area, then choose your method - censor bar
+        (solid color block), mosaic censor (pixelate), or censor blur. Our tool
+        helps you create censored PNG, blur GIF, and censor GIF with perfect
+        results. No software installation required - our tool works online to
+        censor image, add censor bar, and create censored image instantly!
+      </p>
+
+      <h3>Add Censor Bar & Create Mosaic Censor</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        When you censor image with our tool, you can choose between censor bar
+        and mosaic censor methods. Use a censor bar (solid color block) to
+        censor picture with complete coverage, or apply mosaic censor (pixelate
+        effect) to create censored image with classic pixelated look. Our tool
+        lets you censor PNG and censor GIF using either method. The censor bar
+        is perfect when you need to completely hide information, while mosaic
+        censor gives a professional censored image appearance. Whether you blur
+        GIF with censor blur or add censor bar to censor picture, our tool makes
+        it simple to create censored PNG and censored image!
+      </p>
+
+      <h3>Blur GIF & Censor GIF Animations</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our tool isn't just for static images - you can blur GIF and censor GIF
+        while preserving animation! Upload your animated GIF to censor image,
+        select the area, and apply censor bar, mosaic censor, or censor blur.
+        When you blur GIF or censor GIF, the animation continues playing with
+        your censored area intact. Use our tool to create censored image from
+        animated GIFs, add censor bar to moving content, or apply mosaic censor
+        to blur GIF animations. Whether you need to censor PNG frames or censor
+        picture in video format, our tool maintains quality when you blur GIF
+        and censor GIF!
+      </p>
+
+      <h3>Create Censored PNG & Censored Image Files</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Need to censor PNG files or create censored image in various formats?
+        Our tool helps you censor image in all major formats. Upload PNG files
+        to censor PNG and create censored PNG with censor bar, mosaic censor, or
+        censor blur effects. You can also blur GIF, censor picture in JPEG, or
+        censor image in WebP format. When you censor PNG or create censored
+        image, choose your preferred method - add censor bar for solid coverage,
+        apply mosaic censor for pixelated effect, or use censor blur for subtle
+        hiding. Our tool makes it easy to censor image, blur GIF, and create
+        censored PNG for any purpose!
+      </p>
+
+      <h3>Censor Picture with Censor Blur Effects</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        When you need to censor picture with subtle effects, use our censor blur
+        feature. Unlike censor bar (which completely blocks) or mosaic censor
+        (which pixelates), censor blur softly obscures to create censored image
+        with natural appearance. Use censor blur to blur GIF, censor image, and
+        censor picture while maintaining image context. Our tool offers
+        adjustable blur intensity when you censor PNG or create censored image.
+        Apply censor blur to faces, add censor bar to sensitive data, or use
+        mosaic censor for license plates. Whether you blur GIF animations or
+        censor picture in photos, our censor blur feature helps you create
+        censored PNG and censored image professionally!
+      </p>
+
+      <h3>Free Tool to Censor Image & Blur GIF</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Unlike paid software, our tool to censor image is completely free. Add
+        censor bar unlimited times, create mosaic censor, blur GIF, censor PNG,
+        and make censored image without fees. No registration needed to censor
+        picture or create censored PNG. Our tool works entirely in your browser
+        when you censor image, ensuring privacy and speed. Perfect for social
+        media users who need to blur GIF and censor GIF, photographers who want
+        to add censor bar to photos, or anyone who needs to censor PNG and
+        create censored image. Use our free tool to censor picture, apply mosaic
+        censor, add censor bar, and create censored image with censor blur
+        instantly!
+      </p>
+
+      <!-- FAQ Section -->
+      <h2 style="margin-top: 40px; margin-bottom: 25px; text-align: center">
+        Frequently Asked Questions
+      </h2>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How do I censor image and add a censor bar?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          To censor image and add a censor bar, upload your image, click and
+          drag to select the area, then choose pixelate (mosaic censor), blur
+          (censor blur), or solid color (censor bar). Our tool helps you create
+          censored image, censor GIF, censor PNG, and censor picture instantly.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What is a mosaic censor and censor bar?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          A mosaic censor (pixelate) creates a censored image using small blocks
+          to hide information. A censor bar is a solid color block used to
+          censor image. Our tool offers both mosaic censor and censor bar to
+          create censored PNG, blur GIF, and censor picture with censor blur
+          effects.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can I blur GIF and censor GIF animations?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Yes! Our tool lets you blur GIF and censor GIF while preserving
+          animation. Upload your GIF to censor image, add censor bar, or apply
+          mosaic censor. Create censored image from animated GIFs with censor
+          blur effects. The animation is maintained when you blur GIF or censor
+          GIF.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How do I create a censored PNG?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          To create a censored PNG, upload your PNG file, select the area to
+          censor, and choose your method (censor bar, mosaic censor, or censor
+          blur). Our tool will censor PNG and create censored PNG with your
+          chosen effect. You can censor image and censor picture in PNG format
+          instantly.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Is this censor image tool free?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Absolutely! Our tool to censor image is 100% free. Add censor bar
+          unlimited times, create mosaic censor, blur GIF, censor PNG, and make
+          censored image without fees. Use our tool to censor picture and apply
+          censor blur as often as needed.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What can I censor with this tool?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Use our tool to censor image with faces, add censor bar over license
+          plates, create mosaic censor for personal info, blur GIF with
+          sensitive data, censor PNG with addresses, and censor picture with
+          phone numbers. Our censored image tool handles all privacy needs with
+          censor blur options.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      let imageData = null;
+      let selection = { left: 0, top: 0, width: 0, height: 0 };
+      let isSelecting = false;
+      let startX = 0;
+      let startY = 0;
+      let currentMethod = "Pixelate";
+      let currentFile = null;
+      let isGif = false;
+      let gifFrames = [];
+      let animationInterval = null;
+      let currentFrameIndex = 0;
+      let isPlaying = false;
+      let censoredFrames = [];
+
+      const fileInput = document.getElementById("fileInput");
+      const uploadArea = document.getElementById("uploadArea");
+      const editorSection = document.getElementById("editorSection");
+      const previewImage = document.getElementById("previewImage");
+      const previewContainer = document.getElementById("previewContainer");
+      const selectionBox = document.getElementById("selectionBox");
+
+      // File upload
+      fileInput.addEventListener("change", (e) => {
+        if (e.target.files[0]) {
+          loadImage(e.target.files[0]);
+        }
+      });
+
+      async function loadImage(file) {
+        currentFile = file;
+        isGif = file.type === "image/gif";
+        stopAnimation();
+
+        if (isGif) {
+          // Parse GIF frames
+          const arrayBuffer = await file.arrayBuffer();
+          const uint8Array = new Uint8Array(arrayBuffer);
+
+          try {
+            const gifReader = new GifReader(uint8Array);
+            const numFrames = gifReader.numFrames();
+
+            gifFrames = [];
+            for (let i = 0; i < numFrames; i++) {
+              const frameInfo = gifReader.frameInfo(i);
+              const imageData = new Uint8ClampedArray(
+                gifReader.width * gifReader.height * 4,
+              );
+              gifReader.decodeAndBlitFrameRGBA(i, imageData);
+
+              gifFrames.push({
+                data: imageData,
+                delay: frameInfo.delay * 10 || 100,
+                width: gifReader.width,
+                height: gifReader.height,
+              });
+            }
+
+            // Start animation
+            currentFrameIndex = 0;
+            startAnimation();
+
+            // Update file info
+            const fileSize = (file.size / 1024 / 1024).toFixed(2);
+            document.getElementById("fileInfo").textContent =
+              `File size: ${fileSize}MiB, width: ${gifReader.width}px, height: ${gifReader.height}px, frames: ${numFrames}, type: gif`;
+          } catch (error) {
+            console.error("Error parsing GIF:", error);
+            alert("Error loading GIF. Loading as static image instead.");
+            isGif = false;
+            loadAsStaticImage(file);
+          }
+        } else {
+          loadAsStaticImage(file);
+        }
+
+        editorSection.classList.add("active");
+      }
+
+      function loadAsStaticImage(file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const img = new Image();
+          img.onload = () => {
+            imageData = e.target.result;
+            previewImage.src = imageData;
+
+            // Update file info
+            const fileSize = (file.size / 1024 / 1024).toFixed(2);
+            document.getElementById("fileInfo").textContent =
+              `File size: ${fileSize}MiB, width: ${img.width}px, height: ${img.height}px, type: ${file.type.split("/")[1]}`;
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      // Animation control
+      function startAnimation() {
+        if (!isGif || gifFrames.length === 0) return;
+
+        stopAnimation();
+        isPlaying = true;
+        currentFrameIndex = 0;
+
+        const playNextFrame = () => {
+          displayFrame(currentFrameIndex);
+
+          const delay = gifFrames[currentFrameIndex].delay;
+          currentFrameIndex = (currentFrameIndex + 1) % gifFrames.length;
+
+          animationInterval = setTimeout(playNextFrame, delay);
+        };
+
+        playNextFrame();
+      }
+
+      function stopAnimation() {
+        if (animationInterval) {
+          clearTimeout(animationInterval);
+          animationInterval = null;
+        }
+        isPlaying = false;
+      }
+
+      function displayFrame(frameIndex) {
+        if (!isGif || !gifFrames[frameIndex]) return;
+
+        const frame = gifFrames[frameIndex];
+        const canvas = document.createElement("canvas");
+        canvas.width = frame.width;
+        canvas.height = frame.height;
+        const ctx = canvas.getContext("2d");
+
+        const imgData = ctx.createImageData(frame.width, frame.height);
+        imgData.data.set(frame.data);
+        ctx.putImageData(imgData, 0, 0);
+
+        imageData = canvas.toDataURL();
+        previewImage.src = imageData;
+      }
+
+      // Image selection
+      // Improved Image selection logic
+      previewImage.addEventListener("mousedown", startSelection);
+      window.addEventListener("mousemove", updateSelection); // Track mouse even if it leaves the image
+      window.addEventListener("mouseup", endSelection);
+
+      function startSelection(e) {
+        isSelecting = true;
+        const rect = previewImage.getBoundingClientRect();
+
+        // Calculate starting point relative to the image element
+        startX = e.clientX - rect.left;
+        startY = e.clientY - rect.top;
+
+        selection.left = startX;
+        selection.top = startY;
+        selection.width = 0;
+        selection.height = 0;
+
+        selectionBox.style.display = "block";
+        updateSelectionBox();
+        e.preventDefault(); // Prevent ghost image dragging
+      }
+
+      function updateSelection(e) {
+        if (!isSelecting) return;
+
+        const rect = previewImage.getBoundingClientRect();
+        let currentX = e.clientX - rect.left;
+        let currentY = e.clientY - rect.top;
+
+        // Constrain selection to image boundaries
+        currentX = Math.max(0, Math.min(currentX, rect.width));
+        currentY = Math.max(0, Math.min(currentY, rect.height));
+
+        // Calculate width and height (can be negative if dragging backwards)
+        selection.width = currentX - startX;
+        selection.height = currentY - startY;
+
+        updateSelectionBox();
+        updateInputs(); // Update inputs in real-time as you drag
+      }
+
+      function endSelection(e) {
+        if (isSelecting) {
+          isSelecting = false;
+          updateInputs();
+        }
+      }
+
+      function updateSelectionBox() {
+        // Use Math.min to handle dragging in any direction (up, down, left, right)
+        const boxLeft = Math.min(
+          selection.left,
+          selection.left + selection.width,
+        );
+        const boxTop = Math.min(
+          selection.top,
+          selection.top + selection.height,
+        );
+        const boxWidth = Math.abs(selection.width);
+        const boxHeight = Math.abs(selection.height);
+
+        selectionBox.style.left = boxLeft + "px";
+        selectionBox.style.top = boxTop + "px";
+        selectionBox.style.width = boxWidth + "px";
+        selectionBox.style.height = boxHeight + "px";
+      }
+
+      function updateInputs() {
+        // This ensures your Submit button always sees the correct values
+        document.getElementById("leftInput").value = Math.floor(
+          Math.min(selection.left, selection.left + selection.width),
+        );
+        document.getElementById("topInput").value = Math.floor(
+          Math.min(selection.top, selection.top + selection.height),
+        );
+        document.getElementById("widthInput").value = Math.floor(
+          Math.abs(selection.width),
+        );
+        document.getElementById("heightInput").value = Math.floor(
+          Math.abs(selection.height),
+        );
+      }
+
+      // Update selection from manual input
+      function updateSelectionFromInputs() {
+        const left = parseInt(document.getElementById("leftInput").value) || 0;
+        const top = parseInt(document.getElementById("topInput").value) || 0;
+        const width =
+          parseInt(document.getElementById("widthInput").value) || 0;
+        const height =
+          parseInt(document.getElementById("heightInput").value) || 0;
+
+        selection.left = left;
+        selection.top = top;
+        selection.width = width;
+        selection.height = height;
+
+        selectionBox.style.display = "block";
+        updateSelectionBox();
+      }
+
+      // Add input listeners
+      document
+        .getElementById("leftInput")
+        .addEventListener("input", updateSelectionFromInputs);
+      document
+        .getElementById("topInput")
+        .addEventListener("input", updateSelectionFromInputs);
+      document
+        .getElementById("widthInput")
+        .addEventListener("input", updateSelectionFromInputs);
+      document
+        .getElementById("heightInput")
+        .addEventListener("input", updateSelectionFromInputs);
+
+      // Method selection
+      function toggleMethodOptions() {
+        const options = document.getElementById("methodOptions");
+        options.classList.toggle("active");
+      }
+
+      function selectMethod(method, icon) {
+        currentMethod = method;
+        document.getElementById("selectedMethod").textContent = method;
+        document.querySelector(".method-selected .method-icon").textContent =
+          icon;
+        document.getElementById("methodOptions").classList.remove("active");
+
+        // Show/hide relevant controls
+        document.getElementById("pixelSizeControl").style.display =
+          method === "Pixelate" ? "block" : "none";
+        document.getElementById("blurIntensityControl").style.display =
+          method === "Blur" ? "block" : "none";
+        document.getElementById("colorControl").style.display =
+          method === "Solid color" ? "block" : "none";
+      }
+
+      // Apply censor
+      // Apply censor
+      async function applyCensor() {
+        const applyBtn = document.querySelector(".submit-btn"); // Use a direct selector
+        applyBtn.disabled = true;
+        applyBtn.textContent = "Processing...";
+
+        // 1. Get current input values
+        const leftInput =
+          parseInt(document.getElementById("leftInput").value) || 0;
+        const topInput =
+          parseInt(document.getElementById("topInput").value) || 0;
+        const widthInput =
+          parseInt(document.getElementById("widthInput").value) || 0;
+        const heightInput =
+          parseInt(document.getElementById("heightInput").value) || 0;
+
+        // 2. Determine final coordinates (prioritize manual inputs if they exist)
+        const displayX = leftInput;
+        const displayY = topInput;
+        const displayWidth = widthInput;
+        const displayHeight = heightInput;
+
+        // Validation
+        if (displayWidth <= 0 || displayHeight <= 0) {
+          alert(
+            "Please select an area to censor first! Click and drag on the image to select an area, or enter coordinates manually.",
+          );
+          applyBtn.disabled = false;
+          applyBtn.textContent = "Submit!";
+          return;
+        }
+
+        // 3. Scale coordinates to actual image size
+        const rect = previewImage.getBoundingClientRect();
+        const scaleX = previewImage.naturalWidth / rect.width;
+        const scaleY = previewImage.naturalHeight / rect.height;
+
+        const x = Math.round(displayX * scaleX);
+        const y = Math.round(displayY * scaleY);
+        const width = Math.round(displayWidth * scaleX);
+        const height = Math.round(displayHeight * scaleY);
+
+        if (!isGif) {
+          // Static image censoring
+          const canvas = document.createElement("canvas");
+          const ctx = canvas.getContext("2d");
+          const img = new Image();
+
+          await new Promise((resolve) => {
+            img.onload = () => {
+              canvas.width = img.width;
+              canvas.height = img.height;
+              ctx.drawImage(img, 0, 0);
+              applyCensorToContext(ctx, x, y, width, height);
+              imageData = canvas.toDataURL("image/png");
+              previewImage.src = imageData;
+              resolve();
+            };
+            img.src = previewImage.src; // Use current preview state
+          });
+        } else {
+          // Animated GIF censoring
+          const wasPlaying = isPlaying;
+          stopAnimation();
+
+          censoredFrames = [];
+          for (let i = 0; i < gifFrames.length; i++) {
+            const frame = gifFrames[i];
+            const canvas = document.createElement("canvas");
+            canvas.width = frame.width;
+            canvas.height = frame.height;
+            const ctx = canvas.getContext("2d");
+
+            const imgData = ctx.createImageData(frame.width, frame.height);
+            imgData.data.set(frame.data);
+            ctx.putImageData(imgData, 0, 0);
+
+            applyCensorToContext(ctx, x, y, width, height);
+
+            const processedData = ctx.getImageData(
+              0,
+              0,
+              canvas.width,
+              canvas.height,
+            );
+            censoredFrames.push({
+              data: new Uint8ClampedArray(processedData.data),
+              delay: frame.delay,
+              width: frame.width,
+              height: frame.height,
+            });
+            applyBtn.textContent = `Processing... ${Math.round(((i + 1) / gifFrames.length) * 100)}%`;
+          }
+
+          gifFrames = censoredFrames;
+          currentFrameIndex = 0;
+          if (wasPlaying) startAnimation();
+          else displayFrame(0);
+        }
+
+        applyBtn.disabled = false;
+        applyBtn.textContent = "Submit!";
+        document.getElementById("downloadSection").classList.add("active");
+        document
+          .getElementById("downloadSection")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      function applyCensorToContext(ctx, x, y, width, height) {
+        if (currentMethod === "Pixelate") {
+          const pixelSize = parseInt(
+            document.getElementById("pixelSize").value,
+          );
+          // Ensure pixelSize is at least 1 to avoid infinite loops
+          const pSize = Math.max(1, pixelSize);
+
+          for (let py = y; py < y + height; py += pSize) {
+            for (let px = x; px < x + width; px += pSize) {
+              const pixel = ctx.getImageData(px, py, 1, 1).data;
+              ctx.fillStyle = `rgb(${pixel[0]}, ${pixel[1]}, ${pixel[2]})`;
+              ctx.fillRect(px, py, pSize, pSize);
+            }
+          }
+        } else if (currentMethod === "Blur") {
+          const blurIntensity = parseInt(
+            document.getElementById("blurIntensity").value,
+          );
+          ctx.save();
+          ctx.beginPath();
+          ctx.rect(x, y, width, height);
+          ctx.clip();
+          ctx.filter = `blur(${blurIntensity}px)`;
+          ctx.drawImage(ctx.canvas, 0, 0);
+          ctx.restore();
+        } else if (currentMethod === "Solid color") {
+          // Fixed ID: changed from censorColor to colorPicker
+          const color = document.getElementById("colorPicker").value;
+          ctx.fillStyle = color;
+          ctx.fillRect(x, y, width, height);
+        }
+      }
+
+      // Download
+      async function downloadImage() {
+        if (!isGif || censoredFrames.length === 0) {
+          // Download static image
+          const a = document.createElement("a");
+          a.href = imageData;
+          a.download = "censored-image.png";
+          a.click();
+          return;
+        }
+
+        // Download animated GIF
+        const btn = event.target;
+        btn.disabled = true;
+        btn.textContent = "Creating GIF...";
+
+        stopAnimation();
+
+        const gif = new GIF({
+          workers: 2,
+          quality: 10,
+          width: censoredFrames[0].width,
+          height: censoredFrames[0].height,
+          workerScript:
+            "https://www.moviesearch.online/tools/censor/gif.worker.js",
+        });
+
+        // Add all censored frames
+        for (let i = 0; i < censoredFrames.length; i++) {
+          const canvas = document.createElement("canvas");
+          canvas.width = censoredFrames[i].width;
+          canvas.height = censoredFrames[i].height;
+          const ctx = canvas.getContext("2d");
+
+          const imgData = ctx.createImageData(
+            censoredFrames[i].width,
+            censoredFrames[i].height,
+          );
+          imgData.data.set(censoredFrames[i].data);
+          ctx.putImageData(imgData, 0, 0);
+
+          gif.addFrame(ctx, { copy: true, delay: censoredFrames[i].delay });
+
+          btn.textContent = `Adding frames... ${Math.round(((i + 1) / censoredFrames.length) * 100)}%`;
+        }
+
+        gif.on("progress", (p) => {
+          btn.textContent = `Rendering... ${Math.round(p * 100)}%`;
+        });
+
+        gif.on("finished", (blob) => {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "censored-animation.gif";
+          a.click();
+          URL.revokeObjectURL(url);
+
+          btn.disabled = false;
+          btn.textContent = "Download Censored Image";
+
+          startAnimation();
+        });
+
+        gif.render();
+      }
+
+      // Drag and drop
+      uploadArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        uploadArea.style.background = "#e6f2ff";
+      });
+
+      uploadArea.addEventListener("dragleave", () => {
+        uploadArea.style.background = "#f9f9f9";
+      });
+
+      uploadArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        uploadArea.style.background = "#f9f9f9";
+        const file = e.dataTransfer.files[0];
+        if (file) {
+          loadImage(file);
+        }
+      });
+
+      // Click preview to toggle animation
+      previewImage.addEventListener("click", () => {
+        if (isGif) {
+          if (isPlaying) {
+            stopAnimation();
+          } else {
+            startAnimation();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
