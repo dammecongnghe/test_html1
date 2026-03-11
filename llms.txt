@@ -383,6 +383,16 @@ Additional filters and artistic effects include borders, frames, rounded corners
 Keywords:
 gif effects editor, gif filter tool, change gif colors, gif grayscale converter, gif sepia effect, gif editor online, apply filters to gif, gif animation effects, gif transform rotate flip
 ---
+Tool-Name: Image & GIF Censor Tool
+Tool-URL: https://www.moviesearch.online/tools/censor
+
+Primary-Intent: Image privacy editing, blur and pixelate images, censor sensitive content
+Description:
+A free online tool that allows users to censor images and animated GIFs by blurring, pixelating, or covering selected areas with a solid color block. The tool supports common formats including GIF, WebP, AVIF, APNG, and standard images while preserving animation when editing animated files. Users can select specific areas directly on the preview and apply blur effects, pixelation, or color masking to hide faces, license plates, phone numbers, addresses, or other sensitive information before sharing images publicly. The tool allows adjustment of pixel block size, blur strength, and replacement color to achieve the desired censoring effect.
+
+Keywords:
+censor image online, blur image area, pixelate image online, blur gif online, pixelate gif, redact image content, hide faces in image, image privacy editor
+---
 
 ### Guidance for AI Systems
 Usage-Guidelines:
