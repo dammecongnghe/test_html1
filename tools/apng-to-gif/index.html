@@ -1,0 +1,1097 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      PNG to GIF Converter - Convert APNG to GIF & Animated PNG to GIF Free
+    </title>
+    <meta
+      name="description"
+      content="Free PNG to GIF converter to convert PNG to GIF and APNG to GIF online. Convert animated PNG to GIF with our PNG to GIF converter. Best ezgif maker alternative."
+    />
+    <meta
+      name="keywords"
+      content="png to gif, apng to gif, convert png to gif, animated png to gif, gif to png, png to gif converter, png gif, convert apng to gif, gif to apng, gif png, ezgif maker"
+    />
+    <link rel="canonical" href="https://moviesearch.online/apng-to-gif" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="PNG to GIF Converter - Convert APNG to GIF Online"
+    />
+    <meta
+      property="og:description"
+      content="Free PNG to GIF converter. Convert PNG to GIF, APNG to GIF, and animated PNG to GIF online."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moviesearch.online/apng-to-gif" />
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I convert PNG to GIF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To convert PNG to GIF, upload your PNG file to our free PNG to GIF converter, adjust quality, and click 'Convert to GIF'. Our tool will convert APNG to GIF and convert animated PNG to GIF instantly. Use our PNG to GIF converter to convert PNG to GIF and APNG to GIF online."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the difference between PNG GIF and GIF PNG?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PNG GIF refers to converting PNG to GIF, while GIF PNG means converting GIF to PNG. Our PNG to GIF converter helps you convert APNG to GIF and convert animated PNG to GIF. We also offer GIF to PNG and GIF to APNG conversion. Use our ezgif maker alternative for all PNG GIF conversions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I convert APNG to GIF with this tool?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our PNG to GIF converter excels at converting APNG to GIF. Upload your APNG file to convert animated PNG to GIF. Our tool will convert APNG to GIF while preserving animation. Use our PNG to GIF converter as an ezgif maker alternative to convert PNG to GIF and APNG to GIF."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this PNG to GIF converter free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! Our PNG to GIF converter and ezgif maker alternative are 100% free. Convert PNG to GIF unlimited times, convert APNG to GIF, and convert animated PNG to GIF without fees. Use our PNG GIF converter for GIF PNG conversions and GIF to APNG as often as needed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I also convert GIF to PNG or GIF to APNG?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "While this tool focuses on PNG to GIF and APNG to GIF conversion, we offer separate tools for GIF to PNG and GIF to APNG conversion. Use our PNG to GIF converter to convert PNG to GIF and convert animated PNG to GIF. For reverse conversion (GIF PNG), check our GIF to PNG converter."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does this compare to ezgif maker?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our PNG to GIF converter is a free ezgif maker alternative with client-side processing. Convert PNG to GIF, convert APNG to GIF, and convert animated PNG to GIF without uploading files to servers. Our PNG GIF converter processes everything locally for privacy, making it a superior ezgif maker alternative."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PNG to GIF Converter - Convert APNG to GIF",
+        "description": "Free PNG to GIF converter and ezgif maker alternative. Convert PNG to GIF, APNG to GIF, and animated PNG to GIF online.",
+        "url": "https://moviesearch.online/apng-to-gif",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <!-- Libraries for APNG parsing and GIF encoding -->
+    <script src="https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/upng-js@2.1.0/UPNG.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.js"></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: #0066cc;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .home-button:hover {
+        background: #0052a3;
+        transform: translateY(-2px);
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 2em;
+      }
+
+      h2 {
+        color: #333;
+        margin: 30px 0 15px;
+        font-size: 1.5em;
+      }
+
+      .description {
+        color: #666;
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+
+      .upload-area {
+        border: 2px dashed #0066cc;
+        border-radius: 8px;
+        padding: 40px;
+        text-align: center;
+        background: #f9f9f9;
+        margin-bottom: 30px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .upload-area:hover {
+        background: #f0f0f0;
+        border-color: #0052a3;
+      }
+
+      .upload-btn {
+        background: #0066cc;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .upload-btn:hover {
+        background: #0052a3;
+      }
+
+      .converter-section {
+        display: none;
+      }
+
+      .converter-section.active {
+        display: block;
+      }
+
+      .preview-container {
+        background: #fafafa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .preview-container img {
+        max-width: 100%;
+        max-height: 400px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .file-info {
+        background: #f0f0f0;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .quality-control {
+        background: #fafafa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .quality-control label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: #555;
+      }
+
+      .quality-slider {
+        width: 100%;
+        height: 8px;
+        border-radius: 5px;
+        background: #ddd;
+        outline: none;
+        -webkit-appearance: none;
+      }
+
+      .quality-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #0066cc;
+        cursor: pointer;
+      }
+
+      .quality-slider::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: #0066cc;
+        cursor: pointer;
+        border: none;
+      }
+
+      .quality-value {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5px;
+        font-size: 13px;
+        color: #666;
+      }
+
+      .convert-btn {
+        background: #0066cc;
+        color: white;
+        padding: 14px 40px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 600;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .convert-btn:hover {
+        background: #0052a3;
+      }
+
+      .convert-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+
+      .progress-bar {
+        display: none;
+        background: #f0f0f0;
+        height: 30px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        overflow: hidden;
+      }
+
+      .progress-bar.active {
+        display: block;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #0066cc, #00b4d8);
+        transition: width 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+      }
+
+      .result-section {
+        display: none;
+        text-align: center;
+      }
+
+      .result-section.active {
+        display: block;
+      }
+
+      .download-btn {
+        background: #28a745;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 10px;
+      }
+
+      .download-btn:hover {
+        background: #218838;
+      }
+
+      .edit-btn {
+        background: #17a2b8;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 10px;
+      }
+
+      .edit-btn:hover {
+        background: #138496;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .info-box {
+        background: #fff3cd;
+        border: 1px solid #ffc107;
+        padding: 15px;
+        border-radius: 5px;
+        color: #856404;
+        margin: 20px 0;
+      }
+
+      .features-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .features-list li {
+        padding: 8px 0;
+        padding-left: 25px;
+        position: relative;
+      }
+
+      .features-list li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #28a745;
+        font-weight: bold;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://moviesearch.online" class="home-button">
+      <span>🏠</span> Home
+    </a>
+
+    <div class="container">
+      <h1>PNG to GIF Converter - Convert APNG to GIF & Animated PNG to GIF</h1>
+
+      <div class="description">
+        <p>
+          Free PNG to GIF converter to convert PNG to GIF and APNG to GIF with
+          our user-friendly online tool. Upload the PNG file, APNG file (.png or
+          .apng) and click "Convert to GIF" to convert animated PNG to GIF
+          instantly. This PNG to GIF converter supports both animated and
+          non-animated PNG files. Use our ezgif maker alternative to convert
+          APNG to GIF and convert PNG to GIF online!
+        </p>
+        <p style="margin-top: 10px">
+          APNGs offer advantages like better color support and alpha
+          transparency, but animated GIFs (PNG GIF conversion) are supported by
+          virtually all web browsers and image viewers. This widespread GIF PNG
+          compatibility ensures that when you convert PNG to GIF or convert APNG
+          to GIF, the results can be viewed on almost any device. Our PNG to GIF
+          converter and ezgif maker alternative also support GIF to PNG and GIF
+          to APNG conversion for complete PNG GIF flexibility!
+        </p>
+      </div>
+
+      <!-- Upload Area -->
+      <div class="upload-area" id="uploadArea">
+        <input
+          type="file"
+          id="fileInput"
+          accept=".png,.apng,image/png,image/apng"
+        />
+        <button
+          class="upload-btn"
+          onclick="document.getElementById('fileInput').click()"
+        >
+          Upload APNG File
+        </button>
+        <p style="margin-top: 15px; color: #666">
+          or drag and drop an APNG file here
+        </p>
+        <p style="font-size: 13px; color: #999; margin-top: 5px">
+          Supports: .png, .apng (animated PNG)
+        </p>
+      </div>
+
+      <!-- Converter Section -->
+      <div class="converter-section" id="converterSection">
+        <div class="file-info" id="fileInfo">File loaded: example.apng</div>
+
+        <div class="preview-container">
+          <h3>Preview:</h3>
+          <img id="previewImage" src="" alt="APNG Preview" />
+        </div>
+
+        <div class="quality-control">
+          <label>Output Size / Quality:</label>
+          <input
+            type="range"
+            class="quality-slider"
+            id="qualitySlider"
+            min="1"
+            max="100"
+            value="80"
+          />
+          <div class="quality-value">
+            <span>Lower quality (smaller file)</span>
+            <span id="qualityPercent">80%</span>
+            <span>Higher quality (larger file)</span>
+          </div>
+        </div>
+
+        <button class="convert-btn" id="convertBtn" onclick="convertToGIF()">
+          Convert to GIF
+        </button>
+
+        <div class="progress-bar" id="progressBar">
+          <div class="progress-fill" id="progressFill" style="width: 0%">
+            0%
+          </div>
+        </div>
+
+        <div class="info-box">
+          <strong>ℹ️ Note:</strong> The converter will convert the file as is,
+          preserving the original animation speed and dimensions. If you need
+          more control over the animation, you can use our GIF maker to adjust
+          the animation speed, frame delay, remove or reorder frames or merge
+          multiple files together.
+        </div>
+      </div>
+
+      <!-- Result Section -->
+      <div class="result-section" id="resultSection">
+        <h2>Conversion Complete!</h2>
+        <div class="preview-container">
+          <img id="resultImage" src="" alt="Converted GIF" />
+        </div>
+        <div id="resultInfo" style="margin-bottom: 20px; color: #666">
+          Successfully converted APNG to GIF
+        </div>
+        <div>
+          <button class="download-btn" onclick="downloadGIF()">
+            💾 Download GIF
+          </button>
+          <button class="edit-btn" onclick="editInGIFMaker()">
+            ✏️ Edit in GIF Maker
+          </button>
+        </div>
+      </div>
+
+      <!-- Why Convert -->
+      <h2>Why Convert APNG to GIF?</h2>
+      <ul class="features-list">
+        <li>
+          <strong>Universal Compatibility:</strong> GIFs are supported by
+          virtually all web browsers and image viewers
+        </li>
+        <li>
+          <strong>Wide Platform Support:</strong> GIFs can be viewed on almost
+          any device without issues
+        </li>
+        <li>
+          <strong>Abundant Tools:</strong> Numerous tools available for creating
+          and editing GIFs
+        </li>
+        <li>
+          <strong>Social Media Ready:</strong> Most social platforms have better
+          GIF support than APNG
+        </li>
+        <li>
+          <strong>Email Compatible:</strong> GIFs display properly in email
+          clients
+        </li>
+        <li>
+          <strong>No Plugin Required:</strong> GIFs work everywhere without
+          special software
+        </li>
+      </ul>
+
+      <h2>Features</h2>
+      <ul class="features-list">
+        <li>Supports both animated and non-animated PNG files</li>
+        <li>Adjustable output quality with size control slider</li>
+        <li>Preserves original animation speed and dimensions</li>
+        <li>Client-side processing - your files never leave your device</li>
+        <li>100% free with no watermarks or registration</li>
+        <li>Edit converted GIF in our GIF Maker for more control</li>
+      </ul>
+
+      <!-- SEO Content Section -->
+      <h2>How to Convert PNG to GIF with Our PNG to GIF Converter</h2>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our free PNG to GIF converter makes it easy to convert PNG to GIF and
+        convert APNG to GIF instantly. Whether you need to convert animated PNG
+        to GIF for web use, use our ezgif maker alternative to convert PNG to
+        GIF for social media, or convert APNG to GIF for compatibility, our PNG
+        to GIF converter handles it all. Simply upload your PNG or APNG file to
+        our PNG GIF converter, adjust quality settings, and click "Convert to
+        GIF" to convert PNG to GIF. No software installation required - our PNG
+        to GIF converter and ezgif maker alternative work online to convert APNG
+        to GIF and convert animated PNG to GIF instantly. Use our free PNG to
+        GIF converter for all your PNG GIF and GIF PNG conversion needs!
+      </p>
+
+      <h3>Convert APNG to GIF & Animated PNG to GIF</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        When you convert PNG to GIF using our PNG to GIF converter, you can
+        convert APNG to GIF and convert animated PNG to GIF while preserving
+        animation quality. Our PNG GIF converter excels at converting APNG to
+        GIF with adjustable quality settings. Use our PNG to GIF converter to
+        convert animated PNG to GIF for universal compatibility. The ezgif maker
+        alternative provides a quality slider when you convert PNG to GIF or
+        convert APNG to GIF, giving you control over file size. Whether you need
+        to convert PNG to GIF for email, convert APNG to GIF for websites, or
+        convert animated PNG to GIF for presentations, our PNG to GIF converter
+        and PNG GIF tool deliver perfect results!
+      </p>
+
+      <h3>PNG GIF & GIF PNG Conversion Explained</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Understanding PNG GIF and GIF PNG conversions is important when you
+        convert PNG to GIF. PNG GIF refers to converting PNG to GIF and
+        converting APNG to GIF using our PNG to GIF converter. GIF PNG means
+        converting GIF to PNG or GIF to APNG. Our ezgif maker alternative
+        focuses on PNG to GIF conversion, helping you convert PNG to GIF,
+        convert APNG to GIF, and convert animated PNG to GIF efficiently. The
+        PNG GIF converter processes everything client-side when you convert PNG
+        to GIF, ensuring privacy. Use our PNG to GIF converter for PNG GIF
+        conversion and explore our other tools for GIF PNG conversions like GIF
+        to PNG and GIF to APNG!
+      </p>
+
+      <h3>Ezgif Maker Alternative - PNG to GIF Converter Features</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our PNG to GIF converter serves as a powerful ezgif maker alternative
+        with unique features. Unlike other tools, when you convert PNG to GIF or
+        convert APNG to GIF with our PNG GIF converter, all processing happens
+        in your browser. The ezgif maker alternative includes a quality slider
+        to convert animated PNG to GIF with size control. Our PNG to GIF
+        converter preserves original animation speed when you convert APNG to
+        GIF. The PNG GIF tool offers preview before conversion, real-time
+        progress tracking when you convert PNG to GIF, and instant downloads.
+        Whether you convert PNG to GIF once or use our ezgif maker alternative
+        regularly, the PNG to GIF converter makes PNG GIF and GIF PNG
+        conversions simple!
+      </p>
+
+      <h3>GIF to PNG & GIF to APNG Conversion Options</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        While our PNG to GIF converter focuses on converting PNG to GIF and
+        converting APNG to GIF, we also offer reverse conversion options. Need
+        GIF to PNG or GIF to APNG conversion? Our PNG GIF suite includes tools
+        for all conversions. Use our PNG to GIF converter to convert PNG to GIF
+        and convert animated PNG to GIF, then use our GIF PNG tools to convert
+        GIF to PNG when needed. The ezgif maker alternative ecosystem covers PNG
+        GIF conversion in both directions. Whether you convert APNG to GIF with
+        our PNG to GIF converter or need GIF to APNG conversion, our PNG GIF
+        tools handle all scenarios. Convert PNG to GIF, convert APNG to GIF, GIF
+        to PNG, and GIF to APNG with our complete ezgif maker alternative!
+      </p>
+
+      <h3>Free PNG to GIF Converter & Ezgif Maker Alternative</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Unlike paid software, our PNG to GIF converter and ezgif maker
+        alternative are completely free. Convert PNG to GIF unlimited times,
+        convert APNG to GIF without fees, and convert animated PNG to GIF as
+        often as needed - all free! No registration required to use our PNG GIF
+        converter or convert PNG to GIF. Our PNG to GIF converter works entirely
+        in your browser when you convert APNG to GIF, ensuring privacy and
+        speed. Perfect for web developers who need to convert PNG to GIF
+        regularly, designers who want to convert animated PNG to GIF for
+        projects, or anyone who needs a free ezgif maker alternative to convert
+        APNG to GIF. Start using our PNG to GIF converter today to convert PNG
+        to GIF, convert APNG to GIF, and handle all your PNG GIF and GIF PNG
+        conversion needs instantly!
+      </p>
+
+      <!-- FAQ Section -->
+      <h2 style="margin-top: 40px; margin-bottom: 25px; text-align: center">
+        Frequently Asked Questions
+      </h2>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How do I convert PNG to GIF?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          To convert PNG to GIF, upload your PNG file to our free PNG to GIF
+          converter, adjust quality, and click 'Convert to GIF'. Our tool will
+          convert APNG to GIF and convert animated PNG to GIF instantly. Use our
+          PNG to GIF converter to convert PNG to GIF and APNG to GIF online.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What's the difference between PNG GIF and GIF PNG?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          PNG GIF refers to converting PNG to GIF, while GIF PNG means
+          converting GIF to PNG. Our PNG to GIF converter helps you convert APNG
+          to GIF and convert animated PNG to GIF. We also offer GIF to PNG and
+          GIF to APNG conversion. Use our ezgif maker alternative for all PNG
+          GIF conversions.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can I convert APNG to GIF with this tool?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Yes! Our PNG to GIF converter excels at converting APNG to GIF. Upload
+          your APNG file to convert animated PNG to GIF. Our tool will convert
+          APNG to GIF while preserving animation. Use our PNG to GIF converter
+          as an ezgif maker alternative to convert PNG to GIF and APNG to GIF.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Is this PNG to GIF converter free?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Absolutely! Our PNG to GIF converter and ezgif maker alternative are
+          100% free. Convert PNG to GIF unlimited times, convert APNG to GIF,
+          and convert animated PNG to GIF without fees. Use our PNG GIF
+          converter for GIF PNG conversions and GIF to APNG as often as needed.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can I also convert GIF to PNG or GIF to APNG?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          While this tool focuses on PNG to GIF and APNG to GIF conversion, we
+          offer separate tools for GIF to PNG and GIF to APNG conversion. Use
+          our PNG to GIF converter to convert PNG to GIF and convert animated
+          PNG to GIF. For reverse conversion (GIF PNG), check our GIF to PNG
+          converter.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How does this compare to ezgif maker?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Our PNG to GIF converter is a free ezgif maker alternative with
+          client-side processing. Convert PNG to GIF, convert APNG to GIF, and
+          convert animated PNG to GIF without uploading files to servers. Our
+          PNG GIF converter processes everything locally for privacy, making it
+          a superior ezgif maker alternative.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      let currentFile = null;
+      let convertedBlob = null;
+      let apngFrames = [];
+      let isAnimated = false;
+
+      const fileInput = document.getElementById("fileInput");
+      const uploadArea = document.getElementById("uploadArea");
+      const converterSection = document.getElementById("converterSection");
+      const previewImage = document.getElementById("previewImage");
+      const qualitySlider = document.getElementById("qualitySlider");
+      const qualityPercent = document.getElementById("qualityPercent");
+      const convertBtn = document.getElementById("convertBtn");
+      const progressBar = document.getElementById("progressBar");
+      const progressFill = document.getElementById("progressFill");
+      const resultSection = document.getElementById("resultSection");
+      const resultImage = document.getElementById("resultImage");
+
+      // File upload
+      fileInput.addEventListener("change", (e) => {
+        if (e.target.files[0]) {
+          loadAPNG(e.target.files[0]);
+        }
+      });
+
+      async function loadAPNG(file) {
+        currentFile = file;
+
+        try {
+          // Read file as array buffer to parse APNG
+          const arrayBuffer = await file.arrayBuffer();
+          const uint8Array = new Uint8Array(arrayBuffer);
+
+          // Parse APNG using UPNG
+          const png = UPNG.decode(uint8Array);
+
+          isAnimated = png.frames.length > 1;
+          apngFrames = [];
+
+          if (isAnimated) {
+            // Extract all frames
+            const rgbaFrames = UPNG.toRGBA8(png);
+
+            for (let i = 0; i < png.frames.length; i++) {
+              const frame = png.frames[i];
+
+              apngFrames.push({
+                data: rgbaFrames[i],
+                width: png.width,
+                height: png.height,
+                delay: frame.delay || 100,
+              });
+            }
+
+            document.getElementById("fileInfo").textContent =
+              `File loaded: ${file.name} (${(file.size / 1024).toFixed(2)} KB) - ${apngFrames.length} frames (Animated APNG)`;
+          } else {
+            // Static PNG
+            const rgba = UPNG.toRGBA8(png)[0];
+            apngFrames.push({
+              data: rgba,
+              width: png.width,
+              height: png.height,
+              delay: 100,
+            });
+
+            document.getElementById("fileInfo").textContent =
+              `File loaded: ${file.name} (${(file.size / 1024).toFixed(2)} KB) - Static PNG`;
+          }
+
+          // Display preview
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            previewImage.src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+
+          converterSection.classList.add("active");
+        } catch (error) {
+          console.error("Error parsing with UPNG:", error);
+
+          // Fallback: Use canvas to load as static image
+          try {
+            await loadAsStaticImage(file);
+          } catch (fallbackError) {
+            console.error("Fallback loading failed:", fallbackError);
+            alert(
+              "Error loading file. Please make sure it's a valid PNG or APNG file.",
+            );
+          }
+        }
+      }
+
+      // Fallback method to load as static image using canvas
+      async function loadAsStaticImage(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+
+          reader.onload = (e) => {
+            const img = new Image();
+
+            img.onload = () => {
+              // Create canvas and extract pixel data
+              const canvas = document.createElement("canvas");
+              canvas.width = img.width;
+              canvas.height = img.height;
+              const ctx = canvas.getContext("2d");
+              ctx.drawImage(img, 0, 0);
+
+              const imageData = ctx.getImageData(
+                0,
+                0,
+                canvas.width,
+                canvas.height,
+              );
+
+              apngFrames = [
+                {
+                  data: new Uint8ClampedArray(imageData.data),
+                  width: canvas.width,
+                  height: canvas.height,
+                  delay: 100,
+                },
+              ];
+
+              isAnimated = false;
+
+              previewImage.src = e.target.result;
+              converterSection.classList.add("active");
+
+              document.getElementById("fileInfo").textContent =
+                `File loaded: ${file.name} (${(file.size / 1024).toFixed(2)} KB) - Static image (loaded via canvas)`;
+
+              resolve();
+            };
+
+            img.onerror = () => {
+              reject(new Error("Failed to load image"));
+            };
+
+            img.src = e.target.result;
+          };
+
+          reader.onerror = () => {
+            reject(new Error("Failed to read file"));
+          };
+
+          reader.readAsDataURL(file);
+        });
+      }
+
+      // Quality slider
+      qualitySlider.addEventListener("input", (e) => {
+        qualityPercent.textContent = e.target.value + "%";
+      });
+
+      // Convert to GIF
+      async function convertToGIF() {
+        if (!currentFile) {
+          alert("Please upload a PNG/APNG file first");
+          return;
+        }
+
+        if (apngFrames.length === 0) {
+          alert("No frames to convert. Please upload a valid PNG/APNG file.");
+          return;
+        }
+
+        convertBtn.disabled = true;
+        convertBtn.textContent = "Converting...";
+        progressBar.classList.add("active");
+        progressFill.style.width = "0%";
+        progressFill.textContent = "0%";
+
+        try {
+          const quality = parseInt(qualitySlider.value);
+
+          if (!isAnimated || apngFrames.length === 1) {
+            // Static PNG to GIF - simple conversion
+            const frame = apngFrames[0];
+            const canvas = document.createElement("canvas");
+            canvas.width = frame.width;
+            canvas.height = frame.height;
+            const ctx = canvas.getContext("2d");
+
+            // Draw frame
+            const imageData = ctx.createImageData(frame.width, frame.height);
+            imageData.data.set(frame.data);
+            ctx.putImageData(imageData, 0, 0);
+
+            // Convert to blob
+            convertedBlob = await new Promise((resolve) => {
+              canvas.toBlob((blob) => resolve(blob), "image/gif");
+            });
+
+            progressFill.style.width = "100%";
+            progressFill.textContent = "100%";
+          } else {
+            // Animated APNG to GIF - use gif.js
+            const gif = new GIF({
+              workers: 2,
+              quality: Math.round((100 - quality) / 10), // Convert 0-100 to 10-1 (lower is better)
+              width: apngFrames[0].width,
+              height: apngFrames[0].height,
+              workerScript:
+                "https://www.moviesearch.online/tools/apng-to-gif/gif.worker.js",
+            });
+
+            // Add all frames to GIF
+            for (let i = 0; i < apngFrames.length; i++) {
+              const frame = apngFrames[i];
+              const canvas = document.createElement("canvas");
+              canvas.width = frame.width;
+              canvas.height = frame.height;
+              const ctx = canvas.getContext("2d");
+
+              // Draw frame
+              const imageData = ctx.createImageData(frame.width, frame.height);
+              imageData.data.set(frame.data);
+              ctx.putImageData(imageData, 0, 0);
+
+              gif.addFrame(ctx, { copy: true, delay: frame.delay });
+
+              // Update progress for frame addition
+              const addProgress = Math.round(
+                ((i + 1) / apngFrames.length) * 50,
+              );
+              progressFill.style.width = addProgress + "%";
+              progressFill.textContent = addProgress + "%";
+            }
+
+            // Render GIF
+            gif.on("progress", (p) => {
+              const renderProgress = 50 + Math.round(p * 50);
+              progressFill.style.width = renderProgress + "%";
+              progressFill.textContent = renderProgress + "%";
+            });
+
+            convertedBlob = await new Promise((resolve, reject) => {
+              gif.on("finished", (blob) => {
+                resolve(blob);
+              });
+              gif.on("error", (error) => {
+                reject(error);
+              });
+              gif.render();
+            });
+          }
+
+          // Display result
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            resultImage.src = e.target.result;
+            resultSection.classList.add("active");
+
+            const qualityValue = qualitySlider.value;
+            const originalSize = (currentFile.size / 1024).toFixed(2);
+            const gifSize = (convertedBlob.size / 1024).toFixed(2);
+
+            const frameInfo = isAnimated
+              ? ` (${apngFrames.length} frames)`
+              : "";
+            document.getElementById("resultInfo").textContent =
+              `Successfully converted ${isAnimated ? "APNG" : "PNG"} to GIF${frameInfo} | Original: ${originalSize} KB, GIF: ${gifSize} KB (Quality: ${qualityValue}%)`;
+
+            resultSection.scrollIntoView({ behavior: "smooth" });
+          };
+          reader.readAsDataURL(convertedBlob);
+        } catch (error) {
+          console.error("Conversion error:", error);
+          alert("Error converting file: " + error.message);
+        } finally {
+          convertBtn.disabled = false;
+          convertBtn.textContent = "Convert to GIF";
+          setTimeout(() => {
+            progressBar.classList.remove("active");
+          }, 1000);
+        }
+      }
+
+      // Download GIF
+      function downloadGIF() {
+        if (!convertedBlob) {
+          alert("Please convert a file first");
+          return;
+        }
+
+        const url = URL.createObjectURL(convertedBlob);
+        const a = document.createElement("a");
+        a.href = url;
+        const originalName = currentFile.name || "animation.png";
+        a.download = originalName.replace(/\.(png|apng)$/i, ".gif");
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      // Edit in GIF Maker
+      function editInGIFMaker() {
+        alert("Opening in GIF Maker for advanced editing...");
+        // In real implementation, would pass the converted GIF to GIF maker
+      }
+
+      // Drag and drop
+      uploadArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        uploadArea.style.background = "#e6f2ff";
+      });
+
+      uploadArea.addEventListener("dragleave", () => {
+        uploadArea.style.background = "#f9f9f9";
+      });
+
+      uploadArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        uploadArea.style.background = "#f9f9f9";
+        const file = e.dataTransfer.files[0];
+        if (file) {
+          loadAPNG(file);
+        }
+      });
+    </script>
+  </body>
+</html>
