@@ -799,298 +799,161 @@
 
       async function loadAPNG(file) {
         currentFile = file;
-
         try {
-          // Read file as array buffer to parse APNG
           const arrayBuffer = await file.arrayBuffer();
           const uint8Array = new Uint8Array(arrayBuffer);
-
-          // Parse APNG using UPNG
           const png = UPNG.decode(uint8Array);
 
           isAnimated = png.frames.length > 1;
           apngFrames = [];
 
-          if (isAnimated) {
-            // Extract all frames
-            const rgbaFrames = UPNG.toRGBA8(png);
-
-            for (let i = 0; i < png.frames.length; i++) {
-              const frame = png.frames[i];
-
-              apngFrames.push({
-                data: rgbaFrames[i],
-                width: png.width,
-                height: png.height,
-                delay: frame.delay || 100,
-              });
-            }
-
-            document.getElementById("fileInfo").textContent =
-              `File loaded: ${file.name} (${(file.size / 1024).toFixed(2)} KB) - ${apngFrames.length} frames (Animated APNG)`;
-          } else {
-            // Static PNG
-            const rgba = UPNG.toRGBA8(png)[0];
+          // Extract raw frames and metadata
+          const rgbaFrames = UPNG.toRGBA8(png);
+          for (let i = 0; i < png.frames.length; i++) {
             apngFrames.push({
-              data: rgba,
+              data: rgbaFrames[i],
               width: png.width,
               height: png.height,
-              delay: 100,
+              left: png.frames[i].x,
+              top: png.frames[i].y,
+              fWidth: png.frames[i].width,
+              fHeight: png.frames[i].height,
+              delay: png.frames[i].delay || 100,
+              dispose: png.frames[i].dispose, // 0: none, 1: background, 2: previous
+              blend: png.frames[i].blend, // 0: source, 1: over
             });
-
-            document.getElementById("fileInfo").textContent =
-              `File loaded: ${file.name} (${(file.size / 1024).toFixed(2)} KB) - Static PNG`;
           }
 
-          // Display preview
-          const reader = new FileReader();
-          reader.onload = (e) => {
-            previewImage.src = e.target.result;
-          };
-          reader.readAsDataURL(file);
+          document.getElementById("fileInfo").textContent =
+            `File loaded: ${file.name} - ${apngFrames.length} frames`;
 
+          previewImage.src = URL.createObjectURL(file);
           converterSection.classList.add("active");
         } catch (error) {
-          console.error("Error parsing with UPNG:", error);
-
-          // Fallback: Use canvas to load as static image
-          try {
-            await loadAsStaticImage(file);
-          } catch (fallbackError) {
-            console.error("Fallback loading failed:", fallbackError);
-            alert(
-              "Error loading file. Please make sure it's a valid PNG or APNG file.",
-            );
-          }
+          alert("Error parsing APNG: " + error.message);
         }
       }
 
-      // Fallback method to load as static image using canvas
-      async function loadAsStaticImage(file) {
-        return new Promise((resolve, reject) => {
-          const reader = new FileReader();
-
-          reader.onload = (e) => {
-            const img = new Image();
-
-            img.onload = () => {
-              // Create canvas and extract pixel data
-              const canvas = document.createElement("canvas");
-              canvas.width = img.width;
-              canvas.height = img.height;
-              const ctx = canvas.getContext("2d");
-              ctx.drawImage(img, 0, 0);
-
-              const imageData = ctx.getImageData(
-                0,
-                0,
-                canvas.width,
-                canvas.height,
-              );
-
-              apngFrames = [
-                {
-                  data: new Uint8ClampedArray(imageData.data),
-                  width: canvas.width,
-                  height: canvas.height,
-                  delay: 100,
-                },
-              ];
-
-              isAnimated = false;
-
-              previewImage.src = e.target.result;
-              converterSection.classList.add("active");
-
-              document.getElementById("fileInfo").textContent =
-                `File loaded: ${file.name} (${(file.size / 1024).toFixed(2)} KB) - Static image (loaded via canvas)`;
-
-              resolve();
-            };
-
-            img.onerror = () => {
-              reject(new Error("Failed to load image"));
-            };
-
-            img.src = e.target.result;
-          };
-
-          reader.onerror = () => {
-            reject(new Error("Failed to read file"));
-          };
-
-          reader.readAsDataURL(file);
-        });
-      }
-
-      // Quality slider
-      qualitySlider.addEventListener("input", (e) => {
-        qualityPercent.textContent = e.target.value + "%";
-      });
-
-      // Convert to GIF
       async function convertToGIF() {
-        if (!currentFile) {
-          alert("Please upload a PNG/APNG file first");
-          return;
-        }
-
-        if (apngFrames.length === 0) {
-          alert("No frames to convert. Please upload a valid PNG/APNG file.");
-          return;
-        }
-
         convertBtn.disabled = true;
         convertBtn.textContent = "Converting...";
         progressBar.classList.add("active");
-        progressFill.style.width = "0%";
-        progressFill.textContent = "0%";
 
-        try {
-          const quality = parseInt(qualitySlider.value);
+        const quality = parseInt(qualitySlider.value);
+        const gif = new GIF({
+          workers: 2,
+          quality: Math.round((100 - quality) / 10) || 1,
+          width: apngFrames[0].width,
+          height: apngFrames[0].height,
+          workerScript:
+            "https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.worker.js",
+        });
 
-          if (!isAnimated || apngFrames.length === 1) {
-            // Static PNG to GIF - simple conversion
-            const frame = apngFrames[0];
-            const canvas = document.createElement("canvas");
-            canvas.width = frame.width;
-            canvas.height = frame.height;
-            const ctx = canvas.getContext("2d");
+        // Helper canvases for compositing
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d", { willReadFrequently: true });
+        canvas.width = apngFrames[0].width;
+        canvas.height = apngFrames[0].height;
 
-            // Draw frame
-            const imageData = ctx.createImageData(frame.width, frame.height);
-            imageData.data.set(frame.data);
-            ctx.putImageData(imageData, 0, 0);
+        const prevCanvas = document.createElement("canvas");
+        const prevCtx = prevCanvas.getContext("2d");
+        prevCanvas.width = canvas.width;
+        prevCanvas.height = canvas.height;
 
-            // Convert to blob
-            convertedBlob = await new Promise((resolve) => {
-              canvas.toBlob((blob) => resolve(blob), "image/gif");
-            });
+        for (let i = 0; i < apngFrames.length; i++) {
+          const frame = apngFrames[i];
 
-            progressFill.style.width = "100%";
-            progressFill.textContent = "100%";
-          } else {
-            // Animated APNG to GIF - use gif.js
-            const gif = new GIF({
-              workers: 2,
-              quality: Math.round((100 - quality) / 10), // Convert 0-100 to 10-1 (lower is better)
-              width: apngFrames[0].width,
-              height: apngFrames[0].height,
-              workerScript:
-                "https://www.moviesearch.online/tools/apng-to-gif/gif.worker.js",
-            });
-
-            // Add all frames to GIF
-            for (let i = 0; i < apngFrames.length; i++) {
-              const frame = apngFrames[i];
-              const canvas = document.createElement("canvas");
-              canvas.width = frame.width;
-              canvas.height = frame.height;
-              const ctx = canvas.getContext("2d");
-
-              // Draw frame
-              const imageData = ctx.createImageData(frame.width, frame.height);
-              imageData.data.set(frame.data);
-              ctx.putImageData(imageData, 0, 0);
-
-              gif.addFrame(ctx, { copy: true, delay: frame.delay });
-
-              // Update progress for frame addition
-              const addProgress = Math.round(
-                ((i + 1) / apngFrames.length) * 50,
+          // Handle Disposal Methods
+          if (i > 0) {
+            const lastFrame = apngFrames[i - 1];
+            if (lastFrame.dispose === 1) {
+              // Clear to background
+              ctx.clearRect(
+                lastFrame.left,
+                lastFrame.top,
+                lastFrame.fWidth,
+                lastFrame.fHeight,
               );
-              progressFill.style.width = addProgress + "%";
-              progressFill.textContent = addProgress + "%";
+            } else if (lastFrame.dispose === 2) {
+              // Restore to previous
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+              ctx.drawImage(prevCanvas, 0, 0);
             }
-
-            // Render GIF
-            gif.on("progress", (p) => {
-              const renderProgress = 50 + Math.round(p * 50);
-              progressFill.style.width = renderProgress + "%";
-              progressFill.textContent = renderProgress + "%";
-            });
-
-            convertedBlob = await new Promise((resolve, reject) => {
-              gif.on("finished", (blob) => {
-                resolve(blob);
-              });
-              gif.on("error", (error) => {
-                reject(error);
-              });
-              gif.render();
-            });
           }
 
-          // Display result
-          const reader = new FileReader();
-          reader.onload = (e) => {
-            resultImage.src = e.target.result;
-            resultSection.classList.add("active");
+          // Save state if next frame requires "Restore to Previous"
+          if (frame.dispose === 2) {
+            prevCtx.clearRect(0, 0, canvas.width, canvas.height);
+            prevCtx.drawImage(canvas, 0, 0);
+          }
 
-            const qualityValue = qualitySlider.value;
-            const originalSize = (currentFile.size / 1024).toFixed(2);
-            const gifSize = (convertedBlob.size / 1024).toFixed(2);
+          // Prepare Frame Content
+          const tempCanvas = document.createElement("canvas");
+          tempCanvas.width = frame.fWidth;
+          tempCanvas.height = frame.fHeight;
+          const tempCtx = tempCanvas.getContext("2d");
+          const imgData = tempCtx.createImageData(frame.fWidth, frame.fHeight);
+          imgData.data.set(new Uint8ClampedArray(frame.data));
+          tempCtx.putImageData(imgData, 0, 0);
 
-            const frameInfo = isAnimated
-              ? ` (${apngFrames.length} frames)`
-              : "";
-            document.getElementById("resultInfo").textContent =
-              `Successfully converted ${isAnimated ? "APNG" : "PNG"} to GIF${frameInfo} | Original: ${originalSize} KB, GIF: ${gifSize} KB (Quality: ${qualityValue}%)`;
+          // Blend Mode Handling
+          if (frame.blend === 0) {
+            // Source (Replace)
+            ctx.clearRect(frame.left, frame.top, frame.fWidth, frame.fHeight);
+          }
+          ctx.drawImage(tempCanvas, frame.left, frame.top);
 
-            resultSection.scrollIntoView({ behavior: "smooth" });
-          };
-          reader.readAsDataURL(convertedBlob);
-        } catch (error) {
-          console.error("Conversion error:", error);
-          alert("Error converting file: " + error.message);
-        } finally {
+          // Add Composited result to GIF
+          gif.addFrame(ctx, { copy: true, delay: frame.delay });
+
+          // Update UI Progress
+          const progress = Math.round(((i + 1) / apngFrames.length) * 100);
+          progressFill.style.width = progress + "%";
+          progressFill.textContent = progress + "%";
+        }
+
+        gif.on("finished", (blob) => {
+          convertedBlob = blob;
+          resultImage.src = URL.createObjectURL(blob);
+          resultSection.classList.add("active");
+          resultSection.scrollIntoView({ behavior: "smooth" });
+
+          const originalSize = (currentFile.size / 1024).toFixed(2);
+          const gifSize = (blob.size / 1024).toFixed(2);
+          document.getElementById("resultInfo").textContent =
+            `Converted: Original ${originalSize} KB | GIF ${gifSize} KB`;
+
           convertBtn.disabled = false;
           convertBtn.textContent = "Convert to GIF";
-          setTimeout(() => {
-            progressBar.classList.remove("active");
-          }, 1000);
-        }
+          progressBar.classList.remove("active");
+        });
+
+        gif.render();
       }
 
-      // Download GIF
       function downloadGIF() {
-        if (!convertedBlob) {
-          alert("Please convert a file first");
-          return;
-        }
-
-        const url = URL.createObjectURL(convertedBlob);
         const a = document.createElement("a");
-        a.href = url;
-        const originalName = currentFile.name || "animation.png";
-        a.download = originalName.replace(/\.(png|apng)$/i, ".gif");
+        a.href = URL.createObjectURL(convertedBlob);
+        a.download = currentFile.name.replace(/\.(png|apng)$/i, ".gif");
         a.click();
-        URL.revokeObjectURL(url);
       }
 
-      // Edit in GIF Maker
       function editInGIFMaker() {
-        alert("Opening in GIF Maker for advanced editing...");
-        // In real implementation, would pass the converted GIF to GIF maker
+        alert("Advanced editing mode triggered.");
       }
 
-      // Drag and drop
+      // Drag and Drop
       uploadArea.addEventListener("dragover", (e) => {
         e.preventDefault();
         uploadArea.style.background = "#e6f2ff";
       });
-
       uploadArea.addEventListener("dragleave", () => {
         uploadArea.style.background = "#f9f9f9";
       });
-
       uploadArea.addEventListener("drop", (e) => {
         e.preventDefault();
         uploadArea.style.background = "#f9f9f9";
-        const file = e.dataTransfer.files[0];
-        if (file) {
-          loadAPNG(file);
-        }
+        if (e.dataTransfer.files[0]) loadAPNG(e.dataTransfer.files[0]);
       });
     </script>
   </body>
