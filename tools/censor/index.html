@@ -1114,11 +1114,14 @@
       // Apply censor
       // Apply censor
       async function applyCensor() {
-        const applyBtn = document.querySelector(".submit-btn"); // Use a direct selector
+        const applyBtn = document.querySelector(".submit-btn");
+        const resultCanvas = document.getElementById("resultCanvas");
+        const resultCtx = resultCanvas.getContext("2d");
+
         applyBtn.disabled = true;
         applyBtn.textContent = "Processing...";
 
-        // 1. Get current input values
+        // 1. Get current input values from the manual fields
         const leftInput =
           parseInt(document.getElementById("leftInput").value) || 0;
         const topInput =
@@ -1128,14 +1131,8 @@
         const heightInput =
           parseInt(document.getElementById("heightInput").value) || 0;
 
-        // 2. Determine final coordinates (prioritize manual inputs if they exist)
-        const displayX = leftInput;
-        const displayY = topInput;
-        const displayWidth = widthInput;
-        const displayHeight = heightInput;
-
-        // Validation
-        if (displayWidth <= 0 || displayHeight <= 0) {
+        // 2. Validation
+        if (widthInput <= 0 || heightInput <= 0) {
           alert(
             "Please select an area to censor first! Click and drag on the image to select an area, or enter coordinates manually.",
           );
@@ -1149,31 +1146,35 @@
         const scaleX = previewImage.naturalWidth / rect.width;
         const scaleY = previewImage.naturalHeight / rect.height;
 
-        const x = Math.round(displayX * scaleX);
-        const y = Math.round(displayY * scaleY);
-        const width = Math.round(displayWidth * scaleX);
-        const height = Math.round(displayHeight * scaleY);
+        const x = Math.round(leftInput * scaleX);
+        const y = Math.round(topInput * scaleY);
+        const width = Math.round(widthInput * scaleX);
+        const height = Math.round(heightInput * scaleY);
 
         if (!isGif) {
-          // Static image censoring
-          const canvas = document.createElement("canvas");
-          const ctx = canvas.getContext("2d");
+          // --- Static Image Censoring ---
           const img = new Image();
-
           await new Promise((resolve) => {
             img.onload = () => {
-              canvas.width = img.width;
-              canvas.height = img.height;
-              ctx.drawImage(img, 0, 0);
-              applyCensorToContext(ctx, x, y, width, height);
-              imageData = canvas.toDataURL("image/png");
+              // IMPORTANT: Set the result canvas size to match the real image
+              resultCanvas.width = img.naturalWidth;
+              resultCanvas.height = img.naturalHeight;
+
+              // Draw the original image onto the result canvas
+              resultCtx.drawImage(img, 0, 0);
+
+              // Apply the blur/pixelate/color effect
+              applyCensorToContext(resultCtx, x, y, width, height);
+
+              // Update the preview image so the red box area looks censored
+              imageData = resultCanvas.toDataURL("image/png");
               previewImage.src = imageData;
               resolve();
             };
-            img.src = previewImage.src; // Use current preview state
+            img.src = previewImage.src;
           });
         } else {
-          // Animated GIF censoring
+          // --- Animated GIF Censoring ---
           const wasPlaying = isPlaying;
           stopAnimation();
 
@@ -1208,10 +1209,22 @@
 
           gifFrames = censoredFrames;
           currentFrameIndex = 0;
+
+          // Update the result canvas preview with the first censored frame
+          resultCanvas.width = gifFrames[0].width;
+          resultCanvas.height = gifFrames[0].height;
+          const firstFrameData = resultCtx.createImageData(
+            gifFrames[0].width,
+            gifFrames[0].height,
+          );
+          firstFrameData.data.set(gifFrames[0].data);
+          resultCtx.putImageData(firstFrameData, 0, 0);
+
           if (wasPlaying) startAnimation();
           else displayFrame(0);
         }
 
+        // 4. Finalize UI
         applyBtn.disabled = false;
         applyBtn.textContent = "Submit!";
         document.getElementById("downloadSection").classList.add("active");
