@@ -835,16 +835,26 @@
       }
 
       async function convertToGIF() {
+        if (!currentFile || apngFrames.length === 0) {
+          alert("Please upload a valid APNG file first.");
+          return;
+        }
+
         convertBtn.disabled = true;
         convertBtn.textContent = "Converting...";
         progressBar.classList.add("active");
 
         const quality = parseInt(qualitySlider.value);
+
+        // Ensure base dimensions are integers
+        const totalWidth = Math.floor(apngFrames[0].width);
+        const totalHeight = Math.floor(apngFrames[0].height);
+
         const gif = new GIF({
           workers: 2,
           quality: Math.round((100 - quality) / 10) || 1,
-          width: apngFrames[0].width,
-          height: apngFrames[0].height,
+          width: totalWidth,
+          height: totalHeight,
           workerScript:
             "https://cdnjs.cloudflare.com/ajax/libs/gif.js/0.2.0/gif.worker.js",
         });
@@ -852,16 +862,22 @@
         // Helper canvases for compositing
         const canvas = document.createElement("canvas");
         const ctx = canvas.getContext("2d", { willReadFrequently: true });
-        canvas.width = apngFrames[0].width;
-        canvas.height = apngFrames[0].height;
+        canvas.width = totalWidth;
+        canvas.height = totalHeight;
 
         const prevCanvas = document.createElement("canvas");
         const prevCtx = prevCanvas.getContext("2d");
-        prevCanvas.width = canvas.width;
-        prevCanvas.height = canvas.height;
+        prevCanvas.width = totalWidth;
+        prevCanvas.height = totalHeight;
 
         for (let i = 0; i < apngFrames.length; i++) {
           const frame = apngFrames[i];
+
+          // Convert frame-specific values to integers to prevent the 'long' TypeError
+          const fWidth = Math.floor(frame.fWidth);
+          const fHeight = Math.floor(frame.fHeight);
+          const fLeft = Math.floor(frame.left);
+          const fTop = Math.floor(frame.top);
 
           // Handle Disposal Methods
           if (i > 0) {
@@ -869,39 +885,41 @@
             if (lastFrame.dispose === 1) {
               // Clear to background
               ctx.clearRect(
-                lastFrame.left,
-                lastFrame.top,
-                lastFrame.fWidth,
-                lastFrame.fHeight,
+                Math.floor(lastFrame.left),
+                Math.floor(lastFrame.top),
+                Math.floor(lastFrame.fWidth),
+                Math.floor(lastFrame.fHeight),
               );
             } else if (lastFrame.dispose === 2) {
               // Restore to previous
-              ctx.clearRect(0, 0, canvas.width, canvas.height);
+              ctx.clearRect(0, 0, totalWidth, totalHeight);
               ctx.drawImage(prevCanvas, 0, 0);
             }
           }
 
-          // Save state if next frame requires "Restore to Previous"
+          // Save state if this frame requires "Restore to Previous" disposal next
           if (frame.dispose === 2) {
-            prevCtx.clearRect(0, 0, canvas.width, canvas.height);
+            prevCtx.clearRect(0, 0, totalWidth, totalHeight);
             prevCtx.drawImage(canvas, 0, 0);
           }
 
-          // Prepare Frame Content
+          // Prepare Frame Content with integer dimensions
           const tempCanvas = document.createElement("canvas");
-          tempCanvas.width = frame.fWidth;
-          tempCanvas.height = frame.fHeight;
+          tempCanvas.width = fWidth;
+          tempCanvas.height = fHeight;
           const tempCtx = tempCanvas.getContext("2d");
-          const imgData = tempCtx.createImageData(frame.fWidth, frame.fHeight);
+
+          // The Fix: Ensure width and height here are strictly integers
+          const imgData = tempCtx.createImageData(fWidth, fHeight);
           imgData.data.set(new Uint8ClampedArray(frame.data));
           tempCtx.putImageData(imgData, 0, 0);
 
           // Blend Mode Handling
           if (frame.blend === 0) {
             // Source (Replace)
-            ctx.clearRect(frame.left, frame.top, frame.fWidth, frame.fHeight);
+            ctx.clearRect(fLeft, fTop, fWidth, fHeight);
           }
-          ctx.drawImage(tempCanvas, frame.left, frame.top);
+          ctx.drawImage(tempCanvas, fLeft, fTop);
 
           // Add Composited result to GIF
           gif.addFrame(ctx, { copy: true, delay: frame.delay });
@@ -921,7 +939,7 @@
           const originalSize = (currentFile.size / 1024).toFixed(2);
           const gifSize = (blob.size / 1024).toFixed(2);
           document.getElementById("resultInfo").textContent =
-            `Converted: Original ${originalSize} KB | GIF ${gifSize} KB`;
+            `Successfully converted: Original ${originalSize} KB | GIF ${gifSize} KB`;
 
           convertBtn.disabled = false;
           convertBtn.textContent = "Convert to GIF";
