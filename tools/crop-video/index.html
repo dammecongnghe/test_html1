@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Video Online Free - Video Cropper & MP4 Cropper to Crop MP4</title>
+    <meta name="description" content="Free video cropper to crop video online and crop MP4. Learn how to crop a video with our online video cropper. Best MP4 cropper and video crop tool - crop MP4 online instantly.">
+    <meta name="keywords" content="crop video, video cropper, crop mp4, crop video online, mp4 cropper, how to crop a video, video crop, online video cropper, mp4 crop, video cropper online">
+    <link rel="canonical" href="https://moviesearch.online/crop-video">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Crop Video Online - Video Cropper to Crop MP4">
+    <meta property="og:description" content="Free video cropper and online video cropper. Crop video, crop MP4, and learn how to crop a video online.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moviesearch.online/crop-video">
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to crop a video online?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To crop video online, upload your video to our free video cropper, use the visual crop tool to select the area, and click 'Crop video!'. Our online video cropper will crop MP4 and other formats instantly. Learn how to crop a video with our MP4 cropper - it's the easiest way to crop video online."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the best video cropper to crop MP4?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our video cropper is the best free tool to crop video and crop MP4 online. Use our online video cropper to crop video dimensions, MP4 crop with aspect ratios, and video crop with visual tools. Our MP4 cropper and video cropper online make it easy to crop MP4 and crop video online."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I crop MP4 files with this video cropper?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Our video cropper is an excellent MP4 cropper. Upload your MP4 file to crop video online, select the area to crop MP4, and download. Our online video cropper handles MP4 crop perfectly. Use our video cropper online to crop MP4 files and learn how to crop a video in MP4 format."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this video cropper free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely! Our video cropper and online video cropper are 100% free. Crop video unlimited times, crop MP4 without fees, and use our MP4 cropper as often as needed. Our video cropper online requires no registration to crop video online or MP4 crop."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I crop a video to a square?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To crop video to a square using our video cropper, select '1:1 (Square)' from the aspect ratio dropdown. Our online video cropper will help you crop MP4 to a perfect square. This is how to crop a video for Instagram using our MP4 cropper and video crop tool."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What video formats can I crop with this video cropper?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our video cropper and online video cropper support all formats. Crop video in MP4, WebM, AVI, MOV, MKV, WMV formats. Use our MP4 cropper to crop MP4, or crop video online in any format. Our video cropper online handles video crop for all major formats up to 200MB."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Video Cropper - Crop Video & MP4 Cropper Online",
+      "description": "Free video cropper and online video cropper. Crop video, crop MP4, and learn how to crop a video online.",
+      "url": "https://moviesearch.online/crop-video",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    
+    <!-- FFmpeg.wasm for client-side video processing -->
+    <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.12.6/dist/umd/ffmpeg.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/util@0.12.1/dist/umd/index.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .home-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .home-button:hover {
+            background: #0052a3;
+            transform: translateY(-2px);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        h2 {
+            color: #333;
+            margin: 30px 0 15px;
+            font-size: 1.5em;
+        }
+
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .upload-area {
+            border: 2px dashed #0066cc;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            background: #f9f9f9;
+            margin-bottom: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .upload-area:hover {
+            background: #f0f0f0;
+            border-color: #0052a3;
+        }
+
+        .upload-btn {
+            background: #0066cc;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .upload-btn:hover {
+            background: #0052a3;
+        }
+
+        .url-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .editor-section {
+            display: none;
+        }
+
+        .editor-section.active {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 20px;
+        }
+
+        @media (max-width: 968px) {
+            .editor-section.active {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .video-preview {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .video-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        video {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .crop-overlay {
+            position: absolute;
+            border: 2px solid #0066cc;
+            background: rgba(0, 102, 204, 0.1);
+            cursor: move;
+        }
+
+        .resize-handle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #0066cc;
+            border: 2px solid white;
+            border-radius: 50%;
+        }
+
+        .resize-handle.nw { top: -5px; left: -5px; cursor: nw-resize; }
+        .resize-handle.ne { top: -5px; right: -5px; cursor: ne-resize; }
+        .resize-handle.sw { bottom: -5px; left: -5px; cursor: sw-resize; }
+        .resize-handle.se { bottom: -5px; right: -5px; cursor: se-resize; }
+
+        .controls-panel {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .control-group {
+            margin-bottom: 20px;
+        }
+
+        .control-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .control-group input,
+        .control-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .dimension-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .crop-btn {
+            background: #0066cc;
+            color: white;
+            padding: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .crop-btn:hover {
+            background: #0052a3;
+        }
+
+        .crop-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .video-controls {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .video-control-btn {
+            padding: 8px 20px;
+            background: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .video-control-btn:hover {
+            background: #5a6268;
+        }
+
+        .download-section {
+            display: none;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .download-section.active {
+            display: block;
+        }
+
+        .download-btn {
+            background: #28a745;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .download-btn:hover {
+            background: #218838;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            padding: 15px;
+            border-radius: 5px;
+            color: #1565c0;
+            margin: 20px 0;
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .steps-list {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .steps-list ol {
+            padding-left: 20px;
+        }
+
+        .steps-list li {
+            margin: 10px 0;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://moviesearch.online" class="home-button">
+        <span>🏠</span> Home
+    </a>
+
+    <div class="container">
+        <h1>Video Cropper - Crop Video Online Free & MP4 Cropper</h1>
+        
+        <div class="description">
+            <p>
+                Free video cropper to crop video online: no software to install, no signup, no watermarks. Our online video cropper and MP4 cropper let 
+                you select and remove unwanted areas from your video, changing the visible frame dimensions. Learn how to crop a video with our video crop 
+                tool. Use our video cropper online to crop MP4, AVI, MOV, WMV, MPEG, WebM, and many other video formats up to 200MB. Our MP4 cropper makes 
+                it simple to crop video and MP4 crop instantly!
+            </p>
+        </div>
+
+        <!-- Upload Area -->
+        <div class="upload-area" id="uploadArea">
+            <input type="file" id="fileInput" accept="video/*">
+            <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+                Upload Your Video
+            </button>
+            <p style="margin-top: 15px; color: #666;">or drag and drop a video file here</p>
+            <input type="text" class="url-input" id="urlInput" placeholder="Or paste video URL here">
+            <p style="font-size: 13px; color: #999; margin-top: 10px;">
+                Supports: MP4, WebM, AVI, MOV, MKV, WMV, FLV, MPEG (Max 200MB)
+            </p>
+        </div>
+
+        <!-- Editor Section -->
+        <div class="editor-section" id="editorSection">
+            <!-- Video Preview -->
+            <div class="video-preview">
+                <h3>Video Preview:</h3>
+                <div class="video-container" id="videoContainer">
+                    <video id="videoPreview" controls></video>
+                    <div class="crop-overlay" id="cropOverlay" style="display: none;">
+                        <div class="resize-handle nw"></div>
+                        <div class="resize-handle ne"></div>
+                        <div class="resize-handle sw"></div>
+                        <div class="resize-handle se"></div>
+                    </div>
+                </div>
+                <div class="video-controls">
+                    <button class="video-control-btn" onclick="togglePlay()">⏯ Play/Pause</button>
+                    <button class="video-control-btn" onclick="resetCrop()">🔄 Reset Crop</button>
+                </div>
+            </div>
+
+            <!-- Controls Panel -->
+            <div class="controls-panel">
+                <h3>Crop Settings:</h3>
+                
+                <div class="control-group">
+                    <label>Lock Aspect Ratio:</label>
+                    <select id="aspectRatio" onchange="updateAspectRatio()">
+                        <option value="none">None (Free)</option>
+                        <option value="16:9">16:9 (Widescreen)</option>
+                        <option value="4:3">4:3 (Standard)</option>
+                        <option value="1:1">1:1 (Square)</option>
+                        <option value="9:16">9:16 (Vertical)</option>
+                        <option value="3:2">3:2 (Photo)</option>
+                        <option value="21:9">21:9 (Ultrawide)</option>
+                        <option value="1.618:1">Golden Ratio</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label>Position (pixels):</label>
+                    <div class="dimension-inputs">
+                        <div>
+                            <small>X:</small>
+                            <input type="number" id="cropX" value="0" min="0">
+                        </div>
+                        <div>
+                            <small>Y:</small>
+                            <input type="number" id="cropY" value="0" min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Dimensions (pixels):</label>
+                    <div class="dimension-inputs">
+                        <div>
+                            <small>Width:</small>
+                            <input type="number" id="cropWidth" value="640" min="1">
+                        </div>
+                        <div>
+                            <small>Height:</small>
+                            <input type="number" id="cropHeight" value="360" min="1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label>Output Format:</label>
+                    <select id="outputFormat">
+                        <option value="original">Keep Original Format</option>
+                        <option value="mp4">MP4</option>
+                        <option value="webm">WebM</option>
+                    </select>
+                </div>
+
+                <button class="crop-btn" id="cropBtn" onclick="cropVideo()">Crop video!</button>
+            </div>
+        </div>
+
+        <!-- Download Section -->
+        <div class="download-section" id="downloadSection">
+            <h2>Cropped Video Ready!</h2>
+            <video id="resultVideo" controls style="max-width: 100%; margin: 20px 0;"></video>
+            <div>
+                <button class="download-btn" onclick="downloadVideo()">💾 Download Cropped Video</button>
+            </div>
+        </div>
+
+        <!-- How to Crop -->
+        <h2>How to Crop a Video Online:</h2>
+        <div class="steps-list">
+            <ol>
+                <li><strong>Upload Your Video:</strong> Choose a file from your device or paste a URL.</li>
+                <li><strong>Select the Crop Area:</strong> Use the graphical crop tool over the video preview, or enter dimensions manually.</li>
+                <li><strong>Lock Aspect Ratio (Optional):</strong> Choose from presets like 1:1 (square), 4:3, 16:9, 9:16, and more.</li>
+                <li><strong>Crop:</strong> Click "Crop video!" and download the result.</li>
+            </ol>
+        </div>
+
+        <!-- Key Features -->
+        <h2>Key Features</h2>
+        <ul class="features-list">
+            <li><strong>Visual crop tool:</strong> Select the area graphically over video preview with adjustable handles.</li>
+            <li><strong>Aspect ratio presets:</strong> Lock to 16:9, 4:3, 1:1 (square), 9:16 (vertical), 3:2, Golden ratio, and more.</li>
+            <li><strong>Pause and adjust:</strong> Pause the video to precisely position the crop area on a specific frame.</li>
+            <li><strong>Multiple output formats:</strong> Keep original format, or re-encode to MP4 or WebM.</li>
+            <li><strong>100% free:</strong> No watermarks, no signup, no limits.</li>
+        </ul>
+
+        <div class="info-box">
+            <strong>💡 Related Tools:</strong><br>
+            If you want to cut video duration instead of dimensions, use our Video cutter. To resize the entire video to different dimensions, try Resize video.
+        </div>
+
+        <!-- SEO Content Section -->
+        <h2>How to Crop a Video with Our Video Cropper</h2>
+        <p style="margin-bottom: 15px; color: #666; line-height: 1.8;">
+            Our free video cropper makes it easy to crop video online and learn how to crop a video instantly. Whether you need to crop MP4 files with our 
+            MP4 cropper, use our online video cropper for other formats, or learn video crop techniques, our video cropper online handles it all. Simply 
+            upload your video to our video cropper, use the visual crop tool to select the area, and click "Crop video!" to crop video online. No software 
+            installation required - our online video cropper and MP4 cropper work in your browser to crop MP4 and MP4 crop other formats. Use our free video 
+            cropper to crop video and learn how to crop a video like a pro!
+        </p>
+
+        <h3>Crop MP4 with Our MP4 Cropper & Video Crop Tool</h3>
+        <p style="margin-bottom: 15px; color: #666; line-height: 1.8;">
+            When you crop video using our video cropper, you can crop MP4 files with our dedicated MP4 cropper features. Our online video cropper makes it 
+            simple to crop MP4 and learn how to crop a video in MP4 format. Use our video cropper online to MP4 crop with aspect ratios like 16:9, 4:3, or 
+            1:1 (square). The MP4 cropper includes visual handles to crop video precisely. Whether you need to crop MP4 for YouTube, crop video online for 
+            Instagram, or use our video crop tool for any purpose, our video cropper and MP4 cropper deliver professional results when you crop video online!
+        </p>
+
+        <h3>Online Video Cropper with Aspect Ratio Presets</h3>
+        <p style="margin-bottom: 15px; color: #666; line-height: 1.8;">
+            Our video cropper and online video cropper offer powerful aspect ratio presets to crop video perfectly. Use our MP4 cropper to crop MP4 with 
+            16:9 (widescreen), 4:3 (standard), 1:1 (square), 9:16 (vertical), or Golden ratio. When you crop video online with our video cropper, these 
+            presets help you learn how to crop a video for different platforms. The video cropper online maintains proportions when you crop video and 
+            MP4 crop. Whether you use our video crop tool to crop MP4 for social media or crop video online for presentations, our online video cropper 
+            and MP4 cropper make it simple!
+        </p>
+
+        <h3>Video Cropper Online Features & Video Crop Tools</h3>
+        <p style="margin-bottom: 15px; color: #666; line-height: 1.8;">
+            Our video cropper offers professional features to crop video online effectively. When you crop video with our online video cropper, you get 
+            visual crop handles to crop MP4 precisely. The MP4 cropper includes play/pause controls to learn how to crop a video frame-by-frame. Use our 
+            video cropper online to enter exact dimensions for video crop, or drag handles to crop video visually. Our video cropper and MP4 cropper support 
+            multiple output formats when you crop MP4 - keep original format or re-encode. Whether you crop video online with our online video cropper or use 
+            the MP4 cropper for MP4 crop, our video crop tool delivers quality results!
+        </p>
+
+        <h3>Learn How to Crop a Video for Social Media</h3>
+        <p style="margin-bottom: 15px; color: #666; line-height: 1.8;">
+            Want to learn how to crop a video for Instagram, TikTok, or YouTube? Our video cropper and online video cropper make it easy to crop video for 
+            any platform. Use our MP4 cropper to crop MP4 to 1:1 (square) for Instagram posts, 9:16 (vertical) for Stories and TikTok, or 16:9 for YouTube. 
+            When you crop video online with our video cropper, select the aspect ratio and crop video to perfect dimensions. Our video cropper online shows 
+            you exactly how to crop a video for each platform. Whether you need to crop MP4 with our MP4 cropper or crop video online in other formats, our 
+            online video cropper and video crop tool make social media cropping simple!
+        </p>
+
+        <h3>Free Video Cropper & MP4 Cropper Online</h3>
+        <p style="margin-bottom: 15px; color: #666; line-height: 1.8;">
+            Unlike paid software, our video cropper and online video cropper are completely free. Crop video unlimited times, crop MP4 without fees, and use 
+            our MP4 cropper as often as needed - all free! No registration required to use our video cropper online or crop video online. Our video cropper 
+            works entirely in your browser when you crop MP4 and video crop, ensuring privacy and speed. Perfect for content creators who need to crop video 
+            regularly, social media managers who want to learn how to crop a video for different platforms, or anyone who needs a free online video cropper 
+            to crop MP4. Start using our video cropper today to crop video online, use our MP4 cropper for MP4 crop, and learn how to crop a video like a pro!
+        </p>
+
+        <!-- FAQ Section -->
+        <h2>Frequently Asked Questions</h2>
+        
+        <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+            <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em;">How to crop a video online?</h3>
+            <p style="line-height: 1.7; color: #666;">
+                To crop video online, upload your video to our free video cropper, use the visual crop tool to select the area, and click 'Crop video!'. 
+                Our online video cropper will crop MP4 and other formats instantly. Learn how to crop a video with our MP4 cropper - it's the easiest way 
+                to crop video online.
+            </p>
+        </div>
+
+        <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+            <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em;">What is the best video cropper to crop MP4?</h3>
+            <p style="line-height: 1.7; color: #666;">
+                Our video cropper is the best free tool to crop video and crop MP4 online. Use our online video cropper to crop video dimensions, MP4 crop 
+                with aspect ratios, and video crop with visual tools. Our MP4 cropper and video cropper online make it easy to crop MP4 and crop video online.
+            </p>
+        </div>
+
+        <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+            <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em;">Can I crop MP4 files with this video cropper?</h3>
+            <p style="line-height: 1.7; color: #666;">
+                Yes! Our video cropper is an excellent MP4 cropper. Upload your MP4 file to crop video online, select the area to crop MP4, and download. 
+                Our online video cropper handles MP4 crop perfectly. Use our video cropper online to crop MP4 files and learn how to crop a video in MP4 format.
+            </p>
+        </div>
+
+        <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+            <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em;">Is this video cropper free?</h3>
+            <p style="line-height: 1.7; color: #666;">
+                Absolutely! Our video cropper and online video cropper are 100% free. Crop video unlimited times, crop MP4 without fees, and use our MP4 
+                cropper as often as needed. Our video cropper online requires no registration to crop video online or MP4 crop.
+            </p>
+        </div>
+
+        <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+            <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em;">How do I crop a video to a square?</h3>
+            <p style="line-height: 1.7; color: #666;">
+                To crop video to a square using our video cropper, select '1:1 (Square)' from the aspect ratio dropdown. Our online video cropper will 
+                help you crop MP4 to a perfect square. This is how to crop a video for Instagram using our MP4 cropper and video crop tool.
+            </p>
+        </div>
+
+        <div style="background: #f9f9f9; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+            <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em;">What video formats can I crop with this video cropper?</h3>
+            <p style="line-height: 1.7; color: #666;">
+                Our video cropper and online video cropper support all formats. Crop video in MP4, WebM, AVI, MOV, MKV, WMV formats. Use our MP4 cropper 
+                to crop MP4, or crop video online in any format. Our video cropper online handles video crop for all major formats up to 200MB.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        let videoLoaded = false;
+        let isDragging = false;
+        let isResizing = false;
+        let resizeHandle = null;
+        let startX = 0;
+        let startY = 0;
+        let startCropX = 0;
+        let startCropY = 0;
+        let startCropWidth = 0;
+        let startCropHeight = 0;
+        let cropData = { x: 0, y: 0, width: 640, height: 360 };
+        let currentVideoFile = null;
+        let ffmpeg = null;
+        let ffmpegLoaded = false;
+        let croppedVideoBlob = null;
+
+        const fileInput = document.getElementById('fileInput');
+        const uploadArea = document.getElementById('uploadArea');
+        const editorSection = document.getElementById('editorSection');
+        const videoPreview = document.getElementById('videoPreview');
+        const cropOverlay = document.getElementById('cropOverlay');
+
+        // Initialize FFmpeg
+        async function loadFFmpeg() {
+            if (ffmpegLoaded) return;
+            
+            try {
+                const { FFmpeg } = FFmpegWASM;
+                const { fetchFile, toBlobURL } = FFmpegUtil;
+                
+                ffmpeg = new FFmpeg();
+                
+                ffmpeg.on('log', ({ message }) => {
+                    console.log(message);
+                });
+                
+                ffmpeg.on('progress', ({ progress, time }) => {
+                    const percent = Math.round(progress * 100);
+                    const cropBtn = document.getElementById('cropBtn');
+                    if (cropBtn && cropBtn.textContent.includes('Cropping')) {
+                        cropBtn.textContent = `Cropping... ${percent}%`;
+                    }
+                });
+                
+                const baseURL = 'https://unpkg.com/@ffmpeg/core@0.12.6/dist/umd';
+                await ffmpeg.load({
+                    coreURL: await toBlobURL(`${baseURL}/ffmpeg-core.js`, 'text/javascript'),
+                    wasmURL: await toBlobURL(`${baseURL}/ffmpeg-core.wasm`, 'application/wasm'),
+                });
+                
+                ffmpegLoaded = true;
+                console.log('FFmpeg loaded successfully');
+            } catch (error) {
+                console.error('Error loading FFmpeg:', error);
+                alert('Error loading video processor. Please refresh the page and try again.');
+            }
+        }
+
+        // File upload
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files[0]) {
+                loadVideo(e.target.files[0]);
+            }
+        });
+
+        function loadVideo(file) {
+            currentVideoFile = file;
+            const url = URL.createObjectURL(file);
+            videoPreview.src = url;
+            videoPreview.onloadedmetadata = () => {
+                editorSection.classList.add('active');
+                initCropOverlay();
+                attachDragListeners();
+                
+                // Load FFmpeg in background
+                if (!ffmpegLoaded) {
+                    loadFFmpeg();
+                }
+            };
+        }
+
+        function initCropOverlay() {
+            const rect = videoPreview.getBoundingClientRect();
+            const videoWidth = videoPreview.videoWidth;
+            const videoHeight = videoPreview.videoHeight;
+            
+            // Calculate display scale
+            const displayScale = rect.width / videoWidth;
+            
+            // Initialize crop to 80% of video, centered
+            cropData.width = Math.min(640, rect.width * 0.8);
+            cropData.height = Math.min(360, rect.height * 0.8);
+            cropData.x = (rect.width - cropData.width) / 2;
+            cropData.y = (rect.height - cropData.height) / 2;
+            
+            updateCropOverlay();
+            cropOverlay.style.display = 'block';
+        }
+
+        function updateCropOverlay() {
+            cropOverlay.style.left = cropData.x + 'px';
+            cropOverlay.style.top = cropData.y + 'px';
+            cropOverlay.style.width = cropData.width + 'px';
+            cropOverlay.style.height = cropData.height + 'px';
+            
+            document.getElementById('cropX').value = Math.round(cropData.x);
+            document.getElementById('cropY').value = Math.round(cropData.y);
+            document.getElementById('cropWidth').value = Math.round(cropData.width);
+            document.getElementById('cropHeight').value = Math.round(cropData.height);
+        }
+
+        // Attach drag listeners
+        function attachDragListeners() {
+            cropOverlay.addEventListener('mousedown', startDrag);
+            document.addEventListener('mousemove', drag);
+            document.addEventListener('mouseup', endDrag);
+            
+            // Add resize handle listeners
+            const handles = cropOverlay.querySelectorAll('.resize-handle');
+            handles.forEach(handle => {
+                handle.addEventListener('mousedown', startResize);
+            });
+            
+            // Add touch support for mobile
+            cropOverlay.addEventListener('touchstart', handleTouchStart);
+            document.addEventListener('touchmove', handleTouchMove);
+            document.addEventListener('touchend', endDrag);
+        }
+
+        function startDrag(e) {
+            // Don't start drag if clicking on resize handle
+            if (e.target.classList.contains('resize-handle')) {
+                return;
+            }
+            
+            e.preventDefault();
+            e.stopPropagation();
+            
+            isDragging = true;
+            const rect = videoPreview.getBoundingClientRect();
+            startX = e.clientX;
+            startY = e.clientY;
+            startCropX = cropData.x;
+            startCropY = cropData.y;
+            
+            cropOverlay.style.cursor = 'move';
+        }
+
+        function startResize(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            isResizing = true;
+            resizeHandle = e.target.className.split(' ')[1]; // Get handle position (nw, ne, sw, se)
+            
+            startX = e.clientX;
+            startY = e.clientY;
+            startCropX = cropData.x;
+            startCropY = cropData.y;
+            startCropWidth = cropData.width;
+            startCropHeight = cropData.height;
+        }
+
+        function drag(e) {
+            if (isDragging) {
+                handleDrag(e);
+            } else if (isResizing) {
+                handleResize(e);
+            }
+        }
+
+        function handleDrag(e) {
+            e.preventDefault();
+            const rect = videoPreview.getBoundingClientRect();
+            
+            const deltaX = e.clientX - startX;
+            const deltaY = e.clientY - startY;
+            
+            cropData.x = Math.max(0, Math.min(rect.width - cropData.width, startCropX + deltaX));
+            cropData.y = Math.max(0, Math.min(rect.height - cropData.height, startCropY + deltaY));
+            
+            updateCropOverlay();
+        }
+
+        function handleResize(e) {
+            e.preventDefault();
+            const rect = videoPreview.getBoundingClientRect();
+            
+            const deltaX = e.clientX - startX;
+            const deltaY = e.clientY - startY;
+            
+            switch(resizeHandle) {
+                case 'se': // Bottom-right
+                    cropData.width = Math.max(50, Math.min(rect.width - startCropX, startCropWidth + deltaX));
+                    cropData.height = Math.max(50, Math.min(rect.height - startCropY, startCropHeight + deltaY));
+                    break;
+                case 'sw': // Bottom-left
+                    const newWidth = Math.max(50, startCropWidth - deltaX);
+                    const newX = Math.max(0, startCropX + deltaX);
+                    if (newX + newWidth <= rect.width) {
+                        cropData.x = newX;
+                        cropData.width = newWidth;
+                    }
+                    cropData.height = Math.max(50, Math.min(rect.height - startCropY, startCropHeight + deltaY));
+                    break;
+                case 'ne': // Top-right
+                    const newHeight = Math.max(50, startCropHeight - deltaY);
+                    const newY = Math.max(0, startCropY + deltaY);
+                    if (newY + newHeight <= rect.height) {
+                        cropData.y = newY;
+                        cropData.height = newHeight;
+                    }
+                    cropData.width = Math.max(50, Math.min(rect.width - startCropX, startCropWidth + deltaX));
+                    break;
+                case 'nw': // Top-left
+                    const nwWidth = Math.max(50, startCropWidth - deltaX);
+                    const nwX = Math.max(0, startCropX + deltaX);
+                    if (nwX + nwWidth <= rect.width) {
+                        cropData.x = nwX;
+                        cropData.width = nwWidth;
+                    }
+                    const nwHeight = Math.max(50, startCropHeight - deltaY);
+                    const nwY = Math.max(0, startCropY + deltaY);
+                    if (nwY + nwHeight <= rect.height) {
+                        cropData.y = nwY;
+                        cropData.height = nwHeight;
+                    }
+                    break;
+            }
+            
+            updateCropOverlay();
+        }
+
+        function endDrag(e) {
+            if (isDragging) {
+                isDragging = false;
+                cropOverlay.style.cursor = 'move';
+            }
+            if (isResizing) {
+                isResizing = false;
+            }
+        }
+
+        // Touch support
+        function handleTouchStart(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent('mousedown', {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            startDrag(mouseEvent);
+        }
+
+        function handleTouchMove(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent('mousemove', {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            drag(mouseEvent);
+        }
+
+        // Update crop from input fields
+        document.getElementById('cropX').addEventListener('input', (e) => {
+            cropData.x = parseInt(e.target.value) || 0;
+            updateCropOverlay();
+        });
+        
+        document.getElementById('cropY').addEventListener('input', (e) => {
+            cropData.y = parseInt(e.target.value) || 0;
+            updateCropOverlay();
+        });
+        
+        document.getElementById('cropWidth').addEventListener('input', (e) => {
+            cropData.width = parseInt(e.target.value) || 100;
+            updateCropOverlay();
+        });
+        
+        document.getElementById('cropHeight').addEventListener('input', (e) => {
+            cropData.height = parseInt(e.target.value) || 100;
+            updateCropOverlay();
+        });
+
+        function updateAspectRatio() {
+            const ratio = document.getElementById('aspectRatio').value;
+            const rect = videoPreview.getBoundingClientRect();
+            
+            if (ratio === 'free') {
+                return;
+            }
+            
+            let targetWidth, targetHeight;
+            
+            switch(ratio) {
+                case '16:9':
+                    targetHeight = cropData.height;
+                    targetWidth = targetHeight * (16 / 9);
+                    break;
+                case '4:3':
+                    targetHeight = cropData.height;
+                    targetWidth = targetHeight * (4 / 3);
+                    break;
+                case '1:1':
+                    targetWidth = targetHeight = Math.min(cropData.width, cropData.height);
+                    break;
+                case '9:16':
+                    targetWidth = cropData.width;
+                    targetHeight = targetWidth * (16 / 9);
+                    break;
+                case '21:9':
+                    targetHeight = cropData.height;
+                    targetWidth = targetHeight * (21 / 9);
+                    break;
+            }
+            
+            // Ensure it fits within video bounds
+            if (cropData.x + targetWidth > rect.width) {
+                targetWidth = rect.width - cropData.x;
+            }
+            if (cropData.y + targetHeight > rect.height) {
+                targetHeight = rect.height - cropData.y;
+            }
+            
+            cropData.width = targetWidth;
+            cropData.height = targetHeight;
+            updateCropOverlay();
+        }
+
+        function togglePlay() {
+            if (videoPreview.paused) {
+                videoPreview.play();
+            } else {
+                videoPreview.pause();
+            }
+        }
+
+        function resetCrop() {
+            initCropOverlay();
+        }
+
+        // Real video cropping with FFmpeg
+        async function cropVideo() {
+            if (!currentVideoFile) {
+                alert('Please upload a video first');
+                return;
+            }
+            
+            if (!ffmpegLoaded) {
+                alert('Video processor is still loading. Please wait a moment and try again.');
+                await loadFFmpeg();
+                return;
+            }
+            
+            const cropBtn = document.getElementById('cropBtn');
+            cropBtn.disabled = true;
+            cropBtn.textContent = 'Cropping... 0%';
+            
+            try {
+                const { fetchFile } = FFmpegUtil;
+                
+                // Calculate actual crop coordinates (scale from display to video dimensions)
+                const rect = videoPreview.getBoundingClientRect();
+                const scaleX = videoPreview.videoWidth / rect.width;
+                const scaleY = videoPreview.videoHeight / rect.height;
+                
+                const actualX = Math.round(cropData.x * scaleX);
+                const actualY = Math.round(cropData.y * scaleY);
+                const actualWidth = Math.round(cropData.width * scaleX);
+                const actualHeight = Math.round(cropData.height * scaleY);
+                
+                // Ensure dimensions are even (required by H.264)
+                const evenWidth = actualWidth % 2 === 0 ? actualWidth : actualWidth - 1;
+                const evenHeight = actualHeight % 2 === 0 ? actualHeight : actualHeight - 1;
+                
+                console.log(`Cropping video: ${actualX},${actualY} ${evenWidth}x${evenHeight}`);
+                
+                // Load video file into FFmpeg
+                await ffmpeg.writeFile('input.mp4', await fetchFile(currentVideoFile));
+                
+                // Run FFmpeg crop command
+                // -i input.mp4: input file
+                // -vf crop=w:h:x:y: crop filter
+                // -c:a copy: copy audio without re-encoding
+                await ffmpeg.exec([
+                    '-i', 'input.mp4',
+                    '-vf', `crop=${evenWidth}:${evenHeight}:${actualX}:${actualY}`,
+                    '-c:a', 'copy',
+                    'output.mp4'
+                ]);
+                
+                // Read the cropped video
+                const data = await ffmpeg.readFile('output.mp4');
+                croppedVideoBlob = new Blob([data.buffer], { type: 'video/mp4' });
+                
+                // Clean up FFmpeg files
+                await ffmpeg.deleteFile('input.mp4');
+                await ffmpeg.deleteFile('output.mp4');
+                
+                // Show download section
+                document.getElementById('downloadSection').classList.add('active');
+                document.getElementById('downloadSection').scrollIntoView({ behavior: 'smooth' });
+                
+                cropBtn.disabled = false;
+                cropBtn.textContent = 'Crop video!';
+                
+                console.log('Video cropped successfully!');
+                
+            } catch (error) {
+                console.error('Error cropping video:', error);
+                alert('Error cropping video: ' + error.message);
+                cropBtn.disabled = false;
+                cropBtn.textContent = 'Crop video!';
+            }
+        }
+
+        function downloadVideo() {
+            if (!croppedVideoBlob) {
+                alert('Please crop the video first');
+                return;
+            }
+            
+            const url = URL.createObjectURL(croppedVideoBlob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'cropped-video.mp4';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Drag and drop
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.style.background = '#e6f2ff';
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.background = '#f9f9f9';
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.style.background = '#f9f9f9';
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.startsWith('video/')) {
+                loadVideo(file);
+            }
+        });
+    </script>
+</body>
+</html>
