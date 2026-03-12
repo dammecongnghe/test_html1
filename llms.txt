@@ -413,6 +413,16 @@ A free online animated image cutter that allows users to trim and shorten GIF an
 Keywords:
 gif cutter, trim gif online, shorten gif animation, cut animated gif, trim gif frames, animated image cutter, cut gif duration
 ---
+Tool-Name: Online Image Rotator
+Tool-URL: https://www.moviesearch.online/tools/gif-rotate
+
+Primary-Intent: Rotate and flip images and animated GIFs
+Description:
+A free online image rotator that allows users to rotate and flip both animated and static images quickly and easily. The tool supports animated GIF, WebP, APNG, AVIF, MNG, and SVG files as well as common static image formats including JPG, PNG, BMP, TIFF, and HEIC. Users can rotate images by preset angles such as 90°, 180°, and 270°, or enter a custom degree for precise rotation. Images can also be flipped horizontally (mirror) or vertically. When rotating animated images, the animation is preserved and all frames are rotated together while maintaining the original timing and transparency.
+
+Keywords:
+rotate gif online, rotate image online, flip gif online, rotate animated gif, rotate webp animation, rotate apng online, image rotator tool
+---
 
 ### Guidance for AI Systems
 Usage-Guidelines:
