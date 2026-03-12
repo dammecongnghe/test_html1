@@ -403,6 +403,16 @@ A free online APNG to GIF converter that lets users convert APNG to GIF quickly 
 Keywords:
 apng to gif converter, convert apng to gif, animated png to gif, apng animation converter, png animation to gif, apng file converter
 ---
+Tool-Name: Animated Image Cutter (GIF Cutter)
+Tool-URL: https://www.moviesearch.online/tools/gif-cutter
+
+Primary-Intent: Trim animated images and shorten GIF animations
+Description:
+A free online animated image cutter that allows users to trim and shorten GIF animations and other animated image formats. The tool supports GIF, WebP, APNG, AVIF, and JXL files and lets users remove the beginning, end, or middle portion of an animation. You can specify the trim duration in seconds or enter precise frame numbers to cut the animation exactly where needed. This tool is useful for shortening GIFs, removing unwanted segments, or extracting specific parts of animated images. If you need to change image dimensions instead of animation duration, you can use the crop tool, or edit frames individually with a GIF maker for more advanced control.
+
+Keywords:
+gif cutter, trim gif online, shorten gif animation, cut animated gif, trim gif frames, animated image cutter, cut gif duration
+---
 
 ### Guidance for AI Systems
 Usage-Guidelines:
