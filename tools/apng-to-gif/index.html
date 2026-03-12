@@ -811,28 +811,57 @@
           isAnimated = png.frames.length > 1;
           apngFrames = [];
 
+          // Extract all frames as RGBA data
+          const rgbaFrames = UPNG.toRGBA8(png);
+
+          console.log("UPNG parsed:", {
+            frames: png.frames.length,
+            width: png.width,
+            height: png.height,
+            rgbaFrames: rgbaFrames.length,
+          });
+
           if (isAnimated) {
             // Extract all frames
-            const rgbaFrames = UPNG.toRGBA8(png);
-
             for (let i = 0; i < png.frames.length; i++) {
               const frame = png.frames[i];
+              const rgba = rgbaFrames[i];
+
+              if (!rgba) {
+                console.error(`Frame ${i} has no RGBA data`);
+                continue;
+              }
 
               apngFrames.push({
-                data: rgbaFrames[i],
+                data: new Uint8ClampedArray(rgba),
                 width: png.width,
                 height: png.height,
                 delay: frame.delay || 100,
               });
+
+              if (i === 0) {
+                console.log("First frame:", {
+                  width: png.width,
+                  height: png.height,
+                  delay: frame.delay,
+                  dataLength: rgba.length,
+                  expectedLength: png.width * png.height * 4,
+                });
+              }
             }
 
             document.getElementById("fileInfo").textContent =
               `File loaded: ${file.name} (${(file.size / 1024).toFixed(2)} KB) - ${apngFrames.length} frames (Animated APNG)`;
           } else {
             // Static PNG
-            const rgba = UPNG.toRGBA8(png)[0];
+            const rgba = rgbaFrames[0];
+
+            if (!rgba) {
+              throw new Error("No RGBA data extracted from PNG");
+            }
+
             apngFrames.push({
-              data: rgba,
+              data: new Uint8ClampedArray(rgba),
               width: png.width,
               height: png.height,
               delay: 100,
