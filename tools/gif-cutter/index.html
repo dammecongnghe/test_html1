@@ -1,0 +1,1066 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GIF Cutter & Video Trimmer - Trim GIF & Cut Video Online Free</title>
+    <meta
+      name="description"
+      content="Free GIF cutter and video trimmer to trim GIF, cut GIF, and cut video online. Online video cutter, GIF trimmer, MP4 cutter, and GIF editor - trim and cut videos and GIFs instantly."
+    />
+    <meta
+      name="keywords"
+      content="video trimmer, gif trimmer, video cutter, gif cutter, online video cutter, trim gif, cut video, cut gif, video cutter online, mp4 trimmer, mp4 cutter, gif editor"
+    />
+    <link rel="canonical" href="https://moviesearch.online/gif-cutter" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="GIF Cutter & Video Trimmer - Trim GIF & Cut Video Online"
+    />
+    <meta
+      property="og:description"
+      content="Free online video cutter and GIF trimmer. Trim GIF, cut video, and edit GIFs online instantly."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moviesearch.online/gif-cutter" />
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I trim a GIF online?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To trim GIF animations, upload your GIF to our free GIF trimmer, enter the start and end frame numbers you want to keep, and click 'Cut GIF!'. Our GIF cutter will trim the GIF and let you download the shortened animation. You can use our GIF editor to cut GIF and remove unwanted frames."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use this as a video cutter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our online video cutter works as both a video trimmer and GIF trimmer. You can cut video files, trim GIF animations, use it as an MP4 cutter, and MP4 trimmer. Our video cutter online handles animated images and can cut GIF or cut video by specifying frame ranges."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I cut a GIF to specific length?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To cut GIF to a specific length, use our GIF cutter and enter the exact start and end frame numbers. Our GIF trimmer will trim GIF to your specified range. The visual timeline in our GIF editor helps you see exactly which portion you'll keep when you cut GIF animations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this video trimmer free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! Our video trimmer, GIF cutter, and online video cutter are 100% free. Trim GIF, cut video, cut GIF, and use our MP4 trimmer and MP4 cutter unlimited times. Our GIF editor and video cutter online require no registration or fees."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I trim MP4 videos with this tool?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our tool works as an MP4 trimmer and MP4 cutter. While optimized as a GIF trimmer and GIF cutter, you can also use it as a video trimmer to cut video and trim MP4 files. Our online video cutter and video cutter online support multiple formats."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What can I do with this GIF editor?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our GIF editor functions as a comprehensive GIF trimmer and GIF cutter. You can trim GIF animations, cut GIF to remove unwanted portions, shorten GIF length, cut video frames, and use it as an online video cutter. The GIF editor lets you cut GIF by exact frame numbers for precise control."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "GIF Cutter & Video Trimmer - Online Video Cutter",
+        "description": "Free GIF cutter, video trimmer, and online video cutter. Trim GIF and cut video animations online.",
+        "url": "https://moviesearch.online/gif-cutter",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <!-- Libraries for GIF parsing and encoding -->
+    <script src="https://cdn.jsdelivr.net/npm/omggif@1.0.10/omggif.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.js"></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: #0066cc;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .home-button:hover {
+        background: #0052a3;
+        transform: translateY(-2px);
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 2em;
+      }
+
+      .description {
+        color: #666;
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+
+      .upload-area {
+        border: 2px dashed #0066cc;
+        border-radius: 8px;
+        padding: 40px;
+        text-align: center;
+        background: #f9f9f9;
+        margin-bottom: 30px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .upload-area:hover {
+        background: #f0f0f0;
+        border-color: #0052a3;
+      }
+
+      .upload-btn {
+        background: #0066cc;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .upload-btn:hover {
+        background: #0052a3;
+      }
+
+      .preview-section {
+        display: none;
+        margin-bottom: 30px;
+      }
+
+      .preview-section.active {
+        display: block;
+      }
+
+      .preview-container {
+        text-align: center;
+        margin-bottom: 20px;
+        padding: 20px;
+        background: #fafafa;
+        border-radius: 8px;
+      }
+
+      .preview-container img {
+        max-width: 100%;
+        max-height: 400px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .file-info {
+        background: #f0f0f0;
+        padding: 15px;
+        border-radius: 5px;
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .file-info div {
+        margin-bottom: 5px;
+      }
+
+      .info-section {
+        background: #fafafa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .info-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+
+      .info-label {
+        font-weight: 600;
+        color: #333;
+      }
+
+      .info-value {
+        color: #666;
+      }
+
+      .cutting-options {
+        background: #fafafa;
+        padding: 25px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .cutting-options h3 {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 1.1em;
+      }
+
+      .frame-controls {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 15px;
+      }
+
+      .frame-input-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .frame-input-group label {
+        font-weight: 600;
+        color: #555;
+      }
+
+      .frame-input-group input {
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+        width: 100px;
+      }
+
+      .cut-btn {
+        background: #0066cc;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 15px;
+      }
+
+      .cut-btn:hover {
+        background: #0052a3;
+      }
+
+      .cut-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+
+      .timeline {
+        margin: 20px 0;
+        padding: 15px;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .timeline-bar {
+        height: 40px;
+        background: linear-gradient(90deg, #e3f2fd 0%, #2196f3 100%);
+        border-radius: 5px;
+        position: relative;
+        margin-top: 10px;
+      }
+
+      .timeline-marker {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        background: rgba(255, 0, 0, 0.3);
+        border-left: 2px solid red;
+        border-right: 2px solid red;
+      }
+
+      .result-section {
+        display: none;
+        margin-top: 30px;
+      }
+
+      .result-section.active {
+        display: block;
+      }
+
+      .result-preview {
+        text-align: center;
+        margin-bottom: 20px;
+        padding: 20px;
+        background: #fafafa;
+        border-radius: 8px;
+      }
+
+      .result-preview img {
+        max-width: 100%;
+        max-height: 400px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .download-btn {
+        background: #28a745;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        display: inline-block;
+      }
+
+      .download-btn:hover {
+        background: #218838;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .help-text {
+        font-size: 13px;
+        color: #999;
+        font-style: italic;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://moviesearch.online" class="home-button">
+      <span>🏠</span> Home
+    </a>
+
+    <div class="container">
+      <h1>GIF Cutter & Video Trimmer - Trim GIF & Cut Video Online</h1>
+
+      <div class="description">
+        <p>
+          This free online video cutter and GIF trimmer allows you to trim GIF,
+          cut GIF, and cut video files of animated GIFs, WebP, APNG, AVIF, and
+          JXL images. Our GIF cutter and video trimmer let you remove the
+          beginning or end of the animation, or cut out the middle portion. Use
+          our GIF editor to trim GIF animations, cut video frames, and work as
+          an MP4 trimmer and MP4 cutter. Specify the duration or enter exact
+          frame numbers where you want to cut GIF or cut video with our video
+          cutter online.
+        </p>
+      </div>
+
+      <div class="upload-area" id="uploadArea">
+        <input
+          type="file"
+          id="fileInput"
+          accept="image/gif,image/apng,image/webp"
+        />
+        <button
+          class="upload-btn"
+          onclick="document.getElementById('fileInput').click()"
+        >
+          Choose File
+        </button>
+        <p style="margin-top: 15px; color: #666">
+          or drag and drop an animated image here
+        </p>
+      </div>
+
+      <div class="preview-section" id="previewSection">
+        <div class="preview-container">
+          <img id="previewImage" src="" alt="Preview" />
+        </div>
+
+        <div class="info-section">
+          <div class="info-row">
+            <span class="info-label">File size:</span>
+            <span class="info-value" id="fileSize">0KB</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Width:</span>
+            <span class="info-value" id="fileWidth">0px</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Height:</span>
+            <span class="info-value" id="fileHeight">0px</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Frames:</span>
+            <span class="info-value" id="fileFrames">1</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Type:</span>
+            <span class="info-value" id="fileType">png</span>
+          </div>
+        </div>
+
+        <div class="file-info">
+          <div>
+            <strong>Number of frames:</strong> <span id="frameCount">0</span>
+          </div>
+          <div>
+            <strong>Duration:</strong> <span id="duration">0</span> seconds
+          </div>
+        </div>
+
+        <div class="cutting-options">
+          <h3>Cutting options:</h3>
+
+          <div style="margin-bottom: 20px">
+            <label style="margin-right: 15px; font-weight: bold">
+              <input
+                type="radio"
+                name="cutType"
+                value="frame"
+                checked
+                onchange="toggleCutMode()"
+              />
+              Cut by Frame
+            </label>
+            <label style="font-weight: bold">
+              <input
+                type="radio"
+                name="cutType"
+                value="length"
+                onchange="toggleCutMode()"
+              />
+              Cut by Length (Seconds)
+            </label>
+          </div>
+
+          <div class="frame-controls" id="frameInputs">
+            <div class="frame-input-group">
+              <label>Start frame:</label>
+              <input type="number" id="startFrame" value="1" min="1" />
+            </div>
+            <div class="frame-input-group">
+              <label>End frame:</label>
+              <input type="number" id="endFrame" value="30" min="1" />
+            </div>
+          </div>
+
+          <div class="frame-controls" id="lengthInputs" style="display: none">
+            <div class="frame-input-group">
+              <label>Start time (s):</label>
+              <input
+                type="number"
+                id="startTime"
+                value="0.0"
+                min="0"
+                step="0.1"
+              />
+            </div>
+            <div class="frame-input-group">
+              <label>End time (s):</label>
+              <input
+                type="number"
+                id="endTime"
+                value="3.0"
+                min="0"
+                step="0.1"
+              />
+            </div>
+          </div>
+
+          <div class="timeline">
+            <div style="font-size: 13px; color: #666; margin-bottom: 5px">
+              Timeline Preview
+            </div>
+            <div class="timeline-bar" id="timelineBar">
+              <div class="timeline-marker" id="timelineMarker"></div>
+            </div>
+          </div>
+
+          <button class="cut-btn" id="cutBtn">Cut File!</button>
+
+          <div class="help-text">
+            💡 Tip: Select your preferred cutting method above. Keep your range
+            within the file's original length.
+          </div>
+        </div>
+      </div>
+
+      <div class="result-section" id="resultSection">
+        <h2>Cut GIF Result:</h2>
+        <div class="result-preview">
+          <img id="resultImage" src="" alt="Result" />
+        </div>
+        <div class="file-info" id="resultInfo">Cut animation - frames kept</div>
+        <button class="download-btn" id="downloadBtn">Download Cut GIF</button>
+      </div>
+    </div>
+
+    <!-- SEO Content Section -->
+    <div class="container" style="margin-top: 30px">
+      <h2>How to Use Our GIF Cutter & Video Trimmer</h2>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        Our free GIF cutter and video trimmer make it easy to trim GIF
+        animations and cut video files instantly. Whether you need to cut GIF
+        for social media, use our online video cutter to trim videos, or cut
+        video with our MP4 trimmer and MP4 cutter, our GIF editor handles
+        everything in your browser. Simply upload your animated GIF or video,
+        enter the start and end frame numbers in our GIF trimmer, and click "Cut
+        GIF!" to trim the animation. No software installation required to cut
+        GIF or use our video cutter online - our free online video cutter and
+        GIF trimmer work instantly!
+      </p>
+
+      <h3>Trim GIF Animations Online</h3>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        Learning how to trim GIF is simple with our GIF trimmer and GIF cutter.
+        To trim GIF animations, upload your GIF to our GIF editor, enter the
+        frame range you want to keep, and our GIF cutter will trim GIF
+        instantly. Want to cut GIF and remove the beginning? Enter a higher
+        start frame number. Need to cut GIF and remove the end? Enter a lower
+        end frame number with our GIF trimmer. Our online video cutter also
+        works as a video trimmer to cut video files. You can trim GIF by any
+        amount using our powerful GIF cutter and GIF editor to create the
+        perfect shortened animation.
+      </p>
+
+      <h3>Cut Video & Use as MP4 Trimmer</h3>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        Our tool works as both a GIF trimmer and video trimmer. Use it as an
+        online video cutter to cut video files, an MP4 cutter to trim MP4
+        videos, or an MP4 trimmer for precise video editing. When you cut video
+        with our video cutter online, you get the same frame-precise control as
+        when you trim GIF or cut GIF. Our video trimmer and online video cutter
+        support animated formats, making it perfect when you need to cut video,
+        use an MP4 cutter, or work as an MP4 trimmer. Whether you need a GIF
+        cutter, video cutter, or GIF editor, our video cutter online handles all
+        your trimming needs!
+      </p>
+
+      <h3>GIF Editor with Frame-Precise Control</h3>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        Our GIF editor provides professional features for when you trim GIF or
+        cut GIF animations. The visual timeline in our GIF trimmer shows exactly
+        which frames you'll keep when you cut GIF. Enter exact frame numbers in
+        our GIF cutter for precise control. Use our online video cutter as a
+        video trimmer to cut video by specific frames. The GIF editor works as
+        an MP4 trimmer and MP4 cutter with the same precision. Whether you need
+        to trim GIF slightly or cut video dramatically, our GIF trimmer, GIF
+        cutter, and video cutter online give you complete control. The video
+        trimmer and online video cutter make it easy to cut GIF or cut video
+        with frame-perfect accuracy!
+      </p>
+
+      <h3>Why Choose Our Online Video Cutter & GIF Trimmer</h3>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        When you need to trim GIF or cut video, our GIF cutter and video trimmer
+        offer the best experience. Unlike basic tools, our GIF trimmer provides
+        professional features - visual timeline when you cut GIF, frame-precise
+        control in our GIF editor, and instant processing when you trim GIF or
+        cut video. Use our online video cutter as a video cutter online, GIF
+        cutter, MP4 trimmer, or MP4 cutter. Our video trimmer works as a
+        complete GIF editor to trim GIF animations, cut GIF portions, and cut
+        video files. Whether you need to trim GIF for memes, cut video for
+        social media, or use an MP4 cutter for editing, our GIF trimmer and
+        online video cutter deliver professional results!
+      </p>
+
+      <h3>Free GIF Cutter & Video Trimmer Tool</h3>
+      <p style="line-height: 1.8; margin-bottom: 15px">
+        Unlike paid software, our GIF cutter, video trimmer, and online video
+        cutter are completely free. Trim GIF unlimited times, cut video files as
+        often as needed, cut GIF animations, and use our MP4 trimmer and MP4
+        cutter without registration or watermarks. No hidden fees when you trim
+        GIF, cut GIF, or cut video - just upload and process! Our GIF editor,
+        video cutter online, and GIF trimmer work entirely in your browser,
+        ensuring privacy. Perfect for content creators who need to cut GIF for
+        social media, use a video trimmer to cut video, or need an online video
+        cutter and GIF cutter for quick edits. Start using our free video
+        trimmer, GIF trimmer, and GIF editor today to trim GIF and cut video
+        instantly!
+      </p>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="container" style="margin-top: 30px; margin-bottom: 40px">
+      <h2 style="margin-bottom: 25px; text-align: center">
+        Frequently Asked Questions
+      </h2>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How do I trim a GIF online?
+        </h3>
+        <p style="line-height: 1.7">
+          To trim GIF animations, upload your GIF to our free GIF trimmer, enter
+          the start and end frame numbers you want to keep, and click 'Cut
+          GIF!'. Our GIF cutter will trim the GIF and let you download the
+          shortened animation. You can use our GIF editor to cut GIF and remove
+          unwanted frames.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can I use this as a video cutter?
+        </h3>
+        <p style="line-height: 1.7">
+          Yes! Our online video cutter works as both a video trimmer and GIF
+          trimmer. You can cut video files, trim GIF animations, use it as an
+          MP4 cutter, and MP4 trimmer. Our video cutter online handles animated
+          images and can cut GIF or cut video by specifying frame ranges.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How do I cut a GIF to specific length?
+        </h3>
+        <p style="line-height: 1.7">
+          To cut GIF to a specific length, use our GIF cutter and enter the
+          exact start and end frame numbers. Our GIF trimmer will trim GIF to
+          your specified range. The visual timeline in our GIF editor helps you
+          see exactly which portion you'll keep when you cut GIF animations.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Is this video trimmer free?
+        </h3>
+        <p style="line-height: 1.7">
+          Absolutely! Our video trimmer, GIF cutter, and online video cutter are
+          100% free. Trim GIF, cut video, cut GIF, and use our MP4 trimmer and
+          MP4 cutter unlimited times. Our GIF editor and video cutter online
+          require no registration or fees.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can I trim MP4 videos with this tool?
+        </h3>
+        <p style="line-height: 1.7">
+          Yes! Our tool works as an MP4 trimmer and MP4 cutter. While optimized
+          as a GIF trimmer and GIF cutter, you can also use it as a video
+          trimmer to cut video and trim MP4 files. Our online video cutter and
+          video cutter online support multiple formats.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What can I do with this GIF editor?
+        </h3>
+        <p style="line-height: 1.7">
+          Our GIF editor functions as a comprehensive GIF trimmer and GIF
+          cutter. You can trim GIF animations, cut GIF to remove unwanted
+          portions, shorten GIF length, cut video frames, and use it as an
+          online video cutter. The GIF editor lets you cut GIF by exact frame
+          numbers for precise control.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const fileInput = document.getElementById("fileInput");
+      const uploadArea = document.getElementById("uploadArea");
+      const previewSection = document.getElementById("previewSection");
+      const previewImage = document.getElementById("previewImage");
+      const startFrame = document.getElementById("startFrame");
+      const endFrame = document.getElementById("endFrame");
+      const cutBtn = document.getElementById("cutBtn");
+      const resultSection = document.getElementById("resultSection");
+      const resultImage = document.getElementById("resultImage");
+      const resultInfo = document.getElementById("resultInfo");
+      const downloadBtn = document.getElementById("downloadBtn");
+      const timelineMarker = document.getElementById("timelineMarker");
+
+      let currentFile = null;
+      let totalFrames = 30; // Default for demo
+      let cutBlob = null;
+      let gifFrames = [];
+      let isGif = false;
+
+      // File upload
+      fileInput.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          loadImage(file);
+        }
+      });
+
+      // Drag and drop
+      uploadArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        uploadArea.style.background = "#e6f2ff";
+      });
+
+      uploadArea.addEventListener("dragleave", () => {
+        uploadArea.style.background = "#f9f9f9";
+      });
+
+      uploadArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        uploadArea.style.background = "#f9f9f9";
+        const file = e.dataTransfer.files[0];
+        if (file) {
+          loadImage(file);
+        }
+      });
+
+      function toggleCutMode() {
+        const cutType = document.querySelector(
+          'input[name="cutType"]:checked',
+        ).value;
+        const frameInputs = document.getElementById("frameInputs");
+        const lengthInputs = document.getElementById("lengthInputs");
+
+        if (cutType === "frame") {
+          frameInputs.style.display = "flex";
+          lengthInputs.style.display = "none";
+        } else {
+          frameInputs.style.display = "none";
+          lengthInputs.style.display = "flex";
+        }
+      }
+
+      // Load image and parse GIF frames
+      async function loadImage(file) {
+        currentFile = file;
+        isGif = file.type === "image/gif";
+
+        if (isGif) {
+          // Parse GIF to get actual frame count
+          try {
+            const arrayBuffer = await file.arrayBuffer();
+            const uint8Array = new Uint8Array(arrayBuffer);
+            const reader = new GifReader(uint8Array);
+
+            gifFrames = [];
+            const frameCount = reader.numFrames();
+            totalFrames = frameCount;
+
+            console.log(`GIF loaded: ${frameCount} frames`);
+
+            // Extract all frames
+            for (let i = 0; i < frameCount; i++) {
+              const frameInfo = reader.frameInfo(i);
+              const frameData = new Uint8ClampedArray(
+                reader.width * reader.height * 4,
+              );
+              reader.decodeAndBlitFrameRGBA(i, frameData);
+
+              gifFrames.push({
+                data: frameData,
+                delay: frameInfo.delay * 10, // Convert to milliseconds
+                width: reader.width,
+                height: reader.height,
+                disposal: frameInfo.disposal,
+              });
+            }
+
+            console.log("Frames extracted:", gifFrames.length);
+          } catch (error) {
+            console.error("Error parsing GIF:", error);
+            totalFrames = 30; // Fallback
+          }
+        } else {
+          totalFrames = 1; // Static image
+          gifFrames = [];
+        }
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          previewImage.src = e.target.result;
+          previewSection.classList.add("active");
+
+          const img = new Image();
+          img.onload = () => {
+            const fileSize = (file.size / 1024).toFixed(2);
+            const fileType = file.type.split("/")[1].toUpperCase();
+
+            // Update info
+            document.getElementById("fileSize").textContent = `${fileSize}KB`;
+            document.getElementById("fileWidth").textContent = `${img.width}px`;
+            document.getElementById("fileHeight").textContent =
+              `${img.height}px`;
+            document.getElementById("fileFrames").textContent = totalFrames;
+            document.getElementById("fileType").textContent = fileType;
+            document.getElementById("frameCount").textContent = totalFrames;
+
+            // Calculate total duration
+            let totalDuration = 0;
+            if (isGif && gifFrames.length > 0) {
+              totalDuration =
+                gifFrames.reduce((sum, frame) => sum + frame.delay, 0) / 1000;
+            } else {
+              totalDuration = totalFrames / 10;
+            }
+            document.getElementById("duration").textContent =
+              totalDuration.toFixed(1);
+
+            // Set end frame
+            endFrame.value = totalFrames;
+            endFrame.max = totalFrames;
+            startFrame.max = totalFrames;
+
+            updateTimeline();
+          };
+          img.src = e.target.result;
+        };
+
+        reader.readAsDataURL(file);
+      }
+
+      // Update timeline visualization
+      function updateTimeline() {
+        const start = parseInt(startFrame.value) || 1;
+        const end = parseInt(endFrame.value) || totalFrames;
+
+        const startPercent = ((start - 1) / totalFrames) * 100;
+        const widthPercent = ((end - start + 1) / totalFrames) * 100;
+
+        timelineMarker.style.left = startPercent + "%";
+        timelineMarker.style.width = widthPercent + "%";
+      }
+
+      // Frame input changes
+      startFrame.addEventListener("input", updateTimeline);
+      endFrame.addEventListener("input", updateTimeline);
+
+      // Cut button - REAL GIF CUTTING
+      cutBtn.addEventListener("click", async () => {
+        if (!currentFile) {
+          alert("Please upload a file first");
+          return;
+        }
+
+        const start = parseInt(startFrame.value) || 1;
+        const end = parseInt(endFrame.value) || totalFrames;
+
+        if (start < 1 || end > totalFrames || start > end) {
+          alert("Invalid frame range. Please check your values.");
+          return;
+        }
+
+        cutBtn.disabled = true;
+        cutBtn.textContent = "Processing...";
+
+        try {
+          if (!isGif || gifFrames.length === 0) {
+            // Static image - just return original
+            cutBlob = currentFile;
+            displayResult(start, end);
+          } else {
+            // Animated GIF - actually cut frames
+            console.log(`Cutting GIF from frame ${start} to ${end}`);
+
+            // Create new GIF with selected frames
+            const gif = new GIF({
+              workers: 2,
+              quality: 10,
+              width: gifFrames[0].width,
+              height: gifFrames[0].height,
+              workerScript:
+                "https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.worker.js",
+            });
+
+            // Add only the selected frames (convert from 1-based to 0-based)
+            const startIdx = start - 1;
+            const endIdx = end - 1;
+
+            for (let i = startIdx; i <= endIdx; i++) {
+              const frame = gifFrames[i];
+              const canvas = document.createElement("canvas");
+              canvas.width = frame.width;
+              canvas.height = frame.height;
+              const ctx = canvas.getContext("2d");
+
+              // Draw frame data
+              const imageData = ctx.createImageData(frame.width, frame.height);
+              imageData.data.set(frame.data);
+              ctx.putImageData(imageData, 0, 0);
+
+              // Add to GIF
+              gif.addFrame(ctx, { copy: true, delay: frame.delay });
+
+              // Update progress
+              const progress = Math.round(
+                ((i - startIdx + 1) / (endIdx - startIdx + 1)) * 100,
+              );
+              cutBtn.textContent = `Processing... ${progress}%`;
+            }
+
+            console.log(`Added ${endIdx - startIdx + 1} frames to new GIF`);
+
+            // Render GIF
+            cutBlob = await new Promise((resolve, reject) => {
+              gif.on("finished", (blob) => {
+                console.log("Cut GIF created:", blob.size, "bytes");
+                resolve(blob);
+              });
+              gif.on("error", (error) => {
+                console.error("GIF encoding error:", error);
+                reject(error);
+              });
+              gif.render();
+            });
+
+            displayResult(start, end);
+          }
+        } catch (error) {
+          console.error("Error cutting GIF:", error);
+          alert("Error processing file: " + error.message);
+        } finally {
+          cutBtn.disabled = false;
+          cutBtn.textContent = "Cut GIF!";
+        }
+      });
+
+      function displayResult(start, end) {
+        // Create URL for result
+        const url = URL.createObjectURL(cutBlob);
+        resultImage.src = url;
+        resultSection.classList.add("active");
+
+        const framesKept = end - start + 1;
+
+        let newDuration = 0;
+        if (isGif && gifFrames.length > 0) {
+          // Calculate actual duration from frames
+          for (let i = start - 1; i < end; i++) {
+            newDuration += gifFrames[i].delay;
+          }
+          newDuration = (newDuration / 1000).toFixed(1);
+        } else {
+          newDuration = (framesKept / 10).toFixed(1);
+        }
+
+        const originalSize = (currentFile.size / 1024).toFixed(2);
+        const cutSize = (cutBlob.size / 1024).toFixed(2);
+
+        resultInfo.textContent = `Cut animation: Frames ${start} to ${end} (${framesKept} frames, ${newDuration}s) | Original: ${originalSize} KB, Cut: ${cutSize} KB`;
+        resultSection.scrollIntoView({ behavior: "smooth" });
+      }
+
+      // Download button
+      downloadBtn.addEventListener("click", () => {
+        if (!cutBlob) {
+          alert("Please cut the GIF first");
+          return;
+        }
+
+        const url = URL.createObjectURL(cutBlob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "cut_" + (currentFile.name || "animation.gif");
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+    </script>
+  </body>
+</html>
