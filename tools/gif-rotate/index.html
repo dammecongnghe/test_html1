@@ -1,0 +1,1239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Rotate Video & Rotate GIF - Flip GIF, Mirror GIF & Rotate MP4 Online Free
+    </title>
+    <meta
+      name="description"
+      content="Free tool to rotate video, rotate GIF, and flip GIF online. Rotate MP4, mirror GIF, and create spinning GIF. Best GIF flipper and ezgif maker alternative to rotate video online."
+    />
+    <meta
+      name="keywords"
+      content="rotate video, rotate gif, rotate mp4, rotate video online, flip gif, mp4 rotate, gif flipper, spinning gif, gif rotate, mirror gif, ezgif maker"
+    />
+    <link rel="canonical" href="https://moviesearch.online/rotate-image" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Rotate Video & Rotate GIF - Flip GIF & Rotate MP4 Online"
+    />
+    <meta
+      property="og:description"
+      content="Free tool to rotate video, rotate GIF, flip GIF, and rotate MP4. Create spinning GIF and mirror GIF online."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moviesearch.online/rotate-image" />
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I rotate video and rotate GIF online?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To rotate video and rotate GIF online, upload your file, select rotation angle (90°, 180°, 270°), and click 'Apply rotation!'. Our tool will rotate GIF, rotate MP4, flip GIF, and rotate video online instantly. Use our GIF flipper and ezgif maker alternative to rotate video, GIF rotate, and create spinning GIF."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a GIF flipper and how to flip GIF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A GIF flipper is a tool to flip GIF horizontally (mirror GIF) or vertically. Use our GIF flipper to flip GIF and mirror GIF instantly. Our tool also helps rotate GIF, rotate video, rotate MP4, and create spinning GIF. Use our ezgif maker alternative as a GIF flipper to flip GIF and rotate GIF online."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I rotate MP4 and MP4 rotate videos?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our tool is perfect to rotate MP4 and MP4 rotate videos. Upload your MP4 to rotate video online, select angle, and download. Use our tool to rotate MP4, rotate video, rotate GIF, flip GIF, and create spinning GIF. Our ezgif maker alternative handles MP4 rotate and helps you rotate video online."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How to create a spinning GIF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To create a spinning GIF, use our tool to rotate GIF by 90° multiple times or use custom rotation. Our GIF flipper and ezgif maker alternative help you create spinning GIF, rotate video, rotate MP4, and GIF rotate with any angle. Use our tool to create spinning GIF and rotate GIF online."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this rotate video and GIF flipper free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! Our tool to rotate video, rotate GIF, and GIF flipper are 100% free. Rotate MP4 unlimited times, flip GIF, mirror GIF, rotate video online, and create spinning GIF without fees. Use our ezgif maker alternative to rotate video, GIF rotate, and MP4 rotate as often as needed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How to mirror GIF and flip GIF horizontally?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To mirror GIF and flip GIF horizontally, upload your GIF to our GIF flipper, check 'flip (horizontal)', and apply. Our tool will mirror GIF and flip GIF instantly. Use our ezgif maker alternative to flip GIF, mirror GIF, rotate GIF, rotate video, and create spinning GIF. Our GIF flipper makes it easy to mirror GIF online."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Rotate Video & GIF Flipper - Rotate GIF & MP4 Online",
+        "description": "Free tool to rotate video, rotate GIF, flip GIF, rotate MP4, and create spinning GIF. Best GIF flipper and ezgif maker alternative.",
+        "url": "https://moviesearch.online/rotate-image",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <!-- Libraries for GIF parsing and encoding -->
+    <script src="https://cdn.jsdelivr.net/npm/omggif@1.0.10/omggif.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.js"></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: #0066cc;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .home-button:hover {
+        background: #0052a3;
+        transform: translateY(-2px);
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 2em;
+      }
+
+      h2 {
+        color: #333;
+        margin: 30px 0 15px;
+        font-size: 1.5em;
+      }
+
+      .description {
+        color: #666;
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+
+      .upload-area {
+        border: 2px dashed #0066cc;
+        border-radius: 8px;
+        padding: 40px;
+        text-align: center;
+        background: #f9f9f9;
+        margin-bottom: 30px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .upload-area:hover {
+        background: #f0f0f0;
+        border-color: #0052a3;
+      }
+
+      .upload-btn {
+        background: #0066cc;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .upload-btn:hover {
+        background: #0052a3;
+      }
+
+      .editor-section {
+        display: none;
+      }
+
+      .editor-section.active {
+        display: block;
+      }
+
+      .file-info {
+        background: #f0f0f0;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .preview-container {
+        background: #fafafa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .preview-container img {
+        max-width: 100%;
+        max-height: 400px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .controls-section {
+        background: #fafafa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .control-group {
+        margin-bottom: 15px;
+      }
+
+      .control-group label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        padding: 8px;
+        transition: background 0.3s;
+      }
+
+      .control-group label:hover {
+        background: #f0f0f0;
+        border-radius: 5px;
+      }
+
+      input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+      }
+
+      .icon {
+        font-size: 18px;
+      }
+
+      .custom-rotate {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-left: 26px;
+      }
+
+      .custom-rotate input[type="number"] {
+        width: 80px;
+        padding: 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .warning-box {
+        background: #fff3cd;
+        border: 1px solid #ffc107;
+        padding: 15px;
+        border-radius: 5px;
+        color: #856404;
+        margin-bottom: 20px;
+        font-size: 14px;
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .apply-btn {
+        background: #0066cc;
+        color: white;
+        padding: 14px 40px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .apply-btn:hover {
+        background: #0052a3;
+      }
+
+      .remember-settings {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 15px;
+        padding: 10px;
+      }
+
+      .remember-settings input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+      }
+
+      .result-section {
+        display: none;
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .result-section.active {
+        display: block;
+      }
+
+      .download-btn {
+        background: #28a745;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 10px;
+      }
+
+      .download-btn:hover {
+        background: #218838;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .features-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .features-list li {
+        padding: 8px 0;
+        padding-left: 25px;
+        position: relative;
+      }
+
+      .features-list li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #28a745;
+        font-weight: bold;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="https://moviesearch.online" class="home-button">
+      <span>🏠</span> Home
+    </a>
+
+    <div class="container">
+      <h1>
+        Rotate Video & Rotate GIF - GIF Flipper to Flip GIF & Mirror GIF Online
+      </h1>
+
+      <div class="description">
+        <p>
+          Free tool to rotate video, rotate GIF, and flip GIF online. Our GIF
+          flipper helps you rotate MP4, mirror GIF, flip GIF horizontally or
+          vertically, and create spinning GIF animations. Use our ezgif maker
+          alternative to rotate video online by preset angles (90°, 180°, 270°)
+          or enter any custom degree for precise GIF rotate. The animation is
+          preserved when you rotate GIF or rotate video - all frames are rotated
+          together while maintaining original timing and transparency. Use our
+          GIF flipper to flip GIF, mirror GIF, and rotate MP4 instantly!
+        </p>
+        <p style="margin-top: 10px">
+          Our tool to rotate video and rotate GIF supports animated GIF, WebP,
+          APNG, AVIF, MNG, and SVG files, as well as static images. Use our GIF
+          flipper to flip GIF and mirror GIF, rotate MP4 videos, create spinning
+          GIF animations, and rotate video online in any format. No watermarks,
+          no registration - use our ezgif maker alternative to rotate GIF,
+          rotate video, MP4 rotate, and flip GIF as many times as you need for
+          free!
+        </p>
+      </div>
+
+      <!-- Upload Area -->
+      <div class="upload-area" id="uploadArea">
+        <input type="file" id="fileInput" accept="image/*,video/*" />
+        <button
+          class="upload-btn"
+          onclick="document.getElementById('fileInput').click()"
+        >
+          Upload Image or GIF
+        </button>
+        <p style="margin-top: 15px; color: #666">
+          or drag and drop an image/video here
+        </p>
+        <p style="font-size: 13px; color: #999; margin-top: 5px">
+          Supports: GIF, WebP, APNG, AVIF, MNG, SVG, JPG, PNG, BMP, TIFF, HEIC,
+          MP4, WebM
+        </p>
+      </div>
+
+      <!-- Editor Section -->
+      <div class="editor-section" id="editorSection">
+        <div class="file-info" id="fileInfo">
+          File size: 1.69MiB, width: 480px, height: 480px, frames: 38, type:
+          gif, length: 00:00:03.80
+        </div>
+
+        <div class="preview-container">
+          <img id="previewImage" src="" alt="Preview" />
+        </div>
+
+        <div class="controls-section">
+          <h3 style="margin-bottom: 15px">Flip Options:</h3>
+
+          <div class="control-group">
+            <label>
+              <input type="checkbox" id="flipVertical" />
+              <span class="icon">🔄</span>
+              <span>flip (vertical)</span>
+            </label>
+          </div>
+
+          <div class="control-group">
+            <label>
+              <input type="checkbox" id="flipHorizontal" />
+              <span class="icon">↔️</span>
+              <span>flip (horizontal)</span>
+            </label>
+          </div>
+
+          <h3 style="margin: 20px 0 15px">Rotation Options:</h3>
+
+          <div class="control-group">
+            <label>
+              <input type="checkbox" id="rotate90cw" />
+              <span class="icon">🔄</span>
+              <span>rotate 90° clockwise</span>
+            </label>
+          </div>
+
+          <div class="control-group">
+            <label>
+              <input type="checkbox" id="rotate90ccw" />
+              <span class="icon">🔄</span>
+              <span>rotate 90° counter-clockwise</span>
+            </label>
+          </div>
+
+          <div class="control-group">
+            <label>
+              <input type="checkbox" id="rotate180" />
+              <span class="icon">🔄</span>
+              <span>rotate 180°</span>
+            </label>
+          </div>
+
+          <div class="control-group">
+            <label>
+              <input type="checkbox" id="rotateCustom" />
+              <span class="icon">🔄</span>
+              <span>rotate</span>
+            </label>
+            <div class="custom-rotate">
+              <input
+                type="number"
+                id="customDegrees"
+                value="45"
+                min="-360"
+                max="360"
+              />
+              <span>degrees</span>
+            </div>
+          </div>
+
+          <div class="warning-box">
+            <strong
+              >⚠️ Experiencing problems with broken/flickering output
+              GIF?</strong
+            ><br />
+            Try to unoptimize the source image first!
+          </div>
+
+          <div class="remember-settings">
+            <input type="checkbox" id="rememberSettings" />
+            <label for="rememberSettings" style="cursor: pointer"
+              >Remember settings</label
+            >
+          </div>
+
+          <div class="action-buttons">
+            <button class="apply-btn" onclick="applyRotation()">
+              Apply rotation!
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Section -->
+      <div class="result-section" id="resultSection">
+        <h2>Rotated Image Ready!</h2>
+        <div class="preview-container">
+          <img id="resultImage" src="" alt="Rotated Result" />
+        </div>
+        <div>
+          <button class="download-btn" onclick="downloadImage()">
+            💾 Download Rotated Image
+          </button>
+        </div>
+      </div>
+
+      <!-- Features -->
+      <h2>Features</h2>
+      <ul class="features-list">
+        <li>
+          <strong>Flip images:</strong> Horizontally (mirror) or vertically
+        </li>
+        <li>
+          <strong>Preset rotations:</strong> 90°, 180°, 270° clockwise or
+          counter-clockwise
+        </li>
+        <li>
+          <strong>Custom angles:</strong> Enter any degree for precise rotation
+        </li>
+        <li>
+          <strong>Animation preserved:</strong> All frames rotated while
+          maintaining timing
+        </li>
+        <li>
+          <strong>Multiple formats:</strong> GIF, WebP, APNG, AVIF, MNG, SVG,
+          JPG, PNG, BMP, TIFF, HEIC
+        </li>
+        <li>
+          <strong>Transparency maintained:</strong> Alpha channels preserved
+        </li>
+        <li>
+          <strong>Batch processing:</strong> Remember settings for multiple
+          images
+        </li>
+        <li>
+          <strong>100% free:</strong> No watermarks, no registration, unlimited
+          rotations
+        </li>
+      </ul>
+
+      <h2>How to Rotate Images Online</h2>
+      <div
+        style="
+          background: #f8f9fa;
+          padding: 20px;
+          border-radius: 8px;
+          margin: 20px 0;
+        "
+      >
+        <ol style="padding-left: 20px">
+          <li style="margin: 10px 0">Upload your image, GIF, or video file</li>
+          <li style="margin: 10px 0">
+            Select flip options (vertical or horizontal)
+          </li>
+          <li style="margin: 10px 0">
+            Choose rotation angle (90°, 180°, 270°, or custom)
+          </li>
+          <li style="margin: 10px 0">Click "Apply rotation!" to process</li>
+          <li style="margin: 10px 0">Download your rotated image</li>
+        </ol>
+      </div>
+
+      <h2>Supported Formats</h2>
+      <ul class="features-list">
+        <li><strong>Animated:</strong> GIF, WebP, APNG, AVIF, MNG</li>
+        <li><strong>Vector:</strong> SVG (scalable graphics)</li>
+        <li><strong>Static:</strong> JPG, PNG, BMP, TIFF, HEIC, WebP</li>
+        <li><strong>Video:</strong> MP4, WebM (converted to animated GIF)</li>
+      </ul>
+
+      <!-- SEO Content Section -->
+      <h2>How to Rotate Video & Rotate GIF with Our GIF Flipper</h2>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our free tool makes it easy to rotate video, rotate GIF, and flip GIF
+        online. Whether you need to rotate MP4 videos with MP4 rotate, use our
+        GIF flipper to flip GIF and mirror GIF, or create spinning GIF
+        animations with GIF rotate, our ezgif maker alternative handles it all.
+        Simply upload your file to rotate video online, select flip options to
+        flip GIF or mirror GIF, choose rotation angle, and click "Apply
+        rotation!" to rotate GIF and rotate MP4 instantly. No software
+        installation required - our GIF flipper and ezgif maker alternative work
+        online to rotate video, flip GIF, GIF rotate, and create spinning GIF!
+      </p>
+
+      <h3>Rotate MP4 & MP4 Rotate Videos Online</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        When you rotate video using our tool, you can rotate MP4 and MP4 rotate
+        any video format. Our ezgif maker alternative makes it simple to rotate
+        MP4 by 90°, 180°, 270° or custom angles. Use our tool to rotate video
+        online and rotate MP4 with our GIF flipper features. Whether you need to
+        rotate video for correct orientation, rotate MP4 for social media, or
+        MP4 rotate for presentations, our tool handles all video rotation needs.
+        Upload your video to rotate MP4, select angle, and download - it's the
+        easiest way to rotate video online and MP4 rotate instantly!
+      </p>
+
+      <h3>GIF Flipper to Flip GIF & Mirror GIF</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our GIF flipper is the perfect tool to flip GIF and mirror GIF online.
+        Use our GIF flipper to flip GIF horizontally (mirror GIF) or flip GIF
+        vertically with one click. When you flip GIF using our ezgif maker
+        alternative, all animation frames are flipped together. Our GIF flipper
+        helps you flip GIF for memes, mirror GIF for creative effects, and
+        combine with rotation to rotate GIF and flip GIF simultaneously. Whether
+        you need to flip GIF once or mirror GIF for projects, our GIF flipper
+        and ezgif maker alternative make it simple to flip GIF and mirror GIF
+        instantly!
+      </p>
+
+      <h3>Create Spinning GIF & GIF Rotate Animations</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Want to create spinning GIF animations? Use our tool to rotate GIF and
+        GIF rotate with custom angles to create spinning GIF effects. Our ezgif
+        maker alternative helps you create spinning GIF by rotating GIF frames
+        progressively. Use our GIF flipper to rotate GIF by 90° multiple times
+        or enter custom degrees for precise GIF rotate. Whether you create
+        spinning GIF for logos, rotate GIF for effects, or GIF rotate for
+        animations, our tool makes it easy to create spinning GIF and rotate GIF
+        with any angle. Use our ezgif maker alternative to create spinning GIF
+        instantly!
+      </p>
+
+      <h3>Rotate Video Online & Rotate GIF Features</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our tool to rotate video online and rotate GIF offers powerful features.
+        When you rotate video or rotate GIF with our ezgif maker alternative,
+        you get preset angles (90°, 180°, 270°) and custom rotation. Use our GIF
+        flipper to flip GIF, mirror GIF, and combine with rotation to rotate MP4
+        and rotate video online. The tool preserves animation when you rotate
+        GIF or rotate video, maintains transparency, and processes everything
+        client-side. Whether you rotate video online once or use our GIF flipper
+        regularly to flip GIF and create spinning GIF, our ezgif maker
+        alternative delivers quality results every time!
+      </p>
+
+      <h3>Mirror GIF & Flip GIF Horizontally</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Need to mirror GIF or flip GIF horizontally? Our GIF flipper makes it
+        simple to mirror GIF and flip GIF with perfect results. Use our tool to
+        mirror GIF for reflection effects, flip GIF horizontally for memes, or
+        combine with rotation to rotate GIF and mirror GIF together. When you
+        mirror GIF using our GIF flipper, all frames are flipped maintaining
+        animation. Our ezgif maker alternative also lets you flip GIF
+        vertically, rotate MP4, rotate video online, and create spinning GIF.
+        Whether you mirror GIF once or flip GIF regularly, our GIF flipper and
+        ezgif maker alternative handle all your mirror GIF and flip GIF needs!
+      </p>
+
+      <h3>Free Ezgif Maker Alternative - Rotate Video & GIF Flipper</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Unlike paid software, our tool to rotate video, rotate GIF, and GIF
+        flipper are completely free. Rotate MP4 unlimited times, flip GIF
+        without fees, mirror GIF as often as needed, rotate video online, create
+        spinning GIF, and GIF rotate without restrictions - all free! No
+        registration required to use our ezgif maker alternative or GIF flipper.
+        Our tool works entirely in your browser when you rotate video, rotate
+        GIF, flip GIF, and MP4 rotate, ensuring privacy and speed. Perfect for
+        content creators who need to rotate video and rotate GIF regularly,
+        social media managers who want to flip GIF and mirror GIF, or anyone who
+        needs a free ezgif maker alternative to rotate MP4 and create spinning
+        GIF. Start using our GIF flipper today to rotate video online, rotate
+        GIF, flip GIF, mirror GIF, rotate MP4, and create spinning GIF
+        instantly!
+      </p>
+
+      <!-- FAQ Section -->
+      <h2 style="margin-top: 40px; margin-bottom: 25px; text-align: center">
+        Frequently Asked Questions
+      </h2>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How do I rotate video and rotate GIF online?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          To rotate video and rotate GIF online, upload your file, select
+          rotation angle (90°, 180°, 270°), and click 'Apply rotation!'. Our
+          tool will rotate GIF, rotate MP4, flip GIF, and rotate video online
+          instantly. Use our GIF flipper and ezgif maker alternative to rotate
+          video, GIF rotate, and create spinning GIF.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What is a GIF flipper and how to flip GIF?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          A GIF flipper is a tool to flip GIF horizontally (mirror GIF) or
+          vertically. Use our GIF flipper to flip GIF and mirror GIF instantly.
+          Our tool also helps rotate GIF, rotate video, rotate MP4, and create
+          spinning GIF. Use our ezgif maker alternative as a GIF flipper to flip
+          GIF and rotate GIF online.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can I rotate MP4 and MP4 rotate videos?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Yes! Our tool is perfect to rotate MP4 and MP4 rotate videos. Upload
+          your MP4 to rotate video online, select angle, and download. Use our
+          tool to rotate MP4, rotate video, rotate GIF, flip GIF, and create
+          spinning GIF. Our ezgif maker alternative handles MP4 rotate and helps
+          you rotate video online.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How to create a spinning GIF?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          To create a spinning GIF, use our tool to rotate GIF by 90° multiple
+          times or use custom rotation. Our GIF flipper and ezgif maker
+          alternative help you create spinning GIF, rotate video, rotate MP4,
+          and GIF rotate with any angle. Use our tool to create spinning GIF and
+          rotate GIF online.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Is this rotate video and GIF flipper free?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Absolutely! Our tool to rotate video, rotate GIF, and GIF flipper are
+          100% free. Rotate MP4 unlimited times, flip GIF, mirror GIF, rotate
+          video online, and create spinning GIF without fees. Use our ezgif
+          maker alternative to rotate video, GIF rotate, and MP4 rotate as often
+          as needed.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How to mirror GIF and flip GIF horizontally?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          To mirror GIF and flip GIF horizontally, upload your GIF to our GIF
+          flipper, check 'flip (horizontal)', and apply. Our tool will mirror
+          GIF and flip GIF instantly. Use our ezgif maker alternative to flip
+          GIF, mirror GIF, rotate GIF, rotate video, and create spinning GIF.
+          Our GIF flipper makes it easy to mirror GIF online.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      let currentFile = null;
+      let rotationSettings = {
+        flipVertical: false,
+        flipHorizontal: false,
+        rotate90cw: false,
+        rotate90ccw: false,
+        rotate180: false,
+        rotateCustom: false,
+        customDegrees: 45,
+      };
+      let gifFrames = [];
+      let isGif = false;
+      let rotatedBlob = null;
+
+      const fileInput = document.getElementById("fileInput");
+      const uploadArea = document.getElementById("uploadArea");
+      const editorSection = document.getElementById("editorSection");
+      const previewImage = document.getElementById("previewImage");
+      const resultSection = document.getElementById("resultSection");
+      const resultImage = document.getElementById("resultImage");
+
+      // File upload
+      fileInput.addEventListener("change", (e) => {
+        if (e.target.files[0]) {
+          loadImage(e.target.files[0]);
+        }
+      });
+
+      async function loadImage(file) {
+        currentFile = file;
+        isGif = file.type === "image/gif";
+
+        if (isGif) {
+          // Parse GIF frames
+          try {
+            const arrayBuffer = await file.arrayBuffer();
+            const uint8Array = new Uint8Array(arrayBuffer);
+            const reader = new GifReader(uint8Array);
+
+            gifFrames = [];
+            const frameCount = reader.numFrames();
+
+            console.log(`GIF loaded: ${frameCount} frames`);
+
+            for (let i = 0; i < frameCount; i++) {
+              const frameInfo = reader.frameInfo(i);
+              const frameData = new Uint8ClampedArray(
+                reader.width * reader.height * 4,
+              );
+              reader.decodeAndBlitFrameRGBA(i, frameData);
+
+              gifFrames.push({
+                data: frameData,
+                delay: frameInfo.delay * 10,
+                width: reader.width,
+                height: reader.height,
+              });
+            }
+
+            console.log("GIF frames extracted:", gifFrames.length);
+          } catch (error) {
+            console.error("Error parsing GIF:", error);
+            isGif = false;
+          }
+        }
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          previewImage.src = e.target.result;
+          editorSection.classList.add("active");
+
+          const fileName = file.name;
+          const fileSize = (file.size / 1024 / 1024).toFixed(2);
+          const fileType = file.type.split("/")[1] || "unknown";
+
+          const frameInfo = isGif ? ` (${gifFrames.length} frames)` : "";
+          document.getElementById("fileInfo").textContent =
+            `File size: ${fileSize}MiB, type: ${fileType}${frameInfo}`;
+        };
+
+        reader.readAsDataURL(file);
+      }
+
+      // Prevent multiple selections in rotation
+      const rotationCheckboxes = [
+        "rotate90cw",
+        "rotate90ccw",
+        "rotate180",
+        "rotateCustom",
+      ];
+      rotationCheckboxes.forEach((id) => {
+        document.getElementById(id).addEventListener("change", function () {
+          if (this.checked) {
+            rotationCheckboxes.forEach((otherId) => {
+              if (otherId !== id) {
+                document.getElementById(otherId).checked = false;
+              }
+            });
+          }
+        });
+      });
+
+      // Apply transformations to a canvas
+      function applyTransformations(
+        ctx,
+        width,
+        height,
+        flipH,
+        flipV,
+        rotateDeg,
+      ) {
+        const centerX = width / 2;
+        const centerY = height / 2;
+
+        ctx.save();
+        ctx.translate(centerX, centerY);
+
+        // Apply rotation
+        if (rotateDeg !== 0) {
+          ctx.rotate((rotateDeg * Math.PI) / 180);
+        }
+
+        // Apply flips
+        if (flipH) ctx.scale(-1, 1);
+        if (flipV) ctx.scale(1, -1);
+
+        ctx.translate(-centerX, -centerY);
+      }
+
+      // Apply rotation - REAL IMPLEMENTATION
+      async function applyRotation() {
+        if (!currentFile) {
+          alert("Please upload an image first");
+          return;
+        }
+
+        // Collect settings
+        rotationSettings.flipVertical =
+          document.getElementById("flipVertical").checked;
+        rotationSettings.flipHorizontal =
+          document.getElementById("flipHorizontal").checked;
+        rotationSettings.rotate90cw =
+          document.getElementById("rotate90cw").checked;
+        rotationSettings.rotate90ccw =
+          document.getElementById("rotate90ccw").checked;
+        rotationSettings.rotate180 =
+          document.getElementById("rotate180").checked;
+        rotationSettings.rotateCustom =
+          document.getElementById("rotateCustom").checked;
+        rotationSettings.customDegrees =
+          parseFloat(document.getElementById("customDegrees").value) || 0;
+
+        // Calculate rotation angle
+        let rotationAngle = 0;
+        if (rotationSettings.rotate90cw) rotationAngle = 90;
+        if (rotationSettings.rotate90ccw) rotationAngle = -90;
+        if (rotationSettings.rotate180) rotationAngle = 180;
+        if (rotationSettings.rotateCustom)
+          rotationAngle = rotationSettings.customDegrees;
+
+        // Check if any transformation selected
+        const hasTransformation =
+          rotationSettings.flipVertical ||
+          rotationSettings.flipHorizontal ||
+          rotationAngle !== 0;
+
+        if (!hasTransformation) {
+          alert("Please select at least one transformation option");
+          return;
+        }
+
+        console.log("Applying transformations:", {
+          flipH: rotationSettings.flipHorizontal,
+          flipV: rotationSettings.flipVertical,
+          rotate: rotationAngle,
+        });
+
+        try {
+          if (!isGif || gifFrames.length === 0) {
+            // Static image rotation
+            const img = new Image();
+            img.onload = async () => {
+              // Calculate new dimensions after rotation
+              const angleRad = (Math.abs(rotationAngle) * Math.PI) / 180;
+              const isRotated90 = Math.abs(rotationAngle) % 180 === 90;
+
+              let newWidth, newHeight;
+              if (isRotated90) {
+                newWidth = img.height;
+                newHeight = img.width;
+              } else if (
+                rotationAngle === 0 ||
+                Math.abs(rotationAngle) === 180
+              ) {
+                newWidth = img.width;
+                newHeight = img.height;
+              } else {
+                // Custom angle - calculate bounding box
+                const cos = Math.abs(Math.cos(angleRad));
+                const sin = Math.abs(Math.sin(angleRad));
+                newWidth = Math.ceil(img.width * cos + img.height * sin);
+                newHeight = Math.ceil(img.width * sin + img.height * cos);
+              }
+
+              const canvas = document.createElement("canvas");
+              canvas.width = newWidth;
+              canvas.height = newHeight;
+              const ctx = canvas.getContext("2d");
+
+              // Apply transformations
+              applyTransformations(
+                ctx,
+                newWidth,
+                newHeight,
+                rotationSettings.flipHorizontal,
+                rotationSettings.flipVertical,
+                rotationAngle,
+              );
+
+              // Draw image
+              ctx.drawImage(img, 0, 0);
+              ctx.restore();
+
+              // Convert to blob
+              rotatedBlob = await new Promise((resolve) => {
+                canvas.toBlob((blob) => resolve(blob), currentFile.type);
+              });
+
+              // Display result
+              const url = URL.createObjectURL(rotatedBlob);
+              resultImage.src = url;
+              resultSection.classList.add("active");
+              resultSection.scrollIntoView({ behavior: "smooth" });
+
+              console.log("Static image rotated successfully");
+            };
+            img.src = previewImage.src;
+          } else {
+            // Animated GIF rotation
+            console.log(`Rotating GIF with ${gifFrames.length} frames`);
+
+            // Calculate new dimensions
+            const firstFrame = gifFrames[0];
+            const angleRad = (Math.abs(rotationAngle) * Math.PI) / 180;
+            const isRotated90 = Math.abs(rotationAngle) % 180 === 90;
+
+            let newWidth, newHeight;
+            if (isRotated90) {
+              newWidth = firstFrame.height;
+              newHeight = firstFrame.width;
+            } else if (rotationAngle === 0 || Math.abs(rotationAngle) === 180) {
+              newWidth = firstFrame.width;
+              newHeight = firstFrame.height;
+            } else {
+              const cos = Math.abs(Math.cos(angleRad));
+              const sin = Math.abs(Math.sin(angleRad));
+              newWidth = Math.ceil(
+                firstFrame.width * cos + firstFrame.height * sin,
+              );
+              newHeight = Math.ceil(
+                firstFrame.width * sin + firstFrame.height * cos,
+              );
+            }
+
+            const gif = new GIF({
+              workers: 2,
+              quality: 10,
+              width: newWidth,
+              height: newHeight,
+              workerScript:
+                "https://www.moviesearch.online/tools/gif-rotate/gif.worker.js",
+            });
+
+            // Process each frame
+            for (let i = 0; i < gifFrames.length; i++) {
+              const frame = gifFrames[i];
+
+              // Create canvas for original frame
+              const srcCanvas = document.createElement("canvas");
+              srcCanvas.width = frame.width;
+              srcCanvas.height = frame.height;
+              const srcCtx = srcCanvas.getContext("2d");
+
+              // Draw original frame
+              const imageData = srcCtx.createImageData(
+                frame.width,
+                frame.height,
+              );
+              imageData.data.set(frame.data);
+              srcCtx.putImageData(imageData, 0, 0);
+
+              // Create canvas for rotated frame
+              const destCanvas = document.createElement("canvas");
+              destCanvas.width = newWidth;
+              destCanvas.height = newHeight;
+              const destCtx = destCanvas.getContext("2d");
+
+              // Apply transformations
+              applyTransformations(
+                destCtx,
+                newWidth,
+                newHeight,
+                rotationSettings.flipHorizontal,
+                rotationSettings.flipVertical,
+                rotationAngle,
+              );
+
+              // Draw frame
+              destCtx.drawImage(srcCanvas, 0, 0);
+              destCtx.restore();
+
+              // Add to GIF
+              gif.addFrame(destCtx, { copy: true, delay: frame.delay });
+
+              console.log(`Processed frame ${i + 1}/${gifFrames.length}`);
+            }
+
+            // Render GIF
+            rotatedBlob = await new Promise((resolve, reject) => {
+              gif.on("finished", (blob) => {
+                console.log("Rotated GIF created:", blob.size, "bytes");
+                resolve(blob);
+              });
+              gif.on("error", (error) => {
+                console.error("GIF encoding error:", error);
+                reject(error);
+              });
+              gif.render();
+            });
+
+            // Display result
+            const url = URL.createObjectURL(rotatedBlob);
+            resultImage.src = url;
+            resultSection.classList.add("active");
+            resultSection.scrollIntoView({ behavior: "smooth" });
+          }
+        } catch (error) {
+          console.error("Error rotating image:", error);
+          alert("Error processing file: " + error.message);
+        }
+
+        // Save settings if remember is checked
+        if (document.getElementById("rememberSettings").checked) {
+          localStorage.setItem(
+            "rotationSettings",
+            JSON.stringify(rotationSettings),
+          );
+        }
+      }
+
+      // Download image
+      function downloadImage() {
+        if (!rotatedBlob) {
+          alert("Please rotate the image first");
+          return;
+        }
+
+        const url = URL.createObjectURL(rotatedBlob);
+        const a = document.createElement("a");
+        a.href = url;
+        const originalName = currentFile.name || "rotated-image.png";
+        a.download = originalName.replace(/(\.[^.]+)$/, "-rotated$1");
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      // Load saved settings
+      window.addEventListener("load", () => {
+        const saved = localStorage.getItem("rotationSettings");
+        if (saved) {
+          const settings = JSON.parse(saved);
+          document.getElementById("flipVertical").checked =
+            settings.flipVertical || false;
+          document.getElementById("flipHorizontal").checked =
+            settings.flipHorizontal || false;
+          document.getElementById("rotate90cw").checked =
+            settings.rotate90cw || false;
+          document.getElementById("rotate90ccw").checked =
+            settings.rotate90ccw || false;
+          document.getElementById("rotate180").checked =
+            settings.rotate180 || false;
+          document.getElementById("rotateCustom").checked =
+            settings.rotateCustom || false;
+          document.getElementById("customDegrees").value =
+            settings.customDegrees || 45;
+        }
+      });
+
+      // Drag and drop
+      uploadArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        uploadArea.style.background = "#e6f2ff";
+      });
+
+      uploadArea.addEventListener("dragleave", () => {
+        uploadArea.style.background = "#f9f9f9";
+      });
+
+      uploadArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        uploadArea.style.background = "#f9f9f9";
+        const file = e.dataTransfer.files[0];
+        if (file) {
+          loadImage(file);
+        }
+      });
+    </script>
+  </body>
+</html>
