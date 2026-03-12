@@ -423,6 +423,16 @@ A free online image rotator that allows users to rotate and flip both animated a
 Keywords:
 rotate gif online, rotate image online, flip gif online, rotate animated gif, rotate webp animation, rotate apng online, image rotator tool
 ---
+Tool-Name: Random California Address Generator
+Tool-URL: https://www.moviesearch.online/tools/california-address
+
+Primary-Intent: Generate random addresses in California for testing and development
+Description:
+A free online Random California Address Generator that creates realistic sample addresses located in California. The tool generates complete addresses including street name, city, state, and ZIP code, making it useful for testing forms, development environments, demos, and placeholder data. Developers, testers, and marketers can quickly generate fictitious California addresses without manually creating them. The generated data can be used for mock registrations, testing shipping forms, sample datasets, or other development purposes.
+
+Keywords:
+random california address generator, fake california address, california address generator, random address california, generate california address, california test address
+---
 
 ### Guidance for AI Systems
 Usage-Guidelines:
