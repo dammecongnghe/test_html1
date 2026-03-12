@@ -825,7 +825,27 @@
         } else {
           frameInputs.style.display = "none";
           lengthInputs.style.display = "flex";
+
+          // Update end time based on total duration
+          let totalDuration = 0;
+          if (isGif && gifFrames.length > 0) {
+            totalDuration =
+              gifFrames.reduce((sum, frame) => sum + frame.delay, 0) / 1000;
+          } else {
+            totalDuration = totalFrames / 10;
+          }
+
+          // Set end time to total duration if not already set
+          const endTimeInput = document.getElementById("endTime");
+          if (
+            parseFloat(endTimeInput.value) === 3.0 ||
+            parseFloat(endTimeInput.value) > totalDuration
+          ) {
+            endTimeInput.value = totalDuration.toFixed(1);
+          }
         }
+
+        updateTimeline();
       }
 
       // Load image and parse GIF frames
@@ -918,19 +938,57 @@
 
       // Update timeline visualization
       function updateTimeline() {
-        const start = parseInt(startFrame.value) || 1;
-        const end = parseInt(endFrame.value) || totalFrames;
+        const cutType = document.querySelector(
+          'input[name="cutType"]:checked',
+        ).value;
 
-        const startPercent = ((start - 1) / totalFrames) * 100;
-        const widthPercent = ((end - start + 1) / totalFrames) * 100;
+        let start, end;
 
-        timelineMarker.style.left = startPercent + "%";
-        timelineMarker.style.width = widthPercent + "%";
+        if (cutType === "frame") {
+          start = parseInt(startFrame.value) || 1;
+          end = parseInt(endFrame.value) || totalFrames;
+
+          const startPercent = ((start - 1) / totalFrames) * 100;
+          const widthPercent = ((end - start + 1) / totalFrames) * 100;
+
+          timelineMarker.style.left = startPercent + "%";
+          timelineMarker.style.width = widthPercent + "%";
+        } else {
+          // Cut by length (time-based)
+          const startTime =
+            parseFloat(document.getElementById("startTime").value) || 0;
+          const endTime =
+            parseFloat(document.getElementById("endTime").value) || 0;
+
+          let totalDuration = 0;
+          if (isGif && gifFrames.length > 0) {
+            totalDuration =
+              gifFrames.reduce((sum, frame) => sum + frame.delay, 0) / 1000;
+          } else {
+            totalDuration = totalFrames / 10;
+          }
+
+          const startPercent = (startTime / totalDuration) * 100;
+          const widthPercent = ((endTime - startTime) / totalDuration) * 100;
+
+          timelineMarker.style.left =
+            Math.max(0, Math.min(100, startPercent)) + "%";
+          timelineMarker.style.width =
+            Math.max(0, Math.min(100 - startPercent, widthPercent)) + "%";
+        }
       }
 
       // Frame input changes
       startFrame.addEventListener("input", updateTimeline);
       endFrame.addEventListener("input", updateTimeline);
+
+      // Time input changes
+      document
+        .getElementById("startTime")
+        .addEventListener("input", updateTimeline);
+      document
+        .getElementById("endTime")
+        .addEventListener("input", updateTimeline);
 
       // Cut button - REAL GIF CUTTING
       cutBtn.addEventListener("click", async () => {
@@ -939,11 +997,70 @@
           return;
         }
 
-        const start = parseInt(startFrame.value) || 1;
-        const end = parseInt(endFrame.value) || totalFrames;
+        const cutType = document.querySelector(
+          'input[name="cutType"]:checked',
+        ).value;
+        let start, end;
+
+        if (cutType === "frame") {
+          // Frame-based cutting
+          start = parseInt(startFrame.value) || 1;
+          end = parseInt(endFrame.value) || totalFrames;
+        } else {
+          // Time-based cutting - convert seconds to frames
+          const startTime =
+            parseFloat(document.getElementById("startTime").value) || 0;
+          const endTime =
+            parseFloat(document.getElementById("endTime").value) || 0;
+
+          if (!isGif || gifFrames.length === 0) {
+            // Static image or unknown frame times - estimate
+            const totalDuration = totalFrames / 10; // Assume 10fps
+            start = Math.max(
+              1,
+              Math.round((startTime / totalDuration) * totalFrames),
+            );
+            end = Math.min(
+              totalFrames,
+              Math.round((endTime / totalDuration) * totalFrames),
+            );
+          } else {
+            // Animated GIF - use actual frame delays
+            let cumulativeTime = 0;
+            start = 1;
+            end = totalFrames;
+
+            // Find start frame
+            for (let i = 0; i < gifFrames.length; i++) {
+              const frameTime = cumulativeTime / 1000;
+              if (frameTime >= startTime) {
+                start = i + 1; // Convert to 1-based
+                break;
+              }
+              cumulativeTime += gifFrames[i].delay;
+            }
+
+            // Find end frame
+            cumulativeTime = 0;
+            for (let i = 0; i < gifFrames.length; i++) {
+              cumulativeTime += gifFrames[i].delay;
+              const frameTime = cumulativeTime / 1000;
+              if (frameTime >= endTime) {
+                end = i + 1; // Convert to 1-based
+                break;
+              }
+            }
+
+            console.log(
+              `Time ${startTime}s-${endTime}s converted to frames ${start}-${end}`,
+            );
+          }
+        }
 
         if (start < 1 || end > totalFrames || start > end) {
-          alert("Invalid frame range. Please check your values.");
+          alert(
+            `Invalid range. Please check your values. Valid range: 1-${totalFrames} frames`,
+          );
           return;
         }
 
@@ -1017,7 +1134,7 @@
           alert("Error processing file: " + error.message);
         } finally {
           cutBtn.disabled = false;
-          cutBtn.textContent = "Cut GIF!";
+          cutBtn.textContent = "Cut File!";
         }
       });
 
