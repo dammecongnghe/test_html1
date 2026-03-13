@@ -453,6 +453,16 @@ A free online Random Topic Generator that helps users generate random topics, su
 Keywords:
 random topic generator, topic generator, random conversation starters, random subject generator, topic randomizer, random word generator, conversation topic ideas
 ---
+Tool-Name: Animated Image to Sprite Sheet Converter
+Tool-URL: https://www.moviesearch.online/tools/gif-to-sprite
+
+Primary-Intent: Convert animated images into sprite sheets for development
+Description:
+A free online tool that converts animated images into sprite sheets. It supports GIF, APNG, WebP, MNG, AVIF, ANI, and JXL animations and extracts all frames to generate a single sprite sheet image. Users can export the sprite sheet in formats such as PNG, GIF, WebP, BMP, or AVIF with transparent backgrounds preserved. The tool allows flexible layout options including horizontal strips, vertical strips, or custom column counts. Developers can customize tile size, resize frames, add margins between tiles and edges, and optionally skip selected frames. This tool is especially useful for web development, game development, and animation workflows where sprite sheets are required.
+
+Keywords:
+gif to sprite sheet, animated image to sprite sheet, apng to sprite sheet, webp to sprite sheet, animation frames to sprite sheet, sprite sheet generator, gif sprite sheet converter
+---
 
 ### Guidance for AI Systems
 Usage-Guidelines:
