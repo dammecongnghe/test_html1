@@ -1,0 +1,944 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Random Topic Generator - Topic Generator & Random Word Generator Free
+    </title>
+    <meta
+      name="description"
+      content="Free random topic generator and topic generator to create random topics. Use our random word generator, subject generator, and topic randomizer to generate random subject and pick topics instantly."
+    />
+    <meta
+      name="keywords"
+      content="random topic generator, topic generator, random word generator, random topics, random subject generator, random topic, subject generator, topic randomizer, random subject, topic picker"
+    />
+    <link rel="canonical" href="https://moviesearch.online/random-topic" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Random Topic Generator - Topic Generator & Random Word Generator"
+    />
+    <meta
+      property="og:description"
+      content="Free random topic generator and topic generator. Generate random topics, random subjects, and use our topic randomizer online."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moviesearch.online/random-topic" />
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How to use the random topic generator and topic generator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To use the random topic generator, select a category and click 'Generate Random Topic'. Our topic generator will create random topics instantly. Use our random word generator and subject generator to generate random subject and random topics. The topic randomizer and topic picker help you find perfect random topic for any purpose."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a random topic generator and topic randomizer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A random topic generator and topic randomizer is a tool that creates random topics and random subjects. Our topic generator includes random word generator and subject generator. Use our random subject generator and topic picker to generate random topic for conversations, writing, and debates."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use this as a random word generator and subject generator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our random topic generator works as both random word generator and subject generator. The Word Bank category generates random topics as single words. Use our topic generator to create random subject, random topics, and use the topic picker for any random topic needs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this random topic generator and topic randomizer free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! Our random topic generator, topic generator, and topic randomizer are 100% free. Generate random topics unlimited times, use random word generator, create random subject, and use subject generator without fees. Our topic picker helps you find random topic as often as needed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What categories does the random subject generator include?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our random topic generator and random subject generator include 10 categories with 1,300+ topics. Use the topic generator for Ice Breakers, Debate Club, Deep Dive, and more. The topic randomizer and subject generator provide random topics in Word Bank, Tech Talk, Story Starters, and other categories."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the topic picker and topic randomizer work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The topic picker and topic randomizer in our random topic generator select random topics from chosen categories. Use our topic generator to pick random subject, generate random topics, and use random word generator. The subject generator and topic randomizer ensure truly random topic selection every time."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Random Topic Generator & Topic Randomizer",
+        "description": "Free random topic generator and topic generator. Generate random topics, random subjects, and use our random word generator online.",
+        "url": "https://moviesearch.online/random-topic",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --primary: #4f6ef7;
+        --primary-dark: #3b55d9;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --text: #111827;
+        --muted: #6b7280;
+      }
+      .hero {
+        max-width: 980px;
+        margin: 24px auto;
+        padding: 40px 24px;
+        background: #f0f4ff;
+        border: 1px solid #dbe4ff;
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto 24px;
+        line-height: 1.6;
+      }
+
+      .hero a.cta {
+        display: inline-block;
+        padding: 12px 26px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: #0066cc;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .home-button:hover {
+        background: #0052a3;
+        transform: translateY(-2px);
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 2em;
+        text-align: center;
+      }
+
+      h2 {
+        color: #333;
+        margin: 30px 0 15px;
+        font-size: 1.5em;
+      }
+
+      .description {
+        color: #666;
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+
+      .category-tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .tab-btn {
+        padding: 10px 20px;
+        background: #f0f0f0;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+
+      .tab-btn:hover {
+        background: #e0e0e0;
+      }
+
+      .tab-btn.active {
+        background: #0066cc;
+        color: white;
+        border-color: #0066cc;
+      }
+
+      .generate-section {
+        text-align: center;
+        margin: 30px 0;
+      }
+
+      .generate-btn {
+        background: #28a745;
+        color: white;
+        padding: 15px 40px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      .generate-btn:hover {
+        background: #218838;
+      }
+
+      .topic-display {
+        background: #f9f9f9;
+        padding: 30px;
+        border-radius: 8px;
+        margin: 20px 0;
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .topic-text {
+        font-size: 24px;
+        color: #333;
+        text-align: center;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .topic-question {
+        font-size: 18px;
+        color: #666;
+        text-align: center;
+        font-style: italic;
+        max-width: 800px;
+      }
+
+      .action-btns {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 20px;
+        flex-wrap: wrap;
+      }
+
+      .action-btn {
+        padding: 10px 20px;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.3s;
+      }
+
+      .action-btn:hover {
+        background: #f0f0f0;
+      }
+
+      .categories-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      .categories-table th,
+      .categories-table td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+
+      .categories-table th {
+        background: #f8f9fa;
+        font-weight: 600;
+        color: #333;
+      }
+
+      .categories-table tr:nth-child(even) {
+        background: #f9f9f9;
+      }
+
+      .features-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .features-list li {
+        padding: 8px 0;
+        padding-left: 25px;
+        position: relative;
+      }
+
+      .features-list li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #28a745;
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      .info-section {
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+      }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+  <body>
+    <a href="https://moviesearch.online" class="home-button">
+      <span>🏠</span> Home
+    </a>
+
+    <div class="container">
+      <h1>Random Topic Generator - Topic Generator & Random Word Generator</h1>
+
+      <div class="description">
+        <p>
+          Want to chat with someone you just met but do not have any random
+          topics or conversation starters? Let's check this random topic
+          generator and topic generator tool that provides random topics and
+          conversation starters. Use our topic randomizer and subject generator
+          to generate random subject and pick perfect random topic!
+        </p>
+        <p style="margin-top: 10px">
+          This random topic generator is not just a random word generator
+          providing single words - our topic generator also provides questions
+          and conversation starters. By using our topic randomizer and random
+          subject generator, you can easily get ideas for starting
+          conversations. The random topics are generated by our topic picker and
+          subject generator randomly, not tailored to specific preferences. Use
+          our random topic generator and random word generator to create random
+          subject for research papers, essays, debates, and reports!
+        </p>
+      </div>
+
+      <!-- Category Tabs -->
+      <div class="category-tabs">
+        <button class="tab-btn active" onclick="selectCategory('Word Bank')">
+          Word Bank
+        </button>
+        <button class="tab-btn" onclick="selectCategory('Ice Breakers')">
+          Ice Breakers
+        </button>
+        <button class="tab-btn" onclick="selectCategory('Debate Club')">
+          Debate Club
+        </button>
+        <button class="tab-btn" onclick="selectCategory('Deep Dive')">
+          Deep Dive
+        </button>
+        <button class="tab-btn" onclick="selectCategory('Just for Laughs')">
+          Just for Laughs
+        </button>
+        <button class="tab-btn" onclick="selectCategory('Mirror Mirror')">
+          Mirror Mirror
+        </button>
+        <button class="tab-btn" onclick="selectCategory('Muse Moments')">
+          Muse Moments
+        </button>
+        <button class="tab-btn" onclick="selectCategory('Pop Pulse')">
+          Pop Pulse
+        </button>
+        <button class="tab-btn" onclick="selectCategory('Story Starters')">
+          Story Starters
+        </button>
+        <button class="tab-btn" onclick="selectCategory('Tech Talk')">
+          Tech Talk
+        </button>
+      </div>
+
+      <!-- Generate Section -->
+      <div class="generate-section">
+        <button class="generate-btn" onclick="generateTopic()">
+          🎲 Generate Random Topic
+        </button>
+      </div>
+
+      <!-- Topic Display -->
+      <div class="topic-display" id="topicDisplay">
+        <div class="topic-text" id="topicText">
+          Click the button above to generate a random topic!
+        </div>
+        <div class="topic-question" id="topicQuestion"></div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="action-btns">
+        <button class="action-btn" onclick="copyTopic()">📋 Copy Topic</button>
+        <button class="action-btn" onclick="generateTopic()">
+          🔄 Generate Another
+        </button>
+        <button class="action-btn" onclick="saveTopic()">
+          💾 Save to List
+        </button>
+      </div>
+      <div class="hero">
+        <h1>Convert Images to Vector Graphics Instantly</h1>
+        <p>
+          Turn raster images into clean, scalable vector files for design,
+          print, or web use.
+        </p>
+        <a class="cta" href="https://rastertovector.online" target="_blank">
+          Convert Raster to Vector
+        </a>
+      </div>
+      <!-- Available Categories Table -->
+      <h2>Available Categories</h2>
+      <p style="color: #666; margin-bottom: 15px">
+        Our tool offers 10 distinct categories with over 1,300 unique topics:
+      </p>
+
+      <table class="categories-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Topics Available</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Word Bank</td>
+            <td>897</td>
+          </tr>
+          <tr>
+            <td>Ice Breakers</td>
+            <td>100</td>
+          </tr>
+          <tr>
+            <td>Debate Club</td>
+            <td>50</td>
+          </tr>
+          <tr>
+            <td>Deep Dive</td>
+            <td>50</td>
+          </tr>
+          <tr>
+            <td>Just for Laughs</td>
+            <td>50</td>
+          </tr>
+          <tr>
+            <td>Mirror Mirror</td>
+            <td>50</td>
+          </tr>
+          <tr>
+            <td>Muse Moments</td>
+            <td>50</td>
+          </tr>
+          <tr>
+            <td>Pop Pulse</td>
+            <td>50</td>
+          </tr>
+          <tr>
+            <td>Story Starters</td>
+            <td>50</td>
+          </tr>
+          <tr>
+            <td>Tech Talk</td>
+            <td>50</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Features -->
+      <h2>What can you do with Random Topic Generator Tool?</h2>
+      <ul class="features-list">
+        <li>
+          It helps you generate single-word topics and questions and by using
+          them you can start a conversation. It provides topics in two
+          categories like single-word and long detailed questions.
+        </li>
+        <li>
+          People can use these topics and questions for research or analysis,
+          speech, discussion, writing blogs, and debates in college
+          competitions.
+        </li>
+        <li>
+          This tool can be used for fun, to conversation starters and know about
+          different topics, or works as a random Topic spam generator.
+        </li>
+        <li>
+          Online Random Topic Generator tool works well on Windows, MAC, Linux,
+          Chrome, Firefox, Edge, and Safari.
+        </li>
+      </ul>
+
+      <!-- Additional Info -->
+      <div class="info-section">
+        <h3 style="color: #0066cc; margin-bottom: 10px">About Topics</h3>
+        <p style="color: #666; line-height: 1.8">
+          Topics can be about anything from people to places to events or
+          things. There are many different topics that are found in the world.
+          Topics can be about anything, such as people, places, events or
+          things. A topic generator is a software that generates topics for
+          research papers, essays, and reports.
+        </p>
+      </div>
+
+      <!-- SEO Content Section -->
+      <h2>How to Use Our Random Topic Generator & Topic Generator</h2>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our free random topic generator makes it easy to generate random topics
+        and create random subject instantly. Whether you need a random word
+        generator for single words, subject generator for essays, or topic
+        randomizer for conversations, our topic generator handles it all. Simply
+        select a category in our random topic generator, click "Generate Random
+        Topic", and our topic picker will create random topics for you. No
+        software installation required - our random subject generator and topic
+        randomizer work online to generate random subject and pick random topic
+        instantly!
+      </p>
+
+      <h3>Random Word Generator & Subject Generator Features</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        When you use our random topic generator as a random word generator, the
+        Word Bank category generates random topics as single words. Our subject
+        generator and topic generator provide over 897 words to generate random
+        subject for any purpose. Use our random word generator to create random
+        topic for writing, random subject generator for research, and topic
+        randomizer for brainstorming. Whether you need random topics for essays
+        or use our topic picker for conversation starters, our random topic
+        generator and subject generator deliver perfect random subject and
+        random topics!
+      </p>
+
+      <h3>Topic Randomizer & Topic Picker for Random Topics</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our topic randomizer and topic picker in the random topic generator
+        ensure truly random topic selection. Use our topic generator to pick
+        random subject from 10 categories with 1,300+ random topics. The topic
+        randomizer includes Ice Breakers for conversations, Debate Club for
+        arguments, and Deep Dive for philosophical random subject. Our subject
+        generator and random topic generator help you generate random topics for
+        any situation. Whether you use the topic picker once or need random
+        subject regularly, our random subject generator and topic randomizer
+        make it simple to find perfect random topic!
+      </p>
+
+      <h3>Generate Random Subject & Random Topics for Any Purpose</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our random topic generator helps you generate random subject and random
+        topics for multiple purposes. Use our topic generator and subject
+        generator for research papers, random word generator for creative
+        writing, topic randomizer for speeches, and topic picker for debates.
+        When you generate random topic with our random subject generator, you
+        can use random topics for blog posts, conversations, presentations, or
+        college competitions. Our topic generator and random topic generator
+        provide random subject in categories like Tech Talk, Pop Pulse, and
+        Story Starters to help you create perfect random topics!
+      </p>
+
+      <h3>Random Subject Generator & Topic Generator Categories</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our random topic generator and random subject generator include 10
+        diverse categories. Use our topic generator with Word Bank (897 topics)
+        as random word generator, Ice Breakers (100 topics) for conversations,
+        and Debate Club (50 topics) for arguments. The subject generator
+        includes Deep Dive, Just for Laughs, Mirror Mirror, Muse Moments, Pop
+        Pulse, Story Starters, and Tech Talk categories. Our topic randomizer
+        and topic picker help you generate random subject and random topics from
+        any category. Whether you need random word generator for words or
+        subject generator for complex random topics, our random topic generator
+        has 1,300+ options!
+      </p>
+
+      <h3>Topic Picker & Topic Randomizer Benefits</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Using our topic picker and topic randomizer in the random topic
+        generator provides many benefits. Our topic generator helps you generate
+        random topics for writer's block, subject generator creates random
+        subject for research, and random word generator provides words for
+        creativity. Use the random subject generator and topic randomizer to
+        discover random topic you wouldn't think of yourself. The topic picker
+        in our random topic generator ensures unbiased random subject selection.
+        Whether you use our random word generator, subject generator, or topic
+        randomizer, our topic generator makes it easy to find random topics!
+      </p>
+
+      <h3>Free Random Topic Generator & Random Word Generator</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Unlike paid tools, our random topic generator, topic generator, and
+        random word generator are completely free. Generate random topics
+        unlimited times, use subject generator without fees, create random
+        subject, use topic randomizer as often as needed, and pick random topic
+        with our topic picker - all free! No registration required to use our
+        random subject generator or topic generator. Our random topic generator
+        works entirely in your browser to generate random subject, ensuring
+        privacy and speed. Perfect for students who need random topics for
+        essays, writers who want random word generator for creativity, or anyone
+        who needs a free subject generator and topic randomizer. Start using our
+        random topic generator today to generate random topics, create random
+        subject, and discover perfect random topic instantly!
+      </p>
+
+      <!-- FAQ Section -->
+      <h2 style="margin-top: 40px; margin-bottom: 25px; text-align: center">
+        Frequently Asked Questions
+      </h2>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How to use the random topic generator and topic generator?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          To use the random topic generator, select a category and click
+          'Generate Random Topic'. Our topic generator will create random topics
+          instantly. Use our random word generator and subject generator to
+          generate random subject and random topics. The topic randomizer and
+          topic picker help you find perfect random topic for any purpose.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What is a random topic generator and topic randomizer?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          A random topic generator and topic randomizer is a tool that creates
+          random topics and random subjects. Our topic generator includes random
+          word generator and subject generator. Use our random subject generator
+          and topic picker to generate random topic for conversations, writing,
+          and debates.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can I use this as a random word generator and subject generator?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Yes! Our random topic generator works as both random word generator
+          and subject generator. The Word Bank category generates random topics
+          as single words. Use our topic generator to create random subject,
+          random topics, and use the topic picker for any random topic needs.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Is this random topic generator and topic randomizer free?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Absolutely! Our random topic generator, topic generator, and topic
+          randomizer are 100% free. Generate random topics unlimited times, use
+          random word generator, create random subject, and use subject
+          generator without fees. Our topic picker helps you find random topic
+          as often as needed.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What categories does the random subject generator include?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Our random topic generator and random subject generator include 10
+          categories with 1,300+ topics. Use the topic generator for Ice
+          Breakers, Debate Club, Deep Dive, and more. The topic randomizer and
+          subject generator provide random topics in Word Bank, Tech Talk, Story
+          Starters, and other categories.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How does the topic picker and topic randomizer work?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          The topic picker and topic randomizer in our random topic generator
+          select random topics from chosen categories. Use our topic generator
+          to pick random subject, generate random topics, and use random word
+          generator. The subject generator and topic randomizer ensure truly
+          random topic selection every time.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      let currentCategory = "Word Bank";
+      let savedTopics = [];
+
+      // Sample topics for each category
+      const topics = {
+        "Word Bank": [
+          "Technology",
+          "Travel",
+          "Food",
+          "Music",
+          "Sports",
+          "Art",
+          "Science",
+          "History",
+          "Nature",
+          "Education",
+          "Fashion",
+          "Health",
+          "Books",
+          "Movies",
+          "Gaming",
+          "Photography",
+          "Architecture",
+          "Politics",
+          "Environment",
+          "Culture",
+        ],
+        "Ice Breakers": [
+          "What's your favorite way to spend a weekend?",
+          "If you could travel anywhere in the world, where would you go?",
+          "What's the best piece of advice you've ever received?",
+          "What hobby would you get into if time and money weren't an issue?",
+          "What's your favorite childhood memory?",
+        ],
+        "Debate Club": [
+          "Should social media platforms be regulated by the government?",
+          "Is remote work better than office work?",
+          "Should college education be free for everyone?",
+          "Is artificial intelligence a threat or an opportunity?",
+          "Should we colonize Mars?",
+        ],
+        "Deep Dive": [
+          "What does success mean to you?",
+          "How do you define happiness in your life?",
+          "What legacy do you want to leave behind?",
+          "What are your core values and why?",
+          "How has failure shaped your perspective?",
+        ],
+        "Just for Laughs": [
+          "What's the funniest thing that happened to you this week?",
+          "If you could have any superpower for a day, what would it be?",
+          "What's your most embarrassing moment?",
+          "If animals could talk, which would be the rudest?",
+          "What would your theme song be?",
+        ],
+        "Mirror Mirror": [
+          "What are you most proud of about yourself?",
+          "How have you grown as a person in the last year?",
+          "What's something you'd like to improve about yourself?",
+          "What makes you unique?",
+          "How do others perceive you?",
+        ],
+        "Muse Moments": [
+          "What inspires your creativity?",
+          "Describe a perfect day for you",
+          "What book changed your life?",
+          "What piece of art moves you the most?",
+          "Where do you find your inspiration?",
+        ],
+        "Pop Pulse": [
+          "What's your current favorite TV show?",
+          "Which celebrity would you want to meet?",
+          "What's the last movie that made you cry?",
+          "What song is stuck in your head right now?",
+          "What's trending that you don't understand?",
+        ],
+        "Story Starters": [
+          "It was a dark and stormy night when...",
+          "The last person on Earth sat alone in a room. There was a knock on the door...",
+          "She opened the old book and found a letter dated 100 years ago...",
+          "The phone rang at 3 AM. Nobody should be calling at this hour...",
+          "They say every family has secrets. Ours was buried in the backyard...",
+        ],
+        "Tech Talk": [
+          "What's the most useful app on your phone?",
+          "How has technology changed your daily life?",
+          "What future technology are you most excited about?",
+          "What's your opinion on cryptocurrency?",
+          "How do you protect your privacy online?",
+        ],
+      };
+
+      function selectCategory(category) {
+        currentCategory = category;
+
+        // Update active tab
+        document.querySelectorAll(".tab-btn").forEach((btn) => {
+          btn.classList.remove("active");
+          if (btn.textContent === category) {
+            btn.classList.add("active");
+          }
+        });
+      }
+
+      function generateTopic() {
+        const categoryTopics = topics[currentCategory];
+        const randomIndex = Math.floor(Math.random() * categoryTopics.length);
+        const topic = categoryTopics[randomIndex];
+
+        document.getElementById("topicText").textContent = topic;
+
+        // Add category badge
+        const badge = ` (${currentCategory})`;
+        if (
+          !document
+            .getElementById("topicText")
+            .textContent.includes(currentCategory)
+        ) {
+          document.getElementById("topicText").textContent += badge;
+        }
+
+        // For Word Bank, show just the word
+        // For others, treat as questions
+        if (currentCategory === "Word Bank") {
+          document.getElementById("topicQuestion").textContent = "";
+        } else {
+          document.getElementById("topicQuestion").textContent = topic.replace(
+            ` ${badge}`,
+            "",
+          );
+          document.getElementById("topicText").textContent = currentCategory;
+        }
+      }
+
+      function copyTopic() {
+        const topicText = document.getElementById("topicText").textContent;
+        const questionText =
+          document.getElementById("topicQuestion").textContent;
+        const fullText = questionText
+          ? `${topicText}\n${questionText}`
+          : topicText;
+
+        navigator.clipboard.writeText(fullText).then(() => {
+          alert("Topic copied to clipboard!");
+        });
+      }
+
+      function saveTopic() {
+        const topicText = document.getElementById("topicText").textContent;
+        savedTopics.push(topicText);
+        alert(`Topic saved! You have ${savedTopics.length} saved topic(s).`);
+      }
+    </script>
+  </body>
+</html>
