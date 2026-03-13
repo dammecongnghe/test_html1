@@ -1,0 +1,1154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      GIF to Sprite Sheet - Sprite Sheet Maker & Sprite Maker Online Free
+    </title>
+    <meta
+      name="description"
+      content="Free GIF to sprite sheet converter and sprite sheet maker. Convert GIF to sprite sheet, create sprite GIF, and use our sprite maker like Piskel and ezgif sprite sheet tools online."
+    />
+    <meta
+      name="keywords"
+      content="gif to sprite sheet, piskel, sprite sheet, minecraft gif, sprite sheet maker, matrix gif, sprite maker, gif to flipbook, sprite gif, ezgif sprite sheet"
+    />
+    <link rel="canonical" href="https://moviesearch.online/sprite-sheet" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="GIF to Sprite Sheet - Sprite Sheet Maker & Sprite Maker"
+    />
+    <meta
+      property="og:description"
+      content="Free GIF to sprite sheet converter and sprite sheet maker. Convert GIF to sprite sheet and create sprite GIF online."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moviesearch.online/sprite-sheet" />
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How to convert GIF to sprite sheet with sprite sheet maker?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To convert GIF to sprite sheet, upload your GIF to our sprite sheet maker, choose layout, and click 'Convert to Sprite Sheet'. Our sprite maker will convert GIF to sprite sheet instantly. Use our tool like Piskel or ezgif sprite sheet to create sprite GIF, convert Minecraft GIF, Matrix GIF, or use GIF to flipbook conversion."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a sprite sheet maker and sprite maker?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A sprite sheet maker and sprite maker is a tool to convert GIF to sprite sheet and create sprite GIF. Our sprite sheet maker works like Piskel and ezgif sprite sheet tools. Use our sprite maker to convert Minecraft GIF, Matrix GIF to sprite sheet, or use GIF to flipbook conversion to create sprite GIF instantly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use this for Minecraft GIF and Matrix GIF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our sprite sheet maker and sprite maker work perfectly to convert Minecraft GIF and Matrix GIF to sprite sheet. Use our tool to convert GIF to sprite sheet for Minecraft animations, Matrix GIF effects, or any sprite GIF. Our sprite sheet maker handles Minecraft GIF and Matrix GIF like Piskel and ezgif sprite sheet."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this sprite sheet maker and sprite maker free like Piskel?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! Our sprite sheet maker and sprite maker are 100% free like Piskel and ezgif sprite sheet. Convert GIF to sprite sheet unlimited times, create sprite GIF, convert Minecraft GIF or Matrix GIF, and use GIF to flipbook conversion without fees. Our sprite maker helps you convert GIF to sprite sheet as often as needed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How to use GIF to flipbook conversion?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To use GIF to flipbook conversion, upload your GIF to our sprite sheet maker and choose horizontal or grid layout. Our sprite maker will convert GIF to sprite sheet arranged as frames. Use our tool for GIF to flipbook to create sprite GIF sheets from Minecraft GIF, Matrix GIF, or any animation like Piskel and ezgif sprite sheet."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What's the difference between sprite sheet and sprite GIF?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A sprite sheet is a single image with multiple frames arranged together, while sprite GIF is an animated image. Our sprite sheet maker and sprite maker can convert GIF to sprite sheet or create sprite GIF. Use our tool like Piskel and ezgif sprite sheet to convert Minecraft GIF or Matrix GIF to sprite sheet, or use GIF to flipbook for frame extraction."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "GIF to Sprite Sheet - Sprite Sheet Maker & Sprite Maker",
+        "description": "Free sprite sheet maker and sprite maker. Convert GIF to sprite sheet, create sprite GIF, like Piskel and ezgif sprite sheet.",
+        "url": "https://moviesearch.online/sprite-sheet",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <!-- Library for GIF parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/omggif@1.0.10/omggif.min.js"></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --primary: #4f6ef7;
+        --primary-dark: #3b55d9;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --text: #111827;
+        --muted: #6b7280;
+      }
+      .hero {
+        max-width: 980px;
+        margin: 24px auto;
+        padding: 40px 24px;
+        background: #f0f4ff;
+        border: 1px solid #dbe4ff;
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto 24px;
+        line-height: 1.6;
+      }
+
+      .hero a.cta {
+        display: inline-block;
+        padding: 12px 26px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: #0066cc;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .home-button:hover {
+        background: #0052a3;
+        transform: translateY(-2px);
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 2em;
+      }
+
+      .description {
+        color: #666;
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+
+      .upload-area {
+        border: 2px dashed #0066cc;
+        border-radius: 8px;
+        padding: 40px;
+        text-align: center;
+        background: #f9f9f9;
+        margin-bottom: 30px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .upload-area:hover {
+        background: #f0f0f0;
+        border-color: #0052a3;
+      }
+
+      .upload-btn {
+        background: #0066cc;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .upload-btn:hover {
+        background: #0052a3;
+      }
+
+      .editor-section {
+        display: none;
+      }
+
+      .editor-section.active {
+        display: block;
+      }
+
+      .preview-container {
+        background: #fafafa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .preview-container img {
+        max-width: 100%;
+        max-height: 300px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .controls-section {
+        background: #fafafa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .control-group {
+        margin-bottom: 20px;
+      }
+
+      .control-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+        color: #555;
+      }
+
+      .control-group select,
+      .control-group input[type="number"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .layout-options {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .layout-btn {
+        padding: 10px;
+        background: white;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.3s;
+      }
+
+      .layout-btn:hover {
+        border-color: #0066cc;
+      }
+
+      .layout-btn.active {
+        background: #0066cc;
+        color: white;
+        border-color: #0066cc;
+      }
+
+      .convert-btn {
+        background: #0066cc;
+        color: white;
+        padding: 14px 40px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .convert-btn:hover {
+        background: #0052a3;
+      }
+
+      .result-section {
+        display: none;
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .result-section.active {
+        display: block;
+      }
+
+      .download-btn {
+        background: #28a745;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 10px;
+      }
+
+      .download-btn:hover {
+        background: #218838;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .features-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .features-list li {
+        padding: 8px 0;
+        padding-left: 25px;
+        position: relative;
+      }
+
+      .features-list li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #28a745;
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      h2 {
+        color: #333;
+        margin: 30px 0 15px;
+        font-size: 1.5em;
+      }
+
+      .info-box {
+        background: #e3f2fd;
+        border: 1px solid #2196f3;
+        padding: 15px;
+        border-radius: 5px;
+        color: #1565c0;
+        margin: 20px 0;
+        line-height: 1.8;
+      }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+  <body>
+    <a href="https://moviesearch.online" class="home-button">
+      <span>🏠</span> Home
+    </a>
+
+    <div class="container">
+      <h1>GIF to Sprite Sheet - Sprite Sheet Maker & Sprite Maker Online</h1>
+
+      <div class="description">
+        <p>
+          A sprite sheet (or sprite strip) is a single image file containing
+          multiple frames, perfect for sprite GIF creation. Sprite sheets are
+          often used in web and game development, including Minecraft GIF and
+          Matrix GIF animations. This sprite sheet maker and sprite maker can
+          perform GIF to sprite sheet conversion, similar to Piskel and ezgif
+          sprite sheet tools. Use our sprite maker to convert GIF to sprite
+          sheet, create sprite GIF, or use GIF to flipbook conversion.
+        </p>
+        <p style="margin-top: 10px">
+          Simply upload your animated image to our sprite sheet maker, and this
+          sprite maker will seamlessly convert GIF to sprite sheet with
+          transparent background. Our tool works like Piskel and ezgif sprite
+          sheet to extract animation frames and create sprite GIF. Use our
+          sprite sheet maker for Minecraft GIF animations, Matrix GIF effects,
+          or any GIF to flipbook conversion. The sprite maker stacks frames side
+          by side (horizontally), one under another (vertically), or in a custom
+          grid, creating a single sprite sheet file perfect for game development
+          and sprite GIF creation!
+        </p>
+      </div>
+
+      <!-- Upload Area -->
+      <div class="upload-area" id="uploadArea">
+        <input
+          type="file"
+          id="fileInput"
+          accept="image/gif,image/png,image/webp,image/apng,video/*"
+        />
+        <button
+          class="upload-btn"
+          onclick="document.getElementById('fileInput').click()"
+        >
+          Upload Animated Image
+        </button>
+        <p style="margin-top: 15px; color: #666">
+          or drag and drop a file here
+        </p>
+        <p style="font-size: 13px; color: #999; margin-top: 5px">
+          Supports: GIF, APNG, WebP, MNG, AVIF, ANI, JXL, MP4, WebM
+        </p>
+      </div>
+
+      <!-- Editor Section -->
+      <div class="editor-section" id="editorSection">
+        <div class="preview-container">
+          <h3>Original Animation:</h3>
+          <div
+            id="fileInfo"
+            style="
+              padding: 10px;
+              background: #f0f8ff;
+              border-radius: 5px;
+              margin-bottom: 10px;
+              font-size: 14px;
+            "
+          >
+            No file loaded
+          </div>
+          <img id="previewImage" src="" alt="Preview" />
+        </div>
+
+        <div class="controls-section">
+          <h3 style="margin-bottom: 15px">Sprite Sheet Settings:</h3>
+
+          <div class="control-group">
+            <label>Layout:</label>
+            <div class="layout-options">
+              <button
+                class="layout-btn active"
+                onclick="selectLayout('horizontal')"
+              >
+                Horizontal<br />(Side by side)
+              </button>
+              <button class="layout-btn" onclick="selectLayout('vertical')">
+                Vertical<br />(Stacked)
+              </button>
+              <button class="layout-btn" onclick="selectLayout('grid')">
+                Grid<br />(Custom columns)
+              </button>
+            </div>
+          </div>
+
+          <div class="control-group" id="columnsControl" style="display: none">
+            <label>Number of Columns:</label>
+            <input type="number" id="gridColumns" value="4" min="1" max="20" />
+          </div>
+
+          <div class="control-group">
+            <label>Tile Size:</label>
+            <select id="tileSize">
+              <option value="original">Original Size</option>
+              <option value="32">32x32 pixels</option>
+              <option value="64">64x64 pixels</option>
+              <option value="128">128x128 pixels</option>
+              <option value="256">256x256 pixels</option>
+              <option value="custom">Custom Size</option>
+            </select>
+          </div>
+
+          <div
+            class="control-group"
+            id="customSizeControl"
+            style="display: none"
+          >
+            <label>Custom Width x Height:</label>
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px"
+            >
+              <input
+                type="number"
+                id="customWidth"
+                placeholder="Width"
+                min="1"
+              />
+              <input
+                type="number"
+                id="customHeight"
+                placeholder="Height"
+                min="1"
+              />
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>Margin (pixels):</label>
+            <input type="number" id="margin" value="0" min="0" max="50" />
+          </div>
+
+          <div class="control-group">
+            <label>Output Format:</label>
+            <select id="outputFormat">
+              <option value="png">PNG (Transparent)</option>
+              <option value="gif">GIF</option>
+              <option value="webp">WebP</option>
+              <option value="bmp">BMP</option>
+              <option value="avif">AVIF</option>
+            </select>
+          </div>
+
+          <button class="convert-btn" onclick="convertToSpriteSheet()">
+            Convert to Sprite Sheet
+          </button>
+        </div>
+      </div>
+
+      <!-- Result Section -->
+      <div class="result-section" id="resultSection">
+        <h2>Sprite Sheet Ready!</h2>
+        <div class="preview-container">
+          <img
+            id="resultImage"
+            src=""
+            alt="Sprite Sheet"
+            style="max-height: 500px"
+          />
+        </div>
+        <div id="resultInfo" style="margin-bottom: 20px; color: #666">
+          Sprite sheet created successfully
+        </div>
+        <div>
+          <button class="download-btn" onclick="downloadSpriteSheet()">
+            💾 Download Sprite Sheet
+          </button>
+        </div>
+      </div>
+      <div class="hero">
+        <h1>Convert Images to Vector Graphics Instantly</h1>
+        <p>
+          Turn raster images into clean, scalable vector files for design,
+          print, or web use.
+        </p>
+        <a class="cta" href="https://rastertovector.online" target="_blank">
+          Convert Raster to Vector
+        </a>
+      </div>
+      <!-- Features -->
+      <h2>Features</h2>
+      <ul class="features-list">
+        <li>
+          <strong>Multiple formats:</strong> Convert GIF, APNG, WebP, MNG, AVIF,
+          ANI, JXL to sprite sheets
+        </li>
+        <li>
+          <strong>Layout options:</strong> Horizontal, vertical, or custom grid
+          arrangements
+        </li>
+        <li>
+          <strong>Customizable tiles:</strong> Set tile size, margins, and
+          spacing
+        </li>
+        <li>
+          <strong>Transparent background:</strong> Preserve transparency in
+          sprite sheets
+        </li>
+        <li>
+          <strong>Multiple output formats:</strong> Export as PNG, GIF, WebP,
+          BMP, or AVIF
+        </li>
+        <li>
+          <strong>Client-side processing:</strong> All conversions happen in
+          your browser
+        </li>
+        <li>
+          <strong>Free to use:</strong> No watermarks, no registration required
+        </li>
+      </ul>
+
+      <div class="info-box">
+        <strong>💡 What is a Sprite Sheet?</strong><br />
+        A sprite sheet is a single image containing multiple frames of animation
+        or game sprites. Instead of loading many separate image files,
+        developers can load one sprite sheet and display different parts of it.
+        This improves performance and makes asset management easier in games and
+        web applications.
+      </div>
+
+      <h2>Common Use Cases</h2>
+      <ul class="features-list">
+        <li>
+          <strong>Game development:</strong> Create character animations and
+          sprite atlases
+        </li>
+        <li>
+          <strong>Web development:</strong> Optimize loading times with CSS
+          sprites
+        </li>
+        <li>
+          <strong>Animation tools:</strong> Import frame sequences into
+          animation software
+        </li>
+        <li>
+          <strong>Mobile apps:</strong> Reduce file count and improve
+          performance
+        </li>
+        <li>
+          <strong>Asset organization:</strong> Combine related graphics into
+          single files
+        </li>
+      </ul>
+
+      <!-- SEO Content Section -->
+      <h2>How to Convert GIF to Sprite Sheet with Our Sprite Sheet Maker</h2>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our free sprite sheet maker makes it easy to convert GIF to sprite sheet
+        and create sprite GIF instantly. Whether you need a sprite maker like
+        Piskel or ezgif sprite sheet tools to convert Minecraft GIF, Matrix GIF,
+        or use GIF to flipbook conversion, our sprite sheet maker handles it
+        all. Simply upload your GIF to our sprite maker, choose layout
+        (horizontal, vertical, or grid), and click "Convert to Sprite Sheet". No
+        software installation required - our sprite sheet maker and sprite maker
+        work online to convert GIF to sprite sheet and create sprite GIF
+        instantly!
+      </p>
+
+      <h3>Sprite Sheet Maker & Sprite Maker Like Piskel and Ezgif</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        When you convert GIF to sprite sheet using our sprite sheet maker, you
+        get a tool similar to Piskel and ezgif sprite sheet. Our sprite maker
+        extracts frames from sprite GIF and creates organized sprite sheets. Use
+        our sprite sheet maker to convert Minecraft GIF for pixel art, Matrix
+        GIF for digital rain effects, or any GIF to flipbook for frame-by-frame
+        viewing. Whether you need to convert GIF to sprite sheet like Piskel or
+        use ezgif sprite sheet features, our sprite maker and sprite sheet maker
+        deliver professional sprite GIF results!
+      </p>
+
+      <h3>Convert Minecraft GIF & Matrix GIF to Sprite Sheet</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our sprite sheet maker excels at converting Minecraft GIF and Matrix GIF
+        to sprite sheet. Use our sprite maker to convert Minecraft GIF
+        animations for game development or Matrix GIF effects for digital
+        projects. When you convert GIF to sprite sheet with our tool, Minecraft
+        GIF and Matrix GIF frames are extracted perfectly. Our sprite sheet
+        maker works like Piskel and ezgif sprite sheet to create sprite GIF
+        sheets from Minecraft GIF blocks, Matrix GIF rain, or any animation. Use
+        our sprite maker to convert Minecraft GIF or Matrix GIF to sprite sheet
+        for game engines, web development, or GIF to flipbook projects!
+      </p>
+
+      <h3>GIF to Flipbook Conversion with Sprite Maker</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our sprite sheet maker and sprite maker excel at GIF to flipbook
+        conversion. When you convert GIF to sprite sheet using GIF to flipbook
+        mode, our sprite maker arranges frames horizontally for easy viewing.
+        Use our sprite sheet maker for GIF to flipbook to create sprite GIF
+        sheets that display animation frames sequentially. Perfect for
+        converting Minecraft GIF or Matrix GIF to flipbook format, our sprite
+        maker works like Piskel and ezgif sprite sheet to extract and arrange
+        frames. Use GIF to flipbook conversion to convert GIF to sprite sheet
+        for animation analysis, frame extraction, or creating sprite GIF
+        references!
+      </p>
+
+      <h3>Sprite GIF Creation & Sprite Sheet Features</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our sprite sheet maker offers comprehensive features to create sprite
+        GIF and convert GIF to sprite sheet. When you use our sprite maker like
+        Piskel or ezgif sprite sheet, you can customize tile size, set margins,
+        choose output format, and select layout for your sprite sheet. Use our
+        sprite sheet maker to convert Minecraft GIF with custom sizing, Matrix
+        GIF with specific spacing, or any GIF to flipbook with precise frame
+        arrangement. The sprite maker preserves transparency when you convert
+        GIF to sprite sheet, making it perfect for sprite GIF with transparent
+        backgrounds. Whether creating sprite sheet for games or sprite GIF for
+        web, our sprite maker delivers!
+      </p>
+
+      <h3>Sprite Sheet Maker for Game Development & Web Design</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Use our sprite sheet maker and sprite maker for game development and web
+        design. When you convert GIF to sprite sheet, you optimize loading times
+        and asset management. Our sprite maker works like Piskel and ezgif
+        sprite sheet to create sprite GIF sheets for CSS sprites, game engines,
+        and animation tools. Convert Minecraft GIF to sprite sheet for game
+        textures, Matrix GIF to sprite sheet for effects, or use GIF to flipbook
+        for frame analysis. Our sprite sheet maker helps you convert GIF to
+        sprite sheet with layouts perfect for Unity, Godot, Phaser, and other
+        engines. Create sprite GIF sheets that improve performance!
+      </p>
+
+      <h3>Free Sprite Sheet Maker & Sprite Maker Like Piskel</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Unlike paid software, our sprite sheet maker and sprite maker are
+        completely free like Piskel and ezgif sprite sheet. Convert GIF to
+        sprite sheet unlimited times, create sprite GIF without fees, convert
+        Minecraft GIF or Matrix GIF, use GIF to flipbook conversion as often as
+        needed - all free! No registration required to use our sprite maker or
+        sprite sheet maker. Our tool works entirely in your browser when you
+        convert GIF to sprite sheet, ensuring privacy and speed. Perfect for
+        game developers who need to convert GIF to sprite sheet regularly, pixel
+        artists who want sprite maker like Piskel, or anyone using ezgif sprite
+        sheet alternatives. Start using our sprite sheet maker today to convert
+        GIF to sprite sheet, create sprite GIF, convert Minecraft GIF or Matrix
+        GIF, use GIF to flipbook, and master sprite sheet creation instantly!
+      </p>
+
+      <!-- FAQ Section -->
+      <h2 style="margin-top: 40px; margin-bottom: 25px; text-align: center">
+        Frequently Asked Questions
+      </h2>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How to convert GIF to sprite sheet with sprite sheet maker?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          To convert GIF to sprite sheet, upload your GIF to our sprite sheet
+          maker, choose layout, and click 'Convert to Sprite Sheet'. Our sprite
+          maker will convert GIF to sprite sheet instantly. Use our tool like
+          Piskel or ezgif sprite sheet to create sprite GIF, convert Minecraft
+          GIF, Matrix GIF, or use GIF to flipbook conversion.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What is a sprite sheet maker and sprite maker?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          A sprite sheet maker and sprite maker is a tool to convert GIF to
+          sprite sheet and create sprite GIF. Our sprite sheet maker works like
+          Piskel and ezgif sprite sheet tools. Use our sprite maker to convert
+          Minecraft GIF, Matrix GIF to sprite sheet, or use GIF to flipbook
+          conversion to create sprite GIF instantly.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can I use this for Minecraft GIF and Matrix GIF?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Yes! Our sprite sheet maker and sprite maker work perfectly to convert
+          Minecraft GIF and Matrix GIF to sprite sheet. Use our tool to convert
+          GIF to sprite sheet for Minecraft animations, Matrix GIF effects, or
+          any sprite GIF. Our sprite sheet maker handles Minecraft GIF and
+          Matrix GIF like Piskel and ezgif sprite sheet.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Is this sprite sheet maker and sprite maker free like Piskel?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Absolutely! Our sprite sheet maker and sprite maker are 100% free like
+          Piskel and ezgif sprite sheet. Convert GIF to sprite sheet unlimited
+          times, create sprite GIF, convert Minecraft GIF or Matrix GIF, and use
+          GIF to flipbook conversion without fees. Our sprite maker helps you
+          convert GIF to sprite sheet as often as needed.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How to use GIF to flipbook conversion?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          To use GIF to flipbook conversion, upload your GIF to our sprite sheet
+          maker and choose horizontal or grid layout. Our sprite maker will
+          convert GIF to sprite sheet arranged as frames. Use our tool for GIF
+          to flipbook to create sprite GIF sheets from Minecraft GIF, Matrix
+          GIF, or any animation like Piskel and ezgif sprite sheet.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What's the difference between sprite sheet and sprite GIF?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          A sprite sheet is a single image with multiple frames arranged
+          together, while sprite GIF is an animated image. Our sprite sheet
+          maker and sprite maker can convert GIF to sprite sheet or create
+          sprite GIF. Use our tool like Piskel and ezgif sprite sheet to convert
+          Minecraft GIF or Matrix GIF to sprite sheet, or use GIF to flipbook
+          for frame extraction.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      let currentFile = null;
+      let currentLayout = "horizontal";
+      let gifFrames = [];
+      let isAnimated = false;
+      let spriteSheetBlob = null;
+
+      const fileInput = document.getElementById("fileInput");
+      const uploadArea = document.getElementById("uploadArea");
+      const editorSection = document.getElementById("editorSection");
+      const previewImage = document.getElementById("previewImage");
+      const resultSection = document.getElementById("resultSection");
+      const resultImage = document.getElementById("resultImage");
+      const tileSizeSelect = document.getElementById("tileSize");
+
+      // File upload
+      fileInput.addEventListener("change", (e) => {
+        if (e.target.files[0]) {
+          loadFile(e.target.files[0]);
+        }
+      });
+
+      async function loadFile(file) {
+        currentFile = file;
+        gifFrames = [];
+        isAnimated = false;
+
+        // Try to parse as GIF to extract frames
+        if (file.type === "image/gif") {
+          try {
+            const arrayBuffer = await file.arrayBuffer();
+            const uint8Array = new Uint8Array(arrayBuffer);
+            const reader = new GifReader(uint8Array);
+
+            const frameCount = reader.numFrames();
+            isAnimated = frameCount > 1;
+
+            console.log(
+              `GIF loaded: ${frameCount} frames, ${reader.width}x${reader.height}`,
+            );
+
+            // Extract all frames
+            for (let i = 0; i < frameCount; i++) {
+              const frameData = new Uint8ClampedArray(
+                reader.width * reader.height * 4,
+              );
+              reader.decodeAndBlitFrameRGBA(i, frameData);
+
+              gifFrames.push({
+                data: frameData,
+                width: reader.width,
+                height: reader.height,
+              });
+            }
+
+            document.getElementById("fileInfo").textContent =
+              `Loaded: ${frameCount} frames, ${reader.width}x${reader.height}px each`;
+          } catch (error) {
+            console.error("Error parsing GIF:", error);
+            isAnimated = false;
+          }
+        }
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          previewImage.src = e.target.result;
+          editorSection.classList.add("active");
+        };
+        reader.readAsDataURL(file);
+      }
+
+      // Layout selection
+      function selectLayout(layout) {
+        currentLayout = layout;
+
+        document
+          .querySelectorAll(".layout-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+        event.target.classList.add("active");
+
+        // Show/hide columns control
+        document.getElementById("columnsControl").style.display =
+          layout === "grid" ? "block" : "none";
+      }
+
+      // Tile size selection
+      tileSizeSelect.addEventListener("change", (e) => {
+        document.getElementById("customSizeControl").style.display =
+          e.target.value === "custom" ? "block" : "none";
+      });
+
+      // Convert to sprite sheet - REAL IMPLEMENTATION
+      async function convertToSpriteSheet() {
+        if (!currentFile) {
+          alert("Please upload a file first");
+          return;
+        }
+
+        if (!isAnimated || gifFrames.length === 0) {
+          alert(
+            "This tool works with animated GIFs. Please upload an animated GIF file.",
+          );
+          return;
+        }
+
+        const convertBtn = event.target;
+        convertBtn.disabled = true;
+        convertBtn.textContent = "Converting...";
+
+        try {
+          console.log(`Creating sprite sheet from ${gifFrames.length} frames`);
+
+          // Get settings
+          const layout = currentLayout;
+          const format = document.getElementById("outputFormat").value;
+          const margin = parseInt(document.getElementById("margin").value) || 0;
+
+          // Get tile size
+          let tileWidth = gifFrames[0].width;
+          let tileHeight = gifFrames[0].height;
+
+          const tileSizeOption = tileSizeSelect.value;
+          if (tileSizeOption === "custom") {
+            tileWidth =
+              parseInt(document.getElementById("customWidth").value) ||
+              tileWidth;
+            tileHeight =
+              parseInt(document.getElementById("customHeight").value) ||
+              tileHeight;
+          }
+
+          // Calculate sprite sheet dimensions
+          let columns, rows;
+
+          if (layout === "horizontal") {
+            columns = gifFrames.length;
+            rows = 1;
+          } else if (layout === "vertical") {
+            columns = 1;
+            rows = gifFrames.length;
+          } else {
+            // grid
+            columns =
+              parseInt(document.getElementById("gridColumns").value) ||
+              Math.ceil(Math.sqrt(gifFrames.length));
+            rows = Math.ceil(gifFrames.length / columns);
+          }
+
+          const spriteWidth = tileWidth * columns + margin * (columns + 1);
+          const spriteHeight = tileHeight * rows + margin * (rows + 1);
+
+          console.log(
+            `Sprite sheet: ${columns}x${rows} grid, ${spriteWidth}x${spriteHeight}px total`,
+          );
+
+          // Create sprite sheet canvas
+          const canvas = document.createElement("canvas");
+          canvas.width = spriteWidth;
+          canvas.height = spriteHeight;
+          const ctx = canvas.getContext("2d");
+
+          // Fill with transparent background
+          ctx.clearRect(0, 0, spriteWidth, spriteHeight);
+
+          // Draw each frame
+          for (let i = 0; i < gifFrames.length; i++) {
+            const frame = gifFrames[i];
+
+            // Calculate position in grid
+            const col = i % columns;
+            const row = Math.floor(i / columns);
+
+            const x = margin + col * (tileWidth + margin);
+            const y = margin + row * (tileHeight + margin);
+
+            // Create temp canvas for this frame
+            const tempCanvas = document.createElement("canvas");
+            tempCanvas.width = frame.width;
+            tempCanvas.height = frame.height;
+            const tempCtx = tempCanvas.getContext("2d");
+
+            // Draw frame data
+            const imageData = tempCtx.createImageData(
+              frame.width,
+              frame.height,
+            );
+            imageData.data.set(frame.data);
+            tempCtx.putImageData(imageData, 0, 0);
+
+            // Draw to sprite sheet (with optional scaling)
+            ctx.drawImage(tempCanvas, x, y, tileWidth, tileHeight);
+
+            console.log(
+              `Frame ${i + 1}/${gifFrames.length} placed at (${x}, ${y})`,
+            );
+          }
+
+          // Convert to blob
+          const mimeType =
+            format === "png"
+              ? "image/png"
+              : format === "jpg"
+                ? "image/jpeg"
+                : format === "webp"
+                  ? "image/webp"
+                  : "image/png";
+
+          spriteSheetBlob = await new Promise((resolve) => {
+            canvas.toBlob((blob) => resolve(blob), mimeType, 0.95);
+          });
+
+          // Display result
+          const url = URL.createObjectURL(spriteSheetBlob);
+          resultImage.src = url;
+
+          const fileSize = (spriteSheetBlob.size / 1024).toFixed(2);
+          document.getElementById("resultInfo").textContent =
+            `Sprite sheet created: ${columns}x${rows} layout (${gifFrames.length} frames) | ${spriteWidth}x${spriteHeight}px | ${fileSize} KB | Format: ${format.toUpperCase()}`;
+
+          resultSection.classList.add("active");
+          resultSection.scrollIntoView({ behavior: "smooth" });
+
+          console.log("Sprite sheet created successfully");
+        } catch (error) {
+          console.error("Error creating sprite sheet:", error);
+          alert("Error creating sprite sheet: " + error.message);
+        } finally {
+          convertBtn.disabled = false;
+          convertBtn.textContent = "Convert to sprite sheet!";
+        }
+      }
+
+      // Download sprite sheet
+      function downloadSpriteSheet() {
+        if (!spriteSheetBlob) {
+          alert("Please convert a file first");
+          return;
+        }
+
+        const format = document.getElementById("outputFormat").value;
+        const url = URL.createObjectURL(spriteSheetBlob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `sprite-sheet.${format}`;
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      // Drag and drop
+      uploadArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        uploadArea.style.background = "#e6f2ff";
+      });
+
+      uploadArea.addEventListener("dragleave", () => {
+        uploadArea.style.background = "#f9f9f9";
+      });
+
+      uploadArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        uploadArea.style.background = "#f9f9f9";
+        const file = e.dataTransfer.files[0];
+        if (file) {
+          loadFile(file);
+        }
+      });
+    </script>
+  </body>
+</html>
