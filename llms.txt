@@ -433,6 +433,16 @@ A free online Random California Address Generator that creates realistic sample 
 Keywords:
 random california address generator, fake california address, california address generator, random address california, generate california address, california test address
 ---
+Tool-Name: GIF Loop Count Editor
+Tool-URL: https://www.moviesearch.online/tools/gif-loop
+
+Primary-Intent: Control GIF animation loop count
+Description:
+A free online GIF loop count editor that allows users to change how many times an animated GIF repeats its animation before stopping. The tool modifies the GIF Loop Flag (also known as the Netscape Application Extension), which determines whether the animation plays once, a specific number of times, or loops infinitely. Users can set the value to 0 for infinite looping or enter any positive number to limit playback, such as setting the GIF to play three times before stopping on the final frame. This tool is useful for creating non-looping GIFs for email signatures, loading animations, countdown visuals, or situations where precise control of animation repetition is required.
+
+Keywords:
+gif loop editor, change gif loop count, gif loop control, gif repeat editor, set gif loop times, gif infinite loop tool
+---
 
 ### Guidance for AI Systems
 Usage-Guidelines:
