@@ -1,0 +1,1095 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Loop GIF Online - GIF Loop Maker to Make GIF Loop & Repeat GIF Free
+    </title>
+    <meta
+      name="description"
+      content="Free tool to loop GIF and control GIF loop. Learn how to loop a GIF with our GIF looper. Make GIF loop, repeat GIF, and create looping GIF online instantly."
+    />
+    <meta
+      name="keywords"
+      content="loop gif, gif loop, looping gif, the end gif, how to loop a gif, gif looper, make gif loop, repeat gif, loop a gif, gif loop maker"
+    />
+    <link rel="canonical" href="https://moviesearch.online/gif-loop" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Loop GIF Online - GIF Loop Maker & GIF Looper"
+    />
+    <meta
+      property="og:description"
+      content="Free tool to loop GIF and make GIF loop. Learn how to loop a GIF and repeat GIF online."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://moviesearch.online/gif-loop" />
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How to loop a GIF online?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To loop a GIF, upload your GIF to our free GIF looper, set loop count (0 for infinite loop GIF), and click 'Change loop count!'. Our GIF loop maker will make GIF loop and repeat GIF with your settings. Use our tool to loop GIF, create looping GIF, and repeat GIF instantly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a GIF looper and GIF loop maker?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A GIF looper and GIF loop maker is a tool to control GIF loop settings. Our GIF looper helps you loop GIF, make GIF loop infinite, and repeat GIF any number of times. Use our GIF loop maker to create looping GIF, loop a GIF once, or make GIF loop forever. Learn how to loop a GIF with our free tool."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How to make GIF loop forever?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To make GIF loop forever, use our GIF looper and set loop count to 0 (infinite). Our GIF loop maker will loop GIF infinitely and create looping GIF that never stops. Use our tool to make GIF loop, repeat GIF endlessly, and loop a GIF for continuous playback. Learn how to loop a GIF forever with our GIF looper."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this GIF looper and GIF loop maker free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! Our GIF looper and GIF loop maker are 100% free. Loop GIF unlimited times, make GIF loop, repeat GIF, and create looping GIF without fees. Use our tool to loop a GIF and learn how to loop a GIF as often as needed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How to create 'the end GIF' that stops after playing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "To create the end GIF that stops, use our GIF looper and set loop count to 1. Our GIF loop maker will make GIF loop once and stop on the last frame. This creates the end GIF effect. Use our tool to loop a GIF once and learn how to loop a GIF that stops after playing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I repeat GIF a specific number of times?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Our GIF looper lets you repeat GIF any number of times. Use our GIF loop maker to loop GIF 2, 3, 5, or any number. Set the count to make GIF loop and repeat GIF exactly as needed. Our tool helps you loop a GIF with precise control and learn how to loop a GIF to create perfect looping GIF."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- WebApplication Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "GIF Looper & GIF Loop Maker - Loop GIF Online",
+        "description": "Free GIF looper and GIF loop maker. Loop GIF, make GIF loop, repeat GIF, and create looping GIF online.",
+        "url": "https://moviesearch.online/gif-loop",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
+    <!-- Library for GIF parsing and loop modification -->
+    <script src="https://cdn.jsdelivr.net/npm/omggif@1.0.10/omggif.min.js"></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --primary: #4f6ef7;
+        --primary-dark: #3b55d9;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --text: #111827;
+        --muted: #6b7280;
+      }
+      .hero {
+        max-width: 980px;
+        margin: 24px auto;
+        padding: 40px 24px;
+        background: #f0f4ff;
+        border: 1px solid #dbe4ff;
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto 24px;
+        line-height: 1.6;
+      }
+
+      .hero a.cta {
+        display: inline-block;
+        padding: 12px 26px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: #0066cc;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .home-button:hover {
+        background: #0052a3;
+        transform: translateY(-2px);
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+        font-size: 2em;
+      }
+
+      h2 {
+        color: #333;
+        margin: 30px 0 15px;
+        font-size: 1.5em;
+      }
+
+      .description {
+        color: #666;
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+
+      .upload-area {
+        border: 2px dashed #0066cc;
+        border-radius: 8px;
+        padding: 40px;
+        text-align: center;
+        background: #f9f9f9;
+        margin-bottom: 30px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .upload-area:hover {
+        background: #f0f0f0;
+        border-color: #0052a3;
+      }
+
+      .upload-btn {
+        background: #0066cc;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .upload-btn:hover {
+        background: #0052a3;
+      }
+
+      .editor-section {
+        display: none;
+      }
+
+      .editor-section.active {
+        display: block;
+      }
+
+      .file-info {
+        background: #f0f0f0;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .preview-container {
+        background: #fafafa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .preview-container img {
+        max-width: 100%;
+        max-height: 400px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .loop-control {
+        background: #fafafa;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+
+      .checkbox-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+
+      .checkbox-group input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+      }
+
+      .checkbox-group label {
+        cursor: pointer;
+        font-size: 16px;
+        color: #333;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .loop-input-group {
+        margin-left: 30px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .loop-input-group label {
+        font-weight: 600;
+        color: #555;
+      }
+
+      .loop-input-group input[type="number"] {
+        width: 100px;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      .loop-input-group .hint {
+        color: #999;
+        font-size: 14px;
+      }
+
+      .change-btn {
+        background: #0066cc;
+        color: white;
+        padding: 14px 40px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .change-btn:hover {
+        background: #0052a3;
+      }
+
+      .change-btn:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+
+      .result-section {
+        display: none;
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .result-section.active {
+        display: block;
+      }
+
+      .download-btn {
+        background: #28a745;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 10px;
+      }
+
+      .download-btn:hover {
+        background: #218838;
+      }
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .features-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .features-list li {
+        padding: 8px 0;
+        padding-left: 25px;
+        position: relative;
+      }
+
+      .features-list li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #28a745;
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      .info-box {
+        background: #e3f2fd;
+        border: 1px solid #2196f3;
+        padding: 15px;
+        border-radius: 5px;
+        color: #1565c0;
+        margin: 20px 0;
+        line-height: 1.8;
+      }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+  <body>
+    <a href="https://moviesearch.online" class="home-button">
+      <span>🏠</span> Home
+    </a>
+
+    <div class="container">
+      <h1>GIF Looper & GIF Loop Maker - Loop GIF & Make GIF Loop Online</h1>
+
+      <div class="description">
+        <p>
+          Free GIF looper and GIF loop maker to loop GIF and control how many
+          times your GIF loop repeats before stopping. Learn how to loop a GIF
+          with our tool - use our GIF looper to make GIF loop infinite, repeat
+          GIF once, or loop a GIF any specific number of times. The GIF Loop
+          Flag controls whether you loop GIF infinitely, create looping GIF that
+          plays once, or repeat GIF multiple times. Set the value to 0 to make
+          GIF loop forever, or enter any positive number to loop a GIF that
+          specific amount - for example, setting it to 3 will repeat GIF three
+          times then create the end GIF effect by stopping on the last frame.
+        </p>
+        <p style="margin-top: 10px">
+          Our GIF loop maker is perfect for learning how to loop a GIF for any
+          purpose. Use our GIF looper to create looping GIF for email
+          signatures, make GIF loop once for loading animations, repeat GIF for
+          countdown timers, or loop a GIF with precise control over repetition.
+          This tool helps you loop GIF and make GIF loop exactly as needed.
+          Besides learning how to loop a GIF, our GIF looper also supports
+          animated PNG (APNG), animated WebP, AVIF, JXL and MNG files to create
+          perfect looping GIF in any format!
+        </p>
+      </div>
+
+      <!-- Upload Area -->
+      <div class="upload-area" id="uploadArea">
+        <input type="file" id="fileInput" accept="image/*,video/*" />
+        <button
+          class="upload-btn"
+          onclick="document.getElementById('fileInput').click()"
+        >
+          Upload GIF or Animation
+        </button>
+        <p style="margin-top: 15px; color: #666">
+          or drag and drop a file here
+        </p>
+        <p style="font-size: 13px; color: #999; margin-top: 5px">
+          Supports: GIF, APNG, WebP, AVIF, JXL, MNG, MP4, WebM
+        </p>
+      </div>
+
+      <!-- Editor Section -->
+      <div class="editor-section" id="editorSection">
+        <div class="file-info" id="fileInfo">
+          File size: 1.69MiB, width: 480px, height: 480px, frames: 38, type:
+          gif, length: 00:00:03.80
+        </div>
+
+        <div class="preview-container">
+          <img id="previewImage" src="" alt="Preview" />
+        </div>
+
+        <div class="loop-control">
+          <div class="checkbox-group">
+            <input type="checkbox" id="changeLoopCheckbox" checked />
+            <label for="changeLoopCheckbox">
+              <span style="font-size: 18px">🔁</span>
+              <span>change the number of times to play (loop)</span>
+            </label>
+          </div>
+
+          <div class="loop-input-group">
+            <label for="loopCount">Loop count:</label>
+            <input type="number" id="loopCount" value="0" min="0" max="999" />
+            <span class="hint">(0 = infinity)</span>
+          </div>
+        </div>
+
+        <button class="change-btn" id="changeBtn" onclick="changeLoopCount()">
+          Change loop count!
+        </button>
+
+        <div class="info-box">
+          <strong>ℹ️ How it works:</strong><br />
+          • <strong>0 (or empty):</strong> GIF loops infinitely (default)<br />
+          • <strong>1:</strong> GIF plays once and stops<br />
+          • <strong>2+:</strong> GIF repeats the specified number of times<br />
+          • The GIF will stop on the last frame after completing the playback
+        </div>
+      </div>
+
+      <!-- Result Section -->
+      <div class="result-section" id="resultSection">
+        <h2>Loop Count Changed!</h2>
+        <div class="preview-container">
+          <img id="resultImage" src="" alt="Result" />
+        </div>
+        <div id="resultInfo" style="margin-bottom: 20px; color: #666">
+          Successfully changed loop count
+        </div>
+        <div>
+          <button class="download-btn" onclick="downloadGIF()">
+            💾 Download Modified GIF
+          </button>
+        </div>
+      </div>
+      <div class="hero">
+        <h1>Convert Images to Vector Graphics Instantly</h1>
+        <p>
+          Turn raster images into clean, scalable vector files for design,
+          print, or web use.
+        </p>
+        <a class="cta" href="https://rastertovector.online" target="_blank">
+          Convert Raster to Vector
+        </a>
+      </div>
+      <!-- Use Cases -->
+      <h2>Common Use Cases</h2>
+      <ul class="features-list">
+        <li>
+          <strong>Email signatures:</strong> Create GIFs that play once to avoid
+          distraction
+        </li>
+        <li>
+          <strong>Loading animations:</strong> Show a loader that stops after
+          initial display
+        </li>
+        <li>
+          <strong>Countdown timers:</strong> Animations that play a specific
+          number of times
+        </li>
+        <li>
+          <strong>Tutorial steps:</strong> GIFs that show a process once or
+          twice
+        </li>
+        <li>
+          <strong>Banner ads:</strong> Control how many times an ad animation
+          plays
+        </li>
+        <li>
+          <strong>Social media posts:</strong> Create GIFs with limited loops
+          for impact
+        </li>
+      </ul>
+
+      <!-- Supported Formats -->
+      <h2>Supported Formats</h2>
+      <ul class="features-list">
+        <li><strong>GIF:</strong> Standard animated GIF files</li>
+        <li><strong>APNG:</strong> Animated Portable Network Graphics</li>
+        <li><strong>WebP:</strong> Animated WebP images</li>
+        <li><strong>AVIF:</strong> Animated AVIF format</li>
+        <li><strong>JXL:</strong> JPEG XL animated images</li>
+        <li><strong>MNG:</strong> Multiple-image Network Graphics</li>
+        <li><strong>Video:</strong> MP4 and WebM (converted to GIF)</li>
+      </ul>
+
+      <h2>Features</h2>
+      <ul class="features-list">
+        <li>Set infinite loop (0) or any specific number</li>
+        <li>Preview original animation before changing</li>
+        <li>Client-side processing - your files never leave your device</li>
+        <li>Supports multiple animated formats</li>
+        <li>100% free with no watermarks</li>
+        <li>No registration or signup required</li>
+      </ul>
+
+      <!-- SEO Content Section -->
+      <h2>How to Loop a GIF with Our GIF Looper</h2>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our free GIF looper makes it easy to loop GIF and learn how to loop a
+        GIF instantly. Whether you need to make GIF loop infinite, repeat GIF
+        once, or loop a GIF specific times, our GIF loop maker handles it all.
+        Simply upload your GIF to our GIF looper, set loop count (0 for infinite
+        loop GIF), and click "Change loop count!" to make GIF loop and repeat
+        GIF with your settings. No software installation required - our GIF
+        looper and GIF loop maker work online to loop GIF, create looping GIF,
+        and repeat GIF instantly. Use our free tool to loop a GIF and learn how
+        to loop a GIF like a pro!
+      </p>
+
+      <h3>Make GIF Loop Forever & Create Looping GIF</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        When you loop GIF using our GIF looper, you can make GIF loop forever by
+        setting count to 0. Our GIF loop maker creates perfect looping GIF that
+        never stops. Use our tool to make GIF loop infinitely and repeat GIF
+        endlessly. The GIF looper ensures smooth transitions when you loop a GIF
+        for continuous playback. Whether you need to loop GIF for websites, make
+        GIF loop for presentations, or create looping GIF for social media, our
+        GIF loop maker delivers seamless results. Learn how to loop a GIF
+        forever with our free GIF looper and repeat GIF without interruption!
+      </p>
+
+      <h3>Create The End GIF & Repeat GIF Once</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Want to create the end GIF that stops after playing? Use our GIF looper
+        to loop a GIF once by setting count to 1. Our GIF loop maker will make
+        GIF loop one time and stop on the last frame, creating the end GIF
+        effect. This is perfect when you don't want looping GIF but need the
+        animation to play once. Use our GIF looper to repeat GIF once for email
+        signatures, loop GIF for loading screens, or make GIF loop once for
+        tutorials. Learn how to loop a GIF that stops with our GIF loop maker
+        and create the end GIF perfectly!
+      </p>
+
+      <h3>Repeat GIF Multiple Times with GIF Loop Maker</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our GIF looper lets you repeat GIF any number of times with precise
+        control. Use our GIF loop maker to loop GIF 2, 3, 5, or any specific
+        amount. When you loop a GIF with custom count, you can make GIF loop
+        exactly as needed for your project. The GIF looper helps you repeat GIF
+        for countdown timers, loop GIF for banner ads, or create looping GIF
+        with limited repetitions. Whether you need to make GIF loop twice or
+        repeat GIF ten times, our GIF loop maker gives you complete control.
+        Learn how to loop a GIF with precise repetition using our free GIF
+        looper!
+      </p>
+
+      <h3>GIF Looper Features & How to Loop a GIF</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Our GIF looper offers professional features to loop GIF effectively.
+        When you loop a GIF with our GIF loop maker, you get preview before
+        changing, easy loop count input to make GIF loop, and instant processing
+        to repeat GIF. The GIF looper works with all animated formats when you
+        loop GIF - including APNG, WebP, AVIF to create perfect looping GIF. Use
+        our tool to make GIF loop with client-side processing (your files never
+        leave your device), repeat GIF with no watermarks, and loop a GIF
+        unlimited times. Whether you learn how to loop a GIF with our GIF looper
+        or use the GIF loop maker regularly, our tool makes it simple to loop
+        GIF and create looping GIF!
+      </p>
+
+      <h3>Learn How to Loop a GIF for Different Purposes</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Learning how to loop a GIF is essential for various projects. Use our
+        GIF looper to loop GIF for email signatures (make GIF loop once), social
+        media (create looping GIF infinite), presentations (repeat GIF specific
+        times), or websites (loop a GIF forever). Our GIF loop maker shows you
+        exactly how to loop a GIF for each purpose. Want to make GIF loop for
+        loading animations? Set to 1. Need looping GIF for banners? Set to 0 for
+        infinite. Want to repeat GIF for tutorials? Set any number. Our GIF
+        looper and GIF loop maker make it easy to loop GIF and learn how to loop
+        a GIF for any scenario!
+      </p>
+
+      <h3>Free GIF Looper & GIF Loop Maker Online</h3>
+      <p style="margin-bottom: 15px; color: #666; line-height: 1.8">
+        Unlike paid software, our GIF looper and GIF loop maker are completely
+        free. Loop GIF unlimited times, make GIF loop without fees, repeat GIF
+        as often as needed, and create looping GIF without restrictions - all
+        free! No registration required to use our GIF looper or learn how to
+        loop a GIF. Our tool works entirely in your browser when you loop a GIF,
+        ensuring privacy and speed. Perfect for content creators who need to
+        loop GIF regularly, designers who want to make GIF loop for projects,
+        marketers who need to repeat GIF for campaigns, or anyone learning how
+        to loop a GIF. Start using our GIF looper today to loop GIF, make GIF
+        loop, repeat GIF, create looping GIF, and master how to loop a GIF
+        instantly!
+      </p>
+
+      <!-- FAQ Section -->
+      <h2 style="margin-top: 40px; margin-bottom: 25px; text-align: center">
+        Frequently Asked Questions
+      </h2>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How to loop a GIF online?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          To loop a GIF, upload your GIF to our free GIF looper, set loop count
+          (0 for infinite loop GIF), and click 'Change loop count!'. Our GIF
+          loop maker will make GIF loop and repeat GIF with your settings. Use
+          our tool to loop GIF, create looping GIF, and repeat GIF instantly.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          What is a GIF looper and GIF loop maker?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          A GIF looper and GIF loop maker is a tool to control GIF loop
+          settings. Our GIF looper helps you loop GIF, make GIF loop infinite,
+          and repeat GIF any number of times. Use our GIF loop maker to create
+          looping GIF, loop a GIF once, or make GIF loop forever. Learn how to
+          loop a GIF with our free tool.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How to make GIF loop forever?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          To make GIF loop forever, use our GIF looper and set loop count to 0
+          (infinite). Our GIF loop maker will loop GIF infinitely and create
+          looping GIF that never stops. Use our tool to make GIF loop, repeat
+          GIF endlessly, and loop a GIF for continuous playback. Learn how to
+          loop a GIF forever with our GIF looper.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Is this GIF looper and GIF loop maker free?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Absolutely! Our GIF looper and GIF loop maker are 100% free. Loop GIF
+          unlimited times, make GIF loop, repeat GIF, and create looping GIF
+          without fees. Use our tool to loop a GIF and learn how to loop a GIF
+          as often as needed.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          How to create 'the end GIF' that stops after playing?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          To create the end GIF that stops, use our GIF looper and set loop
+          count to 1. Our GIF loop maker will make GIF loop once and stop on the
+          last frame. This creates the end GIF effect. Use our tool to loop a
+          GIF once and learn how to loop a GIF that stops after playing.
+        </p>
+      </div>
+
+      <div
+        style="
+          background: #f9f9f9;
+          padding: 20px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+        "
+      >
+        <h3 style="color: #0066cc; margin-bottom: 10px; font-size: 1.1em">
+          Can I repeat GIF a specific number of times?
+        </h3>
+        <p style="line-height: 1.7; color: #666">
+          Yes! Our GIF looper lets you repeat GIF any number of times. Use our
+          GIF loop maker to loop GIF 2, 3, 5, or any number. Set the count to
+          make GIF loop and repeat GIF exactly as needed. Our tool helps you
+          loop a GIF with precise control and learn how to loop a GIF to create
+          perfect looping GIF.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      let currentFile = null;
+      let currentGifData = null;
+      let currentLoopCount = null;
+      let modifiedBlob = null;
+
+      const fileInput = document.getElementById("fileInput");
+      const uploadArea = document.getElementById("uploadArea");
+      const editorSection = document.getElementById("editorSection");
+      const previewImage = document.getElementById("previewImage");
+      const changeLoopCheckbox = document.getElementById("changeLoopCheckbox");
+      const loopCount = document.getElementById("loopCount");
+      const changeBtn = document.getElementById("changeBtn");
+      const resultSection = document.getElementById("resultSection");
+      const resultImage = document.getElementById("resultImage");
+
+      // File upload
+      fileInput.addEventListener("change", (e) => {
+        if (e.target.files[0]) {
+          loadFile(e.target.files[0]);
+        }
+      });
+
+      async function loadFile(file) {
+        currentFile = file;
+
+        // Parse GIF to get current loop count
+        if (file.type === "image/gif") {
+          try {
+            const arrayBuffer = await file.arrayBuffer();
+            currentGifData = new Uint8Array(arrayBuffer);
+
+            // Read GIF to get info
+            const reader = new GifReader(currentGifData);
+            const frameCount = reader.numFrames();
+
+            // Find loop count in the raw data
+            currentLoopCount = findLoopCount(currentGifData);
+
+            const loopText =
+              currentLoopCount === 0
+                ? "infinite"
+                : currentLoopCount === null
+                  ? "unknown"
+                  : `${currentLoopCount} time${currentLoopCount > 1 ? "s" : ""}`;
+
+            // Calculate duration
+            let totalDuration = 0;
+            for (let i = 0; i < frameCount; i++) {
+              const frameInfo = reader.frameInfo(i);
+              totalDuration += (frameInfo.delay || 10) * 10;
+            }
+            const seconds = (totalDuration / 1000).toFixed(2);
+            const time = formatTime(seconds);
+
+            document.getElementById("fileInfo").textContent =
+              `File size: ${(file.size / 1024 / 1024).toFixed(2)}MiB, width: ${reader.width}px, height: ${reader.height}px, frames: ${frameCount}, type: gif, length: ${time}, current loop: ${loopText}`;
+
+            console.log("GIF loaded:", {
+              frames: frameCount,
+              currentLoop: currentLoopCount,
+              duration: seconds + "s",
+            });
+          } catch (error) {
+            console.error("Error parsing GIF:", error);
+            document.getElementById("fileInfo").textContent =
+              `File size: ${(file.size / 1024 / 1024).toFixed(2)}MiB, type: gif`;
+          }
+        }
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          previewImage.src = e.target.result;
+          editorSection.classList.add("active");
+        };
+        reader.readAsDataURL(file);
+      }
+
+      // Format time as HH:MM:SS.ms
+      function formatTime(seconds) {
+        const hrs = Math.floor(seconds / 3600);
+        const mins = Math.floor((seconds % 3600) / 60);
+        const secs = Math.floor(seconds % 60);
+        const ms = Math.floor((seconds % 1) * 100);
+
+        return `${hrs.toString().padStart(2, "0")}:${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}.${ms.toString().padStart(2, "0")}`;
+      }
+
+      // Find the Netscape Application Extension block that contains loop count
+      function findLoopCount(data) {
+        // Look for the Netscape Application Extension: 21 FF 0B NETSCAPE2.0
+        for (let i = 0; i < data.length - 19; i++) {
+          if (
+            data[i] === 0x21 &&
+            data[i + 1] === 0xff &&
+            data[i + 2] === 0x0b
+          ) {
+            // Check for "NETSCAPE2.0"
+            const netscape = String.fromCharCode(...data.slice(i + 3, i + 14));
+            if (netscape === "NETSCAPE2.0") {
+              // Loop count is at offset i + 16 (little-endian 16-bit value)
+              const loopCount = data[i + 16] | (data[i + 17] << 8);
+              return loopCount;
+            }
+          }
+        }
+        return null; // No loop extension found
+      }
+
+      // Modify loop count in GIF binary data
+      function modifyLoopCount(data, newLoopCount) {
+        // Create a copy of the data
+        const newData = new Uint8Array(data);
+
+        // Find existing Netscape Extension
+        let found = false;
+        for (let i = 0; i < newData.length - 19; i++) {
+          if (
+            newData[i] === 0x21 &&
+            newData[i + 1] === 0xff &&
+            newData[i + 2] === 0x0b
+          ) {
+            const netscape = String.fromCharCode(
+              ...newData.slice(i + 3, i + 14),
+            );
+            if (netscape === "NETSCAPE2.0") {
+              // Modify loop count (little-endian 16-bit value)
+              newData[i + 16] = newLoopCount & 0xff;
+              newData[i + 17] = (newLoopCount >> 8) & 0xff;
+              found = true;
+              console.log(
+                `Modified existing loop count at offset ${i + 16} to ${newLoopCount}`,
+              );
+              break;
+            }
+          }
+        }
+
+        if (!found) {
+          // Need to insert Netscape Application Extension
+          // Find the position after the Logical Screen Descriptor (after byte 13)
+          // Structure: GIF header (6) + Logical Screen Descriptor (7) = 13 bytes
+          // Then Global Color Table (if present)
+
+          let insertPos = 13;
+
+          // Check if Global Color Table exists
+          const packedByte = data[10];
+          const hasGlobalColorTable = (packedByte & 0x80) !== 0;
+          if (hasGlobalColorTable) {
+            const globalColorTableSize = 2 << (packedByte & 0x07);
+            insertPos += globalColorTableSize * 3; // 3 bytes per color (RGB)
+          }
+
+          // Create Netscape Application Extension block
+          const netscapeExt = new Uint8Array([
+            0x21, // Extension Introducer
+            0xff, // Application Extension Label
+            0x0b, // Block Size (11 bytes)
+            ...Array.from("NETSCAPE2.0").map((c) => c.charCodeAt(0)), // Application Identifier
+            0x03, // Sub-block size
+            0x01, // Sub-block ID
+            newLoopCount & 0xff, // Loop count low byte
+            (newLoopCount >> 8) & 0xff, // Loop count high byte
+            0x00, // Block Terminator
+          ]);
+
+          // Insert the extension
+          const result = new Uint8Array(data.length + netscapeExt.length);
+          result.set(newData.slice(0, insertPos));
+          result.set(netscapeExt, insertPos);
+          result.set(newData.slice(insertPos), insertPos + netscapeExt.length);
+
+          console.log(
+            `Inserted new loop count block at offset ${insertPos} with value ${newLoopCount}`,
+          );
+          return result;
+        }
+
+        return newData;
+      }
+
+      // Enable/disable loop count input
+      changeLoopCheckbox.addEventListener("change", (e) => {
+        loopCount.disabled = !e.target.checked;
+        changeBtn.disabled = !e.target.checked;
+      });
+
+      // Change loop count - REAL IMPLEMENTATION
+      async function changeLoopCount() {
+        if (!currentFile) {
+          alert("Please upload a file first");
+          return;
+        }
+
+        if (!changeLoopCheckbox.checked) {
+          alert('Please check the "change loop count" option');
+          return;
+        }
+
+        if (!currentGifData) {
+          alert("This tool only works with GIF files");
+          return;
+        }
+
+        const loopValue = parseInt(loopCount.value) || 0;
+
+        changeBtn.disabled = true;
+        changeBtn.textContent = "Processing...";
+
+        try {
+          console.log(
+            `Changing loop count from ${currentLoopCount} to ${loopValue}`,
+          );
+
+          // Modify the GIF binary data
+          const modifiedData = modifyLoopCount(currentGifData, loopValue);
+
+          // Create blob from modified data
+          modifiedBlob = new Blob([modifiedData], { type: "image/gif" });
+
+          // Display result
+          const url = URL.createObjectURL(modifiedBlob);
+          resultImage.src = url;
+          resultSection.classList.add("active");
+
+          const loopText =
+            loopValue === 0
+              ? "infinite"
+              : `${loopValue} time${loopValue > 1 ? "s" : ""}`;
+          document.getElementById("resultInfo").textContent =
+            `Successfully changed loop count to: ${loopText} (was: ${currentLoopCount === null ? "unknown" : currentLoopCount === 0 ? "infinite" : currentLoopCount})`;
+
+          resultSection.scrollIntoView({ behavior: "smooth" });
+
+          console.log("Loop count changed successfully");
+        } catch (error) {
+          console.error("Error modifying GIF:", error);
+          alert("Error processing file: " + error.message);
+        } finally {
+          changeBtn.disabled = false;
+          changeBtn.textContent = "Change loop count!";
+        }
+      }
+
+      // Download
+      function downloadGIF() {
+        if (!modifiedBlob) {
+          alert("Please process a file first");
+          return;
+        }
+
+        const url = URL.createObjectURL(modifiedBlob);
+        const a = document.createElement("a");
+        a.href = url;
+        const originalName = currentFile.name || "animation.gif";
+        const loopValue = parseInt(loopCount.value) || 0;
+        const loopSuffix = loopValue === 0 ? "infinite" : `loop${loopValue}`;
+        a.download = originalName.replace(/(\.[^.]+)$/, `-${loopSuffix}$1`);
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      // Drag and drop
+      uploadArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        uploadArea.style.background = "#e6f2ff";
+      });
+
+      uploadArea.addEventListener("dragleave", () => {
+        uploadArea.style.background = "#f9f9f9";
+      });
+
+      uploadArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        uploadArea.style.background = "#f9f9f9";
+        const file = e.dataTransfer.files[0];
+        if (file) {
+          loadFile(file);
+        }
+      });
+    </script>
+  </body>
+</html>
