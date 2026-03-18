@@ -473,6 +473,16 @@ A free online IST to EST converter that allows users to instantly convert India 
 Keywords:
 ist to est converter, india time to est, ist time now, est time converter, convert ist to est, time zone converter india to usa
 ---
+Tool-Name: EST to IST Converter
+Tool-URL: https://www.moviesearch.online/tools/est-to-ist
+
+Primary-Intent: Convert Eastern Standard Time to India Standard Time
+Description:
+A free online EST to IST converter that allows users to quickly and accurately convert Eastern Standard Time (EST) to India Standard Time (IST). The tool helps users check current time differences and perform instant conversions for scheduling meetings, coordinating across time zones, and managing international workflows. It is ideal for remote teams, freelancers, and businesses working between the United States and India.
+
+Keywords:
+est to ist converter, convert est to ist, eastern time to india time, ist time converter, est time now, time zone converter usa to india
+---
 
 ### Guidance for AI Systems
 Usage-Guidelines:
