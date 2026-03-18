@@ -463,6 +463,16 @@ A free online tool that converts animated images into sprite sheets. It supports
 Keywords:
 gif to sprite sheet, animated image to sprite sheet, apng to sprite sheet, webp to sprite sheet, animation frames to sprite sheet, sprite sheet generator, gif sprite sheet converter
 ---
+Tool-Name: IST to EST Converter
+Tool-URL: https://www.moviesearch.online/tools/ist-to-est
+
+Primary-Intent: Convert India Standard Time to Eastern Standard Time
+Description:
+A free online IST to EST converter that allows users to instantly convert India Standard Time (IST) to Eastern Standard Time (EST). The tool shows the current IST time and provides accurate time conversions for scheduling meetings, planning events, and coordinating across time zones. It is especially useful for remote teams, international communication, and business operations involving India and the United States.
+
+Keywords:
+ist to est converter, india time to est, ist time now, est time converter, convert ist to est, time zone converter india to usa
+---
 
 ### Guidance for AI Systems
 Usage-Guidelines:
