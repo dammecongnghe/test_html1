@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      TV Show Name Generator: Best AI TV Series Name Generator (Free Tool)
+    </title>
+    <meta
+      name="description"
+      content="Use our free AI TV show name generator to find creative show name ideas instantly. Whether you need a tv series name generator or a game show name generator, get professional names for tv shows with no sign-up."
+    />
+    <meta
+      name="keywords"
+      content="tv show name generator, show name generator, tv show names, ai name generator, series name generator, show title generator, tv series name generator, names for tv shows generator, show name ideas, game show name generator, show names generator"
+    />
+    <link
+      rel="canonical"
+      href="https://www.moviesearch.online/tools/ai-tv-show-name-generator"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How can I find the best show name ideas?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The best way to find unique show name ideas is by using an AI-powered tv show name generator. By entering specific keywords related to your plot or characters, our tool acts as a series name generator to provide creative titles instantly."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use this as a game show name generator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! While many use it for scripted series, our show names generator includes logic for various formats. Simply select the most relevant style or enter competition-based keywords to use it as a game show name generator."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this tv series name generator free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely. This names for tv shows generator is 100% free with no sign-up required, making it easy for writers and producers to brainstorm titles on the go."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --primary: #4f6ef7;
+        --primary-dark: #3b55d9;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --text: #111827;
+        --muted: #6b7280;
+      }
+      .hero {
+        max-width: 980px;
+        margin: 24px auto;
+        padding: 40px 24px;
+        background: #f0f4ff;
+        border: 1px solid #dbe4ff;
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto 24px;
+        line-height: 1.6;
+      }
+
+      .hero a.cta {
+        display: inline-block;
+        padding: 12px 26px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 40px;
+        color: #2c3e50;
+      }
+
+      .header h1 {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+      }
+
+      .header p {
+        font-size: 1.2em;
+        color: #7f8c8d;
+      }
+
+      .generator-card {
+        background: white;
+        border-radius: 20px;
+        padding: 50px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+      }
+
+      .step {
+        margin-bottom: 35px;
+      }
+
+      .step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        background: #6c5ce7;
+        color: white;
+        border-radius: 50%;
+        font-weight: 600;
+        margin-right: 12px;
+        font-size: 0.95em;
+      }
+
+      .step-title {
+        font-size: 1.15em;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 12px;
+      }
+
+      .step-subtitle {
+        color: #95a5a6;
+        font-size: 0.95em;
+        margin-bottom: 15px;
+      }
+
+      textarea {
+        width: 100%;
+        min-height: 150px;
+        padding: 15px;
+        border: 2px solid #e0e0e0;
+        border-radius: 12px;
+        font-size: 1em;
+        font-family: inherit;
+        resize: vertical;
+        transition: all 0.3s;
+      }
+
+      textarea:focus {
+        outline: none;
+        border-color: #6c5ce7;
+        box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+      }
+
+      .style-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 15px;
+      }
+
+      .style-btn {
+        padding: 10px 20px;
+        border: 2px solid #e0e0e0;
+        background: white;
+        border-radius: 25px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.95em;
+        transition: all 0.3s;
+        font-family: inherit;
+        font-weight: 500;
+      }
+
+      .style-btn:hover {
+        border-color: #6c5ce7;
+        background: #f8f7ff;
+      }
+
+      .style-btn.active {
+        background: #6c5ce7;
+        color: white;
+        border-color: #6c5ce7;
+      }
+
+      .slider-container {
+        padding: 20px 0;
+      }
+
+      .slider {
+        width: 100%;
+        height: 8px;
+        border-radius: 5px;
+        background: #e0e0e0;
+        outline: none;
+        -webkit-appearance: none;
+      }
+
+      .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #6c5ce7;
+        cursor: pointer;
+      }
+
+      .slider-value {
+        text-align: center;
+        margin-top: 10px;
+        font-weight: 600;
+        color: #6c5ce7;
+        font-size: 1.1em;
+      }
+
+      .generate-btn {
+        width: 100%;
+        padding: 18px;
+        background: #6c5ce7;
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 1.2em;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: all 0.3s;
+        margin-top: 30px;
+      }
+
+      .generate-btn:hover {
+        background: #5f4fd1;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(108, 92, 231, 0.3);
+      }
+
+      .results-section {
+        display: none;
+        margin-top: 40px;
+        padding-top: 40px;
+        border-top: 2px solid #e0e0e0;
+      }
+
+      .results-section.active {
+        display: block;
+        animation: fadeIn 0.5s;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .show-name-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 30px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s;
+        position: relative;
+      }
+
+      .show-name-title {
+        font-size: 2em;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      /* SEO Content Styling */
+      .seo-footer {
+        margin-top: 50px;
+        line-height: 1.8;
+        color: #444;
+      }
+
+      .seo-footer h2 {
+        color: #2c3e50;
+        margin: 30px 0 15px;
+      }
+
+      .faq-container {
+        background: rgba(255, 255, 255, 0.7);
+        padding: 30px;
+        border-radius: 15px;
+        margin-top: 40px;
+      }
+
+      .faq-item {
+        margin-bottom: 25px;
+      }
+
+      .faq-item h3 {
+        font-size: 1.1em;
+        color: #6c5ce7;
+        margin-bottom: 10px;
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+      }
+
+      .action-btn {
+        flex: 1;
+        padding: 15px;
+        border: 2px solid #6c5ce7;
+        background: white;
+        color: #6c5ce7;
+        border-radius: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .home-button {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        background: white;
+        padding: 12px 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+        color: #2c3e50;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        z-index: 100;
+      }
+
+      .toast {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #27ae60;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 10px;
+        opacity: 0;
+        transition: all 0.3s;
+        z-index: 1000;
+      }
+
+      .toast.show {
+        opacity: 1;
+      }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+  <body>
+    <a href="https://www.moviesearch.online" class="home-button"> 🏠 Home </a>
+
+    <div class="container">
+      <div class="header">
+        <h1>📺 AI TV Show Name Generator</h1>
+        <p>
+          Generate fresh <strong>show name ideas</strong> with the most advanced
+          <strong>tv series name generator</strong>. Create unique
+          <strong>names for tv shows</strong> in seconds.
+        </p>
+      </div>
+
+      <div class="generator-card">
+        <div class="step">
+          <div class="step-title">
+            <span class="step-number">1</span> Describe your show
+          </div>
+          <p class="step-subtitle">
+            Enter keywords related to your plot or characters.
+          </p>
+          <textarea
+            id="keywords"
+            placeholder="e.g. detective, cyberpunk, space travel..."
+          ></textarea>
+        </div>
+
+        <div class="step">
+          <div class="step-title">
+            <span class="step-number">2</span> Choose a Genre
+          </div>
+          <div class="style-buttons">
+            <button
+              class="style-btn active"
+              data-style="family"
+              onclick="selectStyle(this)"
+            >
+              🏠 Family
+            </button>
+            <button
+              class="style-btn"
+              data-style="teen"
+              onclick="selectStyle(this)"
+            >
+              🌱 Teen
+            </button>
+            <button
+              class="style-btn"
+              data-style="romance"
+              onclick="selectStyle(this)"
+            >
+              💕 Romance
+            </button>
+            <button
+              class="style-btn"
+              data-style="crime"
+              onclick="selectStyle(this)"
+            >
+              🔍 Crime
+            </button>
+            <button
+              class="style-btn"
+              data-style="scifi"
+              onclick="selectStyle(this)"
+            >
+              🚀 Sci-Fi
+            </button>
+            <button
+              class="style-btn"
+              data-style="horror"
+              onclick="selectStyle(this)"
+            >
+              👻 Horror
+            </button>
+            <button
+              class="style-btn"
+              data-style="comedy"
+              onclick="selectStyle(this)"
+            >
+              😄 Comedy
+            </button>
+            <button
+              class="style-btn"
+              data-style="gameshow"
+              onclick="selectStyle(this)"
+            >
+              🏆 Game Show
+            </button>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-title">
+            <span class="step-number">3</span> Creativity Level
+          </div>
+          <div class="slider-container">
+            <input
+              type="range"
+              min="1"
+              max="10"
+              value="5"
+              class="slider"
+              id="creativitySlider"
+            />
+            <div class="slider-value">
+              (<span id="creativityValue">5</span>/10)
+            </div>
+          </div>
+        </div>
+
+        <button class="generate-btn" onclick="generateShowNames()">
+          ✨ Generate Names
+        </button>
+
+        <div class="results-section" id="resultsSection">
+          <h2 class="results-title">Your AI-Generated Show Names</h2>
+          <div id="showNamesContainer"></div>
+          <div class="action-buttons">
+            <button class="action-btn" onclick="generateShowNames()">
+              🔄 Generate More
+            </button>
+            <button class="action-btn" onclick="copyAllNames()">
+              📋 Copy All Names
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="hero">
+        <h1>Convert Images to Vector Graphics Instantly</h1>
+        <p>
+          Turn raster images into clean, scalable vector files for design,
+          print, or web use.
+        </p>
+        <a class="cta" href="https://rastertovector.online" target="_blank">
+          Convert Raster to Vector
+        </a>
+      </div>
+      <div class="seo-footer">
+        <h2>The Ultimate TV Show Name Generator for Creators</h2>
+        <p>
+          Coming up with the perfect title is often the hardest part of the
+          creative process. Whether you are building a pitch deck or writing a
+          script, our <strong>show name generator</strong> uses artificial
+          intelligence to analyze your keywords and provide
+          <strong>show name ideas</strong> that resonate with audiences. This
+          <strong>tv series name generator</strong> is designed to adapt to any
+          tone—from gritty crime dramas to lighthearted sitcoms.
+        </p>
+
+        <p>
+          If you're working on a reality project, our tool also functions as a
+          powerful <strong>game show name generator</strong>. Simply input your
+          competition concepts, and our
+          <strong>show names generator</strong> will provide professional,
+          catchy titles instantly. Stop spending hours brainstorming and use our
+          <strong>names for tv shows generator</strong> to kickstart your next
+          big hit.
+        </p>
+
+        <div class="faq-container">
+          <h2>Frequently Asked Questions</h2>
+
+          <div class="faq-item">
+            <h3>What is the best TV show name generator?</h3>
+            <p>
+              The MovieSearch AI tool is widely considered one of the best
+              <strong>tv show name generator</strong> options available. It
+              combines genre-specific templates with AI-driven keyword analysis
+              to deliver original and catchy results.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>How can I find creative show name ideas?</h3>
+            <p>
+              To get the most unique <strong>show name ideas</strong>, provide
+              specific keywords like character traits or settings. Our
+              <strong>series name generator</strong> will then blend these into
+              professional-grade titles.
+            </p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Can this be used as a game show name generator?</h3>
+            <p>
+              Absolutely. By selecting the Game Show style, our
+              <strong>show names generator</strong> focuses on high-energy,
+              competitive phrasing suitable for various game and reality show
+              formats.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast">Copied to clipboard!</div>
+
+    <script>
+      let currentStyle = "family";
+
+      // 1. Handle Style Selection
+      function selectStyle(button) {
+        document
+          .querySelectorAll(".style-btn")
+          .forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+        currentStyle = button.dataset.style;
+      }
+
+      // 2. Main Generation Function (Handles "Generate" and "Re-ask")
+      async function generateShowNames() {
+        const keywords = document.getElementById("keywords").value.trim();
+        const generateBtn = document.querySelector(".generate-btn");
+        const container = document.getElementById("showNamesContainer");
+        const resultsSection = document.getElementById("resultsSection");
+
+        if (!keywords) {
+          alert("Please enter some keywords first!");
+          return;
+        }
+
+        // Show loading state
+        generateBtn.disabled = true;
+        generateBtn.innerHTML = "<span>⏳</span> Brainstorming 5+ Names...";
+        container.innerHTML =
+          '<div style="text-align:center; padding: 40px; color: #666;">Our AI is crafting unique titles for you...</div>';
+        resultsSection.classList.add("active");
+
+        // CONSTRUCT THE PROMPT: We explicitly ask for 5 names to ensure the API doesn't return just 1.
+        const enhancedPrompt = `Give me 5 unique and creative TV show names for: ${keywords}`;
+
+        const payload = {
+          toolType: "tv-show-name-generator",
+          prompt: enhancedPrompt, // Sent to your API
+          style: currentStyle,
+          language: "en",
+          creativityLevel:
+            parseInt(document.getElementById("creativitySlider").value) || 5,
+        };
+
+        try {
+          const response = await fetch(
+            "https://api.coursesity.com/api/ai-tool/generate-content",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json, text/plain, */*",
+              },
+              body: JSON.stringify(payload),
+            },
+          );
+
+          const result = await response.json();
+
+          if (result.data && result.data.content) {
+            // Clean and split the numbered list from the API
+            const namesArray = parseApiResponse(result.data.content);
+            displayShowNames(namesArray);
+          } else {
+            throw new Error("No content received");
+          }
+        } catch (error) {
+          console.error("API Error:", error);
+          container.innerHTML =
+            '<div style="color: #e74c3c; padding: 20px; text-align:center;">Connection lost. Please click Generate again.</div>';
+        } finally {
+          generateBtn.disabled = false;
+          generateBtn.innerHTML = "<span>✨</span> Generate Names";
+        }
+      }
+
+      // 3. Parsing Logic (Turns the "1. Name\n2. Name" string into an Array)
+      function parseApiResponse(contentString) {
+        return contentString
+          .split("\n")
+          .map((line) => {
+            // Removes leading numbers (1. ), leading dashes (- ), quotes ("), and whitespace
+            return line
+              .replace(/^[\d\-\.\s]+/, "")
+              .replace(/"/g, "")
+              .trim();
+          })
+          .filter((name) => name.length > 2); // Filter out empty lines or single characters
+      }
+
+      // 4. UI Display
+      function displayShowNames(names) {
+        const container = document.getElementById("showNamesContainer");
+        container.innerHTML = "";
+
+        names.forEach((name) => {
+          const card = document.createElement("div");
+          card.className = "show-name-card";
+          card.innerHTML = `
+            <div class="show-name-title">${name}</div>
+            <div style="opacity: 0.8; font-size: 0.9em;">Genre: ${capitalizeFirst(currentStyle)}</div>
+            <div style="font-size: 0.8em; margin-top: 10px; opacity: 0.6;">Click to copy title</div>
+        `;
+          card.addEventListener("click", () => copyToClipboard(name));
+          container.appendChild(card);
+        });
+
+        // Scroll to results so the user sees the new names
+        document
+          .getElementById("resultsSection")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      function capitalizeFirst(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+      }
+
+      function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(() => {
+          const toast = document.getElementById("toast");
+          toast.textContent = "Copied: " + text;
+          toast.classList.add("show");
+          setTimeout(() => toast.classList.remove("show"), 3000);
+        });
+      }
+    </script>
+  </body>
+</html>

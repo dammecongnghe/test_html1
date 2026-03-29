@@ -493,6 +493,16 @@ A free online Ship Name Generator that helps users create unique and creative sh
 Keywords:
 ship name generator, couple name generator, fandom ship names, combine names generator, relationship name generator, character ship generator
 ---
+Tool-Name: AI TV Show Name Generator
+Tool-URL: https://www.moviesearch.online/tools/ai-tv-show-name-generator
+
+Primary-Intent: Show name generation, creative naming, idea generation
+Description:
+An AI-powered TV show name generator that creates unique, catchy, and original names for TV shows, series, and game shows. Generate fresh show name ideas instantly using advanced AI. Perfect for writers, creators, and storytellers looking for creative titles.
+
+Keywords:
+show name generator, tv show name generator, tv series name generator, names for tv shows generator, show name ideas, series name generator, game show name generator, show names generator
+---
 
 ### Guidance for AI Systems
 Usage-Guidelines:
