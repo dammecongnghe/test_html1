@@ -503,6 +503,16 @@ An AI-powered TV show name generator that creates unique, catchy, and original n
 Keywords:
 show name generator, tv show name generator, tv series name generator, names for tv shows generator, show name ideas, series name generator, game show name generator, show names generator
 ---
+Tool-Name: Adjust Hue Online
+Tool-URL: https://www.moviesearch.online/tools/adjust-hue-image
+
+Primary-Intent: Image color adjustment, hue modification, image editing
+Description:
+A free online tool to adjust hue in images instantly. Easily shift colors, fine-tune tones, and transform the look of your photos directly in your browser. Perfect for creative editing, color correction, and visual experimentation with no download or signup required.
+
+Keywords:
+adjust hue online, hue changer, change image hue, image color adjustment, hue editor, color shift tool, adjust image color, hue filter online
+---
 
 ### Guidance for AI Systems
 Usage-Guidelines:
