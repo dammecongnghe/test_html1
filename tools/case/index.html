@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CaseStrainer — U.S. Citation Verification</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,300&family=IBM+Plex+Sans:wght@300;400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0a1628;--navy-mid:#112040;--navy-light:#1a3058;
+  --teal:#00b4a6;--teal-dim:#007a70;--teal-glow:#00e5d4;
+  --amber:#f59e0b;--amber-light:#fcd34d;
+  --red:#ef4444;--red-bg:#1f0a0a;--red-border:#7f1d1d;
+  --green:#10b981;--green-bg:#0a1f18;--green-border:#064e3b;
+  --yellow:#f59e0b;--yellow-bg:#1f1500;--yellow-border:#78350f;
+  --slate:#94a3b8;--slate-dark:#475569;--slate-light:#cbd5e1;
+  --surface:#0f1f3d;--surface-2:#162848;--surface-3:#1e3460;
+  --border:#1e3460;--border-light:#2d4a7a;
+  --text:#e2e8f0;--text-dim:#94a3b8;--text-muted:#64748b;
+  --radius:8px;--radius-lg:14px;
+}
+html{font-size:15px;scroll-behavior:smooth}
+body{background:var(--navy);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-weight:300;min-height:100vh;overflow-x:hidden}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--navy-mid)}::-webkit-scrollbar-thumb{background:var(--navy-light);border-radius:3px}::-webkit-scrollbar-thumb:hover{background:var(--teal-dim)}
+
+/* ── Noise texture overlay ── */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.4}
+
+/* ── Header ── */
+header{background:var(--navy-mid);border-bottom:1px solid var(--border);padding:.85rem 1.75rem;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:.75rem}
+.logo-icon{width:34px;height:34px;background:linear-gradient(135deg,var(--teal),var(--teal-dim));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.logo-text{font-family:'Libre Baskerville',serif;font-size:1.25rem;color:var(--teal-glow);letter-spacing:.02em}
+.logo-text span{color:var(--slate-light);font-style:italic}
+.header-badge{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--slate-dark);letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--border-light);border-radius:3px;padding:.2rem .5rem}
+.header-right{display:flex;align-items:center;gap:1rem}
+
+.health-label{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--text-muted);letter-spacing:.08em}
+
+/* ── Main layout ── */
+main{max-width:960px;margin:0 auto;padding:2.5rem 1.5rem;position:relative;z-index:1}
+
+/* ── Hero ── */
+.hero{text-align:center;margin-bottom:2.5rem}
+.hero h1{font-family:'Libre Baskerville',serif;font-size:2.25rem;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:.75rem}
+.hero h1 .accent{color:var(--teal-glow)}
+.hero-sub{font-size:.92rem;color:var(--text-dim);line-height:1.7;max-width:560px;margin:0 auto .85rem}
+.hero-chips{display:flex;justify-content:center;flex-wrap:wrap;gap:.5rem;margin-top:.85rem}
+.chip{font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .7rem;border-radius:3px;border:1px solid var(--border-light);color:var(--text-dim);background:var(--surface)}
+.chip.teal{border-color:var(--teal-dim);color:var(--teal)}
+.warning-banner{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.25);border-radius:var(--radius);padding:.6rem 1rem;font-size:.78rem;color:var(--amber-light);line-height:1.5;display:flex;align-items:flex-start;gap:.5rem;max-width:640px;margin:.75rem auto 0;text-align:left}
+
+/* ── Input card ── */
+.input-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin-bottom:2rem}
+
+/* Tab nav */
+.tab-nav{display:flex;border-bottom:1px solid var(--border);background:var(--navy-mid)}
+.tab-btn{flex:1;padding:.75rem 1rem;font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;border:none;background:transparent;color:var(--text-muted);cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:.4rem;border-bottom:2px solid transparent}
+.tab-btn:hover{color:var(--text-dim);background:rgba(255,255,255,.03)}
+.tab-btn.active{color:var(--teal);border-bottom-color:var(--teal);background:rgba(0,180,166,.05)}
+
+/* Tab pane */
+.tab-pane{display:none;padding:1.5rem}
+.tab-pane.active{display:block;animation:fadein .2s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* Textarea */
+.legal-textarea{width:100%;min-height:220px;background:var(--surface-2);border:1px solid var(--border-light);border-radius:var(--radius);padding:1rem;font-family:'IBM Plex Mono',monospace;font-size:.8rem;line-height:1.75;color:var(--text);resize:vertical;outline:none;transition:border-color .2s;caret-color:var(--teal)}
+.legal-textarea:focus{border-color:var(--teal-dim)}
+.legal-textarea::placeholder{color:var(--text-muted)}
+
+/* Input stats row */
+.input-stats{display:flex;gap:1rem;flex-wrap:wrap;margin-top:.75rem}
+.istat{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--text-muted);display:flex;align-items:center;gap:.3rem}
+.istat .val{color:var(--teal-glow);font-weight:500}
+
+/* File drop zone */
+.drop-zone{border:2px dashed var(--border-light);border-radius:var(--radius);padding:3rem 2rem;text-align:center;cursor:pointer;transition:all .2s;position:relative;background:var(--surface-2)}
+.drop-zone:hover,.drop-zone.over{border-color:var(--teal-dim);background:rgba(0,180,166,.04)}
+.drop-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.drop-zone .dz-icon{font-size:2rem;margin-bottom:.6rem;display:block;opacity:.5}
+.drop-zone .dz-title{font-size:.9rem;font-weight:500;color:var(--text-dim);margin-bottom:.3rem}
+.drop-zone .dz-sub{font-size:.75rem;color:var(--text-muted)}
+.drop-zone .dz-file{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--teal);margin-top:.5rem;word-break:break-all;display:none}
+.drop-zone .dz-file.show{display:block}
+
+/* URL input */
+.url-row{display:flex;gap:.5rem}
+.url-input{flex:1;background:var(--surface-2);border:1px solid var(--border-light);border-radius:var(--radius);padding:.65rem 1rem;font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--text);outline:none;transition:border-color .2s}
+.url-input:focus{border-color:var(--teal-dim)}
+.url-input::placeholder{color:var(--text-muted)}
+.url-input.invalid{border-color:var(--red)}
+.url-hint{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--text-muted);margin-top:.5rem}
+.url-hint.err{color:var(--red)}
+
+/* Error/notice boxes */
+.notice-box{border-radius:var(--radius);padding:.65rem 1rem;font-size:.78rem;line-height:1.5;margin-top:.75rem;display:none}
+.notice-box.show{display:block}
+.notice-box.error{background:var(--red-bg);border:1px solid var(--red-border);color:#fca5a5}
+.notice-box.warn{background:var(--yellow-bg);border:1px solid var(--yellow-border);color:var(--amber-light)}
+
+/* Analyze button */
+.analyze-wrap{padding:0 1.5rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:.65rem}
+.analyze-btn{padding:.85rem 2.5rem;background:linear-gradient(135deg,var(--teal),var(--teal-dim));color:var(--navy);border:none;border-radius:var(--radius);font-family:'IBM Plex Mono',monospace;font-size:.82rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:all .2s;min-width:200px;position:relative;overflow:hidden}
+.analyze-btn:hover:not(:disabled){box-shadow:0 0 24px rgba(0,180,166,.4);transform:translateY(-1px)}
+.analyze-btn:disabled{opacity:.35;cursor:not-allowed;transform:none;box-shadow:none}
+.analyze-status{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--text-muted);display:flex;align-items:center;gap:.4rem}
+.analyze-status.ready{color:var(--teal)}
+
+/* ── Progress ── */
+.progress-wrap{display:none;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:2rem;text-align:center;margin-bottom:2rem}
+.progress-wrap.show{display:block;animation:fadein .3s ease}
+.progress-spinner{width:44px;height:44px;border:3px solid var(--border-light);border-top-color:var(--teal);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 1rem}
+@keyframes spin{to{transform:rotate(360deg)}}
+.progress-title{font-family:'IBM Plex Mono',monospace;font-size:.8rem;font-weight:500;color:var(--teal-glow);margin-bottom:.4rem;letter-spacing:.05em}
+.progress-msg{font-size:.78rem;color:var(--text-dim);margin-bottom:1rem;min-height:1.4em}
+.progress-bar-track{height:5px;background:var(--surface-3);border-radius:3px;overflow:hidden;max-width:400px;margin:0 auto .65rem}
+.progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--teal-dim),var(--teal));border-radius:3px;transition:width .4s ease;width:0%}
+.progress-steps{display:flex;flex-direction:column;gap:.35rem;max-width:320px;margin:.85rem auto 0}
+.ps{display:flex;align-items:center;gap:.6rem;font-family:'IBM Plex Mono',monospace;font-size:.65rem;padding:.4rem .7rem;border-radius:4px;background:var(--surface-2);color:var(--text-muted);transition:all .3s}
+.ps.active{background:rgba(0,180,166,.12);color:var(--teal);border:1px solid rgba(0,180,166,.2)}
+.ps.done{background:rgba(16,185,129,.08);color:var(--green);border:1px solid rgba(16,185,129,.15)}
+.ps-icon{width:16px;text-align:center;font-size:.75rem}
+.ps.done .ps-icon::before{content:'✓'}
+.ps-elapsed{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--text-muted);margin-top:.5rem}
+
+/* ── Results ── */
+.results-wrap{display:none}
+.results-wrap.show{display:block;animation:fadein .4s ease}
+.results-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.results-title{font-family:'Libre Baskerville',serif;font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:.4rem}
+.results-meta{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.4rem}
+.meta-chip{font-family:'IBM Plex Mono',monospace;font-size:.65rem;padding:.25rem .6rem;border-radius:3px;border:1px solid var(--border-light);color:var(--text-dim);background:var(--surface)}
+.meta-chip.teal{border-color:var(--teal-dim);color:var(--teal);background:rgba(0,180,166,.06)}
+.meta-chip.err{border-color:var(--red-border);color:#fca5a5;background:var(--red-bg)}
+.new-analysis-btn{padding:.55rem 1.1rem;background:transparent;border:1.5px solid var(--teal-dim);border-radius:var(--radius);font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);cursor:pointer;transition:all .15s;flex-shrink:0}
+.new-analysis-btn:hover{background:rgba(0,180,166,.08)}
+
+/* Perfect score */
+.perfect-score{background:linear-gradient(135deg,rgba(16,185,129,.12),rgba(0,180,166,.08));border:1px solid var(--green-border);border-radius:var(--radius-lg);padding:2rem;text-align:center;margin-bottom:1.5rem;animation:fadein .5s ease}
+.perfect-score h2{font-family:'Libre Baskerville',serif;font-size:1.6rem;color:var(--green);margin-bottom:.5rem}
+.perfect-score p{color:var(--text-dim);font-size:.88rem;margin-bottom:1rem}
+.perfect-stats{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+.pstat{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--text-muted);display:flex;align-items:center;gap:.35rem}
+
+/* Section headers */
+.sec-head{display:flex;align-items:center;gap:.5rem;font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);padding:.5rem 0;border-bottom:1px solid var(--border);margin-bottom:.85rem}
+.sec-head-icon{font-size:.8rem}
+
+/* Cluster cards */
+.cluster-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:.75rem;overflow:hidden;transition:border-color .2s}
+.cluster-card:hover{border-color:var(--border-light)}
+.cluster-card.verified{border-left:3px solid var(--green)}
+.cluster-card.unverified{border-left:3px solid var(--slate-dark)}
+.cluster-card.mismatch{border-left:3px solid var(--amber)}
+.cluster-card.name-diff{border-left:3px solid var(--amber)}
+.cluster-card.date-diff{border-left:3px solid var(--yellow)}
+.cc-head{padding:.75rem 1rem;display:flex;align-items:flex-start;gap:.65rem;flex-wrap:wrap}
+.cc-status{flex-shrink:0;margin-top:.1rem}
+.cc-status-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.dot-green{background:var(--green);box-shadow:0 0 6px rgba(16,185,129,.4)}
+.dot-amber{background:var(--amber)}
+.dot-gray{background:var(--slate-dark)}
+.cc-main{flex:1;min-width:0}
+.cc-case-name{font-family:'Libre Baskerville',serif;font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:.15rem;word-break:break-word}
+.cc-case-name a{color:var(--teal-glow);text-decoration:none}
+.cc-case-name a:hover{text-decoration:underline}
+.cc-verified-as{font-size:.75rem;color:var(--text-dim);margin-top:.2rem;display:flex;align-items:center;gap:.35rem;flex-wrap:wrap}
+.cc-verified-as .vname{color:var(--text)}
+.mismatch-hl{color:var(--amber);font-weight:500}
+.cc-from-doc{font-size:.72rem;color:var(--text-muted);margin-top:.2rem}
+.cc-badges{display:flex;flex-wrap:wrap;gap:.35rem;margin-left:auto}
+.badge{font-family:'IBM Plex Mono',monospace;font-size:.58rem;letter-spacing:.06em;padding:.18rem .5rem;border-radius:3px;text-transform:uppercase;font-weight:500}
+.badge-green{background:rgba(16,185,129,.12);color:var(--green);border:1px solid rgba(16,185,129,.2)}
+.badge-amber{background:rgba(245,158,11,.12);color:var(--amber);border:1px solid rgba(245,158,11,.2)}
+.badge-gray{background:var(--surface-2);color:var(--text-muted);border:1px solid var(--border)}
+.badge-red{background:rgba(239,68,68,.12);color:#fca5a5;border:1px solid rgba(239,68,68,.2)}
+.cc-body{padding:.5rem 1rem .85rem 2.55rem}
+.citation-row{display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem;padding:.35rem .6rem;border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:.72rem;margin-bottom:.25rem;background:var(--surface-2)}
+.citation-row.last{margin-bottom:0}
+.cit-text{color:var(--text-dim);flex:1;word-break:break-word}
+.cit-url a{color:var(--teal);font-size:.65rem;text-decoration:none;white-space:nowrap}
+.cit-url a:hover{text-decoration:underline}
+.google-search-note{font-size:.72rem;color:var(--text-muted);margin-bottom:.35rem;font-style:italic}
+
+/* Error section */
+.error-section{background:var(--red-bg);border:1px solid var(--red-border);border-radius:var(--radius);padding:1.25rem;color:#fca5a5;font-size:.84rem;line-height:1.6;margin-bottom:1.5rem}
+
+/* Source legend */
+.sources-row{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.75rem;align-items:center}
+.sources-row .src-label{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--text-muted);letter-spacing:.08em;text-transform:uppercase;margin-right:.25rem}
+
+/* Export */
+.export-row{display:flex;gap:.65rem;flex-wrap:wrap;margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--border)}
+.export-btn{padding:.5rem 1rem;background:transparent;border:1px solid var(--border-light);border-radius:var(--radius);font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);cursor:pointer;transition:all .15s}
+.export-btn:hover{border-color:var(--teal-dim);color:var(--teal)}
+
+/* Responsive */
+@media(max-width:640px){
+  .hero h1{font-size:1.6rem}
+  .tab-btn .tab-label{display:none}
+  header{padding:.75rem 1rem}
+  main{padding:1.5rem 1rem}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-icon">⚖️</div>
+    <div class="logo-text">Case<span>Strainer</span></div>
+  </div>
+  <div class="header-right">
+    <div class="header-badge">Research Tool</div>
+    <span class="health-label" id="healthLabel" style="font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--text-muted);letter-spacing:.06em">wolf.law.uw.edu</span>
+  </div>
+</header>
+
+<main>
+  <!-- ── Hero ── -->
+  <div class="hero">
+    <h1>U.S. Case Citation<br><span class="accent">Verification</span></h1>
+    <p class="hero-sub">Extract and verify U.S. legal case citations from documents, pasted text, or URLs against authoritative databases including CourtListener, Google Scholar, and Justia.</p>
+    <div class="hero-chips">
+      <span class="chip teal">CourtListener</span>
+      <span class="chip teal">Google Scholar</span>
+      <span class="chip teal">Justia</span>
+      <span class="chip">Clustered Results</span>
+      <span class="chip">No Gen AI</span>
+    </div>
+    <div class="warning-banner">
+      ⚗️ <div><strong>Research Tool:</strong> For educational and research purposes only. Always verify results independently before relying on them in legal proceedings.</div>
+    </div>
+  </div>
+
+  <!-- ── Input card ── -->
+  <div class="input-card" id="inputCard">
+    <div class="tab-nav">
+      <button class="tab-btn active" data-tab="paste" onclick="switchTab('paste')">
+        📋 <span class="tab-label">Paste Text</span>
+      </button>
+      <button class="tab-btn" data-tab="file" onclick="switchTab('file')">
+        📄 <span class="tab-label">Upload File</span>
+      </button>
+      <button class="tab-btn" data-tab="url" onclick="switchTab('url')">
+        🔗 <span class="tab-label">URL</span>
+      </button>
+    </div>
+
+    <!-- Paste text tab -->
+    <div class="tab-pane active" id="tab-paste">
+      <label style="font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:.5rem" for="legalText">Legal Text</label>
+      <textarea class="legal-textarea" id="legalText"
+        placeholder="Paste your legal text here…&#10;&#10;e.g. The court held in Smith v. Jones, 123 F.3d 456 (9th Cir. 2020) that the doctrine…"
+        oninput="onTextInput()" onkeydown="if(event.ctrlKey&&event.key==='Enter')doAnalyze()"></textarea>
+      <div class="input-stats" id="textStats" style="display:none">
+        <div class="istat">Words: <span class="val" id="wordCount">0</span></div>
+        <div class="istat">Est. Citations: <span class="val" id="citCount">0</span></div>
+        <div class="istat">Years: <span class="val" id="yearCount">0</span></div>
+      </div>
+      <div class="url-hint" style="margin-top:.5rem;font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--text-muted)">
+        Tip: <kbd style="background:var(--surface-3);border:1px solid var(--border-light);border-radius:3px;padding:.1rem .3rem;font-size:.6rem">Ctrl</kbd> + <kbd style="background:var(--surface-3);border:1px solid var(--border-light);border-radius:3px;padding:.1rem .3rem;font-size:.6rem">Enter</kbd> to analyze
+      </div>
+    </div>
+
+    <!-- File upload tab -->
+    <div class="tab-pane" id="tab-file">
+      <label style="font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:.5rem">Document File</label>
+      <div class="drop-zone" id="dropZone">
+        <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.txt,.rtf,.md,.html,.htm,.xml,.xhtml" onchange="onFileChange(event)">
+        <span class="dz-icon">☁️</span>
+        <div class="dz-title">Drag & drop or click to browse</div>
+        <div class="dz-sub">PDF · DOCX · TXT · RTF · MD · HTML · XML — max 50 MB</div>
+        <div class="dz-file" id="dzFileName"></div>
+      </div>
+      <div class="notice-box error" id="fileError"></div>
+      <div class="notice-box warn" id="fileReady" style="background:rgba(16,185,129,.06);border-color:rgba(16,185,129,.2);color:var(--green)"></div>
+    </div>
+
+    <!-- URL tab -->
+    <div class="tab-pane" id="tab-url">
+      <label style="font-family:'IBM Plex Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);display:block;margin-bottom:.5rem" for="urlInput">Document URL</label>
+      <div class="url-row">
+        <input type="url" class="url-input" id="urlInput"
+          placeholder="https://example.com/legal-document.pdf"
+          oninput="onUrlInput()" onkeyup="if(event.key==='Enter')doAnalyze()">
+      </div>
+      <div class="url-hint" id="urlHint">Enter a URL to a PDF, DOCX, HTML, or other legal document</div>
+    </div>
+
+    <div class="notice-box error" id="mainError"></div>
+
+    <div class="analyze-wrap">
+      <button class="analyze-btn" id="analyzeBtn" onclick="doAnalyze()" disabled>
+        <span id="analyzeBtnText">Analyze Content</span>
+      </button>
+      <div class="analyze-status" id="analyzeStatus">Enter content to begin</div>
+    </div>
+  </div>
+
+  <!-- ── Progress ── -->
+  <div class="progress-wrap" id="progressWrap">
+    <div class="progress-spinner"></div>
+    <div class="progress-title" id="progTitle">Processing…</div>
+    <div class="progress-msg" id="progMsg">Initializing analysis</div>
+    <div class="progress-bar-track"><div class="progress-bar-fill" id="progBar" style="width:5%"></div></div>
+    <div class="progress-steps" id="progSteps">
+      <div class="ps" id="ps0"><span class="ps-icon">📤</span>Submitting request</div>
+      <div class="ps" id="ps1"><span class="ps-icon">🔍</span>Extracting citations</div>
+      <div class="ps" id="ps2"><span class="ps-icon">🌐</span>Verifying against databases</div>
+      <div class="ps" id="ps3"><span class="ps-icon">🔗</span>Clustering results</div>
+      <div class="ps" id="ps4"><span class="ps-icon">✅</span>Finalizing</div>
+    </div>
+    <div class="ps-elapsed" id="progElapsed"></div>
+  </div>
+
+  <!-- ── Results ── -->
+  <div class="results-wrap" id="resultsWrap">
+    <div class="results-header">
+      <div>
+        <div class="results-title">Citation Analysis Results</div>
+        <div class="results-meta" id="resultsMeta"></div>
+      </div>
+      <button class="new-analysis-btn" onclick="resetToInput()">＋ New Analysis</button>
+    </div>
+    <div id="resultsBody"></div>
+  </div>
+</main>
+
+<script>
+'use strict';
+
+// ── Config ────────────────────────────────────────────────────────────────
+const API = 'https://wolf.law.uw.edu/casestrainer/api';
+const POLL_INTERVAL = 2500;  // ms between task_status polls
+const MAX_POLL_WAIT = 300000; // 5 min timeout
+
+// ── State ─────────────────────────────────────────────────────────────────
+let activeTab = 'paste';
+let selectedFile = null;
+let pollTimer = null;
+let pollStart = 0;
+let activeTaskId = null;
+let stepTimes = [null,null,null,null,null];
+let stepIdx = 0;
+let elapsedTimer = null;
+let lastResults = null;
+
+// Health check removed — no fetch from file:// origin
+
+// ── Tab switching ─────────────────────────────────────────────────────────
+function switchTab(tab) {
+  activeTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  clearError();
+  updateAnalyzeBtn();
+}
+
+// ── Text input ────────────────────────────────────────────────────────────
+function onTextInput() {
+  const t = document.getElementById('legalText').value;
+  const stats = document.getElementById('textStats');
+  if (t.length > 0) {
+    stats.style.display = 'flex';
+    document.getElementById('wordCount').textContent = t.trim().split(/\s+/).filter(Boolean).length.toLocaleString();
+    document.getElementById('citCount').textContent = countEstimatedCitations(t);
+    document.getElementById('yearCount').textContent = countYears(t);
+  } else {
+    stats.style.display = 'none';
+  }
+  updateAnalyzeBtn();
+}
+
+function countEstimatedCitations(t) {
+  const pats = [
+    /\b\d+\s+U\.?\s*S\.?\s+\d+\b/gi,
+    /\b\d+\s+F\.?\s*(?:2d|3d|4th|Supp\.?|Supp\.?\s*2d|Supp\.?\s*3d)?\s+\d+\b/gi,
+    /\b\d+\s+S\.?\s*Ct\.?\s+\d+\b/gi,
+    /\b\d+\s+L\.?\s*Ed\.?\s*(?:2d)?\s+\d+\b/gi,
+    /\b\d+\s+(?:Wn|Wash)\.?\s*(?:2d|3d|App\.?)?\s+\d+\b/gi,
+    /\b\d+\s+P\.?\s*(?:2d|3d)?\s+\d+\b/gi,
+    /\b\d+\s+[A-Z][a-z]+\.?\s*(?:2d|3d|App\.?)?\s+\d+\b/g,
+  ];
+  const seen = new Set();
+  pats.forEach(p => { const m = t.match(p); if (m) m.forEach(x => seen.add(x.trim().toLowerCase())); });
+  return seen.size;
+}
+
+function countYears(t) {
+  const m = t.match(/\b(19|20)\d{2}\b/g);
+  return m ? new Set(m).size : 0;
+}
+
+// ── File upload ───────────────────────────────────────────────────────────
+const dropZone = document.getElementById('dropZone');
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('over'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('over'));
+dropZone.addEventListener('drop', e => {
+  e.preventDefault(); dropZone.classList.remove('over');
+  const f = e.dataTransfer.files[0];
+  if (f) setFile(f);
+});
+
+function onFileChange(e) {
+  const f = e.target.files[0];
+  if (f) setFile(f);
+}
+
+function setFile(f) {
+  const allowed = ['.pdf','.doc','.docx','.txt','.rtf','.md','.html','.htm','.xml','.xhtml'];
+  const ext = '.' + f.name.split('.').pop().toLowerCase();
+  const fileErr = document.getElementById('fileError');
+  const fileOk  = document.getElementById('fileReady');
+
+  if (!allowed.includes(ext)) {
+    fileErr.textContent = `Invalid file type "${ext}". Supported: ${allowed.join(', ')}`;
+    fileErr.classList.add('show');
+    fileOk.classList.remove('show');
+    selectedFile = null;
+    updateAnalyzeBtn(); return;
+  }
+  if (f.size > 50 * 1024 * 1024) {
+    fileErr.textContent = 'File too large. Maximum size is 50 MB.';
+    fileErr.classList.add('show');
+    fileOk.classList.remove('show');
+    selectedFile = null;
+    updateAnalyzeBtn(); return;
+  }
+  selectedFile = f;
+  fileErr.classList.remove('show');
+  fileOk.textContent = `✓ Ready: ${f.name} (${fmtSize(f.size)})`;
+  fileOk.classList.add('show');
+  document.getElementById('dzFileName').textContent = f.name;
+  document.getElementById('dzFileName').classList.add('show');
+  updateAnalyzeBtn();
+}
+
+function fmtSize(bytes) {
+  if (bytes < 1024) return bytes + ' B';
+  if (bytes < 1048576) return (bytes/1024).toFixed(1) + ' KB';
+  return (bytes/1048576).toFixed(1) + ' MB';
+}
+
+// ── URL input ─────────────────────────────────────────────────────────────
+function onUrlInput() {
+  const val = document.getElementById('urlInput').value.trim();
+  const hint = document.getElementById('urlHint');
+  const inp  = document.getElementById('urlInput');
+  if (!val) {
+    inp.classList.remove('invalid');
+    hint.className = 'url-hint';
+    hint.textContent = 'Enter a URL to a PDF, DOCX, HTML, or other legal document';
+    updateAnalyzeBtn(); return;
+  }
+  try {
+    const u = new URL(val);
+    if (!['http:','https:'].includes(u.protocol)) throw new Error();
+    inp.classList.remove('invalid');
+    hint.className = 'url-hint';
+    hint.textContent = '✓ Valid URL — ready to analyze';
+    hint.style.color = 'var(--teal)';
+  } catch {
+    inp.classList.add('invalid');
+    hint.className = 'url-hint err';
+    hint.textContent = 'Please enter a valid URL starting with http:// or https://';
+    hint.style.color = '';
+  }
+  updateAnalyzeBtn();
+}
+
+// ── Analyze button state ──────────────────────────────────────────────────
+function updateAnalyzeBtn() {
+  const btn = document.getElementById('analyzeBtn');
+  const st  = document.getElementById('analyzeStatus');
+  let can = false, msg = '';
+
+  if (activeTab === 'paste') {
+    const t = document.getElementById('legalText').value.trim();
+    can = t.length >= 10;
+    msg = can ? `✓ Ready — ${countEstimatedCitations(t)} est. citations` : 'Enter at least 10 characters';
+  } else if (activeTab === 'file') {
+    can = !!selectedFile;
+    msg = can ? `✓ Ready — ${selectedFile.name}` : 'Upload a document to analyze';
+  } else if (activeTab === 'url') {
+    const u = document.getElementById('urlInput').value.trim();
+    can = u.length > 0 && !document.getElementById('urlInput').classList.contains('invalid');
+    msg = can ? '✓ Valid URL — ready' : 'Enter a valid URL';
+  }
+
+  btn.disabled = !can;
+  st.className = 'analyze-status' + (can ? ' ready' : '');
+  st.textContent = msg;
+}
+
+function clearError() {
+  document.getElementById('mainError').classList.remove('show');
+}
+
+function showError(msg) {
+  const el = document.getElementById('mainError');
+  el.textContent = msg;
+  el.classList.add('show');
+}
+
+// ── Main analyze flow ─────────────────────────────────────────────────────
+async function doAnalyze() {
+  clearError();
+  stopPoll();
+
+  const btn = document.getElementById('analyzeBtn');
+  if (btn.disabled) return;
+
+  // Build request
+  let body, isForm = false;
+  if (activeTab === 'paste') {
+    const t = document.getElementById('legalText').value.trim();
+    if (t.length < 10) { showError('Please enter at least 10 characters.'); return; }
+    body = { type: 'text', text: t, force_mode: 'async' };
+  } else if (activeTab === 'file') {
+    if (!selectedFile) { showError('Please select a file.'); return; }
+    const fd = new FormData();
+    fd.append('file', selectedFile);
+    fd.append('type', 'file');
+    fd.append('force_mode', 'async');
+    body = fd; isForm = true;
+  } else if (activeTab === 'url') {
+    const u = document.getElementById('urlInput').value.trim();
+    if (!u) { showError('Please enter a URL.'); return; }
+    body = { type: 'url', url: u, force_mode: 'async' };
+  }
+
+  // UI: show progress
+  document.getElementById('inputCard').style.display = 'none';
+  document.getElementById('resultsWrap').classList.remove('show');
+  document.getElementById('progressWrap').classList.add('show');
+  setStep(0);
+  setProgress(5, 'Submitting request…');
+  startElapsedTimer();
+
+  try {
+    const fetchOpts = { method: 'POST' };
+    if (isForm) {
+      fetchOpts.body = body;
+    } else {
+      fetchOpts.headers = { 'Content-Type': 'application/json' };
+      fetchOpts.body = JSON.stringify(body);
+    }
+
+    setStep(1);
+    const resp = await fetch(`${API}/analyze`, fetchOpts);
+    const data = await resp.json();
+
+    if (!resp.ok) {
+      throw new Error(data.message || data.error || `Server error ${resp.status}`);
+    }
+
+    // Sync result — no task_id
+    if (data.citations && !data.task_id && !data.status?.includes('process')) {
+      setStep(4);
+      setProgress(100, 'Complete');
+      showResults(data);
+      return;
+    }
+
+    // Async — need to poll
+    const taskId = data.task_id;
+    if (!taskId) {
+      // Try to handle direct result
+      if (data.citations || data.clusters) { showResults(data); return; }
+      throw new Error('No task_id returned from server.');
+    }
+
+    activeTaskId = taskId;
+    setStep(1);
+    setProgress(10, `Task queued — ID: ${taskId.slice(0,12)}…`);
+    pollStart = Date.now();
+    startPoll(taskId);
+
+  } catch (err) {
+    stopPoll();
+    stopElapsedTimer();
+    document.getElementById('progressWrap').classList.remove('show');
+    document.getElementById('inputCard').style.display = '';
+    showError('Error: ' + err.message);
+  }
+}
+
+// ── Polling ───────────────────────────────────────────────────────────────
+function startPoll(taskId) {
+  pollTimer = setInterval(() => pollTask(taskId), POLL_INTERVAL);
+}
+
+function stopPoll() {
+  if (pollTimer) { clearInterval(pollTimer); pollTimer = null; }
+  activeTaskId = null;
+}
+
+async function pollTask(taskId) {
+  if (Date.now() - pollStart > MAX_POLL_WAIT) {
+    stopPoll(); stopElapsedTimer();
+    document.getElementById('progressWrap').classList.remove('show');
+    document.getElementById('inputCard').style.display = '';
+    showError('Analysis timed out after 5 minutes. The document may be too large. Please try a shorter text or smaller file.');
+    return;
+  }
+
+  try {
+    const resp = await fetch(`${API}/task_status/${taskId}`);
+    const data = await resp.json();
+
+    // Update progress bar from poll data
+    const pct = typeof data.progress === 'number' ? data.progress : null;
+    const msg = data.status_message || data.message || data.current_step || 'Processing…';
+
+    if (pct !== null) setProgress(pct, msg);
+    else setProgress(null, msg);
+
+    // Map step from message
+    if (/extract/i.test(msg)) setStep(1);
+    else if (/verif/i.test(msg)) setStep(2);
+    else if (/cluster/i.test(msg)) setStep(3);
+    else if (/finaliz|complet/i.test(msg)) setStep(4);
+
+    if (data.status === 'completed') {
+      stopPoll(); stopElapsedTimer();
+      setStep(4); setProgress(100, 'Complete');
+      await new Promise(r => setTimeout(r, 300));
+      showResults(data);
+    } else if (data.status === 'failed' || data.status === 'error') {
+      stopPoll(); stopElapsedTimer();
+      document.getElementById('progressWrap').classList.remove('show');
+      document.getElementById('inputCard').style.display = '';
+      showError('Analysis failed: ' + (data.message || data.error || 'Unknown error'));
+    }
+  } catch (err) {
+    console.warn('Poll error:', err);
+  }
+}
+
+// ── Progress UI helpers ───────────────────────────────────────────────────
+function setProgress(pct, msg) {
+  if (msg) document.getElementById('progMsg').textContent = msg;
+  if (pct !== null) document.getElementById('progBar').style.width = Math.min(pct, 100) + '%';
+}
+
+function setStep(n) {
+  for (let i = 0; i <= 4; i++) {
+    const el = document.getElementById('ps' + i);
+    el.classList.remove('active','done');
+    if (i < n) el.classList.add('done');
+    if (i === n) el.classList.add('active');
+  }
+  stepIdx = n;
+}
+
+function startElapsedTimer() {
+  const start = Date.now();
+  const el = document.getElementById('progElapsed');
+  elapsedTimer = setInterval(() => {
+    const s = Math.floor((Date.now()-start)/1000);
+    const m = Math.floor(s/60), sec = s%60;
+    el.textContent = `Elapsed: ${m > 0 ? m+'m ' : ''}${sec}s`;
+  }, 1000);
+}
+
+function stopElapsedTimer() {
+  if (elapsedTimer) { clearInterval(elapsedTimer); elapsedTimer = null; }
+}
+
+// ── Render results ────────────────────────────────────────────────────────
+function showResults(data) {
+  lastResults = data;
+  document.getElementById('progressWrap').classList.remove('show');
+
+  const citations = data.citations || [];
+  const clusters  = data.clusters  || [];
+  const meta      = data.metadata  || {};
+  const stats     = data.statistics || data.summary || {};
+
+  // Header chips
+  const metaEl = document.getElementById('resultsMeta');
+  metaEl.innerHTML = `
+    <span class="meta-chip teal">${clusters.length || citations.length} case${(clusters.length||citations.length)!==1?'s':''} found</span>
+    <span class="meta-chip">${citations.length} citation${citations.length!==1?'s':''} extracted</span>
+    ${meta.source_name ? `<span class="meta-chip">📄 ${esc(meta.source_name)}</span>` : ''}
+    ${meta.clustering_version ? `<span class="meta-chip">🔖 ${esc(meta.clustering_version)}</span>` : ''}
+  `;
+
+  let html = '';
+
+  // Error state
+  if (data.error) {
+    html += `<div class="error-section">⚠️ ${esc(data.error)}</div>`;
+  }
+
+  // Perfect score
+  const verCount = citations.filter(c => isVerified(c)).length;
+  const allVerified = citations.length > 0 && verCount === citations.length;
+  const hasMismatch = clusters.some(cl => cl.has_name_mismatch || cl.has_date_mismatch || cl.name_mismatch || cl.date_mismatch);
+
+  if (allVerified && !hasMismatch) {
+    html += `<div class="perfect-score">
+      <h2>🎉 Perfect Score!</h2>
+      <p>All ${citations.length} citation${citations.length!==1?'s':''} successfully verified!</p>
+      <div class="perfect-stats">
+        <div class="pstat">✅ ${verCount} Verified</div>
+        <div class="pstat">📚 ${clusters.length || citations.length} Cases</div>
+      </div>
+    </div>`;
+  }
+
+  // Use clusters if available, otherwise fallback to individual citations
+  if (clusters.length > 0) {
+    html += renderClusters(clusters, citations);
+  } else if (citations.length > 0) {
+    html += renderFlatCitations(citations);
+  } else {
+    html += `<div style="text-align:center;padding:2rem;color:var(--text-muted);font-family:'IBM Plex Mono',monospace;font-size:.8rem">No citations detected in the provided content.</div>`;
+  }
+
+  // Export row
+  html += `<div class="export-row">
+    <button class="export-btn" onclick="exportJSON()">⬇ Export JSON</button>
+    <button class="export-btn" onclick="copyResults()">📋 Copy Summary</button>
+  </div>`;
+
+  document.getElementById('resultsBody').innerHTML = html;
+  document.getElementById('resultsWrap').classList.add('show');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderClusters(clusters, allCitations) {
+  // Group into sections
+  const unverified = clusters.filter(c => !clusterIsVerified(c));
+  const nameDiff   = clusters.filter(c => clusterIsVerified(c) && (c.has_name_mismatch || c.name_mismatch));
+  const dateDiff   = clusters.filter(c => clusterIsVerified(c) && !nameDiff.includes(c) && (c.has_date_mismatch || c.date_mismatch));
+  const verified   = clusters.filter(c => clusterIsVerified(c) && !nameDiff.includes(c) && !dateDiff.includes(c));
+
+  let html = '';
+
+  if (unverified.length) {
+    html += `<div class="sec-head"><span class="sec-head-icon">⏳</span>Unverified (${unverified.length})</div>`;
+    html += `<p style="font-size:.75rem;color:var(--text-muted);margin-bottom:.85rem">Some legal databases block automated tools. Click the search link to verify manually.</p>`;
+    unverified.forEach(c => { html += renderClusterCard(c, 'unverified'); });
+  }
+  if (nameDiff.length) {
+    html += `<div class="sec-head" style="margin-top:1rem"><span class="sec-head-icon">⚠️</span>Name Differences (${nameDiff.length})</div>`;
+    nameDiff.forEach(c => { html += renderClusterCard(c, 'name-diff'); });
+  }
+  if (dateDiff.length) {
+    html += `<div class="sec-head" style="margin-top:1rem"><span class="sec-head-icon">📅</span>Date Differences (${dateDiff.length})</div>`;
+    dateDiff.forEach(c => { html += renderClusterCard(c, 'date-diff'); });
+  }
+  if (verified.length) {
+    html += `<div class="sec-head" style="margin-top:1rem"><span class="sec-head-icon">✅</span>Verified (${verified.length})</div>`;
+    verified.forEach(c => { html += renderClusterCard(c, 'verified'); });
+  }
+  return html;
+}
+
+function renderClusterCard(cluster, type) {
+  const url         = cluster.display_canonical_url || cluster.canonical_url || null;
+  const submName    = cluster.submitted_case_name || cluster.case_name || 'Unknown Case';
+  const submDate    = cluster.submitted_date || cluster.year || '';
+  const verName     = cluster.verifying_display_name || cluster.canonical_name || '';
+  const verDate     = cluster.verifying_display_date || cluster.canonical_date || '';
+  const citations   = cluster.citations || cluster.citation_objects || [];
+  const isGSearch   = url && url.startsWith('https://www.google.com/search');
+  const hasNameMism = cluster.has_name_mismatch || cluster.name_mismatch;
+  const hasDateMism = cluster.has_date_mismatch  || cluster.date_mismatch;
+  const foundDate   = cluster.found_canonical_date || '';
+
+  let statusDot, dotClass;
+  if (type === 'verified') { statusDot = '●'; dotClass = 'cc-status-dot dot-green'; }
+  else if (type === 'name-diff' || type === 'date-diff' || type === 'mismatch') { statusDot = '●'; dotClass = 'cc-status-dot dot-amber'; }
+  else { statusDot = '●'; dotClass = 'cc-status-dot dot-gray'; }
+
+  // Name line
+  let nameLine;
+  if (isGSearch) {
+    nameLine = `<a href="${esc(url)}" target="_blank" rel="noopener">Search Google for: ${esc(cluster.search_fallback_label || submName)}</a>`;
+  } else if (url) {
+    nameLine = `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(submName)}</a>`;
+  } else {
+    nameLine = esc(submName);
+  }
+
+  let verifiedRow = '';
+  if ((verName || verDate) && type !== 'unverified') {
+    verifiedRow = `<div class="cc-verified-as">
+      <span style="color:var(--text-muted)">Verified as:</span>
+      <span class="vname ${hasNameMism?'mismatch-hl':''}">${esc(verName || 'Not Found')}</span>
+      ${verDate ? `<span class="${hasDateMism?'mismatch-hl':''}">${esc(verDate)}</span>` : ''}
+      ${foundDate && !verDate ? `<span style="color:var(--text-muted)"> (CourtListener: ${esc(foundDate)})</span>` : ''}
+    </div>`;
+  }
+
+  let badges = '';
+  if (type === 'verified') badges += `<span class="badge badge-green">✓ Verified</span>`;
+  if (hasNameMism) badges += `<span class="badge badge-amber">⚠ Name diff</span>`;
+  if (hasDateMism && !hasNameMism) badges += `<span class="badge badge-amber">⚠ Date diff</span>`;
+  if (type === 'unverified') badges += `<span class="badge badge-gray">Unverified</span>`;
+  if (cluster.cross_document_merge) badges += `<span class="badge badge-gray">📄 Merged</span>`;
+
+  // Citations list
+  let citsHtml = '';
+  if (citations.length) {
+    citsHtml = `<div class="cc-body">`;
+    citations.forEach((cit, i) => {
+      const citText = typeof cit === 'string' ? cit : (cit.citation || cit.text || '');
+      const citUrl  = typeof cit === 'object' ? (cit.canonical_url || cit.url || '') : '';
+      citsHtml += `<div class="citation-row ${i===citations.length-1?'last':''}">
+        <span class="cit-text">${esc(citText)}</span>
+        ${citUrl ? `<span class="cit-url"><a href="${esc(citUrl)}" target="_blank" rel="noopener">View ↗</a></span>` : ''}
+      </div>`;
+    });
+    citsHtml += `</div>`;
+  }
+
+  return `<div class="cluster-card ${type}">
+    <div class="cc-head">
+      <div class="cc-status"><div class="${dotClass}"></div></div>
+      <div class="cc-main">
+        <div class="cc-case-name">${nameLine}${submDate ? `, <span>${esc(submDate)}</span>` : ''}</div>
+        ${verifiedRow}
+        <div class="cc-from-doc" style="color:var(--text-muted)">From document: <span ${hasNameMism?'style="color:var(--amber)"':''}>${esc(submName)}</span>${submDate?`, <span ${hasDateMism?'style="color:var(--amber)"':''}>${esc(submDate)}</span>`:''}</div>
+      </div>
+      <div class="cc-badges">${badges}</div>
+    </div>
+    ${citsHtml}
+  </div>`;
+}
+
+function renderFlatCitations(citations) {
+  const verified   = citations.filter(c => isVerified(c));
+  const unverified = citations.filter(c => !isVerified(c));
+  let html = '';
+
+  if (unverified.length) {
+    html += `<div class="sec-head"><span class="sec-head-icon">⏳</span>Unverified (${unverified.length})</div>`;
+    unverified.forEach(c => { html += renderCitationCard(c, false); });
+  }
+  if (verified.length) {
+    html += `<div class="sec-head" style="margin-top:1rem"><span class="sec-head-icon">✅</span>Verified (${verified.length})</div>`;
+    verified.forEach(c => { html += renderCitationCard(c, true); });
+  }
+  return html;
+}
+
+function renderCitationCard(cit, ver) {
+  const name = cit.canonical_name || cit.extracted_case_name || cit.case_name || '';
+  const url  = cit.canonical_url  || cit.url || '';
+  const src  = cit.source || '';
+  const expl = cit.explanation || '';
+
+  return `<div class="cluster-card ${ver?'verified':'unverified'}">
+    <div class="cc-head">
+      <div class="cc-status"><div class="cc-status-dot ${ver?'dot-green':'dot-gray'}"></div></div>
+      <div class="cc-main">
+        <div class="cc-case-name">
+          ${url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(name || cit.citation)}</a>` : esc(name || cit.citation)}
+        </div>
+        ${expl ? `<div class="cc-verified-as" style="font-style:italic">${esc(expl)}</div>` : ''}
+      </div>
+      <div class="cc-badges">
+        ${ver ? `<span class="badge badge-green">✓ ${esc(src||'Verified')}</span>` : `<span class="badge badge-gray">Unverified</span>`}
+      </div>
+    </div>
+    <div class="cc-body">
+      <div class="citation-row last">
+        <span class="cit-text">${esc(cit.citation || '')}</span>
+        ${url ? `<span class="cit-url"><a href="${esc(url)}" target="_blank" rel="noopener">View ↗</a></span>` : ''}
+      </div>
+    </div>
+  </div>`;
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────
+function isVerified(cit) {
+  if (!cit) return false;
+  return cit.verified === true || cit.verified === 'true' ||
+         cit.is_verified === true || cit.found === true;
+}
+
+function clusterIsVerified(cluster) {
+  if (!cluster) return false;
+  const url = cluster.display_canonical_url || cluster.canonical_url || '';
+  if (url && !url.startsWith('https://www.google.com/search')) return true;
+  return cluster.verified === true || cluster.is_verified === true;
+}
+
+function esc(s) {
+  if (s == null) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Reset ─────────────────────────────────────────────────────────────────
+function resetToInput() {
+  stopPoll(); stopElapsedTimer();
+  document.getElementById('progressWrap').classList.remove('show');
+  document.getElementById('resultsWrap').classList.remove('show');
+  document.getElementById('inputCard').style.display = '';
+  document.getElementById('legalText').value = '';
+  document.getElementById('textStats').style.display = 'none';
+  document.getElementById('mainError').classList.remove('show');
+  document.getElementById('fileError').classList.remove('show');
+  document.getElementById('fileReady').classList.remove('show');
+  document.getElementById('dzFileName').classList.remove('show');
+  document.getElementById('dzFileName').textContent = '';
+  document.getElementById('urlInput').value = '';
+  document.getElementById('urlHint').textContent = 'Enter a URL to a PDF, DOCX, HTML, or other legal document';
+  document.getElementById('urlHint').style.color = '';
+  document.getElementById('urlInput').classList.remove('invalid');
+  selectedFile = null;
+  lastResults = null;
+  document.getElementById('fileInput').value = '';
+  stepIdx = 0;
+  document.getElementById('progBar').style.width = '5%';
+  document.getElementById('progElapsed').textContent = '';
+  setStep(0);
+  updateAnalyzeBtn();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── Export ────────────────────────────────────────────────────────────────
+function exportJSON() {
+  if (!lastResults) return;
+  const blob = new Blob([JSON.stringify(lastResults, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'casestrainer-results.json';
+  a.click();
+}
+
+function copyResults() {
+  if (!lastResults) return;
+  const cits = lastResults.citations || [];
+  const clusters = lastResults.clusters || [];
+  const lines = [`CaseStrainer Analysis Results`, `${'─'.repeat(40)}`];
+  lines.push(`Citations found: ${cits.length}`);
+  lines.push(`Cases clustered: ${clusters.length}`);
+  lines.push(`Verified: ${cits.filter(c=>isVerified(c)).length}/${cits.length}`);
+  lines.push('');
+  cits.forEach(c => {
+    const status = isVerified(c) ? '✓' : '✗';
+    lines.push(`${status} ${c.citation || ''} — ${c.canonical_name || c.extracted_case_name || ''}`);
+    if (c.canonical_url || c.url) lines.push(`  ${c.canonical_url || c.url}`);
+  });
+  navigator.clipboard.writeText(lines.join('\n')).then(() => {
+    const btn = event.target;
+    const orig = btn.textContent;
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => { btn.textContent = orig; }, 2000);
+  });
+}
+</script>
+</body>
+</html>
