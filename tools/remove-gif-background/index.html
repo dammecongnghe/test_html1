@@ -588,16 +588,7 @@
           </button>
         </div>
       </div>
-      <div class="hero">
-        <h1>Convert Images to Vector Graphics Instantly</h1>
-        <p>
-          Turn raster images into clean, scalable vector files for design,
-          print, or web use.
-        </p>
-        <a class="cta" href="https://www.rastertovector.top/" target="_blank">
-          Convert Raster to Vector
-        </a>
-      </div>
+      <div id="hero-container"></div>
       <div class="main-content">
         <div class="gif-section">
           <div class="section-header">Input GIF</div>
@@ -1236,6 +1227,15 @@
           'How to Use:\n\n1. Upload a GIF file\n2. Enter the background color to remove\n3. Adjust tolerance to match similar shades\n4. Use "Remove Outer Background" for complex images\n5. Preview with Alpha Channel option\n6. Download your transparent GIF!\n\nFeatures:\n• Full animated GIF support\n• All frames processed automatically\n• Color tolerance matching\n• Outer background filter\n• Alpha channel preview\n• Quality control',
         );
       }
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../box.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("hero-container").innerHTML = data;
+          });
+      });
     </script>
   </body>
 </html>

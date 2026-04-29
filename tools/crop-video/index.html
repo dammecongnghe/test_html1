@@ -598,7 +598,7 @@
           </li>
         </ol>
       </div>
-
+      <div id="hero-container"></div>
       <!-- Key Features -->
       <h2>Key Features</h2>
       <ul class="features-list">
@@ -1329,6 +1329,15 @@
         if (file && file.type.startsWith("video/")) {
           loadVideo(file);
         }
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../box.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("hero-container").innerHTML = data;
+          });
       });
     </script>
   </body>

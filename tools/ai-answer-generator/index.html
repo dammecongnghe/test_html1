@@ -89,6 +89,89 @@
 
       gtag("config", "G-G5L4CSXVXC");
     </script>
+    <style>
+      :root {
+        --primary: #4f6ef7;
+        --primary-dark: #3b55d9;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --text: #111827;
+        --muted: #6b7280;
+      }
+      .raster-cta {
+        margin: 56px auto;
+        padding: 48px 24px;
+        max-width: 1100px;
+        background: #f2f5ff;
+        border: 1px solid #dbe2ff;
+        border-radius: 28px;
+        text-align: center;
+      }
+
+      .raster-cta h3 {
+        font-size: 30px;
+        font-weight: 800;
+        color: #0f172a;
+        margin-bottom: 14px;
+      }
+
+      .raster-cta p {
+        font-size: 17px;
+        color: #475569;
+        max-width: 720px;
+        margin: 0 auto 28px;
+        line-height: 1.6;
+      }
+
+      .raster-btn {
+        display: inline-block;
+        background: #4f46e5;
+        color: #ffffff;
+        padding: 16px 36px;
+        border-radius: 999px;
+        font-size: 16px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .raster-btn:hover {
+        background: #4338ca;
+        transform: translateY(-1px);
+      }
+      .hero {
+        max-width: 980px;
+        margin: 24px auto;
+        padding: 40px 24px;
+        background: #f0f4ff;
+        border: 1px solid #dbe4ff;
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto 24px;
+        line-height: 1.6;
+      }
+
+      .hero a.cta {
+        display: inline-block;
+        padding: 12px 26px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+    </style>
   </head>
 
   <body class="bg-white text-gray-900">
@@ -275,24 +358,7 @@
         class="hidden mt-10 border rounded-2xl p-6 bg-gray-50"
       >
         <!-- CTA ABOVE RESULT -->
-        <div
-          id="vectorCta"
-          class="hidden mb-6 bg-blue-50 border border-blue-200 rounded-2xl p-6 text-center"
-        >
-          <h3 class="text-xl font-bold mb-2">
-            Turn Images into Scalable Vectors Instantly
-          </h3>
-          <p class="text-gray-600 mb-4">
-            Convert raster images into clean, scalable vector graphics for
-            design, print, or web use.
-          </p>
-          <a
-            href="https://www.rastertovector.top/"
-            class="inline-block bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700"
-          >
-            Convert Raster to Vector
-          </a>
-        </div>
+        <div id="hero-container"></div>
 
         <div class="flex justify-between items-center mb-3">
           <h2 class="font-semibold text-lg">AI Answer</h2>
@@ -383,60 +449,71 @@
     </main>
 
     <script>
-      const generateBtn = document.getElementById("generateBtn");
-      const resetBtn = document.getElementById("resetBtn");
-      const resultBox = document.getElementById("resultBox");
-      const result = document.getElementById("result");
-      const copyBtn = document.getElementById("copyBtn");
+      document.addEventListener("DOMContentLoaded", function () {
+        // ✅ Load hero box
+        fetch("../box.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("hero-container").innerHTML = data;
+          });
 
-      generateBtn.addEventListener("click", async () => {
-        const question = document.getElementById("question").value.trim();
-        const language = document.getElementById("language").value;
-        const tone = document.getElementById("tone").value;
+        // ✅ Get elements AFTER DOM is ready
+        const generateBtn = document.getElementById("generateBtn");
+        const resetBtn = document.getElementById("resetBtn");
+        const resultBox = document.getElementById("resultBox");
+        const result = document.getElementById("result");
+        const copyBtn = document.getElementById("copyBtn");
 
-        if (!question) {
-          alert("Please enter a question");
-          return;
-        }
+        generateBtn.addEventListener("click", async () => {
+          const question = document.getElementById("question").value.trim();
+          const language = document.getElementById("language").value;
+          const tone = document.getElementById("tone").value;
 
-        generateBtn.textContent = "Generating...";
-        generateBtn.disabled = true;
-        resultBox.classList.add("hidden");
+          if (!question) {
+            alert("Please enter a question");
+            return;
+          }
 
-        try {
-          const res = await fetch(
-            "https://ai-backend-ak38.onrender.com/generate-answer",
-            {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify({ question, language, tone }),
-            },
-          );
+          generateBtn.textContent = "Generating...";
+          generateBtn.disabled = true;
+          resultBox.classList.add("hidden");
 
-          const data = await res.json();
+          try {
+            const res = await fetch(
+              "https://ai-backend-ak38.onrender.com/generate-answer",
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ question, language, tone }),
+              },
+            );
 
-          result.textContent = data.questionAnswer || "No answer returned.";
-          document.getElementById("vectorCta").classList.remove("hidden");
-          resultBox.classList.remove("hidden");
-          resultBox.scrollIntoView({ behavior: "smooth" });
-        } catch {
-          result.textContent = "❌ Error generating answer.";
-          resultBox.classList.remove("hidden");
-        }
+            const data = await res.json();
 
-        generateBtn.textContent = "Generate";
-        generateBtn.disabled = false;
-      });
+            result.textContent = data.questionAnswer || "No answer returned.";
 
-      copyBtn.addEventListener("click", async () => {
-        await navigator.clipboard.writeText(result.textContent);
-        copyBtn.textContent = "Copied ✓";
-        setTimeout(() => (copyBtn.textContent = "Copy"), 1500);
-      });
+            resultBox.classList.remove("hidden");
+            resultBox.scrollIntoView({ behavior: "smooth" });
+          } catch (err) {
+            console.error(err);
+            result.textContent = "❌ Error generating answer.";
+            resultBox.classList.remove("hidden");
+          }
 
-      resetBtn.addEventListener("click", () => {
-        document.getElementById("question").value = "";
-        resultBox.classList.add("hidden");
+          generateBtn.textContent = "Generate";
+          generateBtn.disabled = false;
+        });
+
+        copyBtn.addEventListener("click", async () => {
+          await navigator.clipboard.writeText(result.textContent);
+          copyBtn.textContent = "Copied ✓";
+          setTimeout(() => (copyBtn.textContent = "Copy"), 1500);
+        });
+
+        resetBtn.addEventListener("click", () => {
+          document.getElementById("question").value = "";
+          resultBox.classList.add("hidden");
+        });
       });
     </script>
   </body>

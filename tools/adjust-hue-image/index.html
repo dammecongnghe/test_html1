@@ -637,19 +637,7 @@
               <button class="preset-btn" onclick="setHue(-90)">-90°</button>
             </div>
           </div>
-          <div class="hero">
-            <h1>Convert Images to Vector Graphics Instantly</h1>
-            <p>
-              Turn raster images into clean, scalable vector files for design,
-              print, or web use.
-            </p>
-            <a
-              class="cta"
-              href="https://www.rastertovector.top/"
-              target="_blank"
-            >
-              Convert Raster to Vector
-            </a>
+          <div id="hero-container"></div>
           </div>
           <div class="info-box">
             <h4>💡 How Hue Adjustment Works</h4>
@@ -1499,5 +1487,14 @@
         }, 3000);
       }
     </script>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+  fetch('../box.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('hero-container').innerHTML = data;
+    });
+});
+</script>
   </body>
 </html>

@@ -510,16 +510,7 @@
           Download APNG File
         </button>
       </div>
-      <div class="hero">
-        <h1>Convert Images to Vector Graphics Instantly</h1>
-        <p>
-          Turn raster images into clean, scalable vector files for design,
-          print, or web use.
-        </p>
-        <a class="cta" href="https://www.rastertovector.top/" target="_blank">
-          Convert Raster to Vector
-        </a>
-      </div>
+      <div id="hero-container"></div>
 
       <!-- GIF vs APNG Comparison -->
       <h2>GIF vs. APNG: Key Differences</h2>
@@ -952,6 +943,15 @@
         a.download = originalName.replace(".gif", ".apng");
         a.click();
         URL.revokeObjectURL(url);
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../box.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("hero-container").innerHTML = data;
+          });
       });
     </script>
   </body>

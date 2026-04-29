@@ -433,16 +433,7 @@
           of the animation.
         </p>
       </div>
-      <div class="hero">
-        <h1>Convert Images to Vector Graphics Instantly</h1>
-        <p>
-          Turn raster images into clean, scalable vector files for design,
-          print, or web use.
-        </p>
-        <a class="cta" href="https://www.rastertovector.top/" target="_blank">
-          Convert Raster to Vector
-        </a>
-      </div>
+      <div id="hero-container"></div>
 
       <div class="upload-area" id="uploadArea">
         <input
@@ -971,6 +962,15 @@
           speedValue.value = 10;
           speedValue.min = 0;
         }
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../box.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("hero-container").innerHTML = data;
+          });
       });
     </script>
   </body>

@@ -633,16 +633,7 @@
 
         <button class="copy-link-btn" onclick="copyLink()">🔗 Copy Link</button>
       </div>
-      <div class="hero">
-        <h1>Convert Images to Vector Graphics Instantly</h1>
-        <p>
-          Turn raster images into clean, scalable vector files for design,
-          print, or web use.
-        </p>
-        <a class="cta" href="https://www.rastertovector.top/" target="_blank">
-          Convert Raster to Vector
-        </a>
-      </div>
+      <div id="hero-container"></div>
       <!-- How to Convert Section -->
       <div class="info-section">
         <h2>How to Convert IST to EST</h2>
@@ -1115,6 +1106,15 @@
       updateCurrentTimes();
       generateConversionTable();
       setInterval(updateCurrentTimes, 1000);
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../box.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("hero-container").innerHTML = data;
+          });
+      });
     </script>
   </body>
 </html>

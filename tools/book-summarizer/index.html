@@ -27,6 +27,15 @@
 
     <!-- CTA STYLES -->
     <style>
+      :root {
+        --primary: #4f6ef7;
+        --primary-dark: #3b55d9;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --text: #111827;
+        --muted: #6b7280;
+      }
       .raster-cta {
         margin: 56px auto;
         padding: 48px 24px;
@@ -67,6 +76,37 @@
       .raster-btn:hover {
         background: #4338ca;
         transform: translateY(-1px);
+      }
+      .hero {
+        max-width: 980px;
+        margin: 24px auto;
+        padding: 40px 24px;
+        background: #f0f4ff;
+        border: 1px solid #dbe4ff;
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto 24px;
+        line-height: 1.6;
+      }
+
+      .hero a.cta {
+        display: inline-block;
+        padding: 12px 26px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
       }
     </style>
     <!-- FAQ STRUCTURED DATA -->
@@ -174,24 +214,7 @@
         </p>
       </section>
 
-      <!-- RASTER TO VECTOR CTA -->
-      <section class="raster-cta">
-        <h3>Convert Images to Vector Graphics Instantly</h3>
-
-        <p>
-          Turn raster images into clean, scalable vector files for design,
-          print, or web use.
-        </p>
-
-        <a
-          href="https://www.rastertovector.top/"
-          target="_blank"
-          rel="noopener"
-          class="raster-btn"
-        >
-          Convert Raster to Vector
-        </a>
-      </section>
+      <div id="hero-container"></div>
 
       <!-- TOOL IFRAME -->
       <section
@@ -323,6 +346,15 @@
         </div>
       </section>
     </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../box.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("hero-container").innerHTML = data;
+          });
+      });
+    </script>
 
     <!-- FOOTER -->
     <footer class="border-t bg-white mt-20">
