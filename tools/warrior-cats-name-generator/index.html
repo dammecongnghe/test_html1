@@ -1,0 +1,1856 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Warrior Cats Name Generator | Random Warrior Cat Names</title>
+    <meta
+      name="description"
+      content="Use our Warrior Cats name generator to create random Warrior Cats character names, unique suffix ideas, leader names, and medicine cat names. A fast warrior cats name maker and warrior cat suffix generator for stories, roleplay, and fan characters."
+    />
+    <meta name="robots" content="index,follow" />
+    <link
+      rel="canonical"
+      href="https://moviesearch.online/tools/warrior-cats-name-generator"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does this Warrior Cats name generator work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Choose the kind of name you want, such as a warrior, leader, medicine cat, apprentice, or suffix idea, then add a short theme or character description. The tool uses AI to generate five Warrior Cats-style names with short explanations so you can quickly pick the one that fits best."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use this warrior cats name maker for unique character ideas?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. This warrior cats name maker works well for original characters, roleplay cats, fan fiction, and clan world-building. Adding coat color, personality, rank, or habitat usually helps the generator return more distinct names."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What makes a good warrior cat suffix generator useful?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A useful warrior cat suffix generator gives you endings that sound natural beside the prefix and still match the cat's role, personality, or appearance. It helps when you already like the first half of a name but need a better ending."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can this random warrior cat name generator make leader and medicine cat names too?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The different modes are designed for warriors, leaders, medicine cats, apprentices, and suffix ideas. That makes it easier to get names that fit the tone and rank you actually need."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are the generated Warrior Cats names ready to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "They are meant to be strong starting points you can use, tweak, or combine. If you want a name to feel even more personal, generate a few sets and mix the prefixes, suffixes, or themes you like most."
+            }
+          }
+        ]
+      }
+    </script>
+    <style>
+      :root {
+        --moss: #8dc56c;
+        --moss-soft: rgba(141, 197, 108, 0.12);
+        --amber: #d8a657;
+        --amber-soft: rgba(216, 166, 87, 0.12);
+        --bg: #0a0d0a;
+        --surface: #141914;
+        --surface-2: #1b241c;
+        --surface-3: #263327;
+        --line: rgba(255, 255, 255, 0.08);
+        --line-strong: rgba(255, 255, 255, 0.15);
+        --text: #f5f6ef;
+        --muted: #96a18d;
+        --display: "Cormorant Garamond", serif;
+        --body: "Manrope", sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--body);
+        color: var(--text);
+        background:
+          radial-gradient(
+            circle at 18% 16%,
+            rgba(141, 197, 108, 0.1),
+            transparent 28%
+          ),
+          radial-gradient(
+            circle at 84% 8%,
+            rgba(216, 166, 87, 0.1),
+            transparent 24%
+          ),
+          linear-gradient(180deg, #090b09 0%, #0d120e 100%);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(
+            circle at 20% 32%,
+            rgba(255, 255, 255, 0.05) 0 1px,
+            transparent 1.5px
+          ),
+          radial-gradient(
+            circle at 76% 18%,
+            rgba(255, 255, 255, 0.04) 0 1px,
+            transparent 1.5px
+          ),
+          radial-gradient(
+            circle at 42% 70%,
+            rgba(255, 255, 255, 0.04) 0 1px,
+            transparent 1.5px
+          );
+        background-repeat: no-repeat;
+        opacity: 0.55;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .top-nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(9, 11, 9, 0.88);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid var(--line);
+        padding: 0 24px;
+      }
+      .nav-inner {
+        max-width: 980px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        height: 58px;
+      }
+      .home-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        color: var(--muted);
+        border: 1px solid var(--line-strong);
+        border-radius: 999px;
+        padding: 8px 14px;
+        font-size: 13px;
+        font-weight: 700;
+        transition:
+          border-color 0.18s,
+          color 0.18s,
+          background 0.18s;
+      }
+      .home-btn:hover {
+        color: var(--moss);
+        border-color: var(--moss);
+        background: var(--moss-soft);
+      }
+      .home-btn svg {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+      }
+      .nav-bc {
+        font-size: 13px;
+        color: #546050;
+      }
+      .nav-bc a {
+        color: #546050;
+        text-decoration: none;
+      }
+      .nav-bc a:hover {
+        color: var(--muted);
+      }
+      .nav-bc .sep {
+        margin: 0 6px;
+      }
+      .page {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 58px 24px 82px;
+        position: relative;
+        z-index: 1;
+      }
+      .hero1 {
+        text-align: center;
+        margin-bottom: 46px;
+      }
+      .hero1-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 16px;
+        border-radius: 999px;
+        margin-bottom: 22px;
+        border: 1px solid var(--line);
+        background: linear-gradient(
+          135deg,
+          var(--moss-soft),
+          var(--amber-soft)
+        );
+        color: var(--moss);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .hero1 h1 {
+        font-family: var(--display);
+        font-size: clamp(38px, 7vw, 68px);
+        line-height: 0.98;
+        letter-spacing: -0.04em;
+        margin-bottom: 18px;
+      }
+      .hero1 h1 .line1 {
+        display: block;
+        color: #ffffff;
+      }
+      .hero1 h1 .line2 {
+        display: block;
+        background: linear-gradient(135deg, var(--amber) 0%, var(--moss) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .hero1 p {
+        max-width: 760px;
+        margin: 0 auto 20px;
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.78;
+      }
+      .hero1-chips {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+      .hero1-chips span {
+        padding: 7px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+        color: #d8e1d2;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.18fr) minmax(280px, 0.82fr);
+        gap: 18px;
+        align-items: start;
+      }
+      .panel {
+        background: linear-gradient(
+          180deg,
+          rgba(20, 25, 20, 0.96),
+          rgba(11, 16, 12, 0.98)
+        );
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+      }
+      .form-card {
+        padding: 30px;
+        position: relative;
+        overflow: hidden;
+      }
+      .form-card::before {
+        content: "";
+        position: absolute;
+        right: -40px;
+        top: -40px;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(141, 197, 108, 0.14),
+          transparent 68%
+        );
+        pointer-events: none;
+      }
+      .form-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 22px;
+      }
+      .form-head h2,
+      .results-title,
+      .sec-title,
+      .side-card h2,
+      .name-text {
+        font-family: var(--display);
+        letter-spacing: -0.03em;
+      }
+      .form-head h2 {
+        font-size: 32px;
+        margin-bottom: 8px;
+      }
+      .form-head p {
+        max-width: 560px;
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 14px;
+      }
+      .tip-box {
+        flex-shrink: 0;
+        max-width: 220px;
+        padding: 10px 12px;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+        color: #e4ebdf;
+        font-size: 12px;
+        line-height: 1.55;
+      }
+      .mode-tabs {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px;
+        margin-bottom: 18px;
+      }
+      .mode-tab {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 11px 10px;
+        background: var(--surface-2);
+        color: var(--muted);
+        font-family: var(--body);
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          border-color 0.18s,
+          color 0.18s,
+          background 0.18s;
+        text-align: center;
+      }
+      .mode-tab:hover {
+        color: var(--amber);
+        border-color: var(--amber);
+      }
+      .mode-tab.active {
+        color: #10140f;
+        border-color: var(--moss);
+        background: linear-gradient(135deg, var(--moss) 0%, var(--amber) 100%);
+      }
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .full {
+        grid-column: 1/-1;
+      }
+      .field label {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--muted);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .req {
+        color: var(--amber);
+      }
+      input[type="text"],
+      textarea,
+      select {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text);
+        font: inherit;
+        font-size: 14px;
+        padding: 13px 14px;
+        outline: none;
+        transition:
+          border-color 0.18s,
+          box-shadow 0.18s,
+          background 0.18s;
+      }
+      input[type="text"]::placeholder,
+      textarea::placeholder {
+        color: #677062;
+      }
+      input[type="text"]:focus,
+      textarea:focus,
+      select:focus {
+        border-color: var(--moss);
+        box-shadow: 0 0 0 3px rgba(141, 197, 108, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+      }
+      textarea {
+        min-height: 100px;
+        resize: vertical;
+        line-height: 1.7;
+      }
+      select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2396a18d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 14px center;
+        padding-right: 40px;
+      }
+      .slider-wrap {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      input[type="range"] {
+        flex: 1;
+        -webkit-appearance: none;
+        height: 5px;
+        border-radius: 999px;
+        background: linear-gradient(
+          to right,
+          var(--amber) 0%,
+          var(--amber) var(--pct, 50%),
+          rgba(255, 255, 255, 0.1) var(--pct, 50%),
+          rgba(255, 255, 255, 0.1) 100%
+        );
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--moss);
+        box-shadow: 0 0 0 4px rgba(141, 197, 108, 0.16);
+        cursor: pointer;
+      }
+      .slider-val {
+        min-width: 24px;
+        text-align: right;
+        font-weight: 700;
+        color: var(--amber);
+      }
+      .btn-generate {
+        width: 100%;
+        margin-top: 20px;
+        border: none;
+        border-radius: 16px;
+        padding: 16px 24px;
+        background: linear-gradient(
+          135deg,
+          var(--moss) 0%,
+          #b8d477 40%,
+          var(--amber) 100%
+        );
+        color: #12170f;
+        font-family: var(--display);
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        cursor: pointer;
+        transition:
+          transform 0.18s,
+          box-shadow 0.18s,
+          opacity 0.18s;
+        box-shadow: 0 18px 46px rgba(141, 197, 108, 0.16);
+      }
+      .btn-generate:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 22px 52px rgba(141, 197, 108, 0.22);
+      }
+      .btn-generate:disabled {
+        opacity: 0.55;
+        cursor: progress;
+        transform: none;
+      }
+      .loading-wrap {
+        display: none;
+        align-items: center;
+        gap: 12px;
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .loading-wrap.show {
+        display: flex;
+      }
+      .loading-dots {
+        display: flex;
+        gap: 8px;
+      }
+      .loading-dots span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--amber);
+        animation: bounce 1.1s ease-in-out infinite;
+      }
+      .loading-dots span:nth-child(2) {
+        animation-delay: 0.15s;
+        background: var(--moss);
+      }
+      .loading-dots span:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+          opacity: 0.45;
+        }
+        50% {
+          transform: translateY(-6px);
+          opacity: 1;
+        }
+      }
+      .err-box {
+        display: none;
+        margin-top: 16px;
+        padding: 14px 16px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 120, 120, 0.24);
+        background: rgba(255, 80, 80, 0.1);
+        color: #ffb9b9;
+        line-height: 1.6;
+        font-size: 14px;
+      }
+      .err-box.show {
+        display: block;
+      }
+      .results {
+        display: none;
+        margin-top: 24px;
+      }
+      .results.show {
+        display: block;
+      }
+      .results-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+      .results-title {
+        font-size: 28px;
+      }
+      .results-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .ghost-btn {
+        border: 1px solid var(--line-strong);
+        background: transparent;
+        color: var(--muted);
+        border-radius: 999px;
+        padding: 9px 14px;
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          border-color 0.18s,
+          color 0.18s,
+          background 0.18s;
+      }
+      .ghost-btn:hover {
+        color: var(--amber);
+        border-color: var(--amber);
+        background: var(--amber-soft);
+      }
+      .name-cards {
+        display: grid;
+        gap: 12px;
+      }
+      .name-card {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 20px;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: linear-gradient(
+          180deg,
+          rgba(27, 36, 28, 0.95),
+          rgba(13, 18, 14, 0.98)
+        );
+        position: relative;
+        overflow: hidden;
+      }
+      .name-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(180deg, var(--moss), var(--amber));
+      }
+      .name-left {
+        flex: 1;
+        min-width: 0;
+        padding-left: 12px;
+      }
+      .name-index {
+        color: var(--amber);
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-bottom: 6px;
+      }
+      .name-text {
+        font-size: 28px;
+        color: #ffffff;
+        word-break: break-word;
+      }
+      .name-desc {
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.65;
+      }
+      .copy-btn {
+        flex-shrink: 0;
+        border: 1px solid var(--line-strong);
+        background: transparent;
+        color: var(--muted);
+        border-radius: 10px;
+        padding: 9px 14px;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          border-color 0.18s,
+          color 0.18s,
+          background 0.18s;
+      }
+      .copy-btn:hover {
+        color: var(--amber);
+        border-color: var(--amber);
+        background: var(--amber-soft);
+      }
+      .copy-btn.copied {
+        color: #7ce4ab;
+        border-color: rgba(124, 228, 171, 0.35);
+        background: rgba(124, 228, 171, 0.1);
+      }
+      .side-card {
+        padding: 24px;
+      }
+      .side-card h2 {
+        font-size: 30px;
+        margin-bottom: 10px;
+      }
+      .side-card p {
+        color: var(--muted);
+        line-height: 1.72;
+        font-size: 14px;
+      }
+      .stack {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .mini-card {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .mini-card h3 {
+        color: #ffffff;
+        font-size: 14px;
+        margin-bottom: 6px;
+      }
+      .mini-card p {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .sec {
+        margin-top: 72px;
+      }
+      .sec-title {
+        font-size: clamp(28px, 4vw, 42px);
+        margin-bottom: 10px;
+      }
+      .sec-sub {
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.75;
+        margin-bottom: 28px;
+      }
+      .cards-2,
+      .cards-3 {
+        display: grid;
+        gap: 14px;
+      }
+      .cards-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .cards-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .content-card {
+        background: linear-gradient(
+          180deg,
+          rgba(20, 25, 20, 0.96),
+          rgba(11, 16, 12, 0.98)
+        );
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 22px 18px;
+      }
+      .content-card h3 {
+        color: #ffffff;
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+      .content-card p {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      .example-tag {
+        display: inline-flex;
+        margin-bottom: 10px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--moss-soft);
+        color: var(--moss);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .faq-list {
+        display: grid;
+        gap: 10px;
+      }
+      .faq-item {
+        background: linear-gradient(
+          180deg,
+          rgba(20, 25, 20, 0.96),
+          rgba(11, 16, 12, 0.98)
+        );
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        overflow: hidden;
+      }
+      .faq-q {
+        width: 100%;
+        border: none;
+        background: none;
+        color: var(--text);
+        text-align: left;
+        padding: 18px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        cursor: pointer;
+        font: inherit;
+        font-weight: 700;
+      }
+      .faq-icon {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--muted);
+        transition:
+          transform 0.18s,
+          background 0.18s,
+          color 0.18s;
+      }
+      .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 20px;
+        color: var(--muted);
+        line-height: 1.78;
+        transition:
+          max-height 0.28s ease,
+          padding 0.22s ease;
+      }
+      .faq-item.open .faq-a {
+        max-height: 240px;
+        padding: 0 20px 18px;
+      }
+      .faq-item.open .faq-icon {
+        transform: rotate(45deg);
+        background: var(--moss-soft);
+        color: var(--moss);
+      }
+      .site-footer {
+        margin: 72px 24px 0;
+        padding-top: 24px;
+        border-top: 1px solid var(--line);
+        text-align: center;
+        color: #5c6858;
+        font-size: 13px;
+      }
+      .site-footer a {
+        color: #7b8676;
+        text-decoration: none;
+      }
+      .site-footer a:hover {
+        color: var(--muted);
+      }
+      .toast {
+        position: fixed;
+        left: 50%;
+        bottom: 24px;
+        transform: translateX(-50%) translateY(80px);
+        padding: 10px 18px;
+        border-radius: 999px;
+        border: 1px solid var(--line-strong);
+        background: rgba(11, 16, 12, 0.96);
+        color: #ffffff;
+        font-size: 14px;
+        opacity: 0;
+        transition:
+          opacity 0.22s,
+          transform 0.22s;
+        pointer-events: none;
+        z-index: 999;
+      }
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+      @media (max-width: 960px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+        .mode-tabs {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media (max-width: 680px) {
+        .page {
+          padding: 40px 16px 64px;
+        }
+        .top-nav {
+          padding: 0 16px;
+        }
+        .nav-inner {
+          height: auto;
+          padding: 12px 0;
+          align-items: flex-start;
+          flex-direction: column;
+        }
+        .form-card,
+        .side-card {
+          padding: 22px 18px;
+        }
+        .form-grid,
+        .cards-2,
+        .cards-3,
+        .mode-tabs {
+          grid-template-columns: 1fr;
+        }
+        .form-head,
+        .results-bar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .results-actions {
+          width: 100%;
+        }
+        .ghost-btn {
+          flex: 1;
+        }
+        .name-card {
+          flex-direction: column;
+        }
+        .copy-btn,
+        .btn-generate,
+        .home-btn {
+          width: 100%;
+        }
+      }
+      /* Hero Section - Inspired by paint.png */
+      .hero {
+        background: rgba(248, 250, 255, 0.98); /* Near-white blue tint */
+        border: 1px solid rgba(255, 255, 255, 1);
+        border-radius: 32px; /* Large rounded corners from paint.png */
+        padding: 80px 40px;
+        text-align: center;
+        margin: 40px auto;
+        max-width: 880px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        position: relative;
+        z-index: 10;
+      }
+
+      .hero h1 {
+        font-family: var(--font-display);
+        color: #0f172a; /* Deep navy/charcoal for clarity */
+        font-size: clamp(28px, 5vw, 42px);
+        font-weight: 700;
+        margin-bottom: 20px;
+        background: none; /* Remove previous gradients */
+        -webkit-text-fill-color: initial;
+      }
+
+      .hero p {
+        font-family: var(--font-body);
+        color: #64748b; /* Soft slate gray */
+        font-size: 18px;
+        max-width: 600px;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+      }
+
+      /* The blue pill button from paint.png */
+      .hero .cta {
+        display: inline-block;
+        text-decoration: none;
+        background: #4f46e5; /* Vibrant indigo/blue */
+        color: #ffffff !important;
+        padding: 16px 44px;
+        border-radius: 50px; /* Pill shape */
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 16px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        border: none;
+      }
+
+      .hero .cta:hover {
+        background: #4338ca;
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(79, 70, 229, 0.4);
+      }
+
+      /* Ensure mobile looks good */
+      @media (max-width: 640px) {
+        .hero {
+          padding: 40px 20px;
+          margin: 20px 16px;
+          border-radius: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toast" id="toast"></div>
+
+    <nav class="top-nav" aria-label="Site navigation">
+      <div class="nav-inner">
+        <a
+          href="https://moviesearch.online"
+          class="home-btn"
+          title="Back to MovieSearch Home"
+          aria-label="Go to moviesearch.online home"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M3 10.5 12 3l9 7.5" />
+            <path d="M5 9.5V21h14V9.5" />
+            <path d="M10 21v-6h4v6" />
+          </svg>
+          Home
+        </a>
+        <nav class="nav-bc" aria-label="Breadcrumb">
+          <a href="https://moviesearch.online">moviesearch.online</a>
+          <span class="sep">></span>
+          <span>Warrior Cats Name Generator</span>
+        </nav>
+      </div>
+    </nav>
+
+    <main class="page" id="main">
+      <section class="hero1" aria-labelledby="hero1-h1">
+        <div class="hero1-badge">Forest Name Ideas</div>
+        <h1 id="hero1-h1">
+          <span class="line1">Warrior Cats Name</span>
+          <span class="line2">Generator</span>
+        </h1>
+        <p>
+          Use this Warrior Cats name generator to create random names for
+          Warrior Cats characters with AI. It works as a warrior cats name maker
+          and warrior cat name maker for original characters, clan roleplay,
+          suffix ideas, and random warrior cat name generator prompts when you
+          need names that feel natural in that world.
+        </p>
+        <div class="hero1-chips">
+          <span>Warrior Cats Name Maker</span>
+          <span>Unique Name Ideas</span>
+          <span>Suffix Generator</span>
+          <span>Leader and Medicine Cat Names</span>
+          <span>Random Warrior Cat Names</span>
+        </div>
+      </section>
+
+      <section class="layout" aria-label="Warrior Cats name generator tool">
+        <div class="panel form-card">
+          <div class="form-head">
+            <div>
+              <h2>Generate Warrior Cats Style Names</h2>
+              <p>
+                Pick the kind of cat name you want, describe the cat or the
+                naming theme, and get ideas that sound more fitting for clan
+                characters than generic fantasy name lists.
+              </p>
+            </div>
+            <div class="tip-box">
+              Tip: adding coat color, personality, habitat, or clan role usually
+              gives the warrior cat name generator more distinctive results.
+            </div>
+          </div>
+
+          <div
+            class="mode-tabs"
+            role="group"
+            aria-label="Warrior Cats naming mode"
+          >
+            <button class="mode-tab active" data-mode="warrior" type="button">
+              Warrior
+            </button>
+            <button class="mode-tab" data-mode="leader" type="button">
+              Leader
+            </button>
+            <button class="mode-tab" data-mode="medicine" type="button">
+              Medicine Cat
+            </button>
+            <button class="mode-tab" data-mode="apprentice" type="button">
+              Apprentice
+            </button>
+            <button class="mode-tab" data-mode="suffix" type="button">
+              Suffix Ideas
+            </button>
+          </div>
+
+          <div class="form-grid">
+            <div class="field full">
+              <label for="mainInput" id="mainLabel"
+                >Cat Description or Theme <span class="req">*</span></label
+              >
+              <input
+                type="text"
+                id="mainInput"
+                placeholder="e.g. silver she-cat with calm patience and sharp hearing"
+              />
+            </div>
+
+            <div class="field">
+              <label for="clan">Clan or Environment</label>
+              <select id="clan">
+                <option value="forest clan">Forest Clan</option>
+                <option value="river clan">River Clan</option>
+                <option value="moor clan">Moor Clan</option>
+                <option value="shadowy marsh clan">Shadowy Marsh Clan</option>
+                <option value="mountain tribe">Mountain Tribe</option>
+                <option value="rogue or loner">Rogue or Loner</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="style">Naming Style</label>
+              <select id="style">
+                <option value="classic">Classic and Natural</option>
+                <option value="gentle">Gentle</option>
+                <option value="fierce">Fierce</option>
+                <option value="mysterious">Mysterious</option>
+                <option value="noble">Noble</option>
+                <option value="unusual">Unusual but Believable</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="length">Name Length</label>
+              <select id="length">
+                <option value="short">Short</option>
+                <option value="medium" selected>Medium</option>
+                <option value="long">Long</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="language">Language</label>
+              <select id="language">
+                <option value="en" selected>English</option>
+                <option value="es">Spanish</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="pt">Portuguese</option>
+                <option value="ja">Japanese</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="extras">Extra Details</label>
+              <textarea
+                id="extras"
+                placeholder="Add age, rank, personality, coat pattern, favorite terrain, hunting skill, or the kind of feeling you want the name to give off."
+              ></textarea>
+            </div>
+
+            <div class="field full">
+              <label for="avoid">Avoid</label>
+              <input
+                type="text"
+                id="avoid"
+                placeholder="e.g. avoid harsh names, no repetitive bird suffixes, no names too close to my other OC names"
+              />
+            </div>
+
+            <div class="field full">
+              <label for="creativity">Creativity Level</label>
+              <div class="slider-wrap">
+                <input
+                  type="range"
+                  id="creativity"
+                  min="1"
+                  max="10"
+                  value="7"
+                />
+                <span class="slider-val" id="creativityVal">7</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-generate" id="generateBtn">
+            Generate Warrior Cat Names
+          </button>
+
+          <div class="loading-wrap" id="loadingWrap">
+            <div class="loading-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <span id="loadingText">Naming under the trees...</span>
+          </div>
+
+          <div class="err-box" id="errBox"></div>
+
+          <section class="results" id="results" aria-live="polite">
+            <div class="results-bar">
+              <div class="results-title" id="resultsTitle">
+                Generated Warrior Cat Names
+              </div>
+              <div class="results-actions">
+                <button class="ghost-btn" id="copyAllBtn" type="button">
+                  Copy All
+                </button>
+                <button class="ghost-btn" id="regenBtn" type="button">
+                  Regenerate
+                </button>
+              </div>
+            </div>
+            <div class="name-cards" id="nameCards"></div>
+          </section>
+        </div>
+
+        <aside
+          class="panel side-card"
+          aria-label="Warrior Cats naming guidance"
+        >
+          <h2>What this warrior cats name maker is good at</h2>
+          <p>
+            The strongest results usually come from giving the generator a clear
+            mix of appearance, mood, and role. That helps it return names that
+            feel more like individual cats and less like random word pairs.
+          </p>
+
+          <div class="stack">
+            <div class="mini-card">
+              <h3>Original characters</h3>
+              <p>
+                Generate names for warriors, leaders, apprentices, and healers
+                when you are building new OCs for roleplay or stories.
+              </p>
+            </div>
+            <div class="mini-card">
+              <h3>Suffix help</h3>
+              <p>
+                Use the warrior cat suffix generator mode when you already know
+                the prefix and only need the right ending.
+              </p>
+            </div>
+            <div class="mini-card">
+              <h3>Random inspiration</h3>
+              <p>
+                The random warrior cat name generator use case works well when
+                you want several name directions quickly and plan to choose or
+                remix the best one.
+              </p>
+            </div>
+          </div>
+        </aside>
+      </section>
+      <div id="hero-container"></div>
+      <section class="sec" aria-labelledby="intro-h2">
+        <h2 class="sec-title" id="intro-h2">
+          A Warrior Cat Name Generator That Still Sounds Natural
+        </h2>
+        <p class="sec-sub">
+          A useful warrior cat name generator should do more than combine two
+          nature words. It should help you land on names that feel like they
+          match the cat's role, temperament, and place in the clan.
+        </p>
+        <p class="sec-sub">
+          Whether you are looking for a warrior cats name generator unique
+          enough for a main OC, a warrior cat suffix generator for the final
+          touch, or a cat name generator warriors fans can use for quick ideas,
+          this tool is built to keep the names readable and setting-friendly.
+        </p>
+      </section>
+
+      <section class="sec" aria-labelledby="examples-h2">
+        <h2 class="sec-title" id="examples-h2">
+          What Kind of Warrior Cats Names Can You Generate?
+        </h2>
+        <p class="sec-sub">
+          This random warrior cat name generator can shift depending on the rank
+          or naming problem you need to solve.
+        </p>
+        <div class="cards-2">
+          <div class="content-card">
+            <span class="example-tag">Warrior</span>
+            <h3>Balanced warrior names</h3>
+            <p>
+              Generate names that feel grounded in the natural naming style many
+              readers look for when building original clan cats.
+            </p>
+          </div>
+          <div class="content-card">
+            <span class="example-tag">Leader</span>
+            <h3>More commanding title ideas</h3>
+            <p>
+              Leader mode helps create names with a steadier, more authoritative
+              feel for cats at the top of the clan.
+            </p>
+          </div>
+          <div class="content-card">
+            <span class="example-tag">Medicine Cat</span>
+            <h3>Gentler or wiser names</h3>
+            <p>
+              Use this mode when you want names that feel observant, calm,
+              spiritual, or tied to herbs and healing.
+            </p>
+          </div>
+          <div class="content-card">
+            <span class="example-tag">Suffix</span>
+            <h3>Better endings for a known prefix</h3>
+            <p>
+              The warrior cat suffix generator mode focuses on finishing a name
+              cleanly when you already have the first half.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec" aria-labelledby="why-h2">
+        <h2 class="sec-title" id="why-h2">
+          Why People Use a Warrior Cat Name Maker
+        </h2>
+        <p class="sec-sub">
+          Names are often what makes an OC feel real for the first time. When
+          the name clicks, the cat's personality, role, and story usually become
+          easier to picture too.
+        </p>
+        <div class="cards-3">
+          <div class="content-card">
+            <h3>Faster character creation</h3>
+            <p>
+              Instead of getting stuck on the first decision, you can generate
+              several fitting options and keep building the character.
+            </p>
+          </div>
+          <div class="content-card">
+            <h3>Better suffix choices</h3>
+            <p>
+              The suffix-focused mode helps when a prefix already feels right
+              but the ending still sounds off or too common.
+            </p>
+          </div>
+          <div class="content-card">
+            <h3>More variety</h3>
+            <p>
+              A warrior cats name maker can give you softer, fiercer, rarer, or
+              more classic directions without starting over each time.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec" aria-labelledby="use-h2">
+        <h2 class="sec-title" id="use-h2">
+          Who Is This Cat Name Generator Warriors Tool For?
+        </h2>
+        <p class="sec-sub">
+          It is helpful for anyone making clan-based characters, story casts, or
+          roleplay cats and wanting names that feel more polished.
+        </p>
+        <div class="cards-3">
+          <div class="content-card">
+            <h3>Fan writers</h3>
+            <p>
+              Writers who need names for main cats, side characters, or entire
+              clans without spending all their time on naming alone.
+            </p>
+          </div>
+          <div class="content-card">
+            <h3>Roleplay players</h3>
+            <p>
+              People building OCs for forums, games, or group roleplay who want
+              faster but still fitting name ideas.
+            </p>
+          </div>
+          <div class="content-card">
+            <h3>Character designers</h3>
+            <p>
+              Anyone sketching personalities, family trees, or clan ranks who
+              wants names that support the cat's identity early on.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec" aria-labelledby="faq-h2">
+        <h2 class="sec-title" id="faq-h2">Frequently Asked Questions</h2>
+        <p class="sec-sub">
+          Quick answers about using this Warrior Cats name generator.
+        </p>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>How does this Warrior Cats name generator work?</span
+              ><span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Choose the kind of name you want, such as a warrior, leader,
+                medicine cat, apprentice, or suffix idea, then add a short theme
+                or character description. The tool uses AI to generate five
+                Warrior Cats-style names with short explanations so you can
+                quickly pick the one that fits best.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span
+                >Can I use this warrior cats name maker for unique character
+                ideas?</span
+              ><span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Yes. This warrior cats name maker works well for original
+                characters, roleplay cats, fan fiction, and clan world-building.
+                Adding coat color, personality, rank, or habitat usually helps
+                the generator return more distinct names.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>What makes a good warrior cat suffix generator useful?</span
+              ><span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                A useful warrior cat suffix generator gives you endings that
+                sound natural beside the prefix and still match the cat's role,
+                personality, or appearance. It helps when you already like the
+                first half of a name but need a better ending.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span
+                >Can this random warrior cat name generator make leader and
+                medicine cat names too?</span
+              ><span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Yes. The different modes are designed for warriors, leaders,
+                medicine cats, apprentices, and suffix ideas. That makes it
+                easier to get names that fit the tone and rank you actually
+                need.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>Are the generated Warrior Cats names ready to use?</span
+              ><span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                They are meant to be strong starting points you can use, tweak,
+                or combine. If you want a name to feel even more personal,
+                generate a few sets and mix the prefixes, suffixes, or themes
+                you like most.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        <a href="https://moviesearch.online">moviesearch.online</a>
+        &nbsp;|&nbsp;
+        <a href="https://moviesearch.online/tools/warrior-cats-name-generator"
+          >Warrior Cats Name Generator</a
+        >
+      </p>
+    </footer>
+
+    <script>
+      const modeConfig = {
+        warrior: {
+          label: "Generate Warrior Cat Names",
+          results: "Generated Warrior Cat Names",
+          loading: "Naming under the trees...",
+          mainLabel: "Cat Description or Theme",
+          placeholder:
+            "e.g. silver she-cat with calm patience and sharp hearing",
+          prompt: (main, clan, style, length, extras, avoid) =>
+            [
+              `Give me 5 unique and creative Warrior Cats style names for this cat: ${main}.`,
+              `Clan or environment: ${clan}.`,
+              `Naming style: ${style}.`,
+              `Preferred length: ${length}.`,
+              extras ? `Extra details: ${extras}.` : "",
+              avoid ? `Avoid: ${avoid}.` : "",
+              "Names should sound natural, clan-friendly, and believable for a Warrior Cats style setting.",
+              "For each result provide a 1-sentence explanation.",
+              "Format exactly as: [Name] - [Explanation].",
+            ]
+              .filter(Boolean)
+              .join(" "),
+        },
+        leader: {
+          label: "Generate Leader Names",
+          results: "Generated Leader Names",
+          loading: "Calling the clan together...",
+          mainLabel: "Leader Description or Theme",
+          placeholder:
+            "e.g. scarred tom with steady authority and storm imagery",
+          prompt: (main, clan, style, length, extras, avoid) =>
+            [
+              `Give me 5 unique and creative Warrior Cats style leader names for this cat: ${main}.`,
+              `Clan or environment: ${clan}.`,
+              `Naming style: ${style}.`,
+              `Preferred length: ${length}.`,
+              extras ? `Extra details: ${extras}.` : "",
+              avoid ? `Avoid: ${avoid}.` : "",
+              "Leader names should feel strong, natural, and fitting for a clan leader.",
+              "For each result provide a 1-sentence explanation.",
+              "Format exactly as: [Name] - [Explanation].",
+            ]
+              .filter(Boolean)
+              .join(" "),
+        },
+        medicine: {
+          label: "Generate Medicine Cat Names",
+          results: "Generated Medicine Cat Names",
+          loading: "Gathering herbs and omens...",
+          mainLabel: "Medicine Cat Description or Theme",
+          placeholder:
+            "e.g. quiet tabby healer with moonlit and herb-based imagery",
+          prompt: (main, clan, style, length, extras, avoid) =>
+            [
+              `Give me 5 unique and creative Warrior Cats style medicine cat names for this cat: ${main}.`,
+              `Clan or environment: ${clan}.`,
+              `Naming style: ${style}.`,
+              `Preferred length: ${length}.`,
+              extras ? `Extra details: ${extras}.` : "",
+              avoid ? `Avoid: ${avoid}.` : "",
+              "Names should feel wise, natural, and suited to a healer or spiritual role.",
+              "For each result provide a 1-sentence explanation.",
+              "Format exactly as: [Name] - [Explanation].",
+            ]
+              .filter(Boolean)
+              .join(" "),
+        },
+        apprentice: {
+          label: "Generate Apprentice Names",
+          results: "Generated Apprentice Names",
+          loading: "Training in the undergrowth...",
+          mainLabel: "Apprentice Description or Theme",
+          placeholder:
+            "e.g. eager black tom with quick paws and reckless courage",
+          prompt: (main, clan, style, length, extras, avoid) =>
+            [
+              `Give me 5 unique and creative Warrior Cats style apprentice names for this cat: ${main}.`,
+              `Clan or environment: ${clan}.`,
+              `Naming style: ${style}.`,
+              `Preferred length: ${length}.`,
+              extras ? `Extra details: ${extras}.` : "",
+              avoid ? `Avoid: ${avoid}.` : "",
+              "Names should feel youthful, natural, and appropriate for an apprentice rank.",
+              "For each result provide a 1-sentence explanation.",
+              "Format exactly as: [Name] - [Explanation].",
+            ]
+              .filter(Boolean)
+              .join(" "),
+        },
+        suffix: {
+          label: "Generate Suffix Ideas",
+          results: "Generated Suffix Ideas",
+          loading: "Searching for the right ending...",
+          mainLabel: "Prefix or Name Theme",
+          placeholder:
+            "e.g. prefix Frost, prefix Ember, swift hunter, patient river swimmer",
+          prompt: (main, clan, style, length, extras, avoid) =>
+            [
+              `Give me 5 unique and creative Warrior Cats style suffix-based name ideas for this prompt: ${main}.`,
+              `Clan or environment: ${clan}.`,
+              `Naming style: ${style}.`,
+              `Preferred length: ${length}.`,
+              extras ? `Extra details: ${extras}.` : "",
+              avoid ? `Avoid: ${avoid}.` : "",
+              "Focus on suffix choices that sound natural and fit the prefix or character concept well.",
+              "If a prefix is provided, keep it and suggest full names built around better suffixes.",
+              "For each result provide a 1-sentence explanation.",
+              "Format exactly as: [Name] - [Explanation].",
+            ]
+              .filter(Boolean)
+              .join(" "),
+        },
+      };
+
+      let currentMode = "warrior";
+
+      const mainInput = document.getElementById("mainInput");
+      const mainLabel = document.getElementById("mainLabel");
+      const clanEl = document.getElementById("clan");
+      const styleEl = document.getElementById("style");
+      const lengthEl = document.getElementById("length");
+      const languageEl = document.getElementById("language");
+      const extrasEl = document.getElementById("extras");
+      const avoidEl = document.getElementById("avoid");
+      const slider = document.getElementById("creativity");
+      const sliderVal = document.getElementById("creativityVal");
+      const generateBtn = document.getElementById("generateBtn");
+      const regenBtn = document.getElementById("regenBtn");
+      const copyAllBtn = document.getElementById("copyAllBtn");
+      const loadingWrap = document.getElementById("loadingWrap");
+      const loadingText = document.getElementById("loadingText");
+      const errBox = document.getElementById("errBox");
+      const results = document.getElementById("results");
+      const resultsTitle = document.getElementById("resultsTitle");
+      const nameCards = document.getElementById("nameCards");
+      const toast = document.getElementById("toast");
+
+      function updateSlider() {
+        const pct =
+          ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
+        slider.style.setProperty("--pct", pct + "%");
+        sliderVal.textContent = slider.value;
+      }
+
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2200);
+      }
+
+      function showErr(message) {
+        errBox.textContent = message;
+        errBox.classList.add("show");
+      }
+
+      function hideErr() {
+        errBox.textContent = "";
+        errBox.classList.remove("show");
+      }
+
+      function showLoading() {
+        loadingText.textContent = modeConfig[currentMode].loading;
+        loadingWrap.classList.add("show");
+      }
+
+      function hideLoading() {
+        loadingWrap.classList.remove("show");
+      }
+
+      function hideResults() {
+        results.classList.remove("show");
+        nameCards.innerHTML = "";
+      }
+
+      function escHtml(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function applyMode(mode) {
+        currentMode = mode;
+        const cfg = modeConfig[mode];
+        mainLabel.innerHTML = `${cfg.mainLabel} <span class="req">*</span>`;
+        mainInput.placeholder = cfg.placeholder;
+        generateBtn.textContent = cfg.label;
+        resultsTitle.textContent = cfg.results;
+        hideErr();
+        hideResults();
+      }
+
+      function parseNames(text) {
+        const lines = String(text || "")
+          .split(/\n+/)
+          .map((line) => line.trim())
+          .filter(Boolean);
+        const items = [];
+
+        for (const line of lines) {
+          let clean = line
+            .replace(/^[\d]+[\.\):\-\s]+/, "")
+            .replace(/^\*+\s*/, "")
+            .replace(/^-+\s*/, "")
+            .trim();
+
+          const match = clean.match(/^(.+?)\s*[-:]\s*(.+)$/);
+          if (match) {
+            items.push({ name: match[1].trim(), desc: match[2].trim() });
+          } else if (clean.length > 1 && clean.length < 120) {
+            items.push({ name: clean, desc: "" });
+          }
+
+          if (items.length >= 5) break;
+        }
+
+        return items;
+      }
+
+      function renderNames(items) {
+        if (!items.length) {
+          showErr("No names could be parsed. Please try again.");
+          return;
+        }
+
+        nameCards.innerHTML = items
+          .map(
+            (item, index) => `
+    <div class="name-card">
+      <div class="name-left">
+        <div class="name-index">Name ${index + 1}</div>
+        <div class="name-text">${escHtml(item.name)}</div>
+        ${item.desc ? `<div class="name-desc">${escHtml(item.desc)}</div>` : ""}
+      </div>
+      <button class="copy-btn" data-copy-name="${escHtml(item.name)}">Copy</button>
+    </div>
+  `,
+          )
+          .join("");
+
+        resultsTitle.textContent = modeConfig[currentMode].results;
+        results.classList.add("show");
+        results.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      function getAllNamesText() {
+        return Array.from(document.querySelectorAll(".name-card"))
+          .map((card) => {
+            const name =
+              card.querySelector(".name-text")?.textContent?.trim() || "";
+            const desc =
+              card.querySelector(".name-desc")?.textContent?.trim() || "";
+            return desc ? `${name} - ${desc}` : name;
+          })
+          .filter(Boolean)
+          .join("\n");
+      }
+
+      async function generate() {
+        const main = mainInput.value.trim();
+        if (!main) {
+          showErr(
+            `Please enter a ${modeConfig[currentMode].mainLabel.toLowerCase()}.`,
+          );
+          return;
+        }
+
+        hideErr();
+        hideResults();
+        showLoading();
+        generateBtn.disabled = true;
+        generateBtn.textContent = "Generating...";
+
+        try {
+          const prompt = modeConfig[currentMode].prompt(
+            main,
+            clanEl.value,
+            styleEl.value,
+            lengthEl.value,
+            extrasEl.value.trim(),
+            avoidEl.value.trim(),
+          );
+
+          const response = await fetch(
+            "https://api.coursesity.com/api/ai-tool/generate-content",
+            {
+              method: "POST",
+              headers: {
+                accept: "application/json, text/plain, */*",
+                "content-type": "application/json",
+                origin: "https://www.moviesearch.online",
+                referer: "https://www.moviesearch.online/",
+              },
+              body: JSON.stringify({
+                toolType: "tv-show-name-generator",
+                prompt,
+                style: styleEl.value,
+                language: languageEl.value,
+                creativityLevel: parseInt(slider.value, 10),
+              }),
+            },
+          );
+
+          if (!response.ok) {
+            throw new Error(
+              "API error " + response.status + ". Please try again.",
+            );
+          }
+
+          const data = await response.json();
+
+          // So you must use 'data' here, not 'responseJson'
+          const raw = data?.data?.content || data?.content || "";
+
+          if (!raw) {
+            throw new Error("No names were returned. Please try again.");
+          }
+
+          renderNames(parseNames(raw));
+        } catch (error) {
+          showErr(
+            error.message || "Something went wrong while generating names.",
+          );
+        } finally {
+          hideLoading();
+          generateBtn.disabled = false;
+          generateBtn.textContent = modeConfig[currentMode].label;
+        }
+      }
+
+      document.querySelectorAll(".mode-tab").forEach((button) => {
+        button.addEventListener("click", () => {
+          document
+            .querySelectorAll(".mode-tab")
+            .forEach((tab) => tab.classList.remove("active"));
+          button.classList.add("active");
+          applyMode(button.dataset.mode);
+        });
+      });
+
+      copyAllBtn.addEventListener("click", () => {
+        const text = getAllNamesText();
+        if (!text) {
+          showToast("Generate names first.");
+          return;
+        }
+        navigator.clipboard
+          .writeText(text)
+          .then(() => showToast("All names copied."));
+      });
+
+      nameCards.addEventListener("click", (event) => {
+        const button = event.target.closest(".copy-btn");
+        if (!button) return;
+        const name = button.getAttribute("data-copy-name") || "";
+        if (!name) return;
+        navigator.clipboard.writeText(name).then(() => {
+          button.textContent = "Copied";
+          button.classList.add("copied");
+          setTimeout(() => {
+            button.textContent = "Copy";
+            button.classList.remove("copied");
+          }, 1800);
+          showToast("Copied: " + name);
+        });
+      });
+
+      generateBtn.addEventListener("click", generate);
+      regenBtn.addEventListener("click", generate);
+      slider.addEventListener("input", updateSlider);
+      updateSlider();
+      applyMode(currentMode);
+
+      document.querySelectorAll(".faq-q").forEach((button) => {
+        button.addEventListener("click", () => {
+          const item = button.closest(".faq-item");
+          const isOpen = item.classList.contains("open");
+          document.querySelectorAll(".faq-item").forEach((entry) => {
+            entry.classList.remove("open");
+            entry
+              .querySelector(".faq-q")
+              .setAttribute("aria-expanded", "false");
+          });
+          if (!isOpen) {
+            item.classList.add("open");
+            button.setAttribute("aria-expanded", "true");
+          }
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../box.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("hero-container").innerHTML = data;
+          });
+      });
+    </script>
+  </body>
+</html>
