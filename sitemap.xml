@@ -11,6 +11,52 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+    <url>
+    <loc>https://www.moviesearch.online/tools/ai-fanfic-generator</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+      <url>
+    <loc>https://www.moviesearch.online/tools/ai-movie-name-generator</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.moviesearch.online/tools/star-wars-name-generator</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.moviesearch.online/tools/dialogue-generator</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.moviesearch.online/tools/ai-game-title-generator</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+    <url>
+    <loc>https://www.moviesearch.online/tools/ai-flirty-text-messages-generator</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  https://www.moviesearch.online/tools/ai-flirty-text-messages-generator
+    <url>
+    <loc>https://www.moviesearch.online/tools/warrior-cats-name-generator</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+      <url>
+    <loc>https://www.moviesearch.online/tools/brainrot-translator</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+      <url>
+    <loc>https://www.moviesearch.online/tools/story-flow</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
   <url>
     <loc>https://www.moviesearch.online/tools/ist-to-est</loc>
     <changefreq>weekly</changefreq>
@@ -89,6 +135,11 @@
   </url>
   <url>
     <loc>https://www.moviesearch.online/tools/apng-to-gif</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+    <url>
+    <loc>https://www.moviesearch.online/tools/superhero-name-generator</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

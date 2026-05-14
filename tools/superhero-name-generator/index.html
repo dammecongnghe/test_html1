@@ -1,0 +1,1807 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Superhero Name Generator Based on Powers | Create Hero & Team Names
+    </title>
+    <meta
+      name="description"
+      content="Use our superhero name generator based on powers to create superhero names, hero aliases, and superhero team names that match your character's abilities, style, and story."
+    />
+    <meta name="robots" content="index,follow" />
+    <link
+      rel="canonical"
+      href="https://moviesearch.online/tools/superhero-name-generator"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does this superhero name generator based on powers work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Enter your hero's powers, abilities, or theme, choose a style and language, then generate names. The tool creates multiple superhero name ideas with short explanations so you can quickly find an identity that fits your character."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use it as a name generator for superheroes and teams?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can switch between Hero, Villain, and Team modes. That makes it useful whether you want to create superhero names for one character, build a darker villain alias, or use it as a superhero team name generator."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can this tool help me create superhero names that feel original?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The generator builds names from the details you provide, so the results are tailored to your powers, tone, and backstory instead of coming from a fixed list. If you plan to publish or sell your project, it is still smart to double-check the final name for conflicts."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What makes a good hero name generator based on powers useful?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A useful tool connects the name to the character's abilities, personality, and world. Strong results sound memorable, fit the genre, and give you a fast way to create superhero names that feel natural in comics, games, or stories."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I create superhero team names with this tool too?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Team mode is designed for squads, leagues, and heroic groups. Add the team's mission, shared powers, or overall vibe, and the generator will suggest names that work as a unified identity."
+            }
+          }
+        ]
+      }
+    </script>
+    <style>
+      :root {
+        --gold: #f5c518;
+        --gold-dim: rgba(245, 197, 24, 0.12);
+        --gold-glow: rgba(245, 197, 24, 0.4);
+        --purple: #7c3aed;
+        --purple-bright: #8b5cf6;
+        --purple-dim: rgba(124, 58, 237, 0.15);
+        --bg: #07070f;
+        --surface: #0f0f1e;
+        --surface2: #161628;
+        --surface3: #1e1e35;
+        --border: rgba(255, 255, 255, 0.07);
+        --border-bright: rgba(255, 255, 255, 0.14);
+        --text: #ede8ff;
+        --muted: #7070a0;
+        --white: #ffffff;
+        --font-display: "Syne", sans-serif;
+        --font-body: "DM Sans", sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: var(--font-body);
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* Star field background */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse at 20% 50%,
+            rgba(124, 58, 237, 0.08) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse at 80% 20%,
+            rgba(245, 197, 24, 0.05) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at 50% 100%,
+            rgba(124, 58, 237, 0.06) 0%,
+            transparent 50%
+          );
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* Nav */
+      .top-nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(7, 7, 15, 0.92);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border);
+        padding: 0 24px;
+      }
+      .nav-inner {
+        max-width: 880px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        height: 56px;
+      }
+      .home-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 13px;
+        color: var(--muted);
+        border: 1px solid var(--border-bright);
+        border-radius: 8px;
+        padding: 6px 14px;
+        font-family: var(--font-body);
+        transition:
+          color 0.15s,
+          border-color 0.15s,
+          background 0.15s;
+        white-space: nowrap;
+      }
+      .home-btn:hover {
+        color: var(--gold);
+        border-color: var(--gold);
+        background: var(--gold-dim);
+      }
+      .home-btn svg {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+      }
+      .nav-bc {
+        font-size: 13px;
+        color: #444;
+        font-family: var(--font-body);
+      }
+      .nav-bc a {
+        color: #444;
+        text-decoration: none;
+      }
+      .nav-bc a:hover {
+        color: var(--muted);
+      }
+      .nav-bc .sep {
+        margin: 0 6px;
+      }
+
+      /* Page */
+      .page {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 60px 24px 80px;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Hero */
+      .hero1 {
+        text-align: center;
+        margin-bottom: 52px;
+      }
+      .hero-icon-wrap {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--purple) 0%, var(--gold) 100%);
+        margin-bottom: 24px;
+        box-shadow:
+          0 0 50px var(--gold-glow),
+          0 0 100px rgba(124, 58, 237, 0.3);
+        font-size: 34px;
+        animation: icon-pulse 4s ease-in-out infinite;
+      }
+      @keyframes icon-pulse {
+        0%,
+        100% {
+          box-shadow:
+            0 0 50px var(--gold-glow),
+            0 0 100px rgba(124, 58, 237, 0.3);
+        }
+        50% {
+          box-shadow:
+            0 0 70px rgba(245, 197, 24, 0.6),
+            0 0 140px rgba(124, 58, 237, 0.4);
+        }
+      }
+      .hero h1 {
+        font-family: var(--font-display);
+        font-size: clamp(34px, 6vw, 64px);
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -0.03em;
+        margin-bottom: 16px;
+      }
+      .hero1 h1 .line1 {
+        display: block;
+        background: linear-gradient(135deg, #fff 0%, #bbb 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .hero1 h1 .line2 {
+        display: block;
+        background: linear-gradient(135deg, var(--gold) 0%, #ffa500 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .hero p {
+        font-size: 17px;
+        line-height: 1.7;
+        color: var(--muted);
+        max-width: 560px;
+        margin: 0 auto 20px;
+      }
+      .hero-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+      }
+      .hero-chips span {
+        background: rgba(245, 197, 24, 0.1);
+        color: #c9a80a;
+        border: 1px solid rgba(245, 197, 24, 0.2);
+        border-radius: 20px;
+        padding: 5px 14px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      /* Mode Tabs */
+      .mode-tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 24px;
+      }
+      .mode-tab {
+        flex: 1;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 11px;
+        font-family: var(--font-display);
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+        background: var(--surface2);
+        color: var(--muted);
+        transition: all 0.2s;
+        text-align: center;
+        transform: none;
+        box-shadow: none;
+      }
+      .mode-tab:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+        transform: none;
+      }
+      .mode-tab.active {
+        background: linear-gradient(135deg, var(--purple), #5b21b6);
+        color: #fff;
+        border-color: var(--purple-bright);
+        box-shadow: 0 4px 20px rgba(124, 58, 237, 0.35);
+      }
+
+      /* Form Card */
+      .form-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 32px;
+        position: relative;
+        overflow: hidden;
+      }
+      .form-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
+        opacity: 0.5;
+      }
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        margin-bottom: 20px;
+      }
+      .form-grid .full {
+        grid-column: 1/-1;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .field label {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-family: var(--font-body);
+      }
+      .field label .req {
+        color: var(--gold);
+      }
+      input[type="text"],
+      textarea,
+      select {
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        color: var(--text);
+        font: inherit;
+        font-size: 14px;
+        padding: 12px 14px;
+        outline: none;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+        font-family: var(--font-body);
+      }
+      input[type="text"]::placeholder,
+      textarea::placeholder {
+        color: #3a3a60;
+      }
+      input[type="text"]:focus,
+      textarea:focus,
+      select:focus {
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(245, 197, 24, 0.1);
+      }
+      textarea {
+        min-height: 80px;
+        resize: vertical;
+        line-height: 1.6;
+      }
+      select {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        padding-right: 36px;
+        cursor: pointer;
+      }
+      select option {
+        background: var(--surface2);
+      }
+      .slider-wrap {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      input[type="range"] {
+        flex: 1;
+        -webkit-appearance: none;
+        height: 4px;
+        border-radius: 4px;
+        background: linear-gradient(
+          to right,
+          var(--gold) 0%,
+          var(--gold) var(--pct, 70%),
+          var(--surface2) var(--pct, 70%),
+          var(--surface2) 100%
+        );
+        outline: none;
+        cursor: pointer;
+        border: none;
+        padding: 0;
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--gold);
+        box-shadow: 0 0 12px var(--gold-glow);
+        cursor: pointer;
+        transition: box-shadow 0.2s;
+      }
+      input[type="range"]::-webkit-slider-thumb:hover {
+        box-shadow: 0 0 22px rgba(245, 197, 24, 0.7);
+      }
+      .slider-val {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 18px;
+        color: var(--gold);
+        min-width: 24px;
+        text-align: right;
+      }
+
+      /* Generate Button */
+      .btn-generate {
+        width: 100%;
+        border: none;
+        border-radius: 12px;
+        padding: 16px 28px;
+        font-family: var(--font-display);
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        background: linear-gradient(135deg, var(--purple) 0%, #5b21b6 100%);
+        color: #fff;
+        letter-spacing: -0.01em;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        box-shadow: 0 8px 32px rgba(124, 58, 237, 0.4);
+        margin-top: 8px;
+      }
+      .btn-generate::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(245, 197, 24, 0.15) 0%,
+          transparent 60%
+        );
+        pointer-events: none;
+      }
+      .btn-generate:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 40px rgba(124, 58, 237, 0.6);
+      }
+      .btn-generate:active {
+        transform: translateY(0);
+      }
+      .btn-generate:disabled {
+        opacity: 0.5;
+        cursor: progress;
+        transform: none;
+      }
+
+      /* Loading */
+      .loading-wrap {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        padding: 32px 0 8px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .loading-wrap.show {
+        display: flex;
+      }
+      .loading-orbs {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      .orb {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--gold);
+        animation: orb-pulse 1.2s ease-in-out infinite;
+      }
+      .orb:nth-child(1) {
+        animation-delay: 0s;
+        background: var(--gold);
+      }
+      .orb:nth-child(2) {
+        animation-delay: 0.2s;
+        background: var(--purple-bright);
+      }
+      .orb:nth-child(3) {
+        animation-delay: 0.4s;
+        background: var(--gold);
+      }
+      .orb:nth-child(4) {
+        animation-delay: 0.6s;
+        background: var(--purple-bright);
+      }
+      .orb:nth-child(5) {
+        animation-delay: 0.8s;
+        background: var(--gold);
+      }
+      @keyframes orb-pulse {
+        0%,
+        100% {
+          transform: scale(0.6);
+          opacity: 0.4;
+        }
+        50% {
+          transform: scale(1.4);
+          opacity: 1;
+        }
+      }
+
+      .err-box {
+        display: none;
+        margin-top: 16px;
+        padding: 14px 18px;
+        background: rgba(200, 50, 50, 0.1);
+        border: 1px solid rgba(255, 80, 80, 0.25);
+        border-radius: 10px;
+        font-size: 14px;
+        color: #ff8080;
+        line-height: 1.6;
+      }
+      .err-box.show {
+        display: block;
+      }
+
+      /* Results */
+      .results {
+        display: none;
+        margin-top: 28px;
+      }
+      .results.show {
+        display: block;
+      }
+      .results-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 16px;
+      }
+      .results-title {
+        font-family: var(--font-display);
+        font-size: 18px;
+        font-weight: 800;
+        color: var(--white);
+        letter-spacing: -0.02em;
+      }
+      .regenerate-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--gold);
+        background: var(--gold-dim);
+        border: 1px solid rgba(245, 197, 24, 0.2);
+        border-radius: 8px;
+        padding: 7px 14px;
+        cursor: pointer;
+        font-family: var(--font-body);
+        transition: background 0.15s;
+        box-shadow: none;
+        transform: none;
+      }
+      .regenerate-btn:hover {
+        background: rgba(245, 197, 24, 0.2);
+        transform: none;
+      }
+      .name-cards {
+        display: grid;
+        gap: 10px;
+      }
+      .name-card {
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 18px 20px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+        transition:
+          border-color 0.2s,
+          background 0.2s,
+          transform 0.2s;
+        animation: card-in 0.4s ease both;
+        position: relative;
+        overflow: hidden;
+      }
+      .name-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(180deg, var(--gold), var(--purple));
+        border-radius: 0;
+      }
+      .name-card:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .name-card:nth-child(2) {
+        animation-delay: 0.07s;
+      }
+      .name-card:nth-child(3) {
+        animation-delay: 0.14s;
+      }
+      .name-card:nth-child(4) {
+        animation-delay: 0.21s;
+      }
+      .name-card:nth-child(5) {
+        animation-delay: 0.28s;
+      }
+      @keyframes card-in {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .name-card:hover {
+        border-color: rgba(245, 197, 24, 0.25);
+        background: rgba(245, 197, 24, 0.04);
+        transform: translateX(5px);
+      }
+      .name-card-left {
+        flex: 1;
+        min-width: 0;
+        padding-left: 12px;
+      }
+      .name-index {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-bottom: 5px;
+        opacity: 0.8;
+      }
+      .name-text {
+        font-family: var(--font-display);
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--white);
+        letter-spacing: -0.02em;
+        word-break: break-word;
+      }
+      .name-desc {
+        font-size: 13px;
+        color: var(--muted);
+        margin-top: 6px;
+        line-height: 1.6;
+      }
+      .copy-btn {
+        flex-shrink: 0;
+        border: 1px solid var(--border-bright);
+        background: transparent;
+        border-radius: 8px;
+        padding: 8px 14px;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--muted);
+        cursor: pointer;
+        font-family: var(--font-body);
+        transition: all 0.15s;
+        transform: none;
+        box-shadow: none;
+      }
+      .copy-btn:hover {
+        color: var(--gold);
+        border-color: var(--gold);
+        background: var(--gold-dim);
+        transform: none;
+      }
+      .copy-btn.copied {
+        color: #4ade80;
+        border-color: rgba(74, 222, 128, 0.4);
+        background: rgba(74, 222, 128, 0.08);
+      }
+
+      /* Content Sections */
+      .sec {
+        margin-top: 72px;
+      }
+      .sec-title {
+        font-family: var(--font-display);
+        font-size: clamp(22px, 3.5vw, 32px);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: var(--white);
+        margin-bottom: 10px;
+      }
+      .sec-sub {
+        font-size: 16px;
+        line-height: 1.65;
+        color: var(--muted);
+        margin-bottom: 28px;
+      }
+      .cards-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      .feat-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 22px 18px;
+        transition: border-color 0.2s;
+      }
+      .feat-card:hover {
+        border-color: rgba(245, 197, 24, 0.2);
+      }
+      .feat-icon {
+        font-size: 26px;
+        margin-bottom: 12px;
+      }
+      .feat-card h3 {
+        font-family: var(--font-display);
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 7px;
+      }
+      .feat-card p {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .cards-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .ex-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 18px 20px;
+        position: relative;
+        overflow: hidden;
+      }
+      .ex-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(180deg, var(--gold), var(--purple));
+      }
+      .ex-tag {
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 6px;
+        padding-left: 10px;
+      }
+      .ex-name {
+        font-family: var(--font-display);
+        font-size: 18px;
+        font-weight: 800;
+        color: var(--white);
+        letter-spacing: -0.02em;
+        padding-left: 10px;
+      }
+      .ex-desc {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 4px;
+        line-height: 1.5;
+        padding-left: 10px;
+      }
+
+      /* FAQ */
+      .faq-list {
+        display: grid;
+        gap: 10px;
+      }
+      .faq-item {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        overflow: hidden;
+        transition: border-color 0.2s;
+      }
+      .faq-item.open {
+        border-color: rgba(245, 197, 24, 0.2);
+      }
+      .faq-q {
+        width: 100%;
+        background: none;
+        border: none;
+        border-radius: 0;
+        text-align: left;
+        padding: 18px 20px;
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 14px;
+        transform: none;
+        box-shadow: none;
+        font-family: var(--font-body);
+      }
+      .faq-q:hover {
+        color: var(--white);
+        transform: none;
+      }
+      .faq-icon {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--surface2);
+        color: var(--muted);
+        font-size: 17px;
+        font-weight: 900;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition:
+          transform 0.22s,
+          background 0.22s,
+          color 0.22s;
+      }
+      .faq-item.open .faq-icon {
+        transform: rotate(45deg);
+        background: var(--gold);
+        color: #000;
+      }
+      .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.3s ease,
+          padding 0.22s ease;
+        padding: 0 20px;
+        font-size: 14px;
+        line-height: 1.78;
+        color: var(--muted);
+      }
+      .faq-item.open .faq-a {
+        max-height: 280px;
+        padding: 0 20px 18px;
+      }
+
+      /* Footer */
+      .site-footer {
+        text-align: center;
+        font-size: 13px;
+        color: #333;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+        margin: 72px 24px 0;
+        font-family: var(--font-body);
+        position: relative;
+        z-index: 1;
+      }
+      .site-footer a {
+        color: #555;
+        text-decoration: none;
+      }
+      .site-footer a:hover {
+        color: var(--muted);
+      }
+
+      /* Toast */
+      .toast {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%) translateY(80px);
+        background: var(--surface2);
+        border: 1px solid var(--border-bright);
+        color: var(--white);
+        padding: 10px 22px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 500;
+        opacity: 0;
+        transition:
+          opacity 0.25s,
+          transform 0.25s;
+        pointer-events: none;
+        z-index: 999;
+        font-family: var(--font-body);
+      }
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      @media (max-width: 640px) {
+        .page {
+          padding: 40px 16px 60px;
+        }
+        .form-card {
+          padding: 22px 18px;
+        }
+        .form-grid,
+        .cards-3,
+        .cards-2 {
+          grid-template-columns: 1fr;
+        }
+        .form-grid .full {
+          grid-column: auto;
+        }
+        .mode-tabs {
+          flex-direction: column;
+        }
+        .btn-generate,
+        .home-btn {
+          width: 100%;
+        }
+      }
+      /* Hero CTA Section Styling */
+      .hero-cta {
+        text-align: center;
+        padding: 40px;
+        background: var(--surface);
+        border: 1px solid var(--border-bright);
+        border-radius: 24px;
+        margin-bottom: 40px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
+
+      /* Add a subtle glow behind the box */
+      .hero-cta::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          var(--gold-glow) 0%,
+          transparent 70%
+        );
+        opacity: 0.15;
+        pointer-events: none;
+      }
+
+      .hero-cta h1 {
+        font-family: var(--font-display);
+        font-size: clamp(28px, 5vw, 42px);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 16px;
+        background: linear-gradient(135deg, var(--white) 0%, #aaa 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero-cta p {
+        font-family: var(--font-body);
+        color: var(--muted);
+        font-size: 18px;
+        max-width: 500px;
+        margin: 0 auto 32px;
+        line-height: 1.6;
+      }
+
+      .cta-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        padding: 16px 36px;
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 16px;
+        color: #fff;
+        background: linear-gradient(135deg, var(--purple) 0%, #5b21b6 100%);
+        border-radius: 12px;
+        border: 1px solid var(--purple-bright);
+        box-shadow: 0 8px 24px rgba(124, 58, 237, 0.4);
+        transition: all 0.3s ease;
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 32px rgba(124, 58, 237, 0.6);
+        border-color: var(--gold);
+      }
+
+      /* Mobile adjustments */
+      @media (max-width: 640px) {
+        .hero-cta {
+          padding: 32px 20px;
+          border-radius: 20px;
+        }
+      }
+
+      /* Hero Section - Inspired by paint.png */
+      .hero {
+        background: rgba(248, 250, 255, 0.98); /* Near-white blue tint */
+        border: 1px solid rgba(255, 255, 255, 1);
+        border-radius: 32px; /* Large rounded corners from paint.png */
+        padding: 80px 40px;
+        text-align: center;
+        margin: 40px auto;
+        max-width: 880px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        position: relative;
+        z-index: 10;
+      }
+
+      .hero h1 {
+        font-family: var(--font-display);
+        color: #0f172a; /* Deep navy/charcoal for clarity */
+        font-size: clamp(28px, 5vw, 42px);
+        font-weight: 700;
+        margin-bottom: 20px;
+        background: none; /* Remove previous gradients */
+        -webkit-text-fill-color: initial;
+      }
+
+      .hero p {
+        font-family: var(--font-body);
+        color: #64748b; /* Soft slate gray */
+        font-size: 18px;
+        max-width: 600px;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+      }
+
+      /* The blue pill button from paint.png */
+      .hero .cta {
+        display: inline-block;
+        text-decoration: none;
+        background: #4f46e5; /* Vibrant indigo/blue */
+        color: #ffffff !important;
+        padding: 16px 44px;
+        border-radius: 50px; /* Pill shape */
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 16px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        border: none;
+      }
+
+      .hero .cta:hover {
+        background: #4338ca;
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(79, 70, 229, 0.4);
+      }
+
+      /* Ensure mobile looks good */
+      @media (max-width: 640px) {
+        .hero {
+          padding: 40px 20px;
+          margin: 20px 16px;
+          border-radius: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toast" id="toast"></div>
+
+    <!-- Nav -->
+    <nav class="top-nav" aria-label="Site navigation">
+      <div class="nav-inner">
+        <a
+          href="https://moviesearch.online"
+          class="home-btn"
+          title="Back to MovieSearch Home"
+          aria-label="Go to moviesearch.online home"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+          Home
+        </a>
+        <nav class="nav-bc" aria-label="Breadcrumb">
+          <a href="https://moviesearch.online">moviesearch.online</a>
+          <span class="sep">›</span>
+          <span>Superhero Name Generator</span>
+        </nav>
+      </div>
+    </nav>
+
+    <main class="page" id="main">
+      <!-- Hero -->
+      <section class="hero1" aria-labelledby="hero-h1">
+        <div class="hero-icon-wrap" aria-hidden="true">⚡</div>
+        <h1 id="hero-h1">
+          <span class="line1">Superhero Name</span>
+          <span class="line2">Generator</span>
+        </h1>
+        <p>
+          Use this superhero name generator based on powers to create superhero
+          names, bold hero aliases, and standout team identities that fit your
+          character's abilities, tone, and origin story.
+        </p>
+        <div class="hero-chips">
+          <span>Based on Powers</span>
+          <span>Create Superhero Names</span>
+          <span>Hero Aliases</span>
+          <span>Team Name Ideas</span>
+          <span>Story-Friendly Results</span>
+        </div>
+      </section>
+
+      <section class="sec" aria-labelledby="intro-h2">
+        <h2 class="sec-title" id="intro-h2">
+          Create Superhero Names That Match the Powers
+        </h2>
+        <p class="sec-sub">
+          If you need a name generator for superheroes that still sounds human
+          and story-ready, this tool is built for that. Enter powers, a theme,
+          or a team mission and it will help you create superhero names that
+          feel like they belong in a comic, game, screenplay, or original
+          universe.
+        </p>
+        <p class="sec-sub">
+          Whether you are looking for a hero name generator based on powers,
+          want to create superhero name ideas for a new character, or need a
+          superhero team name generator for a full squad, the generator adapts
+          to your prompt instead of forcing generic results.
+        </p>
+      </section>
+
+      <!-- Mode Toggle -->
+      <div class="mode-tabs" role="group" aria-label="Generator mode">
+        <button class="mode-tab active" data-mode="hero" id="tabHero">
+          ⚡ Hero / Alias
+        </button>
+        <button class="mode-tab" data-mode="villain" id="tabVillain">
+          💀 Villain
+        </button>
+        <button class="mode-tab" data-mode="team" id="tabTeam">
+          🛡️ Team Name
+        </button>
+      </div>
+
+      <!-- Form -->
+      <section class="form-card" aria-label="Superhero name generator form">
+        <div class="form-grid">
+          <!-- Hero mode fields -->
+          <div id="heroFields" class="field full">
+            <label for="heroPowers"
+              >Powers or Abilities <span class="req">*</span></label
+            >
+            <input
+              type="text"
+              id="heroPowers"
+              placeholder="e.g. telekinesis, super speed, fire control, invisibility"
+            />
+          </div>
+
+          <!-- Villain mode fields (hidden by default) -->
+          <div id="villainFields" class="field full" style="display: none">
+            <label for="villainTheme"
+              >Villain Theme or Motivation <span class="req">*</span></label
+            >
+            <input
+              type="text"
+              id="villainTheme"
+              placeholder="e.g. control of time, shadow manipulation, technological domination"
+            />
+          </div>
+
+          <!-- Team mode fields (hidden by default) -->
+          <div id="teamFields" class="field full" style="display: none">
+            <label for="teamTheme"
+              >Team Mission or Theme <span class="req">*</span></label
+            >
+            <input
+              type="text"
+              id="teamTheme"
+              placeholder="e.g. protect the city, interdimensional defenders, elemental guardians"
+            />
+          </div>
+
+          <div class="field full">
+            <label for="extraDetails">Extra Details (optional)</label>
+            <textarea
+              id="extraDetails"
+              placeholder="Describe origin story, personality, appearance, or any specific words to include in the name"
+            ></textarea>
+          </div>
+
+          <div class="field">
+            <label for="nameStyle">Name Style</label>
+            <select id="nameStyle">
+              <option value="epic">Epic & Powerful</option>
+              <option value="mysterious">Dark & Mysterious</option>
+              <option value="classic">Classic Comics</option>
+              <option value="cosmic">Cosmic & Otherworldly</option>
+              <option value="tech">High-Tech / Sci-Fi</option>
+              <option value="mythological">Mythological</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="language">Language</label>
+            <select id="language">
+              <option value="en" selected>English</option>
+              <option value="es">Spanish</option>
+              <option value="fr">French</option>
+              <option value="de">German</option>
+              <option value="pt">Portuguese</option>
+              <option value="ja">Japanese</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label for="creativity">Creativity Level</label>
+            <div class="slider-wrap">
+              <input type="range" id="creativity" min="1" max="10" value="8" />
+              <span class="slider-val" id="creativityVal">8</span>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-generate" id="generateBtn">
+          ⚡ &nbsp;Generate Superhero Names
+        </button>
+
+        <div class="loading-wrap" id="loadingWrap">
+          <div class="loading-orbs">
+            <div class="orb"></div>
+            <div class="orb"></div>
+            <div class="orb"></div>
+            <div class="orb"></div>
+            <div class="orb"></div>
+          </div>
+          <span id="loadingText">Forging legendary names...</span>
+        </div>
+
+        <div class="err-box" id="errBox"></div>
+
+        <div class="results" id="results">
+          <div class="results-header">
+            <span class="results-title" id="resultsTitle"
+              >Generated Hero Names</span
+            >
+            <button class="regenerate-btn" id="regenBtn">↺ Regenerate</button>
+          </div>
+          <div class="name-cards" id="nameCards"></div>
+        </div>
+      </section>
+      <div id="hero-container"></div>
+      <!-- Examples -->
+      <section class="sec" aria-labelledby="ex-h2">
+        <h2 class="sec-title" id="ex-h2">
+          What Kind of Superhero Names Can You Create?
+        </h2>
+        <p class="sec-sub">
+          This superhero name generator can create superhero names for solo
+          heroes, darker villains, and whole teams. The examples below show how
+          different powers, moods, and story worlds can shape the final result.
+        </p>
+        <div class="cards-2">
+          <div class="ex-card">
+            <div class="ex-tag">Hero Alias</div>
+            <div class="ex-name">Voidstriker</div>
+            <div class="ex-desc">
+              A hero who channels dimensional energy — dark, powerful,
+              impossible to ignore.
+            </div>
+          </div>
+          <div class="ex-card">
+            <div class="ex-tag">Villain Name</div>
+            <div class="ex-name">Lord Decimation</div>
+            <div class="ex-desc">
+              A warlord of entropy with a name that signals total devastation
+              before he speaks.
+            </div>
+          </div>
+          <div class="ex-card">
+            <div class="ex-tag">Team Name</div>
+            <div class="ex-name">The Solaris Pact</div>
+            <div class="ex-desc">
+              A coalition of solar-powered defenders bound by an unbreakable
+              cosmic oath.
+            </div>
+          </div>
+          <div class="ex-card">
+            <div class="ex-tag">Hero Alias</div>
+            <div class="ex-name">Ironveil</div>
+            <div class="ex-desc">
+              A stealth-armour hero who protects the city from the shadows —
+              quiet but unstoppable.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why it matters -->
+      <section class="sec" aria-labelledby="why-h2">
+        <h2 class="sec-title" id="why-h2">
+          Why a Great Superhero Name Matters
+        </h2>
+        <p class="sec-sub">
+          The name is often the first thing people remember. A strong superhero
+          name generator based on powers helps you land on something that feels
+          memorable, believable, and connected to the character from the start.
+        </p>
+        <div class="cards-3">
+          <div class="feat-card">
+            <div class="feat-icon">⚡</div>
+            <h3>Instant Character Signal</h3>
+            <p>
+              A name like "Pyroclaw" or "Nebula Warden" tells the audience
+              something about the character before a single word of backstory is
+              written.
+            </p>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">🧠</div>
+            <h3>Emotional Resonance</h3>
+            <p>
+              The best superhero names have rhythm and weight. They feel
+              significant when spoken aloud — which matters for comics, games,
+              fanfiction, and storytelling alike.
+            </p>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">🎭</div>
+            <h3>World-Building Foundation</h3>
+            <p>
+              Names anchor your universe. The right alias can suggest lore,
+              origin, power source, and personality — all in just one or two
+              words.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Use cases -->
+      <section class="sec" aria-labelledby="use-h2">
+        <h2 class="sec-title" id="use-h2">
+          Who Uses a Name Generator for Superheroes?
+        </h2>
+        <p class="sec-sub">
+          Anyone building an original hero, villain, or team can use this tool
+          to create superhero names faster without losing the human feel that
+          makes a character stick.
+        </p>
+        <div class="cards-3">
+          <div class="feat-card">
+            <div class="feat-icon">📚</div>
+            <h3>Writers & Authors</h3>
+            <p>
+              Crafting a superhero story or comic script and need names that
+              sound authentic, not like placeholders you forgot to replace.
+            </p>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">🎮</div>
+            <h3>Game Players & DMs</h3>
+            <p>
+              Tabletop RPGs, video games, and character creation screens where
+              you need something that fits the setting and feels earned.
+            </p>
+          </div>
+          <div class="feat-card">
+            <div class="feat-icon">🎨</div>
+            <h3>Artists & Cosplayers</h3>
+            <p>
+              Building a personal hero identity, creating original character
+              art, or developing a cosplay persona that goes beyond just the
+              costume.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="sec" aria-labelledby="faq-h2">
+        <h2 class="sec-title" id="faq-h2">Frequently Asked Questions</h2>
+        <p class="sec-sub">
+          Quick answers about using this superhero name generator based on
+          powers.
+        </p>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span
+                >How does this superhero name generator based on powers
+                work?</span
+              ><span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Enter your hero's powers, abilities, or theme, choose a style
+                and language, then generate names. The tool creates multiple
+                superhero name ideas with short explanations so you can quickly
+                find an identity that fits your character.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span
+                >Can I use it as a name generator for superheroes and
+                teams?</span
+              ><span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Yes. You can switch between Hero, Villain, and Team modes. That
+                makes it useful whether you want to create superhero names for
+                one character, build a darker villain alias, or use it as a
+                superhero team name generator.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span
+                >Can this tool help me create superhero names that feel
+                original?</span
+              ><span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                The generator builds names from the details you provide, so the
+                results are tailored to your powers, tone, and backstory instead
+                of coming from a fixed list. If you plan to publish or sell your
+                project, it is still smart to double-check the final name for
+                conflicts.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span
+                >What makes a good hero name generator based on powers
+                useful?</span
+              ><span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                A useful tool connects the name to the character's abilities,
+                personality, and world. Strong results sound memorable, fit the
+                genre, and give you a fast way to create superhero names that
+                feel natural in comics, games, or stories.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>Can I create superhero team names with this tool too?</span
+              ><span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Yes. Team mode is designed for squads, leagues, and heroic
+                groups. Add the team's mission, shared powers, or overall vibe,
+                and the generator will suggest names that work as a unified
+                identity.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        <a href="https://moviesearch.online">moviesearch.online</a>
+        &nbsp;&middot;&nbsp;
+        <a href="https://moviesearch.online/tools/superhero-name-generator"
+          >Superhero Name Generator</a
+        >
+      </p>
+    </footer>
+
+    <script>
+      // ── Slider ──────────────────────────────────────────────────
+      const slider = document.getElementById("creativity"),
+        sliderVal = document.getElementById("creativityVal");
+      function updateSlider() {
+        const p =
+          ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
+        slider.style.setProperty("--pct", p + "%");
+        sliderVal.textContent = slider.value;
+      }
+      slider.addEventListener("input", updateSlider);
+      updateSlider();
+
+      // ── Toast ────────────────────────────────────────────────────
+      const toast = document.getElementById("toast");
+      function showToast(m) {
+        toast.textContent = m;
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2200);
+      }
+
+      // ── Mode tabs ────────────────────────────────────────────────
+      let currentMode = "hero";
+      const modeConfig = {
+        hero: {
+          label: "⚡ Generate Hero Names",
+          loading: "Forging legendary hero names...",
+          resultsTitle: "Generated Hero Names",
+          fieldId: "heroFields",
+          inputId: "heroPowers",
+          placeholder: "Powers or abilities",
+          promptFn: (v, s, d) =>
+            `Give me 5 unique and creative superhero alias names for a ${s} style hero with these powers/abilities: ${v}. ${d ? `Additional details: ${d}.` : ""} For each name provide a 1-sentence explanation of its meaning and feel. Format as: [Hero Name] - [Explanation]. Names should be powerful, memorable, and fit the superhero genre.`,
+        },
+        villain: {
+          label: "💀 Generate Villain Names",
+          loading: "Conjuring villainous aliases...",
+          resultsTitle: "Generated Villain Names",
+          fieldId: "villainFields",
+          inputId: "villainTheme",
+          placeholder: "Villain theme or motivation",
+          promptFn: (v, s, d) =>
+            `Give me 5 unique and creative supervillain alias names for a ${s} style villain with this theme/motivation: ${v}. ${d ? `Additional details: ${d}.` : ""} For each name provide a 1-sentence explanation. Format as: [Villain Name] - [Explanation]. Names should be menacing, memorable, and fit the supervillain genre.`,
+        },
+        team: {
+          label: "🛡️ Generate Team Names",
+          loading: "Assembling legendary team identities...",
+          resultsTitle: "Generated Team Names",
+          fieldId: "teamFields",
+          inputId: "teamTheme",
+          placeholder: "Team mission or theme",
+          promptFn: (v, s, d) =>
+            `Give me 5 unique and creative superhero team names for a ${s} style team with this mission/theme: ${v}. ${d ? `Additional details: ${d}.` : ""} For each name provide a 1-sentence explanation. Format as: [Team Name] - [Explanation]. Names should be epic, cohesive, and work well as a team identifier.`,
+        },
+      };
+
+      document.querySelectorAll(".mode-tab").forEach((tab) => {
+        tab.addEventListener("click", () => {
+          currentMode = tab.dataset.mode;
+          document
+            .querySelectorAll(".mode-tab")
+            .forEach((t) => t.classList.remove("active"));
+          tab.classList.add("active");
+          // Toggle fields
+          ["heroFields", "villainFields", "teamFields"].forEach((id) => {
+            document.getElementById(id).style.display = "none";
+          });
+          document.getElementById(
+            modeConfig[currentMode].fieldId,
+          ).style.display = "flex";
+          // Update button & loading text
+          document.getElementById("generateBtn").textContent =
+            modeConfig[currentMode].label;
+          hideErr();
+          hideResults();
+        });
+      });
+
+      // ── UI ───────────────────────────────────────────────────────
+      const generateBtn = document.getElementById("generateBtn"),
+        regenBtn = document.getElementById("regenBtn"),
+        loadingWrap = document.getElementById("loadingWrap"),
+        loadingText = document.getElementById("loadingText"),
+        errBox = document.getElementById("errBox"),
+        results = document.getElementById("results"),
+        nameCards = document.getElementById("nameCards"),
+        resultsTitle = document.getElementById("resultsTitle"),
+        extraDetails = document.getElementById("extraDetails"),
+        nameStyle = document.getElementById("nameStyle"),
+        langSelect = document.getElementById("language");
+
+      function showLoading() {
+        loadingWrap.classList.add("show");
+        loadingText.textContent = modeConfig[currentMode].loading;
+      }
+      function hideLoading() {
+        loadingWrap.classList.remove("show");
+      }
+      function showErr(m) {
+        errBox.textContent = m;
+        errBox.classList.add("show");
+      }
+      function hideErr() {
+        errBox.textContent = "";
+        errBox.classList.remove("show");
+      }
+      function hideResults() {
+        results.classList.remove("show");
+        nameCards.innerHTML = "";
+      }
+
+      function parseNames(text) {
+        const lines = text
+          .split(/\n+/)
+          .map((l) => l.trim())
+          .filter(Boolean);
+        const names = [];
+        for (const line of lines) {
+          let clean = line
+            .replace(/^[\d]+[\.\):\-\s]+/, "")
+            .replace(/^\*+|^\-+/, "")
+            .replace(/^["'`]+|["'`]+$/g, "")
+            .trim();
+          const sm = clean.match(/^(.+?)[\s]*[\-\u2013\u2014:][\s]*(.+)$/);
+          if (sm) {
+            names.push({ name: sm[1].trim(), desc: sm[2].trim() });
+          } else if (clean.length > 1 && clean.length < 80) {
+            names.push({ name: clean, desc: "" });
+          }
+          if (names.length >= 5) break;
+        }
+        return names;
+      }
+
+      function escH(s) {
+        return String(s)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function renderNames(names) {
+        if (!names.length) {
+          showErr("No names could be parsed. Please try again.");
+          return;
+        }
+        resultsTitle.textContent = modeConfig[currentMode].resultsTitle;
+        nameCards.innerHTML = names
+          .map(
+            (n, i) => `
+    <div class="name-card">
+      <div class="name-card-left">
+        <div class="name-index">Name ${i + 1}</div>
+        <div class="name-text">${escH(n.name)}</div>
+        ${n.desc ? `<div class="name-desc">${escH(n.desc)}</div>` : ""}
+      </div>
+      <button class="copy-btn" onclick="copyName(this,${JSON.stringify(n.name)})">Copy</button>
+    </div>`,
+          )
+          .join("");
+        results.classList.add("show");
+        results.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+
+      function copyName(btn, name) {
+        navigator.clipboard.writeText(name).then(() => {
+          btn.textContent = "Copied";
+          btn.classList.add("copied");
+          setTimeout(() => {
+            btn.textContent = "Copy";
+            btn.classList.remove("copied");
+          }, 1800);
+          showToast("Copied: " + name);
+        });
+      }
+
+      async function generate() {
+        const cfg = modeConfig[currentMode];
+        const inputEl = document.getElementById(cfg.inputId);
+        const inputVal = inputEl.value.trim();
+        if (!inputVal) {
+          showErr(
+            `Please enter your character's ${cfg.placeholder.toLowerCase()}.`,
+          );
+          return;
+        }
+        hideErr();
+        hideResults();
+        showLoading();
+        generateBtn.disabled = true;
+        generateBtn.textContent = "Generating...";
+        const style = nameStyle.value,
+          lang = langSelect.value,
+          creativity = parseInt(slider.value),
+          extra = extraDetails.value.trim();
+        const prompt = cfg.promptFn(inputVal, style, extra);
+        try {
+          const res = await fetch(
+            "https://api.coursesity.com/api/ai-tool/generate-content",
+            {
+              method: "POST",
+              headers: {
+                accept: "application/json, text/plain, */*",
+                "content-type": "application/json",
+                origin: "https://www.moviesearch.online",
+                referer: "https://www.moviesearch.online/",
+              },
+              body: JSON.stringify({
+                toolType: "tv-show-name-generator",
+                prompt,
+                style,
+                language: lang,
+                creativityLevel: creativity,
+              }),
+            },
+          );
+
+          if (!res.ok) throw new Error("API error " + res.status);
+
+          const responseJson = await res.json();
+
+          // Extract content from responseJson.data.content
+          const raw =
+            responseJson?.data?.content || responseJson?.content || "";
+
+          if (!raw) throw new Error("No content returned. Please try again.");
+
+          const names = parseNames(raw);
+          hideLoading();
+          renderNames(names);
+        } catch (err) {
+          hideLoading();
+          showErr(err.message || "Something went wrong.");
+        } finally {
+          generateBtn.disabled = false;
+          generateBtn.textContent = modeConfig[currentMode].label;
+        }
+      }
+
+      generateBtn.addEventListener("click", generate);
+      regenBtn.addEventListener("click", generate);
+
+      // FAQ accordion
+      document.querySelectorAll(".faq-q").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const item = btn.closest(".faq-item"),
+            isOpen = item.classList.contains("open");
+          document.querySelectorAll(".faq-item").forEach((i) => {
+            i.classList.remove("open");
+            i.querySelector(".faq-q").setAttribute("aria-expanded", "false");
+          });
+          if (!isOpen) {
+            item.classList.add("open");
+            btn.setAttribute("aria-expanded", "true");
+          }
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../box.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("hero-container").innerHTML = data;
+          });
+      });
+    </script>
+  </body>
+</html>

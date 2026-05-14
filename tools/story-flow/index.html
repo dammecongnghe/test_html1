@@ -1,0 +1,1792 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Story Flow | Continue This Story with AI</title>
+    <meta
+      name="description"
+      content="Use Story Flow to continue this story with AI in seconds. A clean story continuer and AI story continuer for story continuation, continue story prompts, and continue the story ideas by genre, theme, and direction."
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://moviesearch.online/tools/story-flow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does this AI story continuer work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Paste the story you already have, add any continuation guidelines or earlier context, then choose the length, theme, and genre you want. The tool uses AI to continue the story in a way that follows your setup instead of starting over."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I paste unfinished writing and ask it to continue this story?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. This tool is built for that exact use case. Add the draft, chapter fragment, or scene you already wrote, and the AI story continuer will continue this story based on the details you provide."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What makes a good story continuation prompt?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A good prompt gives the model the current scene, what has already happened, and clear guidance about what should happen next. The more specific your direction is, the better the story continuation usually feels."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can this story continuer follow a specific genre or theme?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can add a theme and genre to guide the continuation. That makes it easier to continue with the story in a way that still feels like romance, fantasy, mystery, horror, or whatever tone you are aiming for."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will the tool keep the same characters and tone?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It tries to stay consistent with the material you provide, especially when you include the earlier events and clear continuation notes. If you want stronger continuity, include important character traits, plot points, and the emotional tone in your input."
+            }
+          }
+        ]
+      }
+    </script>
+    <style>
+      :root {
+        --pearl: #f7f2e8;
+        --ink: #17161d;
+        --charcoal: #22212b;
+        --slate: #4f5469;
+        --paper: #fffdf8;
+        --paper-2: #f6f1e7;
+        --line: #ddd5c8;
+        --line-strong: #c8bca9;
+        --gold: #d49a47;
+        --gold-soft: rgba(212, 154, 71, 0.12);
+        --teal: #3fa7a2;
+        --teal-soft: rgba(63, 167, 162, 0.12);
+        --rose: #be6c73;
+        --rose-soft: rgba(190, 108, 115, 0.1);
+        --display: "Fraunces", serif;
+        --body: "Manrope", sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--body);
+        color: var(--ink);
+        background:
+          radial-gradient(
+            circle at 10% 15%,
+            rgba(63, 167, 162, 0.1),
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at 90% 10%,
+            rgba(212, 154, 71, 0.1),
+            transparent 20%
+          ),
+          linear-gradient(180deg, #f6efe4 0%, #f8f3eb 100%);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          linear-gradient(rgba(23, 22, 29, 0.02) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(23, 22, 29, 0.02) 1px, transparent 1px);
+        background-size: 30px 30px;
+        mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), transparent);
+        pointer-events: none;
+        z-index: 0;
+      }
+      .top-nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(248, 243, 235, 0.88);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(23, 22, 29, 0.08);
+        padding: 0 24px;
+      }
+      .nav-inner {
+        max-width: 1040px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        height: 58px;
+      }
+      .home-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        color: var(--slate);
+        border: 1px solid rgba(23, 22, 29, 0.12);
+        border-radius: 999px;
+        padding: 8px 14px;
+        font-size: 13px;
+        font-weight: 700;
+        transition:
+          border-color 0.18s,
+          color 0.18s,
+          background 0.18s;
+      }
+      .home-btn:hover {
+        color: var(--teal);
+        border-color: var(--teal);
+        background: var(--teal-soft);
+      }
+      .home-btn svg {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+      }
+      .nav-bc {
+        font-size: 13px;
+        color: #6d7287;
+      }
+      .nav-bc a {
+        color: #6d7287;
+        text-decoration: none;
+      }
+      .nav-bc a:hover {
+        color: var(--slate);
+      }
+      .nav-bc .sep {
+        margin: 0 6px;
+      }
+      .page {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 58px 24px 82px;
+        position: relative;
+        z-index: 1;
+      }
+      .hero1 {
+        text-align: center;
+        margin-bottom: 42px;
+      }
+      .hero1-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 16px;
+        border-radius: 999px;
+        margin-bottom: 22px;
+        border: 1px solid rgba(23, 22, 29, 0.08);
+        background: linear-gradient(135deg, var(--teal-soft), var(--gold-soft));
+        color: var(--teal);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .hero1 h1 {
+        font-family: var(--display);
+        font-size: clamp(38px, 7vw, 70px);
+        line-height: 0.96;
+        letter-spacing: -0.04em;
+        margin-bottom: 18px;
+      }
+      .hero1 h1 .line1 {
+        display: block;
+        color: #15141b;
+      }
+      .hero1 h1 .line2 {
+        display: block;
+        background: linear-gradient(135deg, var(--gold) 0%, var(--teal) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .hero1 p {
+        max-width: 820px;
+        margin: 0 auto 20px;
+        color: #63697d;
+        font-size: 17px;
+        line-height: 1.78;
+      }
+      .hero1-chips {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+      .hero1-chips span {
+        padding: 7px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(23, 22, 29, 0.08);
+        background: rgba(255, 255, 255, 0.55);
+        color: #545b70;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.18fr) minmax(300px, 0.82fr);
+        gap: 18px;
+        align-items: start;
+      }
+      .panel {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 253, 248, 0.96),
+          rgba(247, 242, 232, 0.98)
+        );
+        border: 1px solid rgba(23, 22, 29, 0.08);
+        border-radius: 24px;
+        box-shadow: 0 24px 80px rgba(45, 36, 18, 0.08);
+      }
+      .form-card {
+        padding: 30px;
+        position: relative;
+        overflow: hidden;
+      }
+      .form-card::before {
+        content: "";
+        position: absolute;
+        right: -40px;
+        top: -40px;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(212, 154, 71, 0.14),
+          transparent 68%
+        );
+        pointer-events: none;
+      }
+      .form-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 22px;
+      }
+      .form-head h2,
+      .results-title,
+      .sec-title,
+      .side-card h2,
+      .story-text {
+        font-family: var(--display);
+        letter-spacing: -0.03em;
+      }
+      .form-head h2 {
+        font-size: 32px;
+        margin-bottom: 8px;
+      }
+      .form-head p {
+        max-width: 560px;
+        color: #666d7f;
+        line-height: 1.7;
+        font-size: 14px;
+      }
+      .tip-box {
+        flex-shrink: 0;
+        max-width: 220px;
+        padding: 10px 12px;
+        border-radius: 16px;
+        border: 1px solid rgba(23, 22, 29, 0.08);
+        background: rgba(255, 255, 255, 0.55);
+        color: #555b6f;
+        font-size: 12px;
+        line-height: 1.55;
+      }
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .full {
+        grid-column: 1/-1;
+      }
+      .field-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .field label {
+        font-size: 12px;
+        font-weight: 700;
+        color: #646b7e;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .counter {
+        font-size: 12px;
+        color: #99a0b6;
+      }
+      .req {
+        color: var(--gold);
+      }
+      textarea,
+      input[type="text"] {
+        width: 100%;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.82);
+        color: var(--ink);
+        font: inherit;
+        font-size: 15px;
+        padding: 14px 16px;
+        outline: none;
+        transition:
+          border-color 0.18s,
+          box-shadow 0.18s,
+          background 0.18s;
+      }
+      textarea::placeholder,
+      input[type="text"]::placeholder {
+        color: #a0a6b8;
+      }
+      textarea:focus,
+      input[type="text"]:focus {
+        border-color: var(--teal);
+        box-shadow: 0 0 0 3px rgba(63, 167, 162, 0.12);
+        background: #fffdfa;
+      }
+      textarea {
+        min-height: 132px;
+        resize: vertical;
+        line-height: 1.72;
+      }
+      .single-line {
+        min-height: auto;
+      }
+      .textarea-tools {
+        display: flex;
+        justify-content: flex-start;
+        gap: 8px;
+        margin-top: -2px;
+      }
+      .tiny-btn {
+        border: 1px solid rgba(23, 22, 29, 0.1);
+        background: rgba(255, 255, 255, 0.65);
+        color: #5f667a;
+        border-radius: 10px;
+        padding: 7px 10px;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          border-color 0.18s,
+          color 0.18s,
+          background 0.18s;
+      }
+      .tiny-btn:hover {
+        color: var(--teal);
+        border-color: var(--teal);
+        background: var(--teal-soft);
+      }
+      .slider-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 82px;
+        gap: 12px;
+        align-items: center;
+      }
+      input[type="range"] {
+        width: 100%;
+        -webkit-appearance: none;
+        height: 5px;
+        border-radius: 999px;
+        background: linear-gradient(
+          to right,
+          var(--gold) 0%,
+          var(--gold) var(--pct, 50%),
+          rgba(23, 22, 29, 0.1) var(--pct, 50%),
+          rgba(23, 22, 29, 0.1) 100%
+        );
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--teal);
+        box-shadow: 0 0 0 4px rgba(63, 167, 162, 0.14);
+        cursor: pointer;
+      }
+      .length-box {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.75);
+        text-align: center;
+        padding: 10px 8px;
+        font-size: 15px;
+        font-weight: 700;
+        color: #50576c;
+      }
+      .example-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .example-chip {
+        border: 1px solid rgba(23, 22, 29, 0.1);
+        background: rgba(255, 255, 255, 0.6);
+        color: #5f667a;
+        border-radius: 999px;
+        padding: 8px 12px;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          border-color 0.18s,
+          color 0.18s,
+          background 0.18s;
+      }
+      .example-chip:hover {
+        color: var(--gold);
+        border-color: var(--gold);
+        background: var(--gold-soft);
+      }
+      .btn-generate {
+        width: 100%;
+        margin-top: 20px;
+        border: none;
+        border-radius: 16px;
+        padding: 16px 24px;
+        background: linear-gradient(
+          135deg,
+          var(--teal) 0%,
+          #66c1ba 40%,
+          var(--gold) 100%
+        );
+        color: #121514;
+        font-family: var(--display);
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        cursor: pointer;
+        transition:
+          transform 0.18s,
+          box-shadow 0.18s,
+          opacity 0.18s;
+        box-shadow: 0 18px 46px rgba(63, 167, 162, 0.18);
+      }
+      .btn-generate:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 22px 52px rgba(63, 167, 162, 0.24);
+      }
+      .btn-generate:disabled {
+        opacity: 0.55;
+        cursor: progress;
+        transform: none;
+      }
+      .loading-wrap {
+        display: none;
+        align-items: center;
+        gap: 12px;
+        margin-top: 18px;
+        color: #666d7f;
+        font-size: 14px;
+      }
+      .loading-wrap.show {
+        display: flex;
+      }
+      .loading-dots {
+        display: flex;
+        gap: 8px;
+      }
+      .loading-dots span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--gold);
+        animation: bounce 1.1s ease-in-out infinite;
+      }
+      .loading-dots span:nth-child(2) {
+        animation-delay: 0.15s;
+        background: var(--teal);
+      }
+      .loading-dots span:nth-child(3) {
+        animation-delay: 0.3s;
+        background: var(--rose);
+      }
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+          opacity: 0.45;
+        }
+        50% {
+          transform: translateY(-6px);
+          opacity: 1;
+        }
+      }
+      .err-box {
+        display: none;
+        margin-top: 16px;
+        padding: 14px 16px;
+        border-radius: 14px;
+        border: 1px solid rgba(190, 108, 115, 0.24);
+        background: rgba(190, 108, 115, 0.1);
+        color: #92515a;
+        line-height: 1.6;
+        font-size: 14px;
+      }
+      .err-box.show {
+        display: block;
+      }
+      .results {
+        display: none;
+        margin-top: 24px;
+      }
+      .results.show {
+        display: block;
+      }
+      .results-shell {
+        border: 1px solid rgba(23, 22, 29, 0.08);
+        border-radius: 22px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 252, 246, 0.95),
+          rgba(246, 240, 228, 0.98)
+        );
+        overflow: hidden;
+      }
+      .results-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 18px 20px;
+        border-bottom: 1px solid rgba(23, 22, 29, 0.08);
+      }
+      .results-title {
+        font-size: 28px;
+      }
+      .results-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .ghost-btn {
+        border: 1px solid rgba(23, 22, 29, 0.12);
+        background: rgba(255, 255, 255, 0.65);
+        color: #5f667a;
+        border-radius: 999px;
+        padding: 9px 14px;
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          border-color 0.18s,
+          color 0.18s,
+          background 0.18s;
+      }
+      .ghost-btn:hover {
+        color: var(--teal);
+        border-color: var(--teal);
+        background: var(--teal-soft);
+      }
+      .result-wrap {
+        padding: 20px;
+        display: grid;
+        gap: 14px;
+      }
+      .story-card,
+      .notes-card {
+        border: 1px solid rgba(23, 22, 29, 0.08);
+        border-radius: 18px;
+        padding: 18px;
+        background: rgba(255, 255, 255, 0.68);
+      }
+      .meta-label {
+        display: block;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #81889a;
+        margin-bottom: 8px;
+      }
+      .story-text {
+        font-size: 24px;
+        line-height: 1.55;
+        color: #1b1a22;
+      }
+      .story-text p + p {
+        margin-top: 14px;
+      }
+      .notes-list {
+        display: grid;
+        gap: 8px;
+        color: #62697c;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      .notes-line {
+        padding: 10px 12px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(23, 22, 29, 0.05);
+      }
+      .side-card {
+        padding: 24px;
+      }
+      .side-card h2 {
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+      .side-card p {
+        color: #666d7f;
+        line-height: 1.72;
+        font-size: 14px;
+      }
+      .stack {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+      }
+      .mini-card {
+        border: 1px solid rgba(23, 22, 29, 0.08);
+        border-radius: 18px;
+        padding: 16px;
+        background: rgba(255, 255, 255, 0.55);
+      }
+      .mini-card h3 {
+        color: #1f1d26;
+        font-size: 14px;
+        margin-bottom: 6px;
+      }
+      .mini-card p {
+        color: #666d7f;
+        font-size: 13px;
+      }
+      .sec {
+        margin-top: 72px;
+      }
+      .sec-title {
+        font-size: clamp(30px, 4vw, 46px);
+        margin-bottom: 10px;
+      }
+      .sec-sub {
+        color: #666d7f;
+        font-size: 16px;
+        line-height: 1.75;
+        margin-bottom: 28px;
+      }
+      .cards-2,
+      .cards-3 {
+        display: grid;
+        gap: 14px;
+      }
+      .cards-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .cards-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .content-card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 252, 246, 0.95),
+          rgba(246, 240, 228, 0.98)
+        );
+        border: 1px solid rgba(23, 22, 29, 0.08);
+        border-radius: 20px;
+        padding: 22px 18px;
+      }
+      .content-card h3 {
+        color: #1f1d26;
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+      .content-card p {
+        color: #666d7f;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      .example-tag {
+        display: inline-flex;
+        margin-bottom: 10px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--gold-soft);
+        color: var(--gold);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .faq-list {
+        display: grid;
+        gap: 10px;
+      }
+      .faq-item {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 252, 246, 0.95),
+          rgba(246, 240, 228, 0.98)
+        );
+        border: 1px solid rgba(23, 22, 29, 0.08);
+        border-radius: 18px;
+        overflow: hidden;
+      }
+      .faq-q {
+        width: 100%;
+        border: none;
+        background: none;
+        color: var(--ink);
+        text-align: left;
+        padding: 18px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        cursor: pointer;
+        font: inherit;
+        font-weight: 700;
+      }
+      .faq-icon {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(23, 22, 29, 0.06);
+        color: #81889a;
+        transition:
+          transform 0.18s,
+          background 0.18s,
+          color 0.18s;
+      }
+      .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 20px;
+        color: #666d7f;
+        line-height: 1.78;
+        transition:
+          max-height 0.28s ease,
+          padding 0.22s ease;
+      }
+      .faq-item.open .faq-a {
+        max-height: 240px;
+        padding: 0 20px 18px;
+      }
+      .faq-item.open .faq-icon {
+        transform: rotate(45deg);
+        background: var(--teal-soft);
+        color: var(--teal);
+      }
+      .site-footer {
+        margin: 72px 24px 0;
+        padding-top: 24px;
+        border-top: 1px solid rgba(23, 22, 29, 0.08);
+        text-align: center;
+        color: #737b8f;
+        font-size: 13px;
+      }
+      .site-footer a {
+        color: #7a8398;
+        text-decoration: none;
+      }
+      .site-footer a:hover {
+        color: #5e6579;
+      }
+      .toast {
+        position: fixed;
+        left: 50%;
+        bottom: 24px;
+        transform: translateX(-50%) translateY(80px);
+        padding: 10px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(23, 22, 29, 0.12);
+        background: rgba(255, 252, 246, 0.96);
+        color: #1b1a22;
+        font-size: 14px;
+        opacity: 0;
+        transition:
+          opacity 0.22s,
+          transform 0.22s;
+        pointer-events: none;
+        z-index: 999;
+      }
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+      @media (max-width: 960px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 680px) {
+        .page {
+          padding: 40px 16px 64px;
+        }
+        .top-nav {
+          padding: 0 16px;
+        }
+        .nav-inner {
+          height: auto;
+          padding: 12px 0;
+          align-items: flex-start;
+          flex-direction: column;
+        }
+        .form-card,
+        .side-card {
+          padding: 22px 18px;
+        }
+        .form-grid,
+        .cards-2,
+        .cards-3,
+        .slider-row {
+          grid-template-columns: 1fr;
+        }
+        .form-head,
+        .results-bar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .results-actions {
+          width: 100%;
+        }
+        .ghost-btn,
+        .home-btn,
+        .btn-generate {
+          width: 100%;
+        }
+        .slider-row {
+          display: grid;
+        }
+      }
+      /* Hero Section - Inspired by paint.png */
+      .hero {
+        background: rgba(248, 250, 255, 0.98); /* Near-white blue tint */
+        border: 1px solid rgba(255, 255, 255, 1);
+        border-radius: 32px; /* Large rounded corners from paint.png */
+        padding: 80px 40px;
+        text-align: center;
+        margin: 40px auto;
+        max-width: 880px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        position: relative;
+        z-index: 10;
+      }
+
+      .hero h1 {
+        font-family: var(--font-display);
+        color: #0f172a; /* Deep navy/charcoal for clarity */
+        font-size: clamp(28px, 5vw, 42px);
+        font-weight: 700;
+        margin-bottom: 20px;
+        background: none; /* Remove previous gradients */
+        -webkit-text-fill-color: initial;
+      }
+
+      .hero p {
+        font-family: var(--font-body);
+        color: #64748b; /* Soft slate gray */
+        font-size: 18px;
+        max-width: 600px;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+      }
+
+      /* The blue pill button from paint.png */
+      .hero .cta {
+        display: inline-block;
+        text-decoration: none;
+        background: #4f46e5; /* Vibrant indigo/blue */
+        color: #ffffff !important;
+        padding: 16px 44px;
+        border-radius: 50px; /* Pill shape */
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 16px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        border: none;
+      }
+
+      .hero .cta:hover {
+        background: #4338ca;
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(79, 70, 229, 0.4);
+      }
+
+      /* Ensure mobile looks good */
+      @media (max-width: 640px) {
+        .hero {
+          padding: 40px 20px;
+          margin: 20px 16px;
+          border-radius: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toast" id="toast"></div>
+
+    <nav class="top-nav" aria-label="Site navigation">
+      <div class="nav-inner">
+        <a
+          href="https://moviesearch.online"
+          class="home-btn"
+          title="Back to MovieSearch Home"
+          aria-label="Go to moviesearch.online home"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M3 10.5 12 3l9 7.5" />
+            <path d="M5 9.5V21h14V9.5" />
+            <path d="M10 21v-6h4v6" />
+          </svg>
+          Home
+        </a>
+        <nav class="nav-bc" aria-label="Breadcrumb">
+          <a href="https://moviesearch.online">moviesearch.online</a>
+          <span class="sep">></span>
+          <span>Story Flow</span>
+        </nav>
+      </div>
+    </nav>
+
+    <main class="page" id="main">
+      <section class="hero1" aria-labelledby="hero1-h1">
+        <div class="hero1-badge">Continue This Story with AI</div>
+        <h1 id="hero1-h1">
+          <span class="line1">Story</span>
+          <span class="line2">Flow</span>
+        </h1>
+        <p>
+          Story Flow is an AI story continuer built to help you continue this
+          story, continue the story from a draft, or create a cleaner story
+          continuation when you already know the world, characters, and
+          direction you want. Paste your existing writing, add guidance, and
+          continue with the story in seconds.
+        </p>
+        <div class="hero1-chips">
+          <span>Continue Story</span>
+          <span>AI Story Continuer</span>
+          <span>Story Continuation</span>
+          <span>Continue with the Story</span>
+          <span>Story Continued</span>
+        </div>
+      </section>
+
+      <section class="layout" aria-label="Story continuation tool">
+        <div class="panel form-card">
+          <div class="form-head">
+            <div>
+              <h2>Continue an Existing Story</h2>
+              <p>
+                Add the story you already have, describe what should happen
+                next, and let the model continue the scene without losing your
+                main setup. This tool is designed for people who want to
+                continue this story instead of starting from scratch.
+              </p>
+            </div>
+            <div class="tip-box">
+              Tip: if the story has important emotional beats, say that clearly
+              in the guidelines field. That usually improves continuity more
+              than adding more adjectives.
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="field full">
+              <div class="field-head">
+                <label for="existingStory"
+                  >Existing Story <span class="req">*</span></label
+                >
+                <span class="counter" id="existingCounter">0/200000</span>
+              </div>
+              <textarea
+                id="existingStory"
+                maxlength="200000"
+                placeholder="Example: Sarah had left her small hometown in search of more fulfilling opportunities, but she found herself returning several years later due to a family matter. On this return, Sarah quickly discovered..."
+              ></textarea>
+              <div class="textarea-tools">
+                <button
+                  class="tiny-btn"
+                  type="button"
+                  data-action="paste"
+                  data-target="existingStory"
+                >
+                  Paste
+                </button>
+                <button
+                  class="tiny-btn"
+                  type="button"
+                  data-action="clear"
+                  data-target="existingStory"
+                >
+                  Clear
+                </button>
+              </div>
+            </div>
+
+            <div class="field full">
+              <label for="lengthRange">Length</label>
+              <div class="slider-row">
+                <input
+                  type="range"
+                  id="lengthRange"
+                  min="50"
+                  max="1200"
+                  value="100"
+                />
+                <div class="length-box">
+                  <span id="lengthValue">100</span> words
+                </div>
+              </div>
+            </div>
+
+            <div class="field full">
+              <div class="field-head">
+                <label for="guidelines"
+                  >Guidelines (How to continue the story)</label
+                >
+                <span class="counter" id="guidelinesCounter">0/5000</span>
+              </div>
+              <textarea
+                id="guidelines"
+                maxlength="5000"
+                placeholder="Example: Michael should tell Sarah about the strange occurrences that had been happening in their hometown."
+              ></textarea>
+              <div class="textarea-tools">
+                <button
+                  class="tiny-btn"
+                  type="button"
+                  data-action="paste"
+                  data-target="guidelines"
+                >
+                  Paste
+                </button>
+                <button
+                  class="tiny-btn"
+                  type="button"
+                  data-action="clear"
+                  data-target="guidelines"
+                >
+                  Clear
+                </button>
+              </div>
+            </div>
+
+            <div class="field full">
+              <div class="field-head">
+                <label for="storySoFar">What has happened so far</label>
+                <span class="counter" id="storySoFarCounter">0/50000</span>
+              </div>
+              <textarea
+                id="storySoFar"
+                maxlength="50000"
+                placeholder="Briefly describe previous events in the story to provide context."
+              ></textarea>
+              <div class="textarea-tools">
+                <button
+                  class="tiny-btn"
+                  type="button"
+                  data-action="paste"
+                  data-target="storySoFar"
+                >
+                  Paste
+                </button>
+                <button
+                  class="tiny-btn"
+                  type="button"
+                  data-action="clear"
+                  data-target="storySoFar"
+                >
+                  Clear
+                </button>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="field-head">
+                <label for="theme">Theme</label>
+                <span class="counter" id="themeCounter">0/100</span>
+              </div>
+              <input
+                type="text"
+                id="theme"
+                maxlength="100"
+                placeholder="Example: Power, Family, Love, Coming of age, Good vs. evil"
+              />
+            </div>
+
+            <div class="field">
+              <div class="field-head">
+                <label for="genre">Genre</label>
+                <span class="counter" id="genreCounter">0/100</span>
+              </div>
+              <input
+                type="text"
+                id="genre"
+                maxlength="100"
+                placeholder="Example: Fantasy, Romance, Mystery, Adventure"
+              />
+            </div>
+
+            <div class="field full">
+              <label>Quick Start Examples</label>
+              <div class="example-row">
+                <button class="example-chip" type="button" id="fillMystery">
+                  Fill Mystery Example
+                </button>
+                <button class="example-chip" type="button" id="fillRomance">
+                  Fill Romance Example
+                </button>
+                <button class="example-chip" type="button" id="fillFantasy">
+                  Fill Fantasy Example
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-generate" id="generateBtn">
+            Continue the Story
+          </button>
+
+          <div class="loading-wrap" id="loadingWrap">
+            <div class="loading-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <span id="loadingText">Weaving the next part of the story...</span>
+          </div>
+
+          <div class="err-box" id="errBox"></div>
+
+          <section class="results" id="results" aria-live="polite">
+            <div class="results-shell">
+              <div class="results-bar">
+                <div class="results-title">Story Continuation</div>
+                <div class="results-actions">
+                  <button class="ghost-btn" id="copyBtn" type="button">
+                    Copy Continuation
+                  </button>
+                  <button class="ghost-btn" id="downloadBtn" type="button">
+                    Download TXT
+                  </button>
+                  <button class="ghost-btn" id="regenBtn" type="button">
+                    Continue Again
+                  </button>
+                </div>
+              </div>
+              <div class="result-wrap">
+                <div class="story-card">
+                  <span class="meta-label">Continued Story</span>
+                  <div class="story-text" id="storyText"></div>
+                </div>
+                <div class="notes-card">
+                  <span class="meta-label">Story Notes</span>
+                  <div class="notes-list" id="notesList"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="panel side-card" aria-label="Story continuation guidance">
+          <h2>What this story continuer is best at</h2>
+          <p>
+            Story Flow works best when you already have a draft, a scene
+            opening, or a chapter fragment and want help moving it forward. It
+            is designed to continue story beats, not replace your existing
+            setup.
+          </p>
+
+          <div class="stack">
+            <div class="mini-card">
+              <h3>Scene continuation</h3>
+              <p>
+                Useful when you have the start of a scene and want the AI story
+                continuer to keep the momentum going naturally.
+              </p>
+            </div>
+            <div class="mini-card">
+              <h3>Chapter drafting</h3>
+              <p>
+                Helpful for longer story continuation work when you want the
+                next section outlined through actual prose, not just summary
+                notes.
+              </p>
+            </div>
+            <div class="mini-card">
+              <h3>Tone control</h3>
+              <p>
+                The guidelines, theme, and genre fields make it easier to
+                continue with the story while keeping the style closer to what
+                you intended.
+              </p>
+            </div>
+          </div>
+        </aside>
+      </section>
+      <div id="hero-container"></div>
+      <section class="sec" aria-labelledby="use-h2">
+        <h2 class="sec-title" id="use-h2">
+          An AI Story Continuer That Still Sounds Human
+        </h2>
+        <p class="sec-sub">
+          A strong AI story continuer should not just dump extra paragraphs
+          after your scene. It should read what is already there, respect the
+          tone, and continue the story in a way that still feels connected to
+          your original direction.
+        </p>
+        <p class="sec-sub">
+          Whether you searched for continue story help, story continuation
+          support, or a tool that can continue with the story after writer's
+          block hits, this page is built to keep the result readable, on-topic,
+          and useful as an actual draft extension.
+        </p>
+      </section>
+
+      <section class="sec" aria-labelledby="examples-h2">
+        <h2 class="sec-title" id="examples-h2">When to Use Story Flow</h2>
+        <p class="sec-sub">
+          This tool can help in a few different writing situations, especially
+          when you know where the story is going but do not want to force the
+          next paragraph.
+        </p>
+        <div class="cards-3">
+          <div class="content-card">
+            <span class="example-tag">Writer's Block</span>
+            <h3>Continue this story without freezing</h3>
+            <p>
+              Paste your unfinished scene, say what should happen next, and get
+              a continuation you can revise instead of staring at a blank page.
+            </p>
+          </div>
+          <div class="content-card">
+            <span class="example-tag">Drafting</span>
+            <h3>Continue the story by chapter</h3>
+            <p>
+              Use the length slider and previous-events field to extend chapters
+              in smaller, more controlled pieces.
+            </p>
+          </div>
+          <div class="content-card">
+            <span class="example-tag">Revision</span>
+            <h3>Test alternate story continued paths</h3>
+            <p>
+              Try different continuation guidelines to see how the same setup
+              could branch into suspense, romance, mystery, or conflict.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec" aria-labelledby="faq-h2">
+        <h2 class="sec-title" id="faq-h2">Frequently Asked Questions</h2>
+        <p class="sec-sub">
+          Quick answers about using Story Flow to continue this story.
+        </p>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>How does this AI story continuer work?</span
+              ><span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Paste the story you already have, add any continuation
+                guidelines or earlier context, then choose the length, theme,
+                and genre you want. The tool uses AI to continue the story in a
+                way that follows your setup instead of starting over.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span
+                >Can I paste unfinished writing and ask it to continue this
+                story?</span
+              ><span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Yes. This tool is built for that exact use case. Add the draft,
+                chapter fragment, or scene you already wrote, and the AI story
+                continuer will continue this story based on the details you
+                provide.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>What makes a good story continuation prompt?</span
+              ><span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                A good prompt gives the model the current scene, what has
+                already happened, and clear guidance about what should happen
+                next. The more specific your direction is, the better the story
+                continuation usually feels.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span
+                >Can this story continuer follow a specific genre or
+                theme?</span
+              ><span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Yes. You can add a theme and genre to guide the continuation.
+                That makes it easier to continue with the story in a way that
+                still feels like romance, fantasy, mystery, horror, or whatever
+                tone you are aiming for.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              <span>Will the tool keep the same characters and tone?</span
+              ><span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                It tries to stay consistent with the material you provide,
+                especially when you include the earlier events and clear
+                continuation notes. If you want stronger continuity, include
+                important character traits, plot points, and the emotional tone
+                in your input.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        <a href="https://moviesearch.online">moviesearch.online</a>
+        &nbsp;|&nbsp;
+        <a href="https://moviesearch.online/tools/story-flow">Story Flow</a>
+      </p>
+    </footer>
+
+    <script>
+      const existingStory = document.getElementById("existingStory");
+      const guidelines = document.getElementById("guidelines");
+      const storySoFar = document.getElementById("storySoFar");
+      const theme = document.getElementById("theme");
+      const genre = document.getElementById("genre");
+      const lengthRange = document.getElementById("lengthRange");
+      const lengthValue = document.getElementById("lengthValue");
+      const generateBtn = document.getElementById("generateBtn");
+      const regenBtn = document.getElementById("regenBtn");
+      const copyBtn = document.getElementById("copyBtn");
+      const downloadBtn = document.getElementById("downloadBtn");
+      const loadingWrap = document.getElementById("loadingWrap");
+      const errBox = document.getElementById("errBox");
+      const results = document.getElementById("results");
+      const storyText = document.getElementById("storyText");
+      const notesList = document.getElementById("notesList");
+      const toast = document.getElementById("toast");
+
+      const counters = [
+        {
+          el: existingStory,
+          counter: document.getElementById("existingCounter"),
+          max: 200000,
+        },
+        {
+          el: guidelines,
+          counter: document.getElementById("guidelinesCounter"),
+          max: 5000,
+        },
+        {
+          el: storySoFar,
+          counter: document.getElementById("storySoFarCounter"),
+          max: 50000,
+        },
+        {
+          el: theme,
+          counter: document.getElementById("themeCounter"),
+          max: 100,
+        },
+        {
+          el: genre,
+          counter: document.getElementById("genreCounter"),
+          max: 100,
+        },
+      ];
+
+      let lastOutput = "";
+
+      function updateCounter(input, counter, max) {
+        counter.textContent = `${input.value.length}/${max}`;
+      }
+
+      function updateLength() {
+        const pct =
+          ((lengthRange.value - lengthRange.min) /
+            (lengthRange.max - lengthRange.min)) *
+          100;
+        lengthRange.style.setProperty("--pct", pct + "%");
+        lengthValue.textContent = lengthRange.value;
+      }
+
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2200);
+      }
+
+      function showErr(message) {
+        errBox.textContent = message;
+        errBox.classList.add("show");
+      }
+
+      function hideErr() {
+        errBox.textContent = "";
+        errBox.classList.remove("show");
+      }
+
+      function showLoading() {
+        loadingWrap.classList.add("show");
+      }
+
+      function hideLoading() {
+        loadingWrap.classList.remove("show");
+      }
+
+      function hideResults() {
+        results.classList.remove("show");
+        storyText.innerHTML = "";
+        notesList.innerHTML = "";
+        lastOutput = "";
+      }
+
+      function escHtml(value) {
+        return String(value)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function buildPrompt() {
+        return [
+          "Continue the following story in a natural, coherent way.",
+          `Target continuation length: about ${lengthRange.value} words.`,
+          theme.value.trim() ? `Theme: ${theme.value.trim()}.` : "",
+          genre.value.trim() ? `Genre: ${genre.value.trim()}.` : "",
+          storySoFar.value.trim()
+            ? `What has happened so far: ${storySoFar.value.trim()}.`
+            : "",
+          guidelines.value.trim()
+            ? `Guidelines for what should happen next: ${guidelines.value.trim()}.`
+            : "",
+          "Keep the tone and continuity consistent with the existing story.",
+          "Do not restart the scene or summarize the whole story unless needed.",
+          "Write the continuation as readable prose in paragraph form.",
+          "After the continuation, include 3 short story notes about what the continuation advanced or set up next.",
+          "Return exactly in this format:",
+          "Continuation:",
+          "[continued story text]",
+          "Story Notes:",
+          "- [note]",
+          "- [note]",
+          "- [note]",
+          `Existing story: ${existingStory.value.trim()}`,
+        ]
+          .filter(Boolean)
+          .join(" ");
+      }
+
+      function parseResponse(raw) {
+        const text = String(raw || "")
+          .replace(/\r/g, "")
+          .trim();
+        const continuationMatch = text.match(
+          /Continuation:\s*([\s\S]+?)(?:\nStory Notes:|$)/i,
+        );
+        const notesMatch = text.match(/Story Notes:\s*([\s\S]+)/i);
+        const continuation = (
+          continuationMatch ? continuationMatch[1].trim() : text
+        ).trim();
+        const notes = notesMatch
+          ? notesMatch[1]
+              .split(/\n+/)
+              .map((line) => line.replace(/^[\-\*\d\.\)\s]+/, "").trim())
+              .filter(Boolean)
+          : [];
+        return { continuation, notes };
+      }
+
+      function renderResponse(parsed) {
+        const paragraphs = parsed.continuation
+          .split(/\n{2,}/)
+          .map((part) => part.trim())
+          .filter(Boolean)
+          .map((part) => `<p>${escHtml(part).replace(/\n/g, "<br>")}</p>`)
+          .join("");
+
+        storyText.innerHTML =
+          paragraphs || `<p>${escHtml(parsed.continuation)}</p>`;
+        notesList.innerHTML = (
+          parsed.notes.length ? parsed.notes : ["No story notes were returned."]
+        )
+          .map(
+            (item) => `
+    <div class="notes-line">${escHtml(item)}</div>
+  `,
+          )
+          .join("");
+
+        lastOutput = [
+          "Continuation:",
+          parsed.continuation,
+          "",
+          "Story Notes:",
+          ...(parsed.notes.length
+            ? parsed.notes.map((item) => `- ${item}`)
+            : ["- No story notes were returned."]),
+        ].join("\n");
+
+        results.classList.add("show");
+        results.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      async function generate() {
+        if (!existingStory.value.trim()) {
+          showErr(
+            "Please paste the existing story before asking the tool to continue it.",
+          );
+          return;
+        }
+
+        hideErr();
+        hideResults();
+        showLoading();
+        generateBtn.disabled = true;
+        generateBtn.textContent = "Continuing...";
+
+        try {
+          const response = await fetch(
+            "https://api.coursesity.com/api/ai-tool/generate-content",
+            {
+              method: "POST",
+              headers: {
+                accept: "application/json, text/plain, */*",
+                "content-type": "application/json",
+                origin: "https://www.moviesearch.online",
+                referer: "https://www.moviesearch.online/",
+              },
+              body: JSON.stringify({
+                toolType: "tv-show-name-generator",
+                prompt: buildPrompt(),
+                style: genre.value.trim() || "story",
+                language: "en",
+                creativityLevel: Math.max(
+                  1,
+                  Math.min(10, Math.round(Number(lengthRange.value) / 120)),
+                ),
+              }),
+            },
+          );
+
+          if (!response.ok) {
+            throw new Error(
+              "API error " + response.status + ". Please try again.",
+            );
+          }
+
+          const data = await response.json();
+
+          // So you must use 'data' here, not 'responseJson'
+          const raw = data?.data?.content || data?.content || "";
+
+          if (!raw) {
+            throw new Error("No continuation was returned. Please try again.");
+          }
+
+          renderResponse(parseResponse(raw));
+        } catch (error) {
+          showErr(
+            error.message || "Something went wrong while continuing the story.",
+          );
+        } finally {
+          hideLoading();
+          generateBtn.disabled = false;
+          generateBtn.textContent = "Continue the Story";
+        }
+      }
+
+      for (const item of counters) {
+        updateCounter(item.el, item.counter, item.max);
+        item.el.addEventListener("input", () =>
+          updateCounter(item.el, item.counter, item.max),
+        );
+      }
+
+      lengthRange.addEventListener("input", updateLength);
+      updateLength();
+
+      document.querySelectorAll("[data-action]").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const target = document.getElementById(button.dataset.target);
+          if (!target) return;
+          if (button.dataset.action === "clear") {
+            target.value = "";
+            target.dispatchEvent(new Event("input"));
+            return;
+          }
+          if (button.dataset.action === "paste") {
+            try {
+              const text = await navigator.clipboard.readText();
+              target.value = text;
+              target.dispatchEvent(new Event("input"));
+              showToast("Pasted from clipboard.");
+            } catch {
+              showToast("Clipboard paste was blocked.");
+            }
+          }
+        });
+      });
+
+      document.getElementById("fillMystery").addEventListener("click", () => {
+        existingStory.value =
+          "Sarah had returned to her hometown after years away, expecting only to help settle family matters. Instead, she found her childhood street unusually silent, and the old watchtower on the hill lit up each night even though everyone insisted it had been abandoned for decades.";
+        guidelines.value =
+          "Michael should tell Sarah about the strange occurrences happening around the town, but he should clearly be hiding something personal from her.";
+        storySoFar.value =
+          "Sarah came home after years away. She noticed the town feels tense and secretive. The abandoned watchtower has been showing signs of activity.";
+        theme.value = "Secrets, return, buried guilt";
+        genre.value = "Mystery";
+        [existingStory, guidelines, storySoFar, theme, genre].forEach((el) =>
+          el.dispatchEvent(new Event("input")),
+        );
+      });
+
+      document.getElementById("fillRomance").addEventListener("click", () => {
+        existingStory.value =
+          "Nina had promised herself she would keep things professional during the summer residency, but every late-night planning session with Elias made that promise harder to keep. By the time the storm knocked out the power across the coast, they were the only two people left inside the old theater.";
+        guidelines.value =
+          "Continue with the story by forcing them to work together in the dark while both of them avoid admitting what they feel.";
+        storySoFar.value =
+          "Nina and Elias have growing tension between them. They are stuck together in an old theater during a storm after everyone else leaves.";
+        theme.value = "Tension, vulnerability, timing";
+        genre.value = "Romance";
+        [existingStory, guidelines, storySoFar, theme, genre].forEach((el) =>
+          el.dispatchEvent(new Event("input")),
+        );
+      });
+
+      document.getElementById("fillFantasy").addEventListener("click", () => {
+        existingStory.value =
+          "When Taren touched the cracked stone in the ruins, the river below the cliff began to glow with blue fire. The old map in his satchel had warned that the gate would only awaken for someone carrying both the bloodline and the debt, but Taren still had no idea which part of the warning was meant for him.";
+        guidelines.value =
+          "Continue the story with the arrival of someone who knows what the debt means, but make the explanation incomplete and slightly threatening.";
+        storySoFar.value =
+          "Taren awakened an ancient magical gate in the ruins. He knows a prophecy is tied to him, but not what the debt refers to.";
+        theme.value = "Destiny, debt, hidden power";
+        genre.value = "Fantasy";
+        [existingStory, guidelines, storySoFar, theme, genre].forEach((el) =>
+          el.dispatchEvent(new Event("input")),
+        );
+      });
+
+      copyBtn.addEventListener("click", () => {
+        if (!lastOutput) {
+          showToast("Generate a continuation first.");
+          return;
+        }
+        navigator.clipboard
+          .writeText(lastOutput)
+          .then(() => showToast("Continuation copied."));
+      });
+
+      downloadBtn.addEventListener("click", () => {
+        if (!lastOutput) {
+          showToast("Generate a continuation first.");
+          return;
+        }
+        const blob = new Blob([lastOutput], {
+          type: "text/plain;charset=utf-8",
+        });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "story-flow-continuation.txt";
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+        showToast("TXT download ready.");
+      });
+
+      generateBtn.addEventListener("click", generate);
+      regenBtn.addEventListener("click", generate);
+
+      document.querySelectorAll(".faq-q").forEach((button) => {
+        button.addEventListener("click", () => {
+          const item = button.closest(".faq-item");
+          const isOpen = item.classList.contains("open");
+          document.querySelectorAll(".faq-item").forEach((entry) => {
+            entry.classList.remove("open");
+            entry
+              .querySelector(".faq-q")
+              .setAttribute("aria-expanded", "false");
+          });
+          if (!isOpen) {
+            item.classList.add("open");
+            button.setAttribute("aria-expanded", "true");
+          }
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../box.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("hero-container").innerHTML = data;
+          });
+      });
+    </script>
+  </body>
+</html>
