@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Download Minecraft on PC (Java & Bedrock) – 2024 Guide</title>
+    <meta
+      name="description"
+      content="Learn how to download and install Minecraft on PC or laptop. Covers Minecraft Java and Bedrock editions on Windows. Step-by-step guide to get Minecraft on your computer today."
+    />
+    <meta
+      name="keywords"
+      content="minecraft pc, minecraft windows, minecraft pc microsoft, how to get minecraft on pc, how to play minecraft on pc, how to get minecraft, how to download minecraft pc on computer, can you play minecraft on a laptop"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Nunito", sans-serif;
+        background: #f8fafc;
+        color: #1e293b;
+        line-height: 1.75;
+      }
+
+      .wrap {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+
+      /* HERO */
+      .hero {
+        background: #f1f5f9;
+        border: 1px solid #e2e8f0;
+        border-radius: 14px;
+        padding: 2rem 1.75rem 1.5rem;
+        margin-bottom: 1.75rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "⛏";
+        position: absolute;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 80px;
+        opacity: 0.07;
+        pointer-events: none;
+      }
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 1rem;
+      }
+      .tag {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        padding: 3px 10px;
+        border-radius: 999px;
+        background: #dbeafe;
+        color: #1d4ed8;
+      }
+      .hero h1 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.05;
+        letter-spacing: 0.02em;
+        margin-bottom: 0.75rem;
+        font-weight: 400;
+        color: #0f172a;
+      }
+      .hero h1 em {
+        color: #16a34a;
+        font-style: normal;
+      }
+      .meta {
+        font-size: 13px;
+        color: #64748b;
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      /* INTRO */
+      .intro-card {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-left: 4px solid #16a34a;
+        border-radius: 10px;
+        padding: 1rem 1.25rem;
+        margin-bottom: 1.75rem;
+        font-size: 15px;
+        line-height: 1.7;
+        color: #475569;
+      }
+      .intro-card strong {
+        color: #16a34a;
+      }
+
+      /* SECTIONS */
+      .section {
+        margin-bottom: 2rem;
+      }
+      .section h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.6rem;
+        font-weight: 400;
+        letter-spacing: 0.04em;
+        margin-bottom: 0.65rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #0f172a;
+      }
+      .section h2 .num {
+        width: 28px;
+        height: 28px;
+        background: #16a34a;
+        color: #fff;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-family: "Nunito", sans-serif;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+      .section p {
+        font-size: 15px;
+        line-height: 1.75;
+        color: #475569;
+        margin-bottom: 0.85rem;
+      }
+      .section p strong {
+        color: #1e293b;
+        font-weight: 600;
+      }
+
+      /* STEPS */
+      .steps {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 1rem 0 1.25rem;
+      }
+      .step {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 14px 16px;
+      }
+      .step-top {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .step-n {
+        flex-shrink: 0;
+        width: 26px;
+        height: 26px;
+        background: #f1f5f9;
+        border: 1px solid #cbd5e1;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 700;
+        color: #64748b;
+      }
+      .step-body {
+        flex: 1;
+      }
+      .step-body b {
+        font-size: 14px;
+        font-weight: 700;
+        color: #1e293b;
+        display: block;
+        margin-bottom: 3px;
+      }
+      .step-body p {
+        font-size: 13.5px;
+        margin: 0;
+        line-height: 1.65;
+        color: #64748b;
+      }
+
+      /* IMAGE PLACEHOLDER
+       ─────────────────────────────────────────────
+       HOW TO REPLACE WITH YOUR OWN SCREENSHOT:
+
+       1. Put your image file in the SAME folder as this HTML file
+       2. Find the <!-- IMG: step-XX --> comment below each step
+       3. Delete the entire <div class="img-placeholder">...</div> block
+       4. Paste this in its place (update filename & alt text):
+
+          <img src="YOUR-FILENAME.jpg"
+               alt="Short description of the screenshot"
+               style="width:100%;border-radius:8px;margin-top:12px;">
+       ───────────────────────────────────────────── */
+      .img-placeholder {
+        margin-top: 12px;
+        border: 2px dashed #cbd5e1;
+        border-radius: 8px;
+        background: #f8fafc;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 20px 12px;
+        text-align: center;
+      }
+      .img-placeholder .icon {
+        font-size: 28px;
+        color: #94a3b8;
+      }
+      .img-placeholder .filename {
+        font-size: 12px;
+        font-family: monospace;
+        color: #1d4ed8;
+        background: #dbeafe;
+        padding: 3px 10px;
+        border-radius: 999px;
+      }
+      .img-placeholder .hint {
+        font-size: 11px;
+        color: #94a3b8;
+      }
+
+      /* TIP */
+      .tip {
+        background: #fffbeb;
+        border: 1px solid #fde68a;
+        border-left: 4px solid #d97706;
+        border-radius: 10px;
+        padding: 12px 16px;
+        margin: 1rem 0;
+        font-size: 13.5px;
+        color: #78350f;
+        line-height: 1.65;
+      }
+      .tip strong {
+        color: #d97706;
+      }
+
+      /* DIVIDER */
+      hr {
+        border: none;
+        border-top: 1px solid #e2e8f0;
+        margin: 2rem 0;
+      }
+
+      /* FAQ */
+      .faq-item {
+        padding: 14px 0;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .faq-item:last-child {
+        border-bottom: none;
+      }
+      .faq-q {
+        font-weight: 700;
+        font-size: 14.5px;
+        color: #1e293b;
+        margin-bottom: 5px;
+      }
+      .faq-a {
+        font-size: 13.5px;
+        color: #64748b;
+        line-height: 1.65;
+        margin: 0;
+      }
+
+      /* CTA */
+      .cta {
+        background: #f1f5f9;
+        border: 1px solid #e2e8f0;
+        border-radius: 14px;
+        padding: 1.25rem 1.5rem;
+        text-align: center;
+        margin-top: 1.75rem;
+      }
+      .cta p {
+        font-size: 14px;
+        color: #64748b;
+        margin: 0;
+      }
+      .cta strong {
+        color: #1e293b;
+      }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <!-- ═══════════════════════════════════════ HERO ══ -->
+      <div class="hero">
+        <div class="tag-row">
+          <span class="tag">Minecraft PC</span>
+          <span class="tag">Minecraft Windows</span>
+          <span class="tag">Beginner Guide</span>
+        </div>
+        <h1>
+          How to Download<br /><em>Minecraft on PC</em><br />— Java &amp;
+          Bedrock
+        </h1>
+        <div class="meta">
+          <span>⏱ 5 min read</span>
+          <span>💻 Works on laptops too</span>
+          <span>🪟 Windows 10 / 11</span>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════ INTRO ══ -->
+      <div class="intro-card">
+        <strong>Short answer:</strong> Yes — you can play Minecraft on any
+        Windows PC or laptop. Go to <strong>minecraft.net</strong>, buy the game
+        once, and you get both Java and Bedrock editions bundled together. The
+        whole setup takes about 10 minutes.
+      </div>
+
+      <!-- ═══════════════════════════════════ BEFORE START ══ -->
+      <div class="section">
+        <h2>What you need to know first</h2>
+        <p>
+          Minecraft isn't free — it's a one-time purchase. That single purchase
+          covers <strong>Minecraft Java Edition</strong> (the classic PC version
+          loved by modders) and <strong>Minecraft Bedrock Edition</strong> (for
+          cross-play with console and mobile). You'll also need a
+          <strong>Microsoft account</strong> since your license is tied to it.
+          If you don't have one, it's free to create.
+        </p>
+        <div class="tip">
+          <strong>Java vs Bedrock?</strong> Java is PC-only with massive mod
+          support. Bedrock lets you play with Xbox, PlayStation, Switch, and
+          mobile players. You get both — no need to choose.
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- ═══════════════════════════════════════ METHOD 1 ══ -->
+      <div class="section">
+        <h2><span class="num">1</span> Download via Minecraft.net</h2>
+        <p>
+          The most direct way to get Minecraft on your Windows PC or computer.
+        </p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-top">
+              <div class="step-n">1</div>
+              <div class="step-body">
+                <b>Go to minecraft.net</b>
+                <p>
+                  Open any browser, head to minecraft.net, click
+                  <strong>Games</strong> in the top nav, then hit
+                  <strong>Buy Minecraft</strong>.
+                </p>
+              </div>
+            </div>
+            <!-- IMG: step-01 | Delete block below and replace with <img src="step-01-minecraft-net.jpg" alt="..." style="width:100%;border-radius:8px;margin-top:12px;"> -->
+            <img
+              src="minecraft.png"
+              style="width: 100%; border-radius: 8px; margin-top: 12px"
+            />
+            <img
+              src="minecraft2.png"
+              style="width: 100%; border-radius: 8px; margin-top: 12px"
+            />
+            <img
+              src="minecraft3.png"
+              style="width: 100%; border-radius: 8px; margin-top: 12px"
+            />
+          </div>
+
+          <div class="step">
+            <div class="step-top">
+              <div class="step-n">2</div>
+              <div class="step-body">
+                <b>Pick Standard or Deluxe</b>
+                <p>
+                  Both include Java + Bedrock + the launcher. Deluxe adds bonus
+                  content. Select one and click <strong>Check Out</strong>.
+                </p>
+              </div>
+            </div>
+            <!-- IMG: step-02 | Delete block below and replace with <img src="step-02-pick-edition.jpg" alt="..." style="width:100%;border-radius:8px;margin-top:12px;"> -->
+            <img
+              src="minecraft4.png"
+              style="width: 100%; border-radius: 8px; margin-top: 12px"
+            />
+          </div>
+
+          <div class="step">
+            <div class="step-top">
+              <div class="step-n">3</div>
+              <div class="step-body">
+                <b>Sign in with a Microsoft account</b>
+                <p>
+                  Your Minecraft license lives on your Microsoft account. Sign
+                  in or create one during checkout — you'll need this same
+                  account later.
+                </p>
+              </div>
+            </div>
+            <!-- IMG: step-03 | Delete block below and replace with <img src="step-03-microsoft-signin.jpg" alt="..." style="width:100%;border-radius:8px;margin-top:12px;"> -->
+            <img
+              src="minecraft5.png"
+              style="width: 100%; border-radius: 8px; margin-top: 12px"
+            />
+          </div>
+
+          <div class="step">
+            <div class="step-top">
+              <div class="step-n">4</div>
+              <div class="step-body">
+                <b>Download the launcher</b>
+                <p>
+                  After purchase, scroll to the bottom →
+                  <strong>Support</strong> → <strong>Download</strong> →
+                  <strong>Download for Windows</strong>. The file
+                  <em>MinecraftInstaller.exe</em> lands in your Downloads
+                  folder.
+                </p>
+              </div>
+            </div>
+            <!-- IMG: step-04 | Delete block below and replace with <img src="step-04-download-launcher.jpg" alt="..." style="width:100%;border-radius:8px;margin-top:12px;"> -->
+            <img
+              src="minecraft6.png"
+              style="width: 100%; border-radius: 8px; margin-top: 12px"
+            />
+          </div>
+
+          <div class="step">
+            <div class="step-top">
+              <div class="step-n">5</div>
+              <div class="step-body">
+                <b>Sign into the Microsoft Store</b>
+                <p>
+                  Press the Windows key, search
+                  <strong>Microsoft Store</strong>, and make sure you're signed
+                  in with the same account you used to buy Minecraft. If not,
+                  sign out and sign back in.
+                </p>
+              </div>
+            </div>
+            <!-- IMG: step-05 | Delete block below and replace with <img src="step-05-microsoft-store-login.jpg" alt="..." style="width:100%;border-radius:8px;margin-top:12px;"> -->
+            <img
+              src="minecraft7.png"
+              style="width: 100%; border-radius: 8px; margin-top: 12px"
+            />
+          </div>
+
+          <div class="step">
+            <div class="step-top">
+              <div class="step-n">6</div>
+              <div class="step-body">
+                <b>Run the installer</b>
+                <p>
+                  Open File Explorer → Downloads → double-click
+                  <strong>MinecraftInstaller.exe</strong> → click
+                  <strong>Install</strong>. Windows may run an update first —
+                  just wait it out.
+                </p>
+              </div>
+            </div>
+            <!-- IMG: step-06 | Delete block below and replace with <img src="step-06-run-installer.jpg" alt="..." style="width:100%;border-radius:8px;margin-top:12px;"> -->
+            <img
+              src="minecraft8.png"
+              style="width: 100%; border-radius: 8px; margin-top: 12px"
+            />
+          </div>
+
+          <div class="step">
+            <div class="step-top">
+              <div class="step-n">7</div>
+              <div class="step-body">
+                <b>Hit Play</b>
+                <p>
+                  The Minecraft Launcher opens automatically. Pick
+                  <strong>Java Edition</strong> or
+                  <strong>Bedrock Edition</strong> on the left sidebar, choose
+                  the latest release, and click <strong>Play</strong>. It'll
+                  download what it needs and launch.
+                </p>
+              </div>
+            </div>
+            <!-- IMG: step-07 | Delete block below and replace with <img src="step-07-launcher-play.jpg" alt="..." style="width:100%;border-radius:8px;margin-top:12px;"> -->
+            <img
+              src="minecraft9.png"
+              style="width: 100%; border-radius: 8px; margin-top: 12px"
+            />
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- ═══════════════════════════════════════ METHOD 2 ══ -->
+      <div class="section">
+        <h2><span class="num">2</span> Get it via the Microsoft Store</h2>
+        <p>
+          Already on Windows? Skip the browser entirely — the Microsoft Store
+          has the Minecraft Launcher built-in and lets you buy it too.
+        </p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-top">
+              <div class="step-n">1</div>
+              <div class="step-body">
+                <b>Open Microsoft Store</b>
+                <p>
+                  Press the Windows key, type <strong>Microsoft Store</strong>,
+                  and open it.
+                </p>
+              </div>
+            </div>
+            <!-- IMG: method2-01 | Delete block below and replace with <img src="method2-01-open-store.jpg" alt="..." style="width:100%;border-radius:8px;margin-top:12px;"> -->
+            <img
+              src="minecraft10.png"
+              style="width: 100%; border-radius: 8px; margin-top: 12px"
+            />
+          </div>
+
+          <div class="step">
+            <div class="step-top">
+              <div class="step-n">2</div>
+              <div class="step-body">
+                <b>Search "Minecraft"</b>
+                <p>
+                  Type Minecraft in the search bar. You'll see the
+                  <strong>Minecraft Launcher</strong> listed — with a Buy button
+                  if you haven't purchased yet.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-top">
+              <div class="step-n">3</div>
+              <div class="step-body">
+                <b>Install and launch</b>
+                <p>
+                  Click <strong>Get</strong> or <strong>Install</strong>. Once
+                  done, open the launcher, sign in with your Microsoft account,
+                  pick your edition, and play.
+                </p>
+              </div>
+            </div>
+            <!-- IMG: method2-03 | Delete block below and replace with <img src="method2-03-install-launch.jpg" alt="..." style="width:100%;border-radius:8px;margin-top:12px;"> -->
+            <img
+              src="minecraft11.png"
+              style="width: 100%; border-radius: 8px; margin-top: 12px"
+            />
+          </div>
+        </div>
+        <div class="tip">
+          <strong>Which method is better?</strong> Both land in the exact same
+          launcher. Use the Microsoft Store if you want everything in one place
+          — or minecraft.net if you prefer buying directly from Mojang.
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- ═══════════════════════════════════════ FAQ ══ -->
+      <div class="section">
+        <h2>FAQs</h2>
+        <div class="faq-item">
+          <div class="faq-q">Can you play Minecraft on a laptop?</div>
+          <p class="faq-a">
+            Yes — any Windows laptop works. The install process is identical to
+            a desktop PC. For smooth Java Edition gameplay, 8GB RAM is
+            recommended.
+          </p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            Do I need a Microsoft account to play Minecraft on PC?
+          </div>
+          <p class="faq-a">
+            Yes. Your Minecraft license is tied to your Microsoft account.
+            You'll sign in to the launcher with it every time you play.
+          </p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How much does Minecraft cost on PC?</div>
+          <p class="faq-a">
+            It's a one-time purchase — no subscription. Check minecraft.net or
+            the Microsoft Store for the current price in your region.
+          </p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            Can I play Minecraft PC with friends on console?
+          </div>
+          <p class="faq-a">
+            Yes, but only on Bedrock Edition. Switch to Bedrock in the launcher
+            and you can join friends on Xbox, PlayStation, Switch, and mobile.
+          </p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            What's the difference between Java and Bedrock Edition?
+          </div>
+          <p class="faq-a">
+            Java is PC-only with deep mod support and the biggest community.
+            Bedrock is cross-platform. One purchase gets you both on Windows.
+          </p>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════ CTA ══ -->
+      <div class="cta">
+        <p>
+          <strong>That's everything.</strong> Whether you're on a desktop or
+          laptop, getting Minecraft on Windows takes less than 10 minutes. Pick
+          your method above and you'll be building (or surviving) in no time.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
