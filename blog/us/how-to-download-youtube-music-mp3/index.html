@@ -1,0 +1,760 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Download Music from YouTube as MP3 – Free & Easy</title>
+    <meta
+      name="description"
+      content="Learn how to download YouTube audio as MP3 using YouTube's built-in Audio Library — and where to legally get mainstream music as MP3 files. Step-by-step guide."
+    />
+    <meta
+      name="keywords"
+      content="youtube audio downloader, download youtube mp3, youtube audio download, youtube download mp3"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Nunito", sans-serif;
+        background: #f8fafc;
+        color: #1e293b;
+        line-height: 1.75;
+      }
+
+      .wrap {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+        /* these two lines keep ALL children constrained inside */
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .hero {
+        /* removed max-width:980px — wider than .wrap causes overflow */
+        width: 100%;
+        box-sizing: border-box;
+        margin: 24px 0;
+        padding: 40px 24px;
+        background: #f0f4ff;
+        border: 1px solid #dbe4ff;
+        border-radius: 18px;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        max-width: 640px;
+        margin: 0 auto 24px;
+        line-height: 1.6;
+      }
+
+      .hero a.cta {
+        display: inline-block;
+        padding: 12px 26px;
+        background: #4f6ef7;
+        color: #fff;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      /* ── hero1 ── */
+      .hero1 {
+        background: #0f172a;
+        border-radius: 14px;
+        padding: 2rem 1.75rem 1.5rem;
+        margin-bottom: 1.75rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero1::before {
+        content: "🎵";
+        position: absolute;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 90px;
+        opacity: 0.08;
+        pointer-events: none;
+      }
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 1rem;
+      }
+      .tag {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        padding: 3px 10px;
+        border-radius: 999px;
+        background: #fee2e2;
+        color: #dc2626;
+      }
+      .hero1 h1 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: clamp(2rem, 5vw, 3rem);
+        line-height: 1.05;
+        letter-spacing: 0.02em;
+        margin-bottom: 0.75rem;
+        font-weight: 400;
+        color: #f8fafc;
+      }
+      .hero1 h1 em {
+        color: #f87171;
+        font-style: normal;
+      }
+      .meta {
+        font-size: 13px;
+        color: #94a3b8;
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      /* ── INTRO ── */
+      .intro-card {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-left: 4px solid #dc2626;
+        border-radius: 10px;
+        padding: 1rem 1.25rem;
+        margin-bottom: 1.75rem;
+        font-size: 15px;
+        line-height: 1.7;
+        color: #475569;
+      }
+      .intro-card strong {
+        color: #dc2626;
+      }
+
+      /* ── SECTIONS ── */
+      .section {
+        margin-bottom: 2rem;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+      .section h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.6rem;
+        font-weight: 400;
+        letter-spacing: 0.04em;
+        margin-bottom: 0.65rem;
+        color: #0f172a;
+      }
+      .section p {
+        font-size: 15px;
+        line-height: 1.75;
+        color: #475569;
+        margin-bottom: 0.85rem;
+      }
+      .section p strong {
+        color: #1e293b;
+        font-weight: 600;
+      }
+
+      /* ── STEPS ── */
+      .steps {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 1rem 0 1.25rem;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .step {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 14px 16px;
+        overflow: hidden;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .step-top {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .step-n {
+        flex-shrink: 0;
+        width: 26px;
+        height: 26px;
+        background: #fee2e2;
+        border: 1px solid #fca5a5;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 700;
+        color: #dc2626;
+      }
+      .step-body {
+        flex: 1;
+        min-width: 0;
+      }
+      .step-body b {
+        font-size: 14px;
+        font-weight: 700;
+        color: #1e293b;
+        display: block;
+        margin-bottom: 3px;
+      }
+      .step-body p {
+        font-size: 13.5px;
+        margin: 0;
+        line-height: 1.65;
+        color: #64748b;
+      }
+
+      /* ── IMAGE PLACEHOLDER ──
+       HOW TO REPLACE:
+       Delete the entire <div class="img-placeholder">...</div> block
+       and replace with:
+       <img src="YOUR-FILENAME.jpg" alt="description" style="width:100%;height:auto;border-radius:8px;margin-top:12px;display:block;">
+    ── */
+      .img-placeholder {
+        margin-top: 12px;
+        border: 2px dashed #cbd5e1;
+        border-radius: 8px;
+        background: #f8fafc;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 20px 12px;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .img-placeholder .icon {
+        font-size: 28px;
+        color: #94a3b8;
+      }
+      .img-placeholder .filename {
+        font-size: 12px;
+        font-family: monospace;
+        color: #dc2626;
+        background: #fee2e2;
+        padding: 3px 10px;
+        border-radius: 999px;
+      }
+      .img-placeholder .hint {
+        font-size: 11px;
+        color: #94a3b8;
+      }
+
+      /* ── TIP ── */
+      .tip {
+        background: #fffbeb;
+        border: 1px solid #fde68a;
+        border-left: 4px solid #d97706;
+        border-radius: 10px;
+        padding: 12px 16px;
+        margin: 1rem 0;
+        font-size: 13.5px;
+        color: #78350f;
+        line-height: 1.65;
+      }
+      .tip strong {
+        color: #d97706;
+      }
+
+      /* ── WARNING ── */
+      .warning {
+        background: #fef2f2;
+        border: 1px solid #fecaca;
+        border-left: 4px solid #dc2626;
+        border-radius: 10px;
+        padding: 12px 16px;
+        margin: 1rem 0;
+        font-size: 13.5px;
+        color: #7f1d1d;
+        line-height: 1.65;
+      }
+      .warning strong {
+        color: #dc2626;
+      }
+
+      /* ── MAINSTREAM CARDS ── */
+      .platform-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 12px;
+        margin: 1rem 0 1.25rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+      .platform-card {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 16px;
+        overflow: hidden;
+        box-sizing: border-box;
+        min-width: 0; /* prevents grid blowout */
+      }
+      .platform-card .pname {
+        font-weight: 700;
+        font-size: 14.5px;
+        color: #1e293b;
+        margin-bottom: 4px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .platform-card .pname .emoji {
+        font-size: 18px;
+      }
+      .platform-card p {
+        font-size: 13px;
+        color: #64748b;
+        margin: 0;
+        line-height: 1.6;
+      }
+      .badge {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding: 2px 7px;
+        border-radius: 999px;
+        margin-left: 4px;
+      }
+      .badge-free {
+        background: #dcfce7;
+        color: #15803d;
+      }
+      .badge-paid {
+        background: #f1f5f9;
+        color: #475569;
+      }
+
+      /* ── DIVIDER ── */
+      hr {
+        border: none;
+        border-top: 1px solid #e2e8f0;
+        margin: 2rem 0;
+      }
+
+      /* ── FAQ ── */
+      .faq-item {
+        padding: 14px 0;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .faq-item:last-child {
+        border-bottom: none;
+      }
+      .faq-q {
+        font-weight: 700;
+        font-size: 14.5px;
+        color: #1e293b;
+        margin-bottom: 5px;
+      }
+      .faq-a {
+        font-size: 13.5px;
+        color: #64748b;
+        line-height: 1.65;
+        margin: 0;
+      }
+
+      /* ── CTA ── */
+      .cta {
+        background: #0f172a;
+        border-radius: 14px;
+        padding: 1.25rem 1.5rem;
+        text-align: center;
+        margin-top: 1.75rem;
+      }
+      .cta p {
+        font-size: 14px;
+        color: #94a3b8;
+        margin: 0;
+      }
+      .cta strong {
+        color: #f8fafc;
+      }
+    </style>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <!-- ═══ hero1 ═══ -->
+      <div class="hero1">
+        <div class="tag-row">
+          <span class="tag">YouTube Audio Download</span>
+          <span class="tag">MP3 Guide</span>
+          <span class="tag">Free</span>
+        </div>
+        <h1>How to Download<br /><em>YouTube Music</em><br />as an MP3 File</h1>
+        <div class="meta">
+          <span>⏱ 5 min read</span>
+          <span>🎵 Free + Mainstream methods</span>
+          <span>💻 Step-by-step</span>
+        </div>
+      </div>
+
+      <!-- ═══ INTRO ═══ -->
+      <div class="intro-card">
+        <strong>Quick summary:</strong> YouTube has a built-in
+        <strong>Audio Library</strong> that lets you download royalty-free
+        tracks as MP3 files for free. But if you want mainstream music — think
+        Drake, Taylor Swift, or Kendrick — you'll need a different approach. We
+        cover both below.
+      </div>
+
+      <!-- ═══ PART 1: YOUTUBE AUDIO LIBRARY ═══ -->
+      <div class="section">
+        <h2>Part 1 — Free YouTube Audio Download (Audio Library)</h2>
+        <p>
+          Most people don't know YouTube has its own
+          <strong>youtube audio downloader</strong> built right into YouTube
+          Studio. The Audio Library has hundreds of royalty-free tracks you can
+          preview and download as MP3s — no extensions, no third-party websites
+          needed.
+        </p>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step-top">
+              <div class="step-n">1</div>
+              <div class="step-body">
+                <b>Go to YouTube Studio</b>
+                <p>
+                  Click your <strong>profile icon</strong> in the top right
+                  corner of YouTube, then select
+                  <strong>YouTube Studio</strong> from the dropdown.
+                </p>
+              </div>
+            </div>
+            <!-- IMG: step-01 | Replace block below with: <img src="step-01-youtube-studio.jpg" alt="YouTube profile menu showing YouTube Studio option" style="width:100%;height:auto;border-radius:8px;margin-top:12px;display:block;"> -->
+            <img
+              src="downmp3.png"
+              alt="YouTube Studio left sidebar with Audio Library highlighted"
+              style="
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                margin-top: 12px;
+                display: block;
+              "
+            />
+          </div>
+
+          <div class="step">
+            <div class="step-top">
+              <div class="step-n">2</div>
+              <div class="step-body">
+                <b>Open the Audio Library</b>
+                <p>
+                  In the left sidebar, scroll down and click
+                  <strong>Audio Library</strong>. You can filter tracks by
+                  Genre, Mood, or whether attribution is required.
+                </p>
+              </div>
+            </div>
+            <!-- IMG: step-02 | Replace block below with: <img src="step-02-audio-library.jpg" alt="YouTube Studio left sidebar with Audio Library highlighted" style="width:100%;height:auto;border-radius:8px;margin-top:12px;display:block;"> -->
+            <img
+              src="downmp32.png"
+              alt="YouTube Studio left sidebar with Audio Library highlighted"
+              style="
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                margin-top: 12px;
+                display: block;
+              "
+            />
+          </div>
+
+          <div class="step">
+            <div class="step-top">
+              <div class="step-n">3</div>
+              <div class="step-body">
+                <b>Preview a track</b>
+                <p>
+                  Hit the <strong>play button</strong> on the left of any track
+                  to hear it before downloading.
+                </p>
+              </div>
+            </div>
+            <!-- IMG: step-03 | Replace block below with: <img src="step-03-preview-track.jpg" alt="Audio Library showing play button for track preview" style="width:100%;height:auto;border-radius:8px;margin-top:12px;display:block;"> -->
+            <img
+              src="downmp33.png"
+              alt="YouTube Studio left sidebar with Audio Library highlighted"
+              style="
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                margin-top: 12px;
+                display: block;
+              "
+            />
+          </div>
+
+          <div class="step">
+            <div class="step-top">
+              <div class="step-n">4</div>
+              <div class="step-body">
+                <b>Download as MP3</b>
+                <p>
+                  Click the <strong>download icon</strong> on the right of the
+                  track. The MP3 file saves directly to your computer — no
+                  conversion needed.
+                </p>
+              </div>
+            </div>
+            <!-- IMG: step-04 | Replace block below with: <img src="step-04-download-mp3.jpg" alt="Audio Library download button to save track as MP3" style="width:100%;height:auto;border-radius:8px;margin-top:12px;display:block;"> -->
+            <img
+              src="downmp34.png"
+              alt="YouTube Studio left sidebar with Audio Library highlighted"
+              style="
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                margin-top: 12px;
+                display: block;
+              "
+            />
+          </div>
+        </div>
+
+        <div class="tip">
+          <strong>💡 Good to know:</strong> Some tracks in the Audio Library say
+          "Attribution Required" — that just means you need to credit the artist
+          in your video description. Check the license column before using a
+          track publicly.
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- ═══ PART 2: MAINSTREAM MUSIC ═══ -->
+      <div class="section">
+        <h2>Part 2 — How to Download Mainstream Music as MP3</h2>
+
+        <p>
+          Here's the honest truth:
+          <strong>mainstream music on YouTube is copyrighted</strong>. Using
+          third-party youtube-to-mp3 converter sites to rip those tracks
+          violates YouTube's Terms of Service and copyright law — and many of
+          those sites are loaded with malware and aggressive ads too.
+        </p>
+
+        <div class="warning">
+          <strong>⚠️ Heads up:</strong> Third-party YouTube to MP3 converter
+          tools for copyrighted music are against YouTube's rules and copyright
+          law. They're also frequently bundled with malware — a 2025
+          cybersecurity audit found over 60% of popular converter sites served
+          malicious ads or tried to install unwanted software.
+        </div>
+
+        <p>
+          The good news? There are <strong>clean, legal ways</strong> to get
+          mainstream music as MP3 files — some even free. Here's what actually
+          works:
+        </p>
+
+        <div class="platform-grid">
+          <div class="platform-card">
+            <div class="pname">
+              <span class="emoji">🎵</span> iTunes Store
+              <span class="badge badge-paid">Paid</span>
+            </div>
+            <p>
+              Buy individual tracks starting at <strong>$1.29</strong> and
+              download them as high-quality files you own forever. Best option
+              if you want permanent MP3 ownership of specific songs.
+            </p>
+          </div>
+
+          <div class="platform-card">
+            <div class="pname">
+              <span class="emoji">📦</span> Amazon Music
+              <span class="badge badge-paid">Paid</span>
+            </div>
+            <p>
+              Purchase individual tracks from <strong>$0.99</strong> in MP3
+              320kbps format. Amazon also has occasional
+              <strong>$0.00 free track deals</strong> in their digital store
+              worth checking.
+            </p>
+          </div>
+
+          <div class="platform-card">
+            <div class="pname">
+              <span class="emoji">🎧</span> YouTube Premium
+              <span class="badge badge-paid">$13.99/mo</span>
+            </div>
+            <p>
+              Lets you download videos and music
+              <strong>within the YouTube app</strong> for offline listening.
+              Note: downloads are app-locked — you can't export them as MP3
+              files to your computer.
+            </p>
+          </div>
+
+          <div class="platform-card">
+            <div class="pname">
+              <span class="emoji">🎼</span> Spotify Premium
+              <span class="badge badge-paid">$11.99/mo</span>
+            </div>
+            <p>
+              Download tracks for
+              <strong>offline listening inside the app</strong>. Files are
+              DRM-protected so they stay within Spotify — but it's the easiest
+              way to listen offline on any device.
+            </p>
+          </div>
+
+          <div class="platform-card">
+            <div class="pname">
+              <span class="emoji">🍎</span> Apple Music
+              <span class="badge badge-paid">Paid</span>
+            </div>
+            <p>
+              Subscribe and download songs directly to your device for offline
+              listening. Works seamlessly on iPhone, Mac, and Windows via the
+              Apple Music app.
+            </p>
+          </div>
+
+          <div class="platform-card">
+            <div class="pname">
+              <span class="emoji">🎸</span> Bandcamp
+              <span class="badge badge-free">Free/Pay</span>
+            </div>
+            <p>
+              Great for <strong>indie and independent artists</strong> — many
+              offer free downloads or pay-what-you-want pricing. Downloads come
+              as actual MP3 files you keep.
+            </p>
+          </div>
+        </div>
+
+        <div class="tip">
+          <strong>💡 Best approach:</strong> For one-off mainstream tracks you
+          want to own as MP3 files, <strong>iTunes or Amazon Music</strong> is
+          your cleanest option. For unlimited offline listening on the go, a
+          streaming subscription like Spotify or Apple Music is better value.
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- ═══ FAQ ═══ -->
+      <div class="section">
+        <h2>FAQs</h2>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            Can I use YouTube as a youtube audio downloader for free music?
+          </div>
+          <p class="faq-a">
+            Yes — but only for tracks in YouTube's Audio Library. These are
+            royalty-free tracks cleared by YouTube. Downloading copyrighted
+            mainstream music from YouTube via third-party tools is against the
+            rules.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            Is it legal to download youtube mp3 files from converter sites?
+          </div>
+          <p class="faq-a">
+            For copyrighted music, no — it violates YouTube's Terms of Service
+            and copyright law. Beyond the legal risk, many converter sites also
+            pose real security risks like malware and aggressive ads.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            What's the cheapest way to download mainstream music as MP3?
+          </div>
+          <p class="faq-a">
+            Amazon Music's digital store regularly has tracks starting at $0.99,
+            and sometimes offers free $0.00 downloads. iTunes is also a solid
+            option at $1.29 per track with permanent ownership.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Does YouTube Premium let me export MP3 files?</div>
+          <p class="faq-a">
+            No. YouTube Premium downloads are app-locked — you can listen
+            offline inside the YouTube app, but you can't export or save the
+            files as MP3s to your computer.
+          </p>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">
+            What format does the youtube audio download save as from the Audio
+            Library?
+          </div>
+          <p class="faq-a">
+            Tracks from YouTube's Audio Library download directly as MP3 files —
+            no conversion software needed.
+          </p>
+        </div>
+      </div>
+
+      <!-- ═══ CTA ═══ -->
+      <div class="cta">
+        <p>
+          <strong>Bottom line:</strong> For free tracks, YouTube's own Audio
+          Library is the cleanest youtube audio download method out there. For
+          mainstream music, skip the dodgy converter sites and just buy the
+          track on iTunes or Amazon — it's cheap, safe, and legal.
+        </p>
+      </div>
+      <div id="hero-container"></div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("/box.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("hero-container").innerHTML = data;
+          });
+      });
+    </script>
+  </body>
+</html>
