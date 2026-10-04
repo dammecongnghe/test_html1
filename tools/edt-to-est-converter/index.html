@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>EDT to EST Converter - Free Online Time Tool | MovieSearch</title>
+    <meta
+      name="description"
+      content="Free EDT to EST converter online. Enter any EDT date and time and get the exact EST equivalent instantly. No sign-up, and nothing you type is stored."
+    />
+    <link
+      rel="canonical"
+      href="https://moviesearch.online/tools/edt-to-est-converter"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#14213d" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MovieSearch" />
+    <meta
+      property="og:title"
+      content="EDT to EST Converter - Free Online Time Tool"
+    />
+    <meta
+      property="og:description"
+      content="Convert Eastern Daylight Time to Eastern Standard Time in one step. Free, instant and private."
+    />
+    <meta
+      property="og:url"
+      content="https://moviesearch.online/tools/edt-to-est-converter"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="EDT to EST Converter - Free Online Time Tool"
+    />
+    <meta
+      name="twitter:description"
+      content="Convert Eastern Daylight Time to Eastern Standard Time in one step. Free, instant and private."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebApplication",
+            "name": "EDT to EST Converter",
+            "url": "https://moviesearch.online/tools/edt-to-est-converter",
+            "description": "A free online EDT to EST converter. Enter a date and time in Eastern Daylight Time and get the matching Eastern Standard Time instantly.",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Any (runs in your web browser)",
+            "browserRequirements": "Requires JavaScript",
+            "inLanguage": "en",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is the EDT to EST converter?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "It's a simple online tool that turns a time in Eastern Daylight Time (EDT) into the matching time in Eastern Standard Time (EST). Pick a date and a time, and the converter shows the EST equivalent right away, including the correct date if the conversion crosses midnight."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I use this EDT to EST converter online?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Choose the date and the EDT time you want to convert, or tap Use current EDT time to start from right now. The EST result appears instantly next to your input, and you can copy it with one click. There's nothing to download and nothing to sign up for."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is this free EDT to EST converter really free?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. It's completely free, with no account, no limit on how many times you convert, and no paid tier hiding behind it. Open the page and use it whenever you need it."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is my data private when I use the converter?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. The calculation happens entirely in your browser, so the dates and times you enter are never sent to a server or saved. When you close the page, everything you typed is gone."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is the difference between EDT and EST?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "EDT is UTC-4 and EST is UTC-5, so EST is exactly one hour behind EDT. To go from EDT to EST, subtract one hour: 3:00 PM EDT is 2:00 PM EST. This EDT to EST generator does that math for you and adjusts the date when the result lands on the previous day."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+
+    <style>
+      :root {
+        --bg: #eef2f7;
+        --surface: #ffffff;
+        --ink: #14213d;
+        --muted: #4a5875;
+        --line: #d3dbe8;
+        --edt-bg: #fff1d6;
+        --edt-line: #e3a63f;
+        --edt-ink: #6b4300;
+        --est-bg: #dce8fb;
+        --est-line: #6f9be3;
+        --est-ink: #123a82;
+        --btn: #14213d;
+        --btn-ink: #ffffff;
+        --focus: #2b59c3;
+        --font:
+          "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", Roboto,
+          Arial, sans-serif;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #0e1522;
+          --surface: #161f31;
+          --ink: #e8eefb;
+          --muted: #a3b1cc;
+          --line: #2a3650;
+          --edt-bg: #3a2a0d;
+          --edt-line: #b98324;
+          --edt-ink: #ffd48a;
+          --est-bg: #14284d;
+          --est-line: #4f7fd0;
+          --est-ink: #b7d0ff;
+          --btn: #e8eefb;
+          --btn-ink: #0e1522;
+          --focus: #8fb2ff;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #0e1522;
+        --surface: #161f31;
+        --ink: #e8eefb;
+        --muted: #a3b1cc;
+        --line: #2a3650;
+        --edt-bg: #3a2a0d;
+        --edt-line: #b98324;
+        --edt-ink: #ffd48a;
+        --est-bg: #14284d;
+        --est-line: #4f7fd0;
+        --est-ink: #b7d0ff;
+        --btn: #e8eefb;
+        --btn-ink: #0e1522;
+        --focus: #8fb2ff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-padding-top: 16px;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--font);
+        font-size: 1.0625rem;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: inherit;
+      }
+      :focus-visible {
+        outline: 3px solid var(--focus);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+      .wrap {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      header {
+        padding: 18px 0;
+      }
+      .bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .brand {
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        text-decoration: none;
+      }
+      .home {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 16px;
+        border-radius: 999px;
+        background: var(--btn);
+        color: var(--btn-ink);
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+      }
+      .home:hover {
+        opacity: 0.88;
+      }
+      .home svg {
+        width: 17px;
+        height: 17px;
+      }
+      h1 {
+        font-size: clamp(2.1rem, 6vw, 3.3rem);
+        line-height: 1.08;
+        letter-spacing: -0.03em;
+        margin: 28px 0 14px;
+        font-weight: 700;
+      }
+      .lede {
+        max-width: 62ch;
+        color: var(--muted);
+        margin: 0 0 30px;
+      }
+      h2 {
+        font-size: 1.5rem;
+        letter-spacing: -0.02em;
+        margin: 0 0 12px;
+        line-height: 1.2;
+      }
+      section {
+        margin: 56px 0;
+      }
+      .tool {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        gap: 14px;
+        align-items: stretch;
+      }
+      .panel {
+        border: 2px solid;
+        border-radius: 18px;
+        padding: 22px;
+      }
+      .panel h2 {
+        font-size: 1.05rem;
+        margin: 0 0 14px;
+        letter-spacing: 0;
+      }
+      .panel small {
+        font-weight: 400;
+        opacity: 0.8;
+      }
+      .in {
+        background: var(--edt-bg);
+        border-color: var(--edt-line);
+        color: var(--edt-ink);
+      }
+      .out {
+        background: var(--est-bg);
+        border-color: var(--est-line);
+        color: var(--est-ink);
+      }
+      .mid {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+      }
+      .mid svg {
+        width: 28px;
+        height: 28px;
+      }
+      label {
+        display: block;
+        font-weight: 600;
+        font-size: 0.92rem;
+        margin: 0 0 6px;
+      }
+      input[type="date"],
+      input[type="time"] {
+        width: 100%;
+        font: inherit;
+        font-size: 1.1rem;
+        padding: 11px 12px;
+        border-radius: 10px;
+        border: 1.5px solid var(--edt-line);
+        background: var(--surface);
+        color: var(--ink);
+        margin-bottom: 14px;
+      }
+      .field-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      button {
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 10px;
+        padding: 10px 14px;
+        border: 1.5px solid currentColor;
+        background: transparent;
+        color: inherit;
+      }
+      button:hover {
+        background: rgba(127, 127, 127, 0.14);
+      }
+      .result {
+        font-size: clamp(2.3rem, 7vw, 3.4rem);
+        line-height: 1.05;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        font-variant-numeric: tabular-nums;
+        margin: 2px 0 8px;
+      }
+      .res-date {
+        font-weight: 600;
+        margin: 0;
+      }
+      .res-meta {
+        margin: 4px 0 16px;
+        font-size: 0.95rem;
+        opacity: 0.9;
+      }
+      .badge {
+        display: inline-block;
+        margin-left: 8px;
+        padding: 2px 10px;
+        border-radius: 999px;
+        background: var(--est-ink);
+        color: var(--est-bg);
+        font-size: 0.8rem;
+        font-weight: 600;
+        vertical-align: middle;
+      }
+      .badge[hidden] {
+        display: none;
+      }
+      .copy-ok {
+        margin-left: 10px;
+        font-size: 0.9rem;
+      }
+      .explain p {
+        max-width: 68ch;
+        margin: 0 0 14px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 560px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        overflow: hidden;
+        font-variant-numeric: tabular-nums;
+      }
+      caption {
+        text-align: left;
+        font-weight: 600;
+        padding: 0 0 10px;
+        caption-side: top;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--line);
+      }
+      th {
+        background: var(--bg);
+        font-weight: 600;
+      }
+      tr:last-child td {
+        border-bottom: 0;
+      }
+      .scroll {
+        overflow-x: auto;
+      }
+      details {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        margin: 0 0 10px;
+      }
+      summary {
+        cursor: pointer;
+        font-weight: 600;
+        padding: 16px 18px;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: center;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary::after {
+        content: "+";
+        font-size: 1.4rem;
+        line-height: 1;
+        color: var(--muted);
+        transition: transform 0.2s;
+      }
+      details[open] summary::after {
+        transform: rotate(45deg);
+      }
+      details p {
+        margin: 0;
+        padding: 0 18px 18px;
+        max-width: 68ch;
+        color: var(--muted);
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 26px 0 40px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+      /* Hero Section - Inspired by paint.png */
+      .hero {
+        background: rgba(248, 250, 255, 0.98); /* Near-white blue tint */
+        border: 1px solid rgba(255, 255, 255, 1);
+        border-radius: 32px; /* Large rounded corners from paint.png */
+        padding: 80px 40px;
+        text-align: center;
+        margin: 40px auto;
+        max-width: 880px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        position: relative;
+        z-index: 10;
+      }
+
+      .hero h1 {
+        font-family: var(--font-display);
+        color: #0f172a; /* Deep navy/charcoal for clarity */
+        font-size: clamp(28px, 5vw, 42px);
+        font-weight: 700;
+        margin-bottom: 20px;
+        background: none; /* Remove previous gradients */
+        -webkit-text-fill-color: initial;
+      }
+
+      .hero p {
+        font-family: var(--font-body);
+        color: #64748b; /* Soft slate gray */
+        font-size: 18px;
+        max-width: 600px;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+      }
+
+      /* The blue pill button from paint.png */
+      .hero .cta {
+        display: inline-block;
+        text-decoration: none;
+        background: #4f46e5; /* Vibrant indigo/blue */
+        color: #ffffff !important;
+        padding: 16px 44px;
+        border-radius: 50px; /* Pill shape */
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 16px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        border: none;
+      }
+
+      .hero .cta:hover {
+        background: #4338ca;
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(79, 70, 229, 0.4);
+      }
+      @media (max-width: 700px) {
+        .tool {
+          grid-template-columns: 1fr;
+        }
+        .mid svg {
+          transform: rotate(90deg);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        summary::after {
+          transition: none;
+        }
+      }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="wrap bar">
+        <a class="brand" href="https://moviesearch.online">MovieSearch</a>
+        <a
+          class="home"
+          href="https://moviesearch.online"
+          aria-label="Go to the MovieSearch home page"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M3 11.5 12 4l9 7.5" />
+            <path d="M5.5 10v10h13V10" />
+            <path d="M10 20v-6h4v6" />
+          </svg>
+          Home
+        </a>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <h1>EDT to EST Converter</h1>
+      <p class="lede">
+        Planning a call, a livestream or a premiere across time zones? Enter a
+        date and an Eastern Daylight Time, and this free EDT to EST converter
+        gives you the Eastern Standard Time equivalent right away. It works like
+        a small generator: type a time in, get the EST time out.
+      </p>
+
+      <section aria-label="EDT to EST converter" style="margin-top: 0">
+        <div class="tool">
+          <div class="panel in">
+            <h2>From EDT <small>(UTC-4)</small></h2>
+            <div class="field-row">
+              <div>
+                <label for="d">Date</label>
+                <input type="date" id="d" required />
+              </div>
+              <div>
+                <label for="t">EDT time</label>
+                <input type="time" id="t" required />
+              </div>
+            </div>
+            <button type="button" id="now">Use current EDT time</button>
+          </div>
+
+          <div class="mid" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M4 12h16" />
+              <path d="m14 6 6 6-6 6" />
+            </svg>
+          </div>
+
+          <div class="panel out">
+            <h2>To EST <small>(UTC-5)</small></h2>
+            <div id="result" class="result" aria-live="polite">--:--</div>
+            <p id="resDate" class="res-date">
+              Pick a date and time to convert.
+            </p>
+            <p id="resMeta" class="res-meta">
+              <span id="shift" class="badge" hidden></span>
+            </p>
+            <button type="button" id="copy">Copy result</button
+            ><span id="ok" class="copy-ok" role="status"></span>
+          </div>
+        </div>
+      </section>
+      <div id="hero-container"></div>
+      <section class="explain">
+        <h2>How the conversion works</h2>
+        <p>
+          EDT stands for Eastern Daylight Time, which is UTC-4. EST is Eastern
+          Standard Time, which is UTC-5. That makes EST exactly one hour behind
+          EDT, so converting from EDT to EST just means subtracting one hour.
+        </p>
+        <p>
+          The only catch is midnight. If you convert 12:30 AM EDT, the answer is
+          11:30 PM EST on the day before, and the tool shows that for you. Here
+          are a few common times for quick reference:
+        </p>
+        <div class="scroll">
+          <table>
+            <caption>
+              EDT to EST at a glance
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">EDT</th>
+                <th scope="col">EST</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>12:00 AM</td>
+                <td>11:00 PM (previous day)</td>
+              </tr>
+              <tr>
+                <td>6:00 AM</td>
+                <td>5:00 AM</td>
+              </tr>
+              <tr>
+                <td>9:00 AM</td>
+                <td>8:00 AM</td>
+              </tr>
+              <tr>
+                <td>12:00 PM</td>
+                <td>11:00 AM</td>
+              </tr>
+              <tr>
+                <td>3:00 PM</td>
+                <td>2:00 PM</td>
+              </tr>
+              <tr>
+                <td>6:00 PM</td>
+                <td>5:00 PM</td>
+              </tr>
+              <tr>
+                <td>9:00 PM</td>
+                <td>8:00 PM</td>
+              </tr>
+              <tr>
+                <td>11:30 PM</td>
+                <td>10:30 PM</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="faq">
+        <h2>Frequently asked questions</h2>
+        <details>
+          <summary>What is the EDT to EST converter?</summary>
+          <p>
+            It's a simple online tool that turns a time in Eastern Daylight Time
+            (EDT) into the matching time in Eastern Standard Time (EST). Pick a
+            date and a time, and the converter shows the EST equivalent right
+            away, including the correct date if the conversion crosses midnight.
+          </p>
+        </details>
+        <details>
+          <summary>How do I use this EDT to EST converter online?</summary>
+          <p>
+            Choose the date and the EDT time you want to convert, or tap Use
+            current EDT time to start from right now. The EST result appears
+            instantly next to your input, and you can copy it with one click.
+            There's nothing to download and nothing to sign up for.
+          </p>
+        </details>
+        <details>
+          <summary>Is this free EDT to EST converter really free?</summary>
+          <p>
+            Yes. It's completely free, with no account, no limit on how many
+            times you convert, and no paid tier hiding behind it. Open the page
+            and use it whenever you need it.
+          </p>
+        </details>
+        <details>
+          <summary>Is my data private when I use the converter?</summary>
+          <p>
+            Yes. The calculation happens entirely in your browser, so the dates
+            and times you enter are never sent to a server or saved. When you
+            close the page, everything you typed is gone.
+          </p>
+        </details>
+        <details>
+          <summary>What is the difference between EDT and EST?</summary>
+          <p>
+            EDT is UTC-4 and EST is UTC-5, so EST is exactly one hour behind
+            EDT. To go from EDT to EST, subtract one hour: 3:00 PM EDT is 2:00
+            PM EST. This EDT to EST generator does that math for you and adjusts
+            the date when the result lands on the previous day.
+          </p>
+        </details>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <p>
+          Note: the EST label here always means UTC-5. In parts of the US and
+          Canada, local clocks switch between EDT (roughly March to early
+          November) and EST (the rest of the year).
+        </p>
+        <p><a href="https://moviesearch.online">MovieSearch.online</a></p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var d = document.getElementById("d"),
+          t = document.getElementById("t");
+        var result = document.getElementById("result"),
+          resDate = document.getElementById("resDate");
+        var shift = document.getElementById("shift"),
+          ok = document.getElementById("ok");
+        var last = "";
+        function pad(n) {
+          return (n < 10 ? "0" : "") + n;
+        }
+        function fmt12(h, m) {
+          return (h % 12 || 12) + ":" + pad(m) + " " + (h >= 12 ? "PM" : "AM");
+        }
+        function convert() {
+          if (!d.value || !t.value) {
+            result.textContent = "--:--";
+            resDate.textContent = "Pick a date and time to convert.";
+            shift.hidden = true;
+            last = "";
+            return;
+          }
+          var dp = d.value.split("-").map(Number),
+            tp = t.value.split(":").map(Number);
+          var src = Date.UTC(dp[0], dp[1] - 1, dp[2], tp[0], tp[1]);
+          var r = new Date(src - 3600000);
+          var text = fmt12(r.getUTCHours(), r.getUTCMinutes()) + " EST";
+          var dateText = r.toLocaleDateString("en-US", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            timeZone: "UTC",
+          });
+          var diff = Math.round(
+            (Date.UTC(r.getUTCFullYear(), r.getUTCMonth(), r.getUTCDate()) -
+              Date.UTC(dp[0], dp[1] - 1, dp[2])) /
+              864e5,
+          );
+          result.textContent = text;
+          resDate.textContent = dateText;
+          shift.hidden = diff === 0;
+          if (diff !== 0)
+            shift.textContent = diff < 0 ? "Previous day" : "Next day";
+          last = text + ", " + dateText;
+          ok.textContent = "";
+        }
+        function useNow() {
+          var n = new Date(Date.now() - 4 * 3600000).toISOString();
+          d.value = n.slice(0, 10);
+          t.value = n.slice(11, 16);
+          convert();
+        }
+        d.addEventListener("input", convert);
+        t.addEventListener("input", convert);
+        document.getElementById("now").addEventListener("click", useNow);
+        document.getElementById("copy").addEventListener("click", function () {
+          if (!last) return;
+          function done(m) {
+            ok.textContent = m;
+            setTimeout(function () {
+              ok.textContent = "";
+            }, 2000);
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(last).then(
+              function () {
+                done("Copied");
+              },
+              function () {
+                done("Copy not available");
+              },
+            );
+          } else {
+            done("Copy not available");
+          }
+        });
+        useNow();
+      })();
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../box.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("hero-container").innerHTML = data;
+          });
+      });
+    </script>
+  </body>
+</html>
