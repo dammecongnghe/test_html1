@@ -1,0 +1,889 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Free PST to CST Converter – Convert Pacific to Central Time Online
+    </title>
+    <meta
+      name="description"
+      content="A free PST to CST converter that works online. Enter a Pacific time, get the Central time instantly, with daylight saving handled for you. No sign-up, and nothing you type is stored."
+    />
+    <link
+      rel="canonical"
+      href="https://moviesearch.online/tools/pst-to-cst-converter"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Free PST to CST Converter – Convert Pacific to Central Time Online"
+    />
+    <meta
+      property="og:description"
+      content="Convert Pacific time to Central time in a second. Free, accurate, and daylight saving aware."
+    />
+    <meta
+      property="og:url"
+      content="https://moviesearch.online/tools/pst-to-cst-converter"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Free PST to CST Converter – Convert Pacific to Central Time Online"
+    />
+    <meta
+      name="twitter:description"
+      content="Convert Pacific time to Central time in a second. Free, accurate, and daylight saving aware."
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PST to CST Converter",
+        "url": "https://moviesearch.online/tools/pst-to-cst-converter",
+        "description": "A free online PST to CST converter that turns Pacific time into Central time, with daylight saving handled automatically.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any (web browser)",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the PST to CST converter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It is a free PST to CST converter that changes a time in Pacific Time into the matching time in Central Time. You enter a date and a time, and it shows the result right away, along with whether it lands on the same day, the next day, or the previous day."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I use the PST to CST converter online?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pick a date, type the time you want to convert, and the Central time appears below. If you need to go the other way, press Swap to convert CST to PST instead. The Use current time button fills in the date and time right now, and Copy result saves a ready-to-paste line like 6:00 AM PST = 8:00 AM CST."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this free PST to CST converter really free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. It is completely free, with no account, no sign-up, and no limit on how many times you can use it."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the converter handle daylight saving time?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. It uses the actual Pacific and Central time rules for the date you choose, so the labels switch between PST and PDT, and CST and CDT, on their own. In both cases Central time is two hours ahead of Pacific time."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my data private when I use this converter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The conversion happens entirely in your browser. The dates and times you enter are never sent to a server or saved, and they disappear when you close or refresh the page."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <style>
+      :root {
+        --bg: #f3f7f6;
+        --surface: #ffffff;
+        --ink: #10242b;
+        --muted: #53686e;
+        --line: #d6e2e0;
+        --accent: #0b6e7a;
+        --accent-ink: #ffffff;
+        --pt: #2f5fd0;
+        --ct: #c2571a;
+        --glow: #ffcf5c;
+        --display:
+          "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+        --body:
+          system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+          sans-serif;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #0c171a;
+          --surface: #13242a;
+          --ink: #eaf4f3;
+          --muted: #9bb3b6;
+          --line: #26404a;
+          --accent: #4fd0dc;
+          --accent-ink: #06242a;
+          --pt: #7ea2ff;
+          --ct: #ff9a5c;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #0c171a;
+        --surface: #13242a;
+        --ink: #eaf4f3;
+        --muted: #9bb3b6;
+        --line: #26404a;
+        --accent: #4fd0dc;
+        --accent-ink: #06242a;
+        --pt: #7ea2ff;
+        --ct: #ff9a5c;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 17px/1.65 var(--body);
+      }
+      a {
+        color: var(--accent);
+      }
+      /* Hero Section - Inspired by paint.png */
+      .hero {
+        background: rgba(248, 250, 255, 0.98); /* Near-white blue tint */
+        border: 1px solid rgba(255, 255, 255, 1);
+        border-radius: 32px; /* Large rounded corners from paint.png */
+        padding: 80px 40px;
+        text-align: center;
+        margin: 40px auto;
+        max-width: 880px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        position: relative;
+        z-index: 10;
+      }
+
+      .hero h1 {
+        font-family: var(--font-display);
+        color: #0f172a; /* Deep navy/charcoal for clarity */
+        font-size: clamp(28px, 5vw, 42px);
+        font-weight: 700;
+        margin-bottom: 20px;
+        background: none; /* Remove previous gradients */
+        -webkit-text-fill-color: initial;
+      }
+
+      .hero p {
+        font-family: var(--font-body);
+        color: #64748b; /* Soft slate gray */
+        font-size: 18px;
+        max-width: 600px;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+      }
+
+      /* The blue pill button from paint.png */
+      .hero .cta {
+        display: inline-block;
+        text-decoration: none;
+        background: #4f46e5; /* Vibrant indigo/blue */
+        color: #ffffff !important;
+        padding: 16px 44px;
+        border-radius: 50px; /* Pill shape */
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 16px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        border: none;
+      }
+
+      .hero .cta:hover {
+        background: #4338ca;
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(79, 70, 229, 0.4);
+      }
+      :focus-visible {
+        outline: 3px solid var(--glow);
+        outline-offset: 2px;
+      }
+      .wrap {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      header.top {
+        padding: 16px 0;
+      }
+      .home {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 16px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--ink);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+      }
+      .home:hover {
+        border-color: var(--accent);
+      }
+      .hero1 {
+        padding: 24px 0 18px;
+        max-width: 700px;
+      }
+      h1 {
+        font: 700 clamp(2.1rem, 6vw, 3.4rem)/1.08 var(--display);
+        margin: 0 0 14px;
+        letter-spacing: -0.01em;
+      }
+      .lede {
+        color: var(--muted);
+        font-size: 1.12rem;
+        margin: 0;
+      }
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 22px;
+        margin: 26px 0 52px;
+      }
+      .zones {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        gap: 12px;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .zone {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 12px 14px;
+      }
+      .zone small {
+        display: block;
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .zone b {
+        font-size: 1.1rem;
+      }
+      #zf {
+        border-left: 5px solid var(--pt);
+      }
+      #zt {
+        border-left: 5px solid var(--ct);
+      }
+      .swap {
+        border: 1px solid var(--line);
+        background: var(--bg);
+        color: var(--ink);
+        border-radius: 50%;
+        width: 46px;
+        height: 46px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      .swap:hover {
+        border-color: var(--accent);
+      }
+      .inputs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      label {
+        font-weight: 600;
+        font-size: 14px;
+        display: block;
+        margin-bottom: 6px;
+      }
+      input[type="date"],
+      input[type="time"] {
+        width: 100%;
+        font: inherit;
+        padding: 11px 12px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: var(--bg);
+        color: var(--ink);
+      }
+      .result {
+        margin-top: 22px;
+        padding: 22px;
+        border-radius: 14px;
+        background: var(--bg);
+        border: 1px solid var(--line);
+      }
+      .result .big {
+        font: 700 clamp(2rem, 7vw, 3rem)/1.1 var(--display);
+        color: var(--ct);
+      }
+      .result.rev .big {
+        color: var(--pt);
+      }
+      .result .sub {
+        color: var(--muted);
+        margin: 8px 0 0;
+      }
+      .badge {
+        display: inline-block;
+        margin-left: 8px;
+        padding: 2px 10px;
+        border-radius: 999px;
+        background: var(--glow);
+        color: #3a2a00;
+        font: 600 13px var(--body);
+        vertical-align: middle;
+      }
+      .row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 18px;
+      }
+      .btn {
+        font: 600 15px var(--body);
+        padding: 11px 16px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--ink);
+        cursor: pointer;
+      }
+      .btn:hover {
+        border-color: var(--accent);
+      }
+      .btn.primary {
+        background: var(--accent);
+        color: var(--accent-ink);
+        border-color: var(--accent);
+      }
+      main section {
+        margin: 0 0 50px;
+        max-width: 700px;
+      }
+      h2 {
+        font: 700 clamp(1.5rem, 3.5vw, 2rem)/1.2 var(--display);
+        margin: 0 0 14px;
+      }
+      p {
+        margin: 0 0 14px;
+      }
+      ol {
+        padding-left: 22px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      .tw {
+        overflow-x: auto;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--surface);
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        min-width: 320px;
+      }
+      th,
+      td {
+        padding: 10px 14px;
+        text-align: left;
+        border-bottom: 1px solid var(--line);
+      }
+      th {
+        font-size: 14px;
+        color: var(--muted);
+      }
+      tr:last-child td {
+        border-bottom: 0;
+      }
+      details {
+        border-bottom: 1px solid var(--line);
+        padding: 14px 0;
+      }
+      summary {
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1.05rem;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary::after {
+        content: "+";
+        color: var(--accent);
+        font-size: 1.4rem;
+        line-height: 1;
+      }
+      details[open] summary::after {
+        content: "–";
+      }
+      details p {
+        margin: 10px 0 0;
+        color: var(--muted);
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 24px 0 40px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      @media (max-width: 640px) {
+        .zones {
+          grid-template-columns: 1fr;
+        }
+        .swap {
+          justify-self: center;
+          transform: rotate(90deg);
+        }
+        .inputs {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="top">
+        <a
+          class="home"
+          href="https://moviesearch.online"
+          aria-label="Go to the moviesearch.online home page"
+          >&#8962; Home</a
+        >
+      </header>
+
+      <main>
+        <div class="hero1">
+          <h1>PST to CST Converter</h1>
+          <p class="lede">
+            Turn a Pacific time into Central time in a second. Pick a date, type
+            a time, and see the answer. Daylight saving is handled for you.
+          </p>
+        </div>
+
+        <div class="card" id="tool">
+          <div class="zones">
+            <div class="zone" id="zf">
+              <small>From</small><b id="fromName">Pacific Time</b>
+            </div>
+            <button
+              class="swap"
+              id="swap"
+              type="button"
+              aria-label="Swap direction"
+              title="Swap direction"
+            >
+              &#8646;
+            </button>
+            <div class="zone" id="zt">
+              <small>To</small><b id="toName">Central Time</b>
+            </div>
+          </div>
+
+          <div class="inputs">
+            <div><label for="d">Date</label><input type="date" id="d" /></div>
+            <div><label for="t">Time</label><input type="time" id="t" /></div>
+          </div>
+
+          <div class="result" id="res" aria-live="polite">
+            <div class="big" id="big">–</div>
+            <p class="sub" id="sub"></p>
+          </div>
+
+          <div class="row">
+            <button class="btn primary" id="now" type="button">
+              Use current time
+            </button>
+            <button class="btn" id="copy" type="button">Copy result</button>
+          </div>
+        </div>
+        <div id="hero-container"></div>
+        <section>
+          <h2>A simple PST to CST converter that does the math for you</h2>
+          <p>
+            Working out time differences in your head is easy until a meeting is
+            close to midnight, or the clocks change. This PST to CST converter
+            takes the guesswork out of it. Type in a Pacific time and it shows
+            the Central time right away, including whether you've crossed into
+            the next day.
+          </p>
+          <p>
+            You can use it online on any phone or computer, and think of it as a
+            small converter generator too: the Copy result button gives you a
+            clean line like <em>6:00 AM PST = 8:00 AM CST</em> that you can drop
+            straight into an email or calendar invite.
+          </p>
+        </section>
+
+        <section>
+          <h2>How to convert PST to CST</h2>
+          <ol>
+            <li>
+              <strong>Choose a date.</strong> The date matters because of
+              daylight saving time.
+            </li>
+            <li>
+              <strong>Enter the time</strong> in Pacific time. The Central time
+              shows up underneath as you type.
+            </li>
+            <li>
+              <strong>Need the reverse?</strong> Press the swap button to
+              convert CST to PST instead.
+            </li>
+            <li><strong>Copy the result</strong> if you want to share it.</li>
+          </ol>
+          <p>
+            If you'd rather do it by hand, the rule is short: Central time is 2
+            hours ahead of Pacific time, so add 2 hours going from PST to CST
+            and subtract 2 going back.
+          </p>
+        </section>
+
+        <section>
+          <h2>Quick PST to CST reference</h2>
+          <div class="tw">
+            <table>
+              <thead>
+                <tr>
+                  <th>Pacific (PST)</th>
+                  <th>Central (CST)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>6:00 AM</td>
+                  <td>8:00 AM</td>
+                </tr>
+                <tr>
+                  <td>8:00 AM</td>
+                  <td>10:00 AM</td>
+                </tr>
+                <tr>
+                  <td>9:00 AM</td>
+                  <td>11:00 AM</td>
+                </tr>
+                <tr>
+                  <td>10:00 AM</td>
+                  <td>12:00 PM</td>
+                </tr>
+                <tr>
+                  <td>12:00 PM</td>
+                  <td>2:00 PM</td>
+                </tr>
+                <tr>
+                  <td>3:00 PM</td>
+                  <td>5:00 PM</td>
+                </tr>
+                <tr>
+                  <td>5:00 PM</td>
+                  <td>7:00 PM</td>
+                </tr>
+                <tr>
+                  <td>8:00 PM</td>
+                  <td>10:00 PM</td>
+                </tr>
+                <tr>
+                  <td>10:00 PM</td>
+                  <td>12:00 AM (next day)</td>
+                </tr>
+                <tr>
+                  <td>11:30 PM</td>
+                  <td>1:30 AM (next day)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>Good to know about PST and CST</h2>
+          <p>
+            <strong>Daylight saving.</strong> Most of the year the Pacific zone
+            is on PDT and the Central zone is on CDT, and people still say "PST"
+            and "CST" out of habit. Both zones switch on the same dates, so the
+            gap stays at two hours. This tool shows the correct label for the
+            date you pick.
+          </p>
+          <p>
+            <strong>"CST" can mean more than one thing.</strong> Here it means
+            North American Central Time. The same letters are also used for
+            China Standard Time, which is a completely different zone, so
+            double-check if a meeting invite doesn't say where it's from.
+          </p>
+        </section>
+
+        <section id="faq">
+          <h2>Frequently asked questions</h2>
+          <details>
+            <summary>What is the PST to CST converter?</summary>
+            <p>
+              It is a free PST to CST converter that changes a time in Pacific
+              Time into the matching time in Central Time. You enter a date and
+              a time, and it shows the result right away, along with whether it
+              lands on the same day, the next day, or the previous day.
+            </p>
+          </details>
+          <details>
+            <summary>How do I use the PST to CST converter online?</summary>
+            <p>
+              Pick a date, type the time you want to convert, and the Central
+              time appears below. If you need to go the other way, press Swap to
+              convert CST to PST instead. The Use current time button fills in
+              the date and time right now, and Copy result saves a
+              ready-to-paste line like 6:00 AM PST = 8:00 AM CST.
+            </p>
+          </details>
+          <details>
+            <summary>Is this free PST to CST converter really free?</summary>
+            <p>
+              Yes. It is completely free, with no account, no sign-up, and no
+              limit on how many times you can use it.
+            </p>
+          </details>
+          <details>
+            <summary>Does the converter handle daylight saving time?</summary>
+            <p>
+              Yes. It uses the actual Pacific and Central time rules for the
+              date you choose, so the labels switch between PST and PDT, and CST
+              and CDT, on their own. In both cases Central time is two hours
+              ahead of Pacific time.
+            </p>
+          </details>
+          <details>
+            <summary>Is my data private when I use this converter?</summary>
+            <p>
+              Yes. The conversion happens entirely in your browser. The dates
+              and times you enter are never sent to a server or saved, and they
+              disappear when you close or refresh the page.
+            </p>
+          </details>
+        </section>
+      </main>
+
+      <footer>
+        <p>
+          PST to CST Converter is a free tool on
+          <a href="https://moviesearch.online">moviesearch.online</a>.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var Z = { PT: "America/Los_Angeles", CT: "America/Chicago" };
+        var NAME = { PT: "Pacific Time", CT: "Central Time" };
+        var from = "PT";
+        var $ = function (id) {
+          return document.getElementById(id);
+        };
+        var last = "";
+
+        function parts(ts, zone) {
+          var f = new Intl.DateTimeFormat("en-US", {
+            timeZone: zone,
+            hourCycle: "h23",
+            year: "numeric",
+            month: "2-digit",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+          });
+          var o = {};
+          f.formatToParts(ts).forEach(function (p) {
+            o[p.type] = p.value;
+          });
+          return o;
+        }
+        function wall(ts, zone) {
+          var p = parts(ts, zone);
+          return Date.UTC(
+            +p.year,
+            p.month - 1,
+            +p.day,
+            +p.hour % 24,
+            +p.minute,
+            +p.second,
+          );
+        }
+        function toUTC(w, zone) {
+          var u = w - (wall(w, zone) - w);
+          return w - (wall(u, zone) - u);
+        }
+        function abbr(ts, zone) {
+          var f = new Intl.DateTimeFormat("en-US", {
+            timeZone: zone,
+            timeZoneName: "short",
+          });
+          var r = "";
+          f.formatToParts(ts).forEach(function (p) {
+            if (p.type === "timeZoneName") r = p.value;
+          });
+          return r;
+        }
+        function t12(ts, zone) {
+          return new Intl.DateTimeFormat("en-US", {
+            timeZone: zone,
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: true,
+          }).format(ts);
+        }
+        function t24(ts, zone) {
+          return new Intl.DateTimeFormat("en-GB", {
+            timeZone: zone,
+            hour: "2-digit",
+            minute: "2-digit",
+            hourCycle: "h23",
+          }).format(ts);
+        }
+        function dlong(ts, zone) {
+          return new Intl.DateTimeFormat("en-US", {
+            timeZone: zone,
+            weekday: "long",
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+          }).format(ts);
+        }
+        function two(n) {
+          return n < 10 ? "0" + n : "" + n;
+        }
+
+        function setNow() {
+          var p = parts(Date.now(), Z[from]);
+          $("d").value = p.year + "-" + p.month + "-" + p.day;
+          $("t").value = p.hour + ":" + p.minute;
+          run();
+        }
+
+        function run() {
+          var to = from === "PT" ? "CT" : "PT";
+          $("fromName").textContent = NAME[from];
+          $("toName").textContent = NAME[to];
+          $("zf").style.borderLeftColor =
+            from === "PT" ? "var(--pt)" : "var(--ct)";
+          $("zt").style.borderLeftColor =
+            to === "PT" ? "var(--pt)" : "var(--ct)";
+          $("res").className = "result" + (to === "PT" ? " rev" : "");
+          var d = $("d").value,
+            t = $("t").value;
+          if (!d || !t) {
+            $("big").textContent = "–";
+            $("sub").textContent =
+              "Enter a date and time to see the conversion.";
+            last = "";
+            return;
+          }
+          var dp = d.split("-"),
+            tp = t.split(":");
+          var w = Date.UTC(+dp[0], dp[1] - 1, +dp[2], +tp[0], +tp[1]);
+          var u = toUTC(w, Z[from]);
+          var wt = wall(u, Z[to]);
+          var diff = Math.round(Math.floor(wt / 864e5) - Math.floor(w / 864e5));
+          var tag = diff > 0 ? "Next day" : diff < 0 ? "Previous day" : "";
+          var a1 = abbr(u, Z[from]),
+            a2 = abbr(u, Z[to]);
+          $("big").innerHTML =
+            t12(u, Z[to]) +
+            " " +
+            a2 +
+            (tag ? '<span class="badge">' + tag + "</span>" : "");
+          $("sub").textContent =
+            dlong(u, Z[to]) +
+            " · 24-hour: " +
+            t24(u, Z[to]) +
+            " · " +
+            t12(u, Z[from]) +
+            " " +
+            a1 +
+            " is " +
+            t12(u, Z[to]) +
+            " " +
+            a2;
+          last =
+            t12(u, Z[from]) +
+            " " +
+            a1 +
+            " = " +
+            t12(u, Z[to]) +
+            " " +
+            a2 +
+            (diff > 0 ? " (next day)" : diff < 0 ? " (previous day)" : "");
+        }
+
+        $("d").addEventListener("input", run);
+        $("t").addEventListener("input", run);
+        $("now").onclick = setNow;
+        $("swap").onclick = function () {
+          from = from === "PT" ? "CT" : "PT";
+          run();
+        };
+        $("copy").onclick = function () {
+          if (!last) return;
+          var b = $("copy"),
+            old = b.textContent;
+          var done = function () {
+            b.textContent = "Copied";
+            setTimeout(function () {
+              b.textContent = old;
+            }, 1400);
+          };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(last).then(done, function () {});
+          } else {
+            var x = document.createElement("textarea");
+            x.value = last;
+            document.body.appendChild(x);
+            x.select();
+            try {
+              document.execCommand("copy");
+              done();
+            } catch (e) {}
+            x.remove();
+          }
+        };
+
+        setNow();
+      })();
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../box.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("hero-container").innerHTML = data;
+          });
+      });
+    </script>
+  </body>
+</html>
