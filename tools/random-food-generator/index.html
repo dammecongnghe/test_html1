@@ -1,0 +1,978 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Free Random Food Generator – Decide What to Eat Online</title>
+    <meta
+      name="description"
+      content="Can't decide what to eat? This free random food generator picks a meal for you in one click. Filter by meal, cuisine, or vegetarian, and reroll until something sounds good. Works online, no sign-up."
+    />
+    <link
+      rel="canonical"
+      href="https://moviesearch.online/tools/random-food-generator"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Free Random Food Generator – Decide What to Eat Online"
+    />
+    <meta
+      property="og:description"
+      content="One click, one meal idea. Filter by meal, cuisine, or vegetarian and reroll as often as you like."
+    />
+    <meta
+      property="og:url"
+      content="https://moviesearch.online/tools/random-food-generator"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Free Random Food Generator – Decide What to Eat Online"
+    />
+    <meta
+      name="twitter:description"
+      content="One click, one meal idea. Filter by meal, cuisine, or vegetarian and reroll as often as you like."
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Random Food Generator",
+        "url": "https://moviesearch.online/tools/random-food-generator",
+        "description": "A free random food generator that picks a meal or snack idea for you, with filters for meal type, cuisine, and vegetarian dishes.",
+        "applicationCategory": "LifestyleApplication",
+        "operatingSystem": "Any (web browser)",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the random food generator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It is a free random food generator that suggests something to eat when you can't make up your mind. Press a button and it picks a dish at random from a list of popular meals, snacks, and desserts from cuisines around the world."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I use the random food generator online?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Press Pick my food and a dish appears. If you want something specific, choose a meal type like breakfast, dinner, or dessert, pick a cuisine, or tick the vegetarian box first. Not feeling it? Press the button again for a new idea. Your last few picks are listed underneath so you can go back to one you liked."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this free random food generator really free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. It is completely free, with no account, no sign-up, and no limit on how many times you can spin for a new idea."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I choose the type of food I get?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can narrow the random picks by meal type (breakfast, lunch, dinner, snack, or dessert), by cuisine such as Italian, Mexican, Japanese, or Indian, and by vegetarian dishes only. The tool also tells you how many dishes match your filters."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my data private when I use this generator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Everything runs in your browser. Your filter choices and picks are never sent to a server or saved, and they disappear when you close or refresh the page."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <style>
+      :root {
+        --bg: #fbf5ee;
+        --surface: #ffffff;
+        --ink: #2b1b14;
+        --muted: #6f5b50;
+        --line: #ecdfd1;
+        --accent: #c8402a;
+        --accent-ink: #ffffff;
+        --leaf: #4c8a3c;
+        --yolk: #f6c443;
+        --display:
+          "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+        --body:
+          system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+          sans-serif;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #17100c;
+          --surface: #241912;
+          --ink: #f8ece2;
+          --muted: #bba596;
+          --line: #3d2d22;
+          --accent: #ff7b5f;
+          --accent-ink: #2a0d06;
+          --leaf: #8fd27c;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #17100c;
+        --surface: #241912;
+        --ink: #f8ece2;
+        --muted: #bba596;
+        --line: #3d2d22;
+        --accent: #ff7b5f;
+        --accent-ink: #2a0d06;
+        --leaf: #8fd27c;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 17px/1.65 var(--body);
+      }
+      a {
+        color: var(--accent);
+      }
+      :focus-visible {
+        outline: 3px solid var(--yolk);
+        outline-offset: 2px;
+      }
+      .wrap {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      header.top {
+        padding: 16px 0;
+      }
+      .home {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 16px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--ink);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+      }
+      .home:hover {
+        border-color: var(--accent);
+      }
+      .hero1 {
+        padding: 24px 0 18px;
+        max-width: 700px;
+      }
+      /* Hero Section - Inspired by paint.png */
+      .hero {
+        background: rgba(248, 250, 255, 0.98); /* Near-white blue tint */
+        border: 1px solid rgba(255, 255, 255, 1);
+        border-radius: 32px; /* Large rounded corners from paint.png */
+        padding: 80px 40px;
+        text-align: center;
+        margin: 40px auto;
+        max-width: 880px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        position: relative;
+        z-index: 10;
+      }
+
+      .hero h1 {
+        font-family: var(--font-display);
+        color: #0f172a; /* Deep navy/charcoal for clarity */
+        font-size: clamp(28px, 5vw, 42px);
+        font-weight: 700;
+        margin-bottom: 20px;
+        background: none; /* Remove previous gradients */
+        -webkit-text-fill-color: initial;
+      }
+
+      .hero p {
+        font-family: var(--font-body);
+        color: #64748b; /* Soft slate gray */
+        font-size: 18px;
+        max-width: 600px;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+      }
+
+      /* The blue pill button from paint.png */
+      .hero .cta {
+        display: inline-block;
+        text-decoration: none;
+        background: #4f46e5; /* Vibrant indigo/blue */
+        color: #ffffff !important;
+        padding: 16px 44px;
+        border-radius: 50px; /* Pill shape */
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 16px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        border: none;
+      }
+
+      .hero .cta:hover {
+        background: #4338ca;
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(79, 70, 229, 0.4);
+      }
+      h1 {
+        font: 700 clamp(2.1rem, 6vw, 3.4rem)/1.08 var(--display);
+        margin: 0 0 14px;
+        letter-spacing: -0.01em;
+      }
+      .lede {
+        color: var(--muted);
+        font-size: 1.12rem;
+        margin: 0;
+      }
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 22px;
+        margin: 26px 0 52px;
+      }
+      .lab {
+        font-weight: 600;
+        font-size: 14px;
+        display: block;
+        margin-bottom: 8px;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .chip {
+        border: 1px solid var(--line);
+        background: var(--bg);
+        color: var(--ink);
+        border-radius: 999px;
+        padding: 7px 15px;
+        font: 600 14px var(--body);
+        cursor: pointer;
+      }
+      .chip:hover {
+        border-color: var(--accent);
+      }
+      .chip[aria-pressed="true"] {
+        background: var(--ink);
+        color: var(--bg);
+        border-color: var(--ink);
+      }
+      .filters {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-top: 18px;
+        align-items: end;
+      }
+      select {
+        width: 100%;
+        font: inherit;
+        padding: 11px 12px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: var(--bg);
+        color: var(--ink);
+      }
+      .chk {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+        font-size: 15px;
+        padding-bottom: 11px;
+      }
+      .chk input {
+        width: 20px;
+        height: 20px;
+        accent-color: var(--leaf);
+      }
+      .plate {
+        margin-top: 22px;
+        padding: 30px 20px;
+        text-align: center;
+        border-radius: 16px;
+        background: var(--bg);
+        border: 1px dashed var(--line);
+      }
+      .emoji {
+        font-size: 3rem;
+        line-height: 1;
+      }
+      .dish {
+        font: 700 clamp(2rem, 7vw, 3.2rem)/1.1 var(--display);
+        margin: 12px 0 10px;
+        word-break: break-word;
+      }
+      .plate.spin .dish {
+        opacity: 0.55;
+      }
+      .tags {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .tag {
+        padding: 3px 12px;
+        border-radius: 999px;
+        font: 600 13px var(--body);
+        background: var(--yolk);
+        color: #3a2d00;
+      }
+      .tag.v {
+        background: var(--leaf);
+        color: #fff;
+      }
+      .count {
+        color: var(--muted);
+        font-size: 14px;
+        margin: 12px 0 0;
+        text-align: center;
+      }
+      .row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 18px;
+      }
+      .btn {
+        font: 600 16px var(--body);
+        padding: 13px 20px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--ink);
+        cursor: pointer;
+      }
+      .btn:hover {
+        border-color: var(--accent);
+      }
+      .btn.primary {
+        background: var(--accent);
+        color: var(--accent-ink);
+        border-color: var(--accent);
+        flex: 1;
+        min-width: 180px;
+      }
+      .hist {
+        margin-top: 22px;
+      }
+      .hist ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .hist li button {
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--ink);
+        border-radius: 8px;
+        padding: 6px 12px;
+        font: 14px var(--body);
+        cursor: pointer;
+      }
+      .hist li button:hover {
+        border-color: var(--accent);
+      }
+      .hist p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      main section {
+        margin: 0 0 50px;
+        max-width: 700px;
+      }
+      h2 {
+        font: 700 clamp(1.5rem, 3.5vw, 2rem)/1.2 var(--display);
+        margin: 0 0 14px;
+      }
+      p {
+        margin: 0 0 14px;
+      }
+      ol {
+        padding-left: 22px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      details {
+        border-bottom: 1px solid var(--line);
+        padding: 14px 0;
+      }
+      summary {
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1.05rem;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary::after {
+        content: "+";
+        color: var(--accent);
+        font-size: 1.4rem;
+        line-height: 1;
+      }
+      details[open] summary::after {
+        content: "–";
+      }
+      details p {
+        margin: 10px 0 0;
+        color: var(--muted);
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 24px 0 40px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      @media (max-width: 560px) {
+        .filters {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="top">
+        <a
+          class="home"
+          href="https://moviesearch.online"
+          aria-label="Go to the moviesearch.online home page"
+          >&#8962; Home</a
+        >
+      </header>
+
+      <main>
+        <div class="hero1">
+          <h1>Random Food Generator</h1>
+          <p class="lede">
+            Staring into the fridge, still undecided? Press the button and get a
+            meal idea. Narrow it down by meal, cuisine, or vegetarian, and
+            reroll until something sounds right.
+          </p>
+        </div>
+
+        <div class="card" id="tool">
+          <span class="lab" id="mealLab">Meal</span>
+          <div
+            class="chips"
+            id="meals"
+            role="group"
+            aria-labelledby="mealLab"
+          ></div>
+
+          <div class="filters">
+            <div>
+              <label class="lab" for="cu">Cuisine</label>
+              <select id="cu">
+                <option value="">Any cuisine</option>
+              </select>
+            </div>
+            <label class="chk" for="veg"
+              ><input type="checkbox" id="veg" /> Vegetarian only</label
+            >
+          </div>
+
+          <div class="plate" id="plate" aria-live="polite">
+            <div class="emoji" id="em">&#127869;&#65039;</div>
+            <div class="dish" id="dish">What should you eat?</div>
+            <div class="tags" id="tags"></div>
+          </div>
+          <p class="count" id="count"></p>
+
+          <div class="row">
+            <button class="btn primary" id="go" type="button">
+              Pick my food
+            </button>
+            <button class="btn" id="copy" type="button">Copy</button>
+          </div>
+
+          <div class="hist">
+            <span class="lab">Recent picks</span>
+            <div id="hist"><p>Your last few picks will show up here.</p></div>
+          </div>
+        </div>
+        <div id="hero-container"></div>
+        <section>
+          <h2>
+            A random food generator for the "I don't know, what do you want?"
+            moments
+          </h2>
+          <p>
+            Deciding what to eat can take longer than cooking it. This random
+            food generator takes that decision off your plate. It looks through
+            over a hundred everyday meals, snacks, and desserts from around the
+            world and hands you one idea at a time.
+          </p>
+          <p>
+            It's a free random food generator you can use online on your phone
+            or computer, whether you're planning dinner for the week, settling a
+            debate with friends, or just bored of the same three lunches.
+          </p>
+        </section>
+
+        <section>
+          <h2>How to use it</h2>
+          <ol>
+            <li>
+              <strong>Pick a meal type</strong> if you have one in mind:
+              breakfast, lunch, dinner, snack, or dessert. Leave it on Any if
+              you're open to anything.
+            </li>
+            <li>
+              <strong>Choose a cuisine</strong> or tick Vegetarian only to
+              narrow the list.
+            </li>
+            <li><strong>Press Pick my food</strong> and see what comes up.</li>
+            <li>
+              <strong>Reroll</strong> as many times as you like. The generator
+              avoids showing the same dish twice in a row, and your recent picks
+              stay listed below so you can go back to one.
+            </li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>Making the most of a random pick</h2>
+          <p>
+            <strong>Treat it as a starting point.</strong> If the generator says
+            "Pad Thai" and you don't feel like noodles, that's useful
+            information too. Pick again, or notice what you were hoping for.
+          </p>
+          <p>
+            <strong
+              >Use filters when you're short on ideas for a specific
+              moment.</strong
+            >
+            A quick snack, a vegetarian dinner for a guest, or a dessert for
+            tonight all come out better when you narrow things down first.
+          </p>
+          <p>
+            <strong>Check ingredients and allergies yourself.</strong> The list
+            covers classic versions of each dish, and recipes vary, so look at
+            what's actually in your version before you cook or order.
+          </p>
+        </section>
+
+        <section id="faq">
+          <h2>Frequently asked questions</h2>
+          <details>
+            <summary>What is the random food generator?</summary>
+            <p>
+              It is a free random food generator that suggests something to eat
+              when you can't make up your mind. Press a button and it picks a
+              dish at random from a list of popular meals, snacks, and desserts
+              from cuisines around the world.
+            </p>
+          </details>
+          <details>
+            <summary>How do I use the random food generator online?</summary>
+            <p>
+              Press Pick my food and a dish appears. If you want something
+              specific, choose a meal type like breakfast, dinner, or dessert,
+              pick a cuisine, or tick the vegetarian box first. Not feeling it?
+              Press the button again for a new idea. Your last few picks are
+              listed underneath so you can go back to one you liked.
+            </p>
+          </details>
+          <details>
+            <summary>Is this free random food generator really free?</summary>
+            <p>
+              Yes. It is completely free, with no account, no sign-up, and no
+              limit on how many times you can spin for a new idea.
+            </p>
+          </details>
+          <details>
+            <summary>Can I choose the type of food I get?</summary>
+            <p>
+              Yes. You can narrow the random picks by meal type (breakfast,
+              lunch, dinner, snack, or dessert), by cuisine such as Italian,
+              Mexican, Japanese, or Indian, and by vegetarian dishes only. The
+              tool also tells you how many dishes match your filters.
+            </p>
+          </details>
+          <details>
+            <summary>Is my data private when I use this generator?</summary>
+            <p>
+              Yes. Everything runs in your browser. Your filter choices and
+              picks are never sent to a server or saved, and they disappear when
+              you close or refresh the page.
+            </p>
+          </details>
+        </section>
+      </main>
+
+      <footer>
+        <p>
+          Random Food Generator is a free tool on
+          <a href="https://moviesearch.online">moviesearch.online</a>.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var $ = function (id) {
+          return document.getElementById(id);
+        };
+        // name|cuisine|meals (b=breakfast l=lunch d=dinner s=snack t=dessert)|v = vegetarian
+        var RAW = [
+          "Pancakes|American|b|v",
+          "Eggs Benedict|American|b|",
+          "Avocado Toast|American|bl|v",
+          "Fruit and Yogurt Bowl|American|bs|v",
+          "Peanut Butter Banana Toast|American|bs|v",
+          "Cheeseburger|American|ld|",
+          "Mac and Cheese|American|ld|v",
+          "BBQ Ribs|American|d|",
+          "Fried Chicken|American|ld|",
+          "Grilled Cheese|American|ls|v",
+          "Chicken Caesar Salad|American|l|",
+          "Clam Chowder|American|ld|",
+          "Chicken Noodle Soup|American|ld|",
+          "Tomato Soup|American|l|v",
+          "BLT Sandwich|American|l|",
+          "Stuffed Peppers|American|d|",
+          "Meatball Sub|American|ld|",
+          "Chocolate Chip Cookies|American|st|v",
+          "Brownies|American|t|v",
+          "Apple Pie|American|t|v",
+          "Ice Cream Sundae|American|t|v",
+          "Popcorn|American|s|v",
+          "Cheese and Crackers|American|s|v",
+          "Margherita Pizza|Italian|ld|v",
+          "Spaghetti Carbonara|Italian|d|",
+          "Lasagna|Italian|d|",
+          "Mushroom Risotto|Italian|d|v",
+          "Fettuccine Alfredo|Italian|d|v",
+          "Pesto Pasta|Italian|ld|v",
+          "Gnocchi|Italian|d|v",
+          "Caprese Salad|Italian|ls|v",
+          "Bruschetta|Italian|s|v",
+          "Tiramisu|Italian|t|v",
+          "Gelato|Italian|t|v",
+          "Breakfast Burrito|Mexican|b|",
+          "Tacos al Pastor|Mexican|ld|",
+          "Chicken Quesadilla|Mexican|ld|",
+          "Veggie Burrito Bowl|Mexican|ld|v",
+          "Enchiladas|Mexican|d|",
+          "Fish Tacos|Mexican|ld|",
+          "Pozole|Mexican|d|",
+          "Guacamole and Chips|Mexican|s|v",
+          "Nachos|Mexican|s|v",
+          "Churros|Mexican|t|v",
+          "Congee|Chinese|b|",
+          "Fried Rice|Chinese|ld|",
+          "Kung Pao Chicken|Chinese|d|",
+          "Mapo Tofu|Chinese|d|",
+          "Dumplings|Chinese|lds|",
+          "Beef and Broccoli|Chinese|d|",
+          "Hot and Sour Soup|Chinese|ld|",
+          "Chow Mein|Chinese|ld|",
+          "Veggie Stir Fry|Chinese|ld|v",
+          "Tamagoyaki Rice Bowl|Japanese|bl|",
+          "Sushi Rolls|Japanese|ld|",
+          "Ramen|Japanese|ld|",
+          "Chicken Katsu Curry|Japanese|ld|",
+          "Udon Noodle Soup|Japanese|ld|",
+          "Poke Bowl|Japanese|ld|",
+          "Okonomiyaki|Japanese|ds|",
+          "Edamame|Japanese|s|v",
+          "Mochi|Japanese|t|v",
+          "Masala Dosa|Indian|bl|v",
+          "Butter Chicken|Indian|d|",
+          "Chana Masala|Indian|ld|v",
+          "Palak Paneer|Indian|d|v",
+          "Chicken Biryani|Indian|ld|",
+          "Dal Tadka|Indian|ld|v",
+          "Samosas|Indian|s|v",
+          "Gulab Jamun|Indian|t|v",
+          "Pad Thai|Thai|ld|",
+          "Green Curry|Thai|d|",
+          "Tom Yum Soup|Thai|ld|",
+          "Papaya Salad|Thai|l|v",
+          "Mango Sticky Rice|Thai|t|v",
+          "Pho|Vietnamese|bld|",
+          "Banh Mi|Vietnamese|l|",
+          "Fresh Spring Rolls|Vietnamese|ls|",
+          "Bibimbap|Korean|ld|",
+          "Korean Fried Chicken|Korean|ds|",
+          "Kimchi Fried Rice|Korean|ld|",
+          "Bulgogi|Korean|d|",
+          "Tteokbokki|Korean|s|",
+          "Shakshuka|Middle Eastern|bl|v",
+          "Falafel Wrap|Middle Eastern|l|v",
+          "Hummus and Pita|Middle Eastern|s|v",
+          "Chicken Shawarma|Middle Eastern|ld|",
+          "Tabbouleh|Middle Eastern|ls|v",
+          "Greek Salad|Mediterranean|l|v",
+          "Gyro|Mediterranean|ld|",
+          "Spanakopita|Mediterranean|ls|v",
+          "Baklava|Mediterranean|t|v",
+          "Grilled Fish with Lemon|Mediterranean|d|",
+          "Paella|Mediterranean|d|",
+          "Lentil Soup|Mediterranean|ld|v",
+          "Omelette|French|b|",
+          "Croissant Sandwich|French|bl|",
+          "Crepes|French|bt|v",
+          "Quiche Lorraine|French|bl|",
+          "French Onion Soup|French|ld|",
+          "Ratatouille|French|d|v",
+          "Creme Brulee|French|t|v",
+        ];
+        var FOODS = RAW.map(function (s) {
+          var p = s.split("|");
+          return { n: p[0], c: p[1], m: p[2], v: p[3] === "v" };
+        });
+        var MEALS = [
+          ["", "Any"],
+          ["b", "Breakfast"],
+          ["l", "Lunch"],
+          ["d", "Dinner"],
+          ["s", "Snack"],
+          ["t", "Dessert"],
+        ];
+        var MNAME = {
+          b: "Breakfast",
+          l: "Lunch",
+          d: "Dinner",
+          s: "Snack",
+          t: "Dessert",
+        };
+        var MEMO = {
+          b: "\u{1F373}",
+          l: "\u{1F96A}",
+          d: "\u{1F35D}",
+          s: "\u{1F37F}",
+          t: "\u{1F370}",
+        };
+        var meal = "",
+          cur = null,
+          hist = [],
+          busy = false;
+        var reduce = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+
+        var cuis = [];
+        FOODS.forEach(function (f) {
+          if (cuis.indexOf(f.c) < 0) cuis.push(f.c);
+        });
+        cuis.sort();
+        cuis.forEach(function (c) {
+          var o = document.createElement("option");
+          o.value = c;
+          o.textContent = c;
+          $("cu").appendChild(o);
+        });
+
+        MEALS.forEach(function (m) {
+          var b = document.createElement("button");
+          b.type = "button";
+          b.className = "chip";
+          b.textContent = m[1];
+          b.setAttribute("aria-pressed", m[0] === meal);
+          b.dataset.m = m[0];
+          b.onclick = function () {
+            meal = m[0];
+            [].forEach.call($("meals").children, function (c) {
+              c.setAttribute("aria-pressed", c === b);
+            });
+            count();
+          };
+          $("meals").appendChild(b);
+        });
+
+        function pool() {
+          var c = $("cu").value,
+            v = $("veg").checked;
+          return FOODS.filter(function (f) {
+            return (
+              (!meal || f.m.indexOf(meal) > -1) &&
+              (!c || f.c === c) &&
+              (!v || f.v)
+            );
+          });
+        }
+        function count() {
+          var n = pool().length;
+          $("count").textContent = n
+            ? n +
+              " " +
+              (n === 1 ? "dish matches" : "dishes match") +
+              " your filters."
+            : "No dishes match those filters. Try loosening one.";
+        }
+        function show(f, final) {
+          $("dish").textContent = f.n;
+          var m = meal && f.m.indexOf(meal) > -1 ? meal : f.m.charAt(0);
+          $("em").textContent = MEMO[m];
+          var t = $("tags");
+          t.innerHTML = "";
+          function tag(txt, cls) {
+            var s = document.createElement("span");
+            s.className = "tag" + (cls ? " " + cls : "");
+            s.textContent = txt;
+            t.appendChild(s);
+          }
+          tag(f.c);
+          f.m.split("").forEach(function (x) {
+            tag(MNAME[x]);
+          });
+          if (f.v) tag("Vegetarian", "v");
+        }
+        function renderHist() {
+          var h = $("hist");
+          h.innerHTML = "";
+          if (!hist.length) {
+            h.innerHTML = "<p>Your last few picks will show up here.</p>";
+            return;
+          }
+          var ul = document.createElement("ul");
+          hist.forEach(function (f) {
+            var li = document.createElement("li"),
+              b = document.createElement("button");
+            b.type = "button";
+            b.textContent = f.n;
+            b.onclick = function () {
+              cur = f;
+              show(f);
+            };
+            li.appendChild(b);
+            ul.appendChild(li);
+          });
+          h.appendChild(ul);
+        }
+        function pick() {
+          if (busy) return;
+          var p = pool();
+          count();
+          if (!p.length) {
+            $("dish").textContent = "Nothing to pick yet";
+            $("tags").innerHTML = "";
+            $("em").textContent = "\u{1F937}";
+            return;
+          }
+          var choices =
+            p.length > 1 && cur
+              ? p.filter(function (f) {
+                  return f !== cur;
+                })
+              : p;
+          var f = choices[Math.floor(Math.random() * choices.length)];
+          function finish() {
+            busy = false;
+            $("plate").classList.remove("spin");
+            $("go").textContent = "Pick again";
+            cur = f;
+            show(f);
+            hist = hist.filter(function (x) {
+              return x !== f;
+            });
+            hist.unshift(f);
+            hist = hist.slice(0, 6);
+            renderHist();
+          }
+          if (reduce || p.length < 2) {
+            finish();
+            return;
+          }
+          busy = true;
+          $("plate").classList.add("spin");
+          var i = 0,
+            total = 12;
+          (function tick() {
+            if (i++ < total) {
+              show(p[Math.floor(Math.random() * p.length)]);
+              setTimeout(tick, 45 + i * 10);
+            } else finish();
+          })();
+        }
+
+        $("go").onclick = pick;
+        $("cu").onchange = count;
+        $("veg").onchange = count;
+        $("copy").onclick = function () {
+          if (!cur) return;
+          var txt = "Tonight\u2019s pick: " + cur.n + " (" + cur.c + ")";
+          var b = $("copy"),
+            old = b.textContent;
+          var done = function () {
+            b.textContent = "Copied";
+            setTimeout(function () {
+              b.textContent = old;
+            }, 1400);
+          };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(txt).then(done, function () {});
+          } else {
+            var x = document.createElement("textarea");
+            x.value = txt;
+            document.body.appendChild(x);
+            x.select();
+            try {
+              document.execCommand("copy");
+              done();
+            } catch (e) {}
+            x.remove();
+          }
+        };
+        count();
+      })();
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../box.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("hero-container").innerHTML = data;
+          });
+      });
+    </script>
+  </body>
+</html>
