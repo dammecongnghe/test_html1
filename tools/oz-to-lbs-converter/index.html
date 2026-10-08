@@ -1,0 +1,848 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Free Oz to Lbs Converter – Convert Ounces to Pounds Online</title>
+    <meta
+      name="description"
+      content="A free oz to lbs converter you can use online. Type ounces, get pounds right away, or flip it to go from pounds to ounces. No sign-up, and nothing you enter is stored."
+    />
+    <link
+      rel="canonical"
+      href="https://moviesearch.online/tools/oz-to-lbs-converter"
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Free Oz to Lbs Converter – Convert Ounces to Pounds Online"
+    />
+    <meta
+      property="og:description"
+      content="Convert ounces to pounds in a second. Free, accurate, and private."
+    />
+    <meta
+      property="og:url"
+      content="https://moviesearch.online/tools/oz-to-lbs-converter"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Free Oz to Lbs Converter – Convert Ounces to Pounds Online"
+    />
+    <meta
+      name="twitter:description"
+      content="Convert ounces to pounds in a second. Free, accurate, and private."
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Oz to Lbs Converter",
+        "url": "https://moviesearch.online/tools/oz-to-lbs-converter",
+        "description": "A free online oz to lbs converter that turns ounces into pounds, and pounds back into ounces, instantly in your browser.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any (web browser)",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the oz to lbs converter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It is a free oz to lbs converter that turns ounces into pounds. Type in a number of ounces and you get the weight in pounds straight away, both as a decimal and as pounds plus leftover ounces. It can also work in reverse, from pounds to ounces."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I use the oz to lbs converter online?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Enter the number of ounces in the box and the pounds appear underneath as you type. Press Swap if you want to convert pounds to ounces instead, use the decimal places menu to round the answer the way you like, and tap Copy result to save a line like 24 oz = 1.5 lb."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this free oz to lbs converter really free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. It is completely free, with no account, no sign-up, and no limit on how many conversions you can run."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many ounces are in a pound?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "There are 16 ounces in one pound. To convert ounces to pounds by hand, divide the number of ounces by 16. For example, 40 oz is 2.5 lb, because 40 divided by 16 is 2.5."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is my data private when I use this converter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The math happens entirely in your browser. The numbers you type are never sent to a server or saved, and they disappear when you close or refresh the page."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <style>
+      :root {
+        --bg: #f6f4ec;
+        --surface: #ffffff;
+        --ink: #27301f;
+        --muted: #667058;
+        --line: #dfdcc9;
+        --accent: #3f6b2c;
+        --accent-ink: #ffffff;
+        --butter: #f5d36b;
+        --ring: #e08a2e;
+        --display:
+          "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+        --body:
+          system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+          sans-serif;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #12160e;
+          --surface: #1c2216;
+          --ink: #eef2e4;
+          --muted: #a3ae93;
+          --line: #323b28;
+          --accent: #9bd37c;
+          --accent-ink: #13200c;
+          --butter: #f5d36b;
+          --ring: #f2a553;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #12160e;
+        --surface: #1c2216;
+        --ink: #eef2e4;
+        --muted: #a3ae93;
+        --line: #323b28;
+        --accent: #9bd37c;
+        --accent-ink: #13200c;
+        --butter: #f5d36b;
+        --ring: #f2a553;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 17px/1.65 var(--body);
+      }
+      a {
+        color: var(--accent);
+      }
+      :focus-visible {
+        outline: 3px solid var(--ring);
+        outline-offset: 2px;
+      }
+      .wrap {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      header.top {
+        padding: 16px 0;
+      }
+      .home {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 16px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--ink);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+      }
+      .home:hover {
+        border-color: var(--accent);
+      }
+      .hero1 {
+        padding: 24px 0 18px;
+        max-width: 700px;
+      }
+      h1 {
+        font: 700 clamp(2.1rem, 6vw, 3.4rem)/1.08 var(--display);
+        margin: 0 0 14px;
+        letter-spacing: -0.01em;
+      }
+      .lede {
+        color: var(--muted);
+        font-size: 1.12rem;
+        margin: 0;
+      }
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 22px;
+        margin: 26px 0 52px;
+      }
+      .top-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 14px;
+        align-items: end;
+      }
+      label {
+        font-weight: 600;
+        font-size: 14px;
+        display: block;
+        margin-bottom: 6px;
+      }
+      input[type="number"],
+      select {
+        width: 100%;
+        font: inherit;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: var(--bg);
+        color: var(--ink);
+      }
+      input[type="number"] {
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+      .swap {
+        border: 1px solid var(--line);
+        background: var(--bg);
+        color: var(--ink);
+        border-radius: 10px;
+        height: 51px;
+        padding: 0 16px;
+        font: 600 15px var(--body);
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .swap:hover {
+        border-color: var(--accent);
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 14px 0 0;
+      }
+      .chip {
+        border: 1px solid var(--line);
+        background: var(--bg);
+        color: var(--ink);
+        border-radius: 999px;
+        padding: 6px 14px;
+        font: 600 14px var(--body);
+        cursor: pointer;
+      }
+      .chip:hover {
+        border-color: var(--accent);
+        background: var(--butter);
+        color: #3a2d00;
+      }
+      .opts {
+        display: flex;
+        gap: 14px;
+        align-items: end;
+        margin-top: 16px;
+        max-width: 260px;
+      }
+      .result {
+        margin-top: 22px;
+        padding: 22px;
+        border-radius: 14px;
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-left: 6px solid var(--ring);
+      }
+      .big {
+        font: 700 clamp(2rem, 7vw, 3rem)/1.1 var(--display);
+        word-break: break-word;
+      }
+      .sub {
+        color: var(--muted);
+        margin: 10px 0 0;
+      }
+      .row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 18px;
+      }
+      .btn {
+        font: 600 15px var(--body);
+        padding: 11px 16px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--ink);
+        cursor: pointer;
+      }
+      .btn:hover {
+        border-color: var(--accent);
+      }
+      .btn.primary {
+        background: var(--accent);
+        color: var(--accent-ink);
+        border-color: var(--accent);
+      }
+      main section {
+        margin: 0 0 50px;
+        max-width: 700px;
+      }
+      h2 {
+        font: 700 clamp(1.5rem, 3.5vw, 2rem)/1.2 var(--display);
+        margin: 0 0 14px;
+      }
+      p {
+        margin: 0 0 14px;
+      }
+      ol {
+        padding-left: 22px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      .formula {
+        padding: 14px 18px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-left: 6px solid var(--butter);
+        border-radius: 10px;
+        font-weight: 600;
+      }
+      .tw {
+        overflow-x: auto;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--surface);
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        min-width: 300px;
+      }
+      th,
+      td {
+        padding: 10px 14px;
+        text-align: left;
+        border-bottom: 1px solid var(--line);
+      }
+      th {
+        font-size: 14px;
+        color: var(--muted);
+      }
+      tr:last-child td {
+        border-bottom: 0;
+      }
+      details {
+        border-bottom: 1px solid var(--line);
+        padding: 14px 0;
+      }
+      summary {
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1.05rem;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      summary::after {
+        content: "+";
+        color: var(--accent);
+        font-size: 1.4rem;
+        line-height: 1;
+      }
+      details[open] summary::after {
+        content: "–";
+      }
+      details p {
+        margin: 10px 0 0;
+        color: var(--muted);
+      }
+      /* Hero Section - Inspired by paint.png */
+      .hero {
+        background: rgba(248, 250, 255, 0.98); /* Near-white blue tint */
+        border: 1px solid rgba(255, 255, 255, 1);
+        border-radius: 32px; /* Large rounded corners from paint.png */
+        padding: 80px 40px;
+        text-align: center;
+        margin: 40px auto;
+        max-width: 880px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        position: relative;
+        z-index: 10;
+      }
+
+      .hero h1 {
+        font-family: var(--font-display);
+        color: #0f172a; /* Deep navy/charcoal for clarity */
+        font-size: clamp(28px, 5vw, 42px);
+        font-weight: 700;
+        margin-bottom: 20px;
+        background: none; /* Remove previous gradients */
+        -webkit-text-fill-color: initial;
+      }
+
+      .hero p {
+        font-family: var(--font-body);
+        color: #64748b; /* Soft slate gray */
+        font-size: 18px;
+        max-width: 600px;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+      }
+
+      /* The blue pill button from paint.png */
+      .hero .cta {
+        display: inline-block;
+        text-decoration: none;
+        background: #4f46e5; /* Vibrant indigo/blue */
+        color: #ffffff !important;
+        padding: 16px 44px;
+        border-radius: 50px; /* Pill shape */
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 16px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        border: none;
+      }
+
+      .hero .cta:hover {
+        background: #4338ca;
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(79, 70, 229, 0.4);
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 24px 0 40px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      @media (max-width: 560px) {
+        .top-row {
+          grid-template-columns: 1fr;
+        }
+        .swap {
+          width: 100%;
+        }
+      }
+    </style>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="top">
+        <a
+          class="home"
+          href="https://moviesearch.online"
+          aria-label="Go to the moviesearch.online home page"
+          >&#8962; Home</a
+        >
+      </header>
+
+      <main>
+        <div class="hero1">
+          <h1>Oz to Lbs Converter</h1>
+          <p class="lede">
+            Type in ounces and see pounds right away. Handy for recipes,
+            shipping labels, baby weights, and anything else measured in ounces.
+          </p>
+        </div>
+
+        <div class="card" id="tool">
+          <div class="top-row">
+            <div>
+              <label for="v" id="inLabel">Ounces (oz)</label>
+              <input
+                type="number"
+                id="v"
+                inputmode="decimal"
+                min="0"
+                step="any"
+                value="24"
+                placeholder="0"
+              />
+            </div>
+            <button
+              class="swap"
+              id="swap"
+              type="button"
+              aria-label="Swap direction"
+            >
+              &#8646; Swap
+            </button>
+          </div>
+
+          <div
+            class="chips"
+            id="chips"
+            role="group"
+            aria-label="Quick amounts"
+          ></div>
+
+          <div class="opts">
+            <div style="flex: 1">
+              <label for="dp">Decimal places</label>
+              <select id="dp">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3" selected>3</option>
+                <option value="4">4</option>
+                <option value="6">6</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="result" id="res" aria-live="polite">
+            <div class="big" id="big">–</div>
+            <p class="sub" id="sub"></p>
+          </div>
+
+          <div class="row">
+            <button class="btn primary" id="copy" type="button">
+              Copy result
+            </button>
+            <button class="btn" id="clear" type="button">Clear</button>
+          </div>
+        </div>
+        <div id="hero-container"></div>
+        <section>
+          <h2>A quick, no-fuss oz to lbs converter</h2>
+          <p>
+            If you've ever stared at a recipe that lists 28 ounces of flour
+            while your scale reads in pounds, you know the feeling. This oz to
+            lbs converter does the division for you, so you can get on with
+            cooking, packing, or weighing.
+          </p>
+          <p>
+            It works online on any phone or computer, and it acts as a tiny
+            converter generator too: the Copy result button hands you a tidy
+            line like <em>24 oz = 1.5 lb</em> to paste into a note, message, or
+            spreadsheet.
+          </p>
+        </section>
+
+        <section>
+          <h2>How to convert ounces to pounds</h2>
+          <ol>
+            <li>
+              <strong>Enter the ounces</strong> in the box. The pounds show up
+              underneath as you type.
+            </li>
+            <li>
+              <strong>Pick your rounding</strong> with the decimal places menu
+              if you need more or fewer digits.
+            </li>
+            <li>
+              <strong>Going the other way?</strong> Press Swap to turn pounds
+              into ounces.
+            </li>
+            <li><strong>Copy the result</strong> to share or save it.</li>
+          </ol>
+          <p>To do it by hand, remember that one pound is 16 ounces:</p>
+          <p class="formula">
+            pounds = ounces ÷ 16 &nbsp;&nbsp;|&nbsp;&nbsp; ounces = pounds × 16
+          </p>
+        </section>
+
+        <section>
+          <h2>Common ounce to pound conversions</h2>
+          <div class="tw">
+            <table>
+              <thead>
+                <tr>
+                  <th>Ounces (oz)</th>
+                  <th>Pounds (lb)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1 oz</td>
+                  <td>0.0625 lb</td>
+                </tr>
+                <tr>
+                  <td>2 oz</td>
+                  <td>0.125 lb</td>
+                </tr>
+                <tr>
+                  <td>4 oz</td>
+                  <td>0.25 lb</td>
+                </tr>
+                <tr>
+                  <td>6 oz</td>
+                  <td>0.375 lb</td>
+                </tr>
+                <tr>
+                  <td>8 oz</td>
+                  <td>0.5 lb</td>
+                </tr>
+                <tr>
+                  <td>12 oz</td>
+                  <td>0.75 lb</td>
+                </tr>
+                <tr>
+                  <td>16 oz</td>
+                  <td>1 lb</td>
+                </tr>
+                <tr>
+                  <td>24 oz</td>
+                  <td>1.5 lb</td>
+                </tr>
+                <tr>
+                  <td>32 oz</td>
+                  <td>2 lb</td>
+                </tr>
+                <tr>
+                  <td>48 oz</td>
+                  <td>3 lb</td>
+                </tr>
+                <tr>
+                  <td>64 oz</td>
+                  <td>4 lb</td>
+                </tr>
+                <tr>
+                  <td>80 oz</td>
+                  <td>5 lb</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section>
+          <h2>One thing to watch: weight ounces vs. fluid ounces</h2>
+          <p>
+            This converter is for ounces of weight (avoirdupois ounces), the
+            kind on a kitchen or postal scale. Fluid ounces measure volume, such
+            as a cup of milk, and don't convert to pounds in the same way
+            because it depends on what the liquid is. If your recipe says "fl
+            oz," you'll want a volume conversion instead.
+          </p>
+        </section>
+
+        <section id="faq">
+          <h2>Frequently asked questions</h2>
+          <details>
+            <summary>What is the oz to lbs converter?</summary>
+            <p>
+              It is a free oz to lbs converter that turns ounces into pounds.
+              Type in a number of ounces and you get the weight in pounds
+              straight away, both as a decimal and as pounds plus leftover
+              ounces. It can also work in reverse, from pounds to ounces.
+            </p>
+          </details>
+          <details>
+            <summary>How do I use the oz to lbs converter online?</summary>
+            <p>
+              Enter the number of ounces in the box and the pounds appear
+              underneath as you type. Press Swap if you want to convert pounds
+              to ounces instead, use the decimal places menu to round the answer
+              the way you like, and tap Copy result to save a line like 24 oz =
+              1.5 lb.
+            </p>
+          </details>
+          <details>
+            <summary>Is this free oz to lbs converter really free?</summary>
+            <p>
+              Yes. It is completely free, with no account, no sign-up, and no
+              limit on how many conversions you can run.
+            </p>
+          </details>
+          <details>
+            <summary>How many ounces are in a pound?</summary>
+            <p>
+              There are 16 ounces in one pound. To convert ounces to pounds by
+              hand, divide the number of ounces by 16. For example, 40 oz is 2.5
+              lb, because 40 divided by 16 is 2.5.
+            </p>
+          </details>
+          <details>
+            <summary>Is my data private when I use this converter?</summary>
+            <p>
+              Yes. The math happens entirely in your browser. The numbers you
+              type are never sent to a server or saved, and they disappear when
+              you close or refresh the page.
+            </p>
+          </details>
+        </section>
+      </main>
+
+      <footer>
+        <p>
+          Oz to Lbs Converter is a free tool on
+          <a href="https://moviesearch.online">moviesearch.online</a>.
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var $ = function (id) {
+          return document.getElementById(id);
+        };
+        var mode = "oz"; // 'oz' = ounces in, pounds out
+        var last = "";
+
+        function fmt(n, dp) {
+          var s = n.toFixed(dp);
+          if (s.indexOf(".") > -1) s = s.replace(/0+$/, "").replace(/\.$/, "");
+          return s;
+        }
+        function mixed(totalOz) {
+          var lb = Math.floor(totalOz / 16 + 1e-12);
+          var rem = Math.round((totalOz - lb * 16) * 100) / 100;
+          if (rem >= 16) {
+            lb += 1;
+            rem = 0;
+          }
+          var parts = [];
+          if (lb > 0 || rem === 0) parts.push(lb + " lb");
+          if (rem > 0) parts.push(fmt(rem, 2) + " oz");
+          return parts.join(" ");
+        }
+        function chips() {
+          var box = $("chips");
+          box.innerHTML = "";
+          var vals =
+            mode === "oz"
+              ? [4, 8, 12, 16, 24, 32, 64]
+              : [0.5, 1, 1.5, 2, 5, 10];
+          vals.forEach(function (n) {
+            var b = document.createElement("button");
+            b.type = "button";
+            b.className = "chip";
+            b.textContent = n + (mode === "oz" ? " oz" : " lb");
+            b.onclick = function () {
+              $("v").value = n;
+              run();
+            };
+            box.appendChild(b);
+          });
+        }
+        function run() {
+          var dp = +$("dp").value,
+            raw = $("v").value,
+            x = parseFloat(raw);
+          $("inLabel").textContent =
+            mode === "oz" ? "Ounces (oz)" : "Pounds (lb)";
+          if (raw === "" || isNaN(x) || x < 0) {
+            $("big").textContent = "–";
+            $("sub").textContent =
+              raw !== "" && x < 0
+                ? "Please enter a number that is zero or higher."
+                : "Enter a number to see the conversion.";
+            last = "";
+            return;
+          }
+          var out, oz;
+          if (mode === "oz") {
+            out = x / 16;
+            oz = x;
+            $("big").textContent = fmt(out, dp) + " lb";
+            last = fmt(x, dp) + " oz = " + fmt(out, dp) + " lb";
+          } else {
+            out = x * 16;
+            oz = out;
+            $("big").textContent = fmt(out, dp) + " oz";
+            last = fmt(x, dp) + " lb = " + fmt(out, dp) + " oz";
+          }
+          var g = oz * 28.349523125;
+          var metric = g >= 1000 ? fmt(g / 1000, 3) + " kg" : fmt(g, 1) + " g";
+          $("sub").textContent =
+            "That is " + mixed(oz) + ", or about " + metric + ".";
+        }
+
+        $("v").addEventListener("input", run);
+        $("dp").addEventListener("change", run);
+        $("swap").onclick = function () {
+          var x = parseFloat($("v").value);
+          if (!isNaN(x) && x >= 0) {
+            var dp = +$("dp").value;
+            $("v").value = fmt(mode === "oz" ? x / 16 : x * 16, dp);
+          }
+          mode = mode === "oz" ? "lb" : "oz";
+          chips();
+          run();
+        };
+        $("clear").onclick = function () {
+          $("v").value = "";
+          run();
+          $("v").focus();
+        };
+        $("copy").onclick = function () {
+          if (!last) return;
+          var b = $("copy"),
+            old = b.textContent;
+          var done = function () {
+            b.textContent = "Copied";
+            setTimeout(function () {
+              b.textContent = old;
+            }, 1400);
+          };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(last).then(done, function () {});
+          } else {
+            var t = document.createElement("textarea");
+            t.value = last;
+            document.body.appendChild(t);
+            t.select();
+            try {
+              document.execCommand("copy");
+              done();
+            } catch (e) {}
+            t.remove();
+          }
+        };
+
+        chips();
+        run();
+      })();
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../box.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("hero-container").innerHTML = data;
+          });
+      });
+    </script>
+  </body>
+</html>
