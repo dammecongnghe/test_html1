@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stringify JSON Online – Free JSON Stringify Generator</title>
+    <meta
+      name="description"
+      content="Free stringify JSON online tool. Paste your JSON, get an escaped, minified or pretty-printed string in one click. Runs in your browser, nothing is uploaded."
+    />
+    <link
+      rel="canonical"
+      href="https://moviesearch.online/tools/stringify-json-online"
+    />
+    <meta name="robots" content="index, follow, max-snippet:-1" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Stringify JSON Online – Free JSON Stringify Generator"
+    />
+    <meta
+      property="og:description"
+      content="Turn JSON into a clean, escaped string right in your browser. Free, fast and private."
+    />
+    <meta
+      property="og:url"
+      content="https://moviesearch.online/tools/stringify-json-online"
+    />
+    <meta property="og:site_name" content="MovieSearch Online" />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Stringify JSON Online – Free JSON Stringify Generator"
+    />
+    <meta
+      name="twitter:description"
+      content="Turn JSON into a clean, escaped string right in your browser. Free, fast and private."
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A7%B5%3C/text%3E%3C/svg%3E"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebApplication",
+            "@id": "https://moviesearch.online/tools/stringify-json-online#tool",
+            "name": "Stringify JSON Online",
+            "url": "https://moviesearch.online/tools/stringify-json-online",
+            "description": "A free stringify JSON online generator that converts JSON into an escaped, minified or pretty-printed string, entirely in your browser.",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Any (web browser)",
+            "browserRequirements": "Requires JavaScript",
+            "inLanguage": "en",
+            "isAccessibleForFree": true,
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://moviesearch.online/tools/stringify-json-online#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What does stringify JSON online mean?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Stringifying JSON means turning a JSON object or array into a single string of text. Quotes and line breaks get escaped, so the result can be safely pasted into code, a config file, an API request body or a database field. This online generator does the same job as JSON.stringify() in JavaScript, without you having to write any code."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I stringify JSON online with this tool?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Paste your JSON into the input box, pick an output style (escaped string, minified or pretty), and click Stringify. Your result appears right away and you can copy it with one click. If you already have an escaped string and want the original JSON back, paste it in and click Unstringify."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is this stringify JSON online tool really free?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. It is completely free to use, with no sign-up, no usage limits and no watermarks. You can stringify as much JSON as you like."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is my JSON data safe and private?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Everything runs locally in your browser using JavaScript. Your JSON is never uploaded, stored or sent to a server, so it is fine to use with private or sensitive data. Closing the tab clears it."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Why does my JSON show an error when I try to stringify it?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The input has to be valid JSON before it can be stringified. The usual culprits are single quotes instead of double quotes, unquoted keys, trailing commas and missing brackets. The error message points to where the parser got stuck, which makes the fix easy to spot."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+
+    <style>
+      :root {
+        --bg: #eef1f6;
+        --panel: #ffffff;
+        --ink: #101828;
+        --muted: #566074;
+        --line: #d5dbe6;
+        --accent: #3550d6;
+        --accent-ink: #ffffff;
+        --quote: #c47f00;
+        --ok: #0b7a4b;
+        --err: #b42318;
+        --code: #f6f8fc;
+        --mono:
+          ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono",
+          monospace;
+        --sans:
+          ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        box-sizing: border-box;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #0e1320;
+          --panel: #161d2e;
+          --ink: #e8ecf5;
+          --muted: #9aa5bb;
+          --line: #2a3550;
+          --accent: #7b93ff;
+          --accent-ink: #0e1320;
+          --quote: #f2b33d;
+          --ok: #4ad295;
+          --err: #ff8a7a;
+          --code: #111829;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #0e1320;
+        --panel: #161d2e;
+        --ink: #e8ecf5;
+        --muted: #9aa5bb;
+        --line: #2a3550;
+        --accent: #7b93ff;
+        --accent-ink: #0e1320;
+        --quote: #f2b33d;
+        --ok: #4ad295;
+        --err: #ff8a7a;
+        --code: #111829;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+      html {
+        height: auto;
+        scroll-padding-top: env(safe-area-inset-top, 0px);
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 16px/1.65 var(--sans);
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      .wrap {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      header.top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 0;
+      }
+      .home {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 16px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--panel);
+        color: var(--ink);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+      .home:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      a:focus-visible,
+      button:focus-visible,
+      select:focus-visible,
+      textarea:focus-visible,
+      summary:focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 2px;
+      }
+      h1 {
+        font-size: clamp(2rem, 5vw, 3.1rem);
+        line-height: 1.1;
+        margin: 18px 0 12px;
+        letter-spacing: -0.02em;
+      }
+      h1 .q {
+        color: var(--quote);
+        font-family: var(--mono);
+        font-weight: 400;
+      }
+      .lead {
+        max-width: 62ch;
+        color: var(--muted);
+        font-size: 1.08rem;
+        margin: 0 0 26px;
+      }
+      .tool {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px;
+      }
+      .opts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px 20px;
+        align-items: center;
+        margin-bottom: 14px;
+      }
+      .opts label {
+        font-size: 0.92rem;
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      select {
+        font: inherit;
+        font-size: 0.92rem;
+        padding: 7px 10px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: var(--code);
+        color: var(--ink);
+      }
+      input[type="checkbox"] {
+        width: 17px;
+        height: 17px;
+        accent-color: var(--accent);
+      }
+      .panes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      @media (max-width: 760px) {
+        .panes {
+          grid-template-columns: 1fr;
+        }
+      }
+      .pane h2 {
+        font-size: 0.95rem;
+        margin: 0 0 6px;
+        font-weight: 600;
+      }
+      textarea {
+        width: 100%;
+        height: 300px;
+        resize: vertical;
+        font: 14px/1.5 var(--mono);
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: var(--code);
+        color: var(--ink);
+        tab-size: 2;
+      }
+      textarea[readonly] {
+        color: var(--ink);
+      }
+      .bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 14px;
+        align-items: center;
+      }
+      button {
+        font: inherit;
+        font-weight: 600;
+        font-size: 0.95rem;
+        padding: 10px 18px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: var(--code);
+        color: var(--ink);
+        cursor: pointer;
+      }
+      button:hover {
+        border-color: var(--accent);
+      }
+      button.primary {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--accent-ink);
+      }
+      button.primary:hover {
+        filter: brightness(1.08);
+      }
+      #status {
+        font-size: 0.92rem;
+        margin-left: auto;
+        min-height: 1.4em;
+      }
+      #status.ok {
+        color: var(--ok);
+      }
+      #status.err {
+        color: var(--err);
+      }
+      .hint {
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin: 10px 0 0;
+      }
+      main section {
+        margin-top: 52px;
+        max-width: 72ch;
+      }
+      main h2.s {
+        font-size: 1.5rem;
+        line-height: 1.25;
+        margin: 0 0 12px;
+        letter-spacing: -0.01em;
+      }
+      main p {
+        margin: 0 0 14px;
+      }
+      ol.steps {
+        padding-left: 1.2em;
+        margin: 0 0 14px;
+      }
+      ol.steps li {
+        margin-bottom: 8px;
+      }
+      code {
+        font-family: var(--mono);
+        font-size: 0.9em;
+        background: var(--code);
+        border: 1px solid var(--line);
+        padding: 1px 6px;
+        border-radius: 5px;
+      }
+      pre {
+        font-family: var(--mono);
+        font-size: 0.88rem;
+        background: var(--code);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 14px;
+        overflow-x: auto;
+        margin: 0 0 14px;
+      }
+      .faq details {
+        border-top: 1px solid var(--line);
+        padding: 14px 0;
+      }
+      .faq details:last-child {
+        border-bottom: 1px solid var(--line);
+      }
+      .faq summary {
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1.05rem;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .faq summary::-webkit-details-marker {
+        display: none;
+      }
+      .faq summary::after {
+        content: "+";
+        font-family: var(--mono);
+        color: var(--accent);
+        font-size: 1.3rem;
+        line-height: 1;
+      }
+      .faq details[open] summary::after {
+        content: "–";
+      }
+      .faq p {
+        margin: 10px 0 0;
+        color: var(--muted);
+      }
+      footer {
+        margin: 60px 0 28px;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.9rem;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      footer a {
+        color: var(--muted);
+      }
+      /* Hero Section - Inspired by paint.png */
+      .hero {
+        background: rgba(248, 250, 255, 0.98); /* Near-white blue tint */
+        border: 1px solid rgba(255, 255, 255, 1);
+        border-radius: 32px; /* Large rounded corners from paint.png */
+        padding: 80px 40px;
+        text-align: center;
+        margin: 40px auto;
+        max-width: 880px;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        position: relative;
+        z-index: 10;
+      }
+
+      .hero h1 {
+        font-family: var(--font-display);
+        color: #0f172a; /* Deep navy/charcoal for clarity */
+        font-size: clamp(28px, 5vw, 42px);
+        font-weight: 700;
+        margin-bottom: 20px;
+        background: none; /* Remove previous gradients */
+        -webkit-text-fill-color: initial;
+      }
+
+      .hero p {
+        font-family: var(--font-body);
+        color: #64748b; /* Soft slate gray */
+        font-size: 18px;
+        max-width: 600px;
+        margin: 0 auto 40px;
+        line-height: 1.6;
+      }
+
+      /* The blue pill button from paint.png */
+      .hero .cta {
+        display: inline-block;
+        text-decoration: none;
+        background: #4f46e5; /* Vibrant indigo/blue */
+        color: #ffffff !important;
+        padding: 16px 44px;
+        border-radius: 50px; /* Pill shape */
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 16px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        border: none;
+      }
+
+      .hero .cta:hover {
+        background: #4338ca;
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(79, 70, 229, 0.4);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+        }
+      }
+    </style>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-G5L4CSXVXC"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-G5L4CSXVXC");
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="top">
+        <a
+          class="home"
+          href="https://moviesearch.online"
+          aria-label="Go to the MovieSearch Online home page"
+          >&#8592; Home</a
+        >
+      </header>
+
+      <main>
+        <h1>
+          Stringify JSON <span class="q">"</span>Online<span class="q">"</span>
+        </h1>
+        <p class="lead">
+          Paste your JSON and get back a clean, escaped string you can drop
+          straight into code, an API call or a config file. It's a free
+          stringify JSON online generator that works right in your browser.
+        </p>
+
+        <div class="tool" id="tool">
+          <div class="opts">
+            <label for="fmt"
+              >Output style
+              <select id="fmt">
+                <option value="escaped">Escaped string (with quotes)</option>
+                <option value="min">Minified JSON</option>
+                <option value="p2">Pretty JSON, 2 spaces</option>
+                <option value="p4">Pretty JSON, 4 spaces</option>
+              </select>
+            </label>
+            <label><input type="checkbox" id="sort" /> Sort keys A–Z</label>
+          </div>
+          <div class="panes">
+            <div class="pane">
+              <h2><label for="in">Your JSON</label></h2>
+              <textarea
+                id="in"
+                spellcheck="false"
+                autocomplete="off"
+                placeholder='{"title": "Inception", "year": 2010, "genres": ["Sci-Fi", "Thriller"]}'
+              ></textarea>
+            </div>
+            <div class="pane">
+              <h2><label for="out">Result</label></h2>
+              <textarea
+                id="out"
+                spellcheck="false"
+                readonly
+                placeholder="Your stringified JSON shows up here."
+              ></textarea>
+            </div>
+          </div>
+          <div class="bar">
+            <button class="primary" id="go" type="button">Stringify</button>
+            <button id="un" type="button">Unstringify</button>
+            <button id="copy" type="button">Copy result</button>
+            <button id="sample" type="button">Try an example</button>
+            <button id="clear" type="button">Clear</button>
+            <span id="status" role="status" aria-live="polite"></span>
+          </div>
+          <p class="hint">
+            Tip: press Ctrl + Enter (or Cmd + Enter on Mac) to stringify without
+            reaching for the mouse.
+          </p>
+        </div>
+        <div id="hero-container"></div>
+        <section>
+          <h2 class="s">What stringifying JSON actually does</h2>
+          <p>
+            When you stringify JSON, you turn a structured object or array into
+            one plain piece of text. Quotes inside the data get a backslash in
+            front of them and line breaks become <code>\n</code>, so the whole
+            thing can sit safely inside another string.
+          </p>
+          <p>
+            It's the same thing <code>JSON.stringify()</code> does in
+            JavaScript. This stringify JSON online tool just lets you skip the
+            console and the throwaway script. Here's a small before and after:
+          </p>
+          <pre>
+{"name":"Ava","tags":["a","b"]}
+
+"{\"name\":\"Ava\",\"tags\":[\"a\",\"b\"]}"</pre
+          >
+        </section>
+
+        <section>
+          <h2 class="s">How to use this stringify JSON online generator</h2>
+          <ol class="steps">
+            <li>
+              Paste valid JSON into the input box, or click
+              <strong>Try an example</strong> to see how it works.
+            </li>
+            <li>
+              Choose an output style. Escaped string is the default, and
+              minified or pretty-printed JSON are there when you only need to
+              tidy things up.
+            </li>
+            <li>
+              Click <strong>Stringify</strong> and your result appears on the
+              right.
+            </li>
+            <li>
+              Hit <strong>Copy result</strong> and paste it wherever you need
+              it.
+            </li>
+          </ol>
+          <p>
+            Going the other way? Paste an escaped string into the input and
+            click <strong>Unstringify</strong> to get readable JSON back.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="s">When you'll want to stringify JSON</h2>
+          <p>
+            Most people reach for a tool like this when they need to send JSON
+            as a text value: an API request body, a JSON field inside another
+            JSON file, an environment variable, a database column, or a test
+            fixture. Escaping those quotes by hand is slow and easy to get
+            wrong, and one missed backslash can break the whole payload.
+          </p>
+          <p>
+            Because it runs in your browser, you can use it for quick checks and
+            one-off conversions without installing anything.
+          </p>
+        </section>
+
+        <section class="faq" id="faq">
+          <h2 class="s">Frequently asked questions</h2>
+          <details>
+            <summary>What does stringify JSON online mean?</summary>
+            <p>
+              Stringifying JSON means turning a JSON object or array into a
+              single string of text. Quotes and line breaks get escaped, so the
+              result can be safely pasted into code, a config file, an API
+              request body or a database field. This online generator does the
+              same job as JSON.stringify() in JavaScript, without you having to
+              write any code.
+            </p>
+          </details>
+          <details>
+            <summary>How do I stringify JSON online with this tool?</summary>
+            <p>
+              Paste your JSON into the input box, pick an output style (escaped
+              string, minified or pretty), and click Stringify. Your result
+              appears right away and you can copy it with one click. If you
+              already have an escaped string and want the original JSON back,
+              paste it in and click Unstringify.
+            </p>
+          </details>
+          <details>
+            <summary>Is this stringify JSON online tool really free?</summary>
+            <p>
+              Yes. It is completely free to use, with no sign-up, no usage
+              limits and no watermarks. You can stringify as much JSON as you
+              like.
+            </p>
+          </details>
+          <details>
+            <summary>Is my JSON data safe and private?</summary>
+            <p>
+              Yes. Everything runs locally in your browser using JavaScript.
+              Your JSON is never uploaded, stored or sent to a server, so it is
+              fine to use with private or sensitive data. Closing the tab clears
+              it.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Why does my JSON show an error when I try to stringify it?
+            </summary>
+            <p>
+              The input has to be valid JSON before it can be stringified. The
+              usual culprits are single quotes instead of double quotes,
+              unquoted keys, trailing commas and missing brackets. The error
+              message points to where the parser got stuck, which makes the fix
+              easy to spot.
+            </p>
+          </details>
+        </section>
+      </main>
+
+      <footer>
+        <span>&copy; <span id="yr">2026</span> MovieSearch Online</span>
+        <a href="https://moviesearch.online">Back to home</a>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var $ = function (id) {
+          return document.getElementById(id);
+        };
+        var inp = $("in"),
+          out = $("out"),
+          st = $("status");
+        $("yr").textContent = new Date().getFullYear();
+
+        function say(msg, kind) {
+          st.textContent = msg;
+          st.className = kind || "";
+        }
+
+        function sortKeys(v) {
+          if (Array.isArray(v)) return v.map(sortKeys);
+          if (v && typeof v === "object") {
+            var o = {};
+            Object.keys(v)
+              .sort()
+              .forEach(function (k) {
+                o[k] = sortKeys(v[k]);
+              });
+            return o;
+          }
+          return v;
+        }
+
+        function parse(text) {
+          try {
+            return { ok: true, v: JSON.parse(text) };
+          } catch (e) {
+            return { ok: false, msg: "Invalid JSON: " + e.message };
+          }
+        }
+
+        function stringify() {
+          var src = inp.value.trim();
+          if (!src) {
+            say("Paste some JSON first.", "err");
+            inp.focus();
+            return;
+          }
+          var r = parse(src);
+          if (!r.ok) {
+            out.value = "";
+            say(r.msg, "err");
+            return;
+          }
+          var v = $("sort").checked ? sortKeys(r.v) : r.v;
+          var f = $("fmt").value,
+            res;
+          if (f === "escaped") res = JSON.stringify(JSON.stringify(v));
+          else if (f === "min") res = JSON.stringify(v);
+          else res = JSON.stringify(v, null, f === "p4" ? 4 : 2);
+          out.value = res;
+          say(
+            "Done. " + src.length + " characters in, " + res.length + " out.",
+            "ok",
+          );
+        }
+
+        function unstringify() {
+          var src = inp.value.trim();
+          if (!src) {
+            say("Paste an escaped string first.", "err");
+            inp.focus();
+            return;
+          }
+          var r = parse(src);
+          if (!r.ok) {
+            out.value = "";
+            say(r.msg + " (include the surrounding quotes)", "err");
+            return;
+          }
+          var v = r.v;
+          if (typeof v === "string") {
+            var inner = parse(v);
+            if (inner.ok && typeof inner.v === "object" && inner.v !== null)
+              v = inner.v;
+            else {
+              out.value = v;
+              say("That was a plain string, so here it is unescaped.", "ok");
+              return;
+            }
+          }
+          if ($("sort").checked) v = sortKeys(v);
+          out.value = JSON.stringify(v, null, 2);
+          say("Done. Your JSON is back to normal.", "ok");
+        }
+
+        function copy() {
+          if (!out.value) {
+            say("Nothing to copy yet.", "err");
+            return;
+          }
+          var done = function () {
+            say("Copied to clipboard.", "ok");
+          };
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(out.value).then(done, fallback);
+          } else fallback();
+          function fallback() {
+            out.removeAttribute("readonly");
+            out.select();
+            try {
+              document.execCommand("copy");
+              done();
+            } catch (e) {
+              say("Copy failed. Select the text and copy it manually.", "err");
+            }
+            out.setAttribute("readonly", "");
+          }
+        }
+
+        $("go").addEventListener("click", stringify);
+        $("un").addEventListener("click", unstringify);
+        $("copy").addEventListener("click", copy);
+        $("clear").addEventListener("click", function () {
+          inp.value = "";
+          out.value = "";
+          say("");
+          inp.focus();
+        });
+        $("sample").addEventListener("click", function () {
+          inp.value = JSON.stringify(
+            {
+              title: "Inception",
+              year: 2010,
+              rating: 8.8,
+              genres: ["Sci-Fi", "Thriller"],
+              director: { name: "Christopher Nolan" },
+              quote: "You mustn't be afraid to dream a little bigger.",
+            },
+            null,
+            2,
+          );
+          stringify();
+        });
+        $("fmt").addEventListener("change", function () {
+          if (inp.value.trim() && out.value) stringify();
+        });
+        $("sort").addEventListener("change", function () {
+          if (inp.value.trim() && out.value) stringify();
+        });
+        inp.addEventListener("keydown", function (e) {
+          if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
+            e.preventDefault();
+            stringify();
+          }
+        });
+      })();
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("../box.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("hero-container").innerHTML = data;
+          });
+      });
+    </script>
+  </body>
+</html>
